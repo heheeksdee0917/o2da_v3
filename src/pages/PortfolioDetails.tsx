@@ -206,7 +206,7 @@ export default function PortfolioDetails() {
                 key={`mobile-${index}-${imageKey}`}
                 ref={(el) => (imageRefs.current[index] = el)}
                 onClick={() => openLightbox(index)}
-                className="relative flex-shrink-0 w-[80vw] bg-neutral-100 overflow-hidden cursor-pointer group snap-center"
+                className="relative flex-shrink-0 w-[80vw] bg-white overflow-hidden cursor-pointer group snap-center"
                 style={{ height: 'calc(50vh - 3rem)' }}
                 aria-label={`View image ${index + 1} in lightbox`}
               >
@@ -232,7 +232,7 @@ export default function PortfolioDetails() {
                 key={`desktop-${index}-${imageKey}`}
                 ref={(el) => (imageRefs.current[index] = el)}
                 onClick={() => openLightbox(index)}
-                className="relative w-full bg-neutral-100 overflow-hidden cursor-pointer group block"
+                className="relative w-full bg-white overflow-hidden cursor-pointer group block"
                 aria-label={`View image ${index + 1} in lightbox`}
               >
                 <LazyImage

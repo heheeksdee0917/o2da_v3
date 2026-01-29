@@ -182,11 +182,11 @@ export const residentialProjects: Project[] = [
     detailContent: [
       {
         type: 'text',
-        content: 'Frayed Loop is commissioned as an extension to an existing late-modern bungalow on a lush hillside. The current compound is anchored by a central rotunda and a rectilinear wing, stitched by a curved concrete volume with broad glazing and horizontal stainless-steel louvers beneath a sweeping roof-line. Set boldly against the steep terrain, the original massing is weighty and assured; the new work is asked to expand the home while giving the overall assemblage a more elastic relationship to landscape and daily life. The client—an avid art collector with an affinity for Warhol—also required the extension to function as a setting where artwork, circulation, and social rituals can be read clearly.'
+        content: 'Free Loop is commissioned as an extension to an existing late-modern bungalow on a lush hillside. The current compound is anchored by a central rotunda and a rectilinear wing, stitched by a curved concrete volume with broad glazing and horizontal stainless-steel louvers beneath a sweeping roof-line. Set boldly against the steep terrain, the original massing is weighty and assured; the new work is asked to expand the home while giving the overall assemblage a more elastic relationship to landscape and daily life. The client—an avid art collector with an affinity for Warhol—also required the extension to function as a setting where artwork, circulation, and social rituals can be read clearly.'
       },
       {
         type: 'text',
-        content: 'The proposal extends the house by abstracting its existing logics and continuing the curved form, denoted by the strong horizontal sweep, the softened edge, and the promenade across levels. New floor plates thicken and thin into ribbon-like bands that step outward as deep verandahs, then retract to release pockets of air and light. As these bands continue into the newly acquired adjacent plot, they begin to “fray”—offsets, cantilevers, and sectional shifts introduce controlled variation, allowing the extension to read as a looped trajectory that returns toward the front while loosening the boundary between interior and terrain.'
+        content: 'The proposal extends the house by abstracting its existing logics and continuing the curved form, denoted by the strong horizontal sweep, the softened edge, and the promenade across levels. New floor plates thicken and thin into ribbon-like bands that step outward as deep verandahs, then retract to release pockets of air and light. As these bands continue into the newly acquired adjacent plot, they begin to fray—offsets, cantilevers, and sectional shifts introduce controlled variation, allowing the extension to read as a looped trajectory that returns toward the front while loosening the boundary between interior and terrain.'
       },
       {
         type: 'text',
@@ -205,8 +205,8 @@ export const residentialProjects: Project[] = [
   //Tango House (Sean) - chceked
   {
     id: 6,
-    slug: 'sean-house',
-    title: 'Sean House',
+    slug: 'tango-house',
+    title: 'Tango House',
     location: 'Desa Park City, Kuala Lumpur',
     category: 'Residential',
     status: 'Construction',
@@ -219,9 +219,19 @@ export const residentialProjects: Project[] = [
     ],
     detailContent: [
       {
-        type: 'text',
-        content:
-          'This corner-lot terrace house is conceived as a series of clean, rectilinear volumes elevated above a porous ground plane. A timber-lined wing extends outward to frame views of the adjacent park, its operable screens modulating privacy, light, and heat. The upper massing hovers lightly over an open car porch and living spaces, creating shaded, ventilated areas suited to the tropical climate. Monolithic white walls contrast with the warm timber façade, sharpening the geometry and giving the house a distinct, contemporary presence along the street. Inside, large apertures and connected balconies stitch the interior to its corner context, amplifying openness and daylight throughout.',
+        type: 'text', content: 'Tango House occupies a corner lot at the edge of a terrace row, where the street turns and the neighbourhood opens into a small park. This condition shifts the usual terrace dilemma: the party-wall typicality remains, but the corner releases one flank to longer views, brighter daylight, and a more public gaze. The brief, therefore, is not simply to enlarge or modernise, but to negotiate exposure—how to borrow the park’s openness without performing for it, and how to build shade and calm into an address that is read from multiple angles and at moving speed.',
+      },
+      {
+        type: 'text', content: 'The design is composed as a legible duet of weight and warmth. A disciplined set of white rectilinear volumes establishes a quiet, monolithic enclosure, while a timber-lined wing is drawn outward as a responsive instrument—an inhabitable edge that can tighten or loosen depending on climate and privacy. Elevation becomes the key operation: primary rooms are lifted above a porous ground plane so that the house can maintain a sheltered, ventilated base while reserving its most generous apertures for the level where views and breezes are most controllable. Operable timber screens complete the strategy, working as a calibrated veil rather than a fixed façade—filtering glare, softening overlooking, and letting the building read as both precise and breathable.',
+      },
+      {
+        type: 'text', content: 'Arrival is staged through compression and release. The street threshold remains restrained, with solid surfaces and measured openings establishing privacy before the house opens laterally toward the park. The ground plane is kept deliberately permeable: car porch, entry, and ancillary zones share a shaded volume under the hovering upper mass, creating an outdoor room that is useful in a tropical daily cycle—dry during rain, tempered at midday, and easily ventilated.',
+      },
+      {
+        type: 'text', content: 'Ascending into the main living level, the plan begins to borrow the corner condition. Large apertures and aligned openings stitch internal rooms to the longer park frontage, but always through intermediaries: deep reveals, screened edges, and balcony-like buffers that prevent direct exposure. The timber wing becomes a threshold in itself—part façade, part veranda—where the screens tune the interior’s relationship to light, heat, and sightlines. When open, the rooms extend outward as a shaded pavilion; when closed, the timber reads as a dense mantle that preserves stillness and acoustic protection. Circulation remains direct and legible, favouring clean sightlines and cross-ventilation over residual pockets.',
+      },
+      {
+        type: 'text', content: 'Tango House treats the corner not as spectacle but as environmental opportunity. By lifting the main volume, thickening its park-facing edge with operable timber, and keeping the ground plane porous, the project turns a highly visible terrace condition into a controlled openness—one that feels expansive from within while remaining measured from the street. The resulting architecture is spare in geometry yet active in performance: a house that earns its calm through devices of shade, distance, and adjustment rather than through retreat.',
       },
     ],
   },
@@ -300,8 +310,11 @@ export const residentialProjects: Project[] = [
       '/Gallery/Residential/InnerCourt/A6.avif',
     ],
     detailContent: [
-      { type: 'text', content: 'Private residence for a family of 4.' },
-      { type: 'text', content: 'The site is located in a surrounding housing neighborhood of luxurious bungalows. These bungalows have mostly been separated with high fencing walls to define their territories and reduce their interaction with the surroundings. The idea of Inner Court’s House is to create an inner sanctuary for the house owner to enjoy their daily life.' },
+      { type: 'text', content: 'Inner Court House is situated within a low-density residential enclave characterised by large, inward-looking bungalows. High perimeter walls, guarded gates, and layered setbacks define the prevailing domestic language—houses as self-contained objects, disengaged from the street and from one another. Designed for a family of 4, the project does not attempt to renegotiate this reserved neighbourhood condition outwardly. Instead, it accepts the reality of enclosure and redirects architectural attention inward to cultivate a more deliberate internal world.' },
+      { type: 'text', content: 'The house is conceived around the idea of an inner court as both spatial anchor and climatic mediator. Rather than organising the programme along the site boundary, the plan folds inward, wrapping daily life around a central pool. This inhabited void becomes the project’s point of orientation, drawing light, air, and landscape deep into the house while maintaining a controlled relationship with its surroundings. The architecture operates as a series of calibrated layers—solid to porous, enclosed to open—where thresholds are thickened and transitions deliberately slowed. Materially, the palette reinforces this reading: textured concrete, dark timber, and large glazed openings are deployed to establish depth, shade, and spatial legibility.' },
+      { type: 'text', content: 'Arrival is deliberately compressed. From the street, the house presents a restrained frontage, where a deep canopy shelters the car porch and marks the threshold without revealing the interior. Entry unfolds laterally rather than axially, guiding occupants along the edge of the courtyard before releasing them into the main living volume. This sequence establishes the court early as a constant visual and spatial reference. Living, dining, and kitchen spaces are arranged as a continuous band around the pool, their boundaries softened by sliding panels, curtains, and glazing that allow the house to expand or contract in response to use, climate, and time of day.' },
+      { type: 'text', content: 'Vertically, the court extends upward, stitching multiple levels together through voids, galleries, and internal balconies. Upper-floor circulation overlooks the space below, reinforcing visual connection while maintaining acoustic separation. Private rooms retreat to the perimeter, buffered by secondary spaces and screens that moderate light, heat, and views. Control over thresholds allows spaces to connect selectively—visually, spatially, or indirectly—so that movement is consistently framed: along water, beneath overhangs, and beside planting, turning circulation into a form of occupation rather than mere passage.' },
+      { type: 'text', content: 'Inner Court House proposes a mode of domesticity that is introspective without being closed. By centring the house around an inhabited void, the project reframes enclosure as a spatial asset rather than a constraint. The result is a home that privileges internal continuity, environmental moderation, and daily ritual—an architecture that looks inward not out of withdrawal, but out of intent.' },
     ],
   },
   //Roof Eaves House - chceked
@@ -336,9 +349,9 @@ export const residentialProjects: Project[] = [
     id: 10,
     slug: 'the-rooms',
     title: 'The Rooms',
-    location: 'Taman Selamat, Penang',
+    location: 'Petaling Jaya',
     category: 'Residential',
-    status: 'Schematic',
+    status: 'DEsign',
     projectTeam: ['Edric Choo Poo Liang', 'Wong Jia Xin', 'Germin Lim'],
     images: [
       '/Gallery/Residential/TheRooms/CP.avif',
@@ -350,9 +363,12 @@ export const residentialProjects: Project[] = [
       '/Gallery/Residential/TheRooms/A6.avif',
     ],
     detailContent: [
-      { type: 'text', content: 'Private residence for a family of 5.' },
-      { type: 'text', content: 'The site is surrounded by existing neighbourhood bungalows and set back from the main road. Approaching the house via the “Right of Way”, the owner is greeted with a series of horizontal plane canopies, cantilevered rooms, and a beautiful open lawn.' },
-      { type: 'text', content: 'The main idea of the house consists of a series of rooms that unite together under a large floating roof. Each room is expressed as a distinct volume, shifted and rotated to create private courtyards, framed views, and dynamic interstitial spaces that blur the boundary between inside and outside.' },
+      { type: 'text', content: 'The Rooms sits back from the main road, reached by a right of way that stretches arrival into a small journey. The surrounding neighbourhood is composed of inward-looking bungalows and garden setbacks—houses that keep their distance from the street and speak quietly across boundary lines. Here, privacy is not a stylistic preference but an inherited condition. The project accepts that reserve and works with it, staging domestic life deeper within the plot where light, air, and landscape are gathered on the family’s terms.' },
+      { type: 'text', content: 'The house is organised as a constellation of rooms rather than a single, continuous mass. Each volume carries a distinct domestic role, made readable through its placement, proportion, and envelope. The master suite is expressed as a timber-clad room, warmer and more inward in tone. Secondary rooms are held in painted white volumes, quieter and more neutral. Communal spaces—living and lounge—are marked by timber ceilings that deepen shade and give the interior a more tactile register, while the gym and rooftop garden are wrapped with large folding timber screens that temper sun and privacy. These rooms are kept deliberately apart, separated by voids and framed views, then reconnected through corridors and link bridges. What unifies the ensemble is the shared discipline of rectilinear form—each room a clear object, composed to belong to one household.' },
+      { type: 'text', content: 'Approach begins under a floating horizontal plane that turns the car porch into a sheltered forecourt. From the right of way, the house does not announce itself all at once; it arrives in fragments—projecting rooms, shadowed soffits, and a long screen that reads as both wall and veil. Entry is deliberately compressed, then released into the main living level where the plan opens to the pool terrace.' },
+      { type: 'text', content: 'The pool becomes the project’s daily reference point. It aligns views, sets distances, and gives the house a steady horizon—water held close to the living spaces so that light and movement are always present at the edge of the day. Living, dining, and informal rooms gather along this line, expanding into shade or pulling back behind screens as weather and privacy demand. The boundary is kept flexible: sliding panels, deep overhangs, and layered openings allow the house to open generously, or tighten into a quieter interior.' },
+      { type: 'text', content: 'Above, the private rooms sit higher and calmer, protected by screened façades and measured openings. Balconies are set behind filters rather than exposed as display; they read as shadowed retreats—places to look out without being looked at. The sequence culminates at the roof, where the garden becomes a domestic annex: cultivation, evening air, and a quiet interval above the neighbourhood canopy.' },
+      { type: 'text', content: 'The Rooms frames family life as distinct worlds held in deliberate relation—separated enough to grant calm, yet connected enough to remain unmistakably one household. Through shade, depth, and layered enclosure, privacy is made spatial rather than defensive. The result is a home composed through thresholds and intervals: a measured sequence of rooms that retain their individuality while belonging to one another.' },
     ],
   },
   //Twin - chceked
@@ -939,9 +955,9 @@ export const residentialProjects: Project[] = [
   //LILIAN HOUSE (L HOUSE) - chceked
   {
     id: 24,
-    slug: 'l-house',
-    title: 'L House',
-    location: 'Petaling jata',
+    slug: 'cascade-house',
+    title: 'Cascade House',
+    location: 'Petaling Jaya',
     category: 'Residential',
     status: 'Completed',
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn', 'Wendy Woon'],
@@ -1024,50 +1040,6 @@ export const residentialProjects: Project[] = [
       { type: 'text', content: 'Private Residences for a Family of 4.' },
       { type: 'text', content: 'The idea to shift away the Terrace House end lot to allow for an internal courtyard and private family space.' },
       { type: 'text', content: 'These result the house has been independent shifting the paradigm of a terrace house to a bungalow.' },
-    ],
-  },
-  //J House - chceked
-  {
-    id: 26,
-    slug: 'j-house',
-    title: 'J House',
-    location: 'Bangsar, Kuala Lumpur',
-    category: 'Residential',
-    status: 'Construction',
-    projectTeam: ['Edric Choo Poo Liang', 'Nicole Hooi Yi Tien', 'Syazwan Amidun', 'Admirul'],
-    images: [
-      '/Gallery/Residential/HouseJ/JonothanCP.avif',
-      '/Gallery/Residential/HouseJ/1.avif',
-      '/Gallery/Residential/HouseJ/2.avif',
-      '/Gallery/Residential/HouseJ/3.avif',
-      '/Gallery/Residential/HouseJ/4.avif',
-    ],
-    detailContent: [
-      {
-        type: 'text',
-        content:
-          'J House is set within a dense terrace row, where party walls and neighbouring roofs compress light, views, and air. The street is read at close range, so the façade must hold privacy without becoming mute. The brief asked for additional accommodation and a more generous interior volume, alongside the everyday protections required in the tropics: shade at the threshold, controlled glare, and steady cross-ventilation through humid months. The project responds by treating the boundary as architecture, using mass, cut, and shadow to mediate between public street and domestic interior.',
-      },
-      {
-        type: 'text',
-        content:
-          'The massing is conceived as a stack of faceted blocks that shift and cantilever in calibrated offsets. A dark upper room projects toward the street as a sheltered bay, while a taller grey volume withdraws to form a deep vertical recess. This profile thickens the façade, intensifies shadow, and sets the elevation’s measured rhythm. Fenestration is edited to suit the party-wall condition: thin horizontal slits and recessed panes admit daylight while withholding direct sightlines. A broad floating canopy extends over the forecourt, turning the setback into a shaded outdoor room and softening the threshold against sun and rain.',
-      },
-      {
-        type: 'text',
-        content:
-          'Entry is compressed beneath the canopy, then released into a tall internal volume that reads immediately in section. The living room sits slightly lower, anchored by continuous timber joinery that folds into benches, ledges, and a long media wall. A short rise leads to the dry kitchen and dining platform, lifted to overlook the lounge and the central void while remaining part of the same social field. Slender balustrades and bridges preserve long sightlines, so daily life is held in layered views across the interior rather than compartmentalised by corridors.',
-      },
-      {
-        type: 'text',
-        content:
-          'The stair becomes the primary promenade. Landings are treated as pauses, offering framed outlooks back to the dining table, across to the opposite mezzanine, and up to the projecting bay above. The void operates as a spatial hinge and climatic engine: high glazing and roof apertures draw daylight into the centre, while operable openings encourage air to move vertically through the section. Deep reveals and darker soffits sharpen shadow lines and reinforce the weightless edge of the cantilevers. Planting pockets and roof terraces temper the hard geometry, cooling air as it moves and giving the upper rooms a quieter, more sheltered outlook.',
-      },
-      {
-        type: 'text',
-        content:
-          'J House translates a constrained urban condition into a disciplined interplay of mass, cut, and void. Privacy is achieved through thickness and calibration, and tropical comfort is secured through shade, airflow, and planted relief integrated into the section. The result is a residence that reads with sculptural rigour from the street, yet remains clear and relaxed in daily occupation.',
-      },
     ],
   },
   //Introverted House - chceked
