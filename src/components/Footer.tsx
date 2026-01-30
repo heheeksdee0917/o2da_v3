@@ -56,10 +56,10 @@ export default function Footer() {
           <div>
             <h4 className="caption text-black/50 mb-6">Contact</h4>
             <a
-              href="mailto:studio@o2da-cpla.com"
+              href="mailto:info@o2dacpla.com"
               className="text-base text-black hover:text-black/60 transition-colors duration-300 block"
             >
-              tbc@o2dacpla.com
+              info@o2dacpla.com
             </a>
           </div>
 

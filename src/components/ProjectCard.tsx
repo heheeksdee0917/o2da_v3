@@ -20,7 +20,7 @@ export default function ProjectCard({
       className="group block transition-all duration-500 ease-out md:hover:scale-105 md:hover:-translate-y-2"
     >
       <div className="bg-white border border-transparent overflow-hidden transition-all duration-300 md:hover:border-black/20 md:hover:shadow-lg">
-        <div className="relative overflow-hidden aspect-video bg-neutral-100">
+        <div className="relative overflow-hidden aspect-video">
           <LazyImage
             src={project.images[0]}
             alt={project.title}
@@ -39,10 +39,10 @@ export default function ProjectCard({
             </span>
           </h3>
 
-          <p className="text-base md:text-sm font-light text-black/60 mb-1 md:mb-1 uppercase">
+          <p className="text-base md:text-sm font-light text-black/60 mb-1 md:mb-1">
             {project.location}
           </p>
-          <p className="text-sm md:text-xs font-light text-black/40 uppercase">
+          <p className="text-sm md:text-xs font-light text-black/40">
             {project.category}
           </p>
         </div>

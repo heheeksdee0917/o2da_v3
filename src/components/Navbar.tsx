@@ -17,7 +17,7 @@ export default function Navbar() {
 
   // Contact details
   const phone = '+603 6420 6345';
-  const email = 'tbc@o2dacpla.com';
+  const email = 'info@o2dacpla.com';
   const address = `No 9-1, Block A, Zenith Corporate Park, Jalan SS7/26, Kelana Jaya, 47301 Petaling Jaya, Selangor Darul Ehsan, Malaysia`;
 
   const encodedAddress = encodeURIComponent(address);
