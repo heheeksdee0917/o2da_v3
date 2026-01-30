@@ -204,7 +204,7 @@ export default function Navbar() {
               </div>
 
               <div className="mt-20 flex justify-center gap-8">
-                <a href="https://facebook.com/company/o2DesignAtelier" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-600">
+                <a href="https://www.facebook.com/o2DesignAtelier" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-600">
                   <Facebook size={32} strokeWidth={1.5} />
                 </a>
                 <a href="https://instagram.com/o2designatelier" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-600">
