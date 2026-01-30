@@ -9,10 +9,10 @@ interface ProjectCardProps {
   batchIndex?: number;   // Position in the grid
 }
 
-export default function ProjectCard({ 
-  project, 
+export default function ProjectCard({
+  project,
   batchLoad = true,      // Default to batch loading enabled
-  batchIndex = 0 
+  batchIndex = 0
 }: ProjectCardProps) {
   return (
     <Link
@@ -24,10 +24,15 @@ export default function ProjectCard({
           <LazyImage
             src={project.images[0]}
             alt={project.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full"  // ← Container styling
+            imgStyle={{
+              objectPosition: project.imagePosition === 'top' ? 'top' :
+                project.imagePosition === 'bottom' ? 'bottom' :
+                  'center'
+            }}  // ← Image-specific styling
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            batchLoad={batchLoad}      // ✅ Pass batch loading flag
-            batchIndex={batchIndex}    // ✅ Pass position for batch calculation
+            batchLoad={batchLoad}
+            batchIndex={batchIndex}
           />
         </div>
 

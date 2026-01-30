@@ -6,6 +6,8 @@ interface LazyImageProps {
   alt: string;
   className?: string;
   style?: React.CSSProperties;
+  imgClassName?: string;
+  imgStyle?: React.CSSProperties; 
   onClick?: () => void;
   placeholder?: string;
   blurDataURL?: string;
@@ -21,6 +23,8 @@ export default function LazyImage({
   alt, 
   className = '', 
   style,
+  imgClassName = '',
+  imgStyle,
   onClick,
   blurDataURL,
   priority = false,
@@ -137,7 +141,8 @@ export default function LazyImage({
           sizes={sizes}
           className={`w-full h-full object-cover transition-all duration-500 ${
             isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
-          }`}
+          } ${imgClassName}`} 
+          style={imgStyle}  
           onLoad={handleLoad}
           onError={handleError}
           loading="eager"

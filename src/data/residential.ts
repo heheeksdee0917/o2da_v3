@@ -240,7 +240,7 @@ export const residentialProjects: Project[] = [
     id: 7,
     slug: 'tropical-shift-house',
     title: 'Tropical Shift House',
-    location: 'Kuala Lumpur',
+    location: 'Petaling Jaya, Selangor',
     category: 'Residential',
     status: 'Completed',
     projectTeam: ['Edric Choo Poo Liang', 'Joshua Quah'],
@@ -569,8 +569,9 @@ export const residentialProjects: Project[] = [
       { type: 'text', content: 'On the first floor, the socializing terrace is a semi-enclosed space where owners hold social events with views towards Southern KL. The master bedroom, master bathroom and attached jacuzzi areas on the second floor have an even higher commanding urban view. ' },
       { type: 'text', content: 'The project also explores the possibility of curved concrete roof construction, inspired by the traditional Chinese oriental house roof form. The thin RC roof canopy is designed to visually ‘float’ above the space with a glass window break and each has a substantial amount of projection for tropical sun and rain protection.' },
       { type: 'text', content: 'Some building elements from the old house are reused and repurpose in the new house design. Existing concrete roof tiles are made into window sun-shading and wine bottle holders, while the demolition rubbles are re-erected into gabion fencing walls.' },
-
     ],
+
+
   },
   //Resort Home - chceked
   {
@@ -1050,8 +1051,9 @@ export const residentialProjects: Project[] = [
     category: 'Residential',
     status: 'Completed',
     projectTeam: ['Edric Choo Poo Liang', 'Quek Yi Jane'],
+    imagePosition: 'bottom',
     images: [
-      '/Gallery/Residential/IntrovertHouse/CP.avif',
+      '/Gallery/Residential/IntrovertHouse/CP1.avif',
       '/Gallery/Residential/IntrovertHouse/A1.avif',
       '/Gallery/Residential/IntrovertHouse/A2.avif',
       '/Gallery/Residential/IntrovertHouse/A3.avif',
@@ -1068,7 +1070,6 @@ export const residentialProjects: Project[] = [
       '/Gallery/Residential/IntrovertHouse/Diagram1.avif',
       '/Gallery/Residential/IntrovertHouse/Diagram2.avif',
       '/Gallery/Residential/IntrovertHouse/Diagram3.avif',
-      '/Gallery/Residential/IntrovertHouse/Diagram4.avif',
     ],
     detailContent: [
       { type: 'text', content: 'Introvert’s house is a two-storey terrace house located within the residential neighbourhoods’ in Kuala Lumpur with a standard lot size of 22 ft x 75 ft. The house is designed for a Chinese family of five with 1 helper. The client intended to renovate the house that they have been living in for 20 years by integrating more bedrooms for their grown-up kids and has a new quality of interior space.' },
@@ -1088,6 +1089,7 @@ export const residentialProjects: Project[] = [
     category: 'Residential',
     status: 'Completed',
     projectTeam: ['Edric Choo Poo Liang', 'Kong Xiang Lynn'],
+    imagePosition: 'bottom',
     images: [
       '/Gallery/Residential/LouvresBox/CP.avif',
       '/Gallery/Residential/LouvresBox/A1.avif',
@@ -1291,7 +1293,7 @@ export const residentialProjects: Project[] = [
     ],
     detailContent: [
       { type: 'text', content: 'The house is located at a new housing development area at Sungai Buloh with standard lot size of 22’x75’. The Client’s intention is maximize the internal space of the house by extending it outwards.' },
-      { type: 'text', content: '​From outside, the house’s contemporary design approach is integrated with lush garden at the front porch. This is a big contrast to typical terrace houses carparks at front porch, sacrificing garden space. The Designer has reduced the parking space at front porch in return for a lush front garden.' },
+      { type: 'text', content: 'From outside, the house’s contemporary design approach is integrated with lush garden at the front porch. This is a big contrast to typical terrace houses carparks at front porch, sacrificing garden space. The Designer has reduced the parking space at front porch in return for a lush front garden.' },
       { type: 'text', content: 'The interior of the house has been designed with open plan concept, connecting Living, Dining and Kitchen space. At the center of the house, a double height space is created with greenery, natural light and shadow. The traditional concept of courtyard house has been reinvented here. In these spaces, the original upper floor slab and ceiling have been removed and some of the roof tiles have been replaced with clear polycarbonate roof tiles to bring in natural light. Two big trees and low shrub are planted at the centre of the house. On the upper floor rooms, walls have been replaced with sliding windows to create cross ventilation and interaction between upper floor and lower floor.' },
       { type: 'text', content: 'This space has become the heart of the house where the residents interact with each other amongst the nature setting.' },
       { type: 'text', content: 'To keep the house design simple and to concentrate on quality of light, space, and greenery, the designer uses cement render as a single material for the floor and wall.' },

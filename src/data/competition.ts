@@ -169,42 +169,7 @@ export const competitionProjects: Project[] = [
       { type: 'text', content: 'Our proposed ELEMENTAL MOSQUE design unfolds and reinterprets the space and materiality of a traditional mosque into an Architecture of Humility where we adopted the concept of the hypostyle mosque (First mosque) that features a large rectangular-shaped prayer hall, with forest of columns to support the roof structure and large inner Sahn (courtyard) for gathering purposes.' },
     ],
   },
-  // 6. New York City Aquarium
-  {
-    id: 3,
-    slug: 'new-york-city-aquarium',
-    title: 'New York City Aquarium',
-    location: 'New York, USA',
-    category: 'Competition',
-    status: 'Submission',
-    projectTeam: ['Edric Choo Poo Liang'],
-    images: [
-      '/Gallery/Competition/NYCA/CP.avif',
-      '/Gallery/Competition/NYCA/A1.avif',
-      '/Gallery/Competition/NYCA/A2.avif',
-      '/Gallery/Competition/NYCA/A3.avif',
-      '/Gallery/Competition/NYCA/A4.avif'
-    ],
-    detailContent: [
-      {
-        type: 'text',
-        content: 'The rapid redevelopment in New York City is causing the loss of the area where the public deserved — waterfronts and public spaces. With the continuation of public park, the aquarium aims to lead the waterfront portion of the space where the area might be absorbed by private developers who only interested in profit returns. Instead of retreating the users far from the capitalized city, the proposal presents its low-building-profile but acted as a strong statement to preserve the waterfront. Rather than iconic building, our gentle aquarium links as a window of the waterfront, used Manhattan City and Roosevelt Island as the backdrop of the aquarium; it is aimed to change the way of how people appreciate the aquarium and Manhattan city skyline.'
-      },
-      {
-        type: 'text',
-        content: 'NYC Aquarium is a microcosm of New York City, seeing the same patterns reproduced at all levels of the city grid, from the largest city scale all the way down to the aquarium scale. The grid system, with the combination of the Queensboro Bridge and Central Park concept to carry out the spatial sensitively focus to context, which allows the people seamlessly linked to the city while walking within the aquarium.'
-      },
-      {
-        type: 'text',
-        content: 'The aquarium creates not just aims educate people by showing the beauty of water life, but instead shows the ugly side of the current water condition, by diverting East River water flow underneath the bridge tunnel, creating the awareness on the contrast of water quality while enjoying the beauty of aquarium. The similar approach applies to the side tunnel and the Tunnel of Reflection; we do not hesitate to expose the current condition of East River, either clean or polluted, the result will eventually update based on the human behaviour towards the river.'
-      },
-      {
-        type: 'text',
-        content: 'The Window of Atlantic Ocean symbolized as the liberty of nature and public ownership against the capitalist. Connected by the bridge of axis, which lead the people cross through the path and Window of Atlantic Ocean to the viewing deck, where direct towards Franklin Roosevelt Memorial Park and headquarters of United Nation, link to meaning of uniting the people fight for new liberty — the liberty from capitalism.'
-      },
-    ],
-  },
-  // 7. Marshland Stadia
+  // 6. Marshland Stadia
   {
     id: 5,
     slug: 'marshland-stadia',
@@ -212,7 +177,7 @@ export const competitionProjects: Project[] = [
     location: 'New York, US',
     category: 'Competition',
     status: 'Submission',
-    projectTeam: ['Edric Choo Poo Liang', 'Farah Aliza Badarudin'],
+    projectTeam: ['Edric Choo Poo Liang', 'Farah Aliza Badarudin','Lim Min Syn'],
     images: [
       '/Gallery/Competition/Marshland/CP.avif',
       '/Gallery/Competition/Marshland/A1.avif',
@@ -286,6 +251,41 @@ export const competitionProjects: Project[] = [
       { type: 'text', content: 'The stacking forms create volumes of gallery spaces and generate in-between spaces at the intersections.' },
     ],
   },
+    // 6. New York City Aquarium
+    {
+      id: 3,
+      slug: 'new-york-city-aquarium',
+      title: 'New York City Aquarium',
+      location: 'New York, USA',
+      category: 'Competition',
+      status: 'Submission',
+      projectTeam: ['Edric Choo Poo Liang'],
+      images: [
+        '/Gallery/Competition/NYCA/CP.avif',
+        '/Gallery/Competition/NYCA/A1.avif',
+        '/Gallery/Competition/NYCA/A2.avif',
+        '/Gallery/Competition/NYCA/A3.avif',
+        '/Gallery/Competition/NYCA/A4.avif'
+      ],
+      detailContent: [
+        {
+          type: 'text',
+          content: 'The rapid redevelopment in New York City is causing the loss of the area where the public deserved — waterfronts and public spaces. With the continuation of public park, the aquarium aims to lead the waterfront portion of the space where the area might be absorbed by private developers who only interested in profit returns. Instead of retreating the users far from the capitalized city, the proposal presents its low-building-profile but acted as a strong statement to preserve the waterfront. Rather than iconic building, our gentle aquarium links as a window of the waterfront, used Manhattan City and Roosevelt Island as the backdrop of the aquarium; it is aimed to change the way of how people appreciate the aquarium and Manhattan city skyline.'
+        },
+        {
+          type: 'text',
+          content: 'NYC Aquarium is a microcosm of New York City, seeing the same patterns reproduced at all levels of the city grid, from the largest city scale all the way down to the aquarium scale. The grid system, with the combination of the Queensboro Bridge and Central Park concept to carry out the spatial sensitively focus to context, which allows the people seamlessly linked to the city while walking within the aquarium.'
+        },
+        {
+          type: 'text',
+          content: 'The aquarium creates not just aims educate people by showing the beauty of water life, but instead shows the ugly side of the current water condition, by diverting East River water flow underneath the bridge tunnel, creating the awareness on the contrast of water quality while enjoying the beauty of aquarium. The similar approach applies to the side tunnel and the Tunnel of Reflection; we do not hesitate to expose the current condition of East River, either clean or polluted, the result will eventually update based on the human behaviour towards the river.'
+        },
+        {
+          type: 'text',
+          content: 'The Window of Atlantic Ocean symbolized as the liberty of nature and public ownership against the capitalist. Connected by the bridge of axis, which lead the people cross through the path and Window of Atlantic Ocean to the viewing deck, where direct towards Franklin Roosevelt Memorial Park and headquarters of United Nation, link to meaning of uniting the people fight for new liberty — the liberty from capitalism.'
+        },
+      ],
+    },
   // 10. Imbauan Residence
   {
     id: 10,
@@ -583,6 +583,7 @@ export const competitionProjects: Project[] = [
     projectTeam: ['Edric Choo Poo Liang', 'Clyde Ong'],
     images: [
       '/Gallery/Competition/TokyoVertical/CP.avif',
+      '/Gallery/Competition/TokyoVertical/A1.avif',
       '/Gallery/Competition/TokyoVertical/A2.avif',
       '/Gallery/Competition/TokyoVertical/A3.avif',
       '/Gallery/Competition/TokyoVertical/A4.avif',
@@ -816,8 +817,6 @@ export const competitionProjects: Project[] = [
       '/Gallery/Competition/KLAF/A2.avif',
       '/Gallery/Competition/KLAF/A3.avif',
       '/Gallery/Competition/KLAF/A4.avif',
-      '/Gallery/Competition/KLAF/A5.avif',
-      '/Gallery/Competition/KLAF/A6.avif',
     ],
     detailContent: [
       {

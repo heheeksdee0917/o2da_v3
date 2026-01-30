@@ -53,6 +53,7 @@ export interface Project {
   detailContent?: ContentBlock[];
   status?: string;
   projectTeam?: string[];
+  imagePosition?: 'top' | 'center' | 'bottom' | string;
 }
 
 interface Award {
@@ -301,4 +302,3 @@ export const awards: Award[] = [
     slug: ''
   },
 ];
-

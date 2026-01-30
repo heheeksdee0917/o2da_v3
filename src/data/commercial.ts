@@ -112,7 +112,7 @@ export const commercialProjects: Project[] = [
     status: 'Completed',
     projectTeam: ['Edric Choo Poo Liang','Lim Min Syn'],
     images: [
-      '/Gallery/Commercial/Warehouse3/ACP.avif',
+      '/Gallery/Commercial/Warehouse3/CP.avif',
       '/Gallery/Commercial/Warehouse3/A1.avif',
       '/Gallery/Commercial/Warehouse3/A2.avif',
       '/Gallery/Commercial/Warehouse3/A3.avif',

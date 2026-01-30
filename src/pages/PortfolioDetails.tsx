@@ -284,16 +284,16 @@ export default function PortfolioDetails() {
                   if (block.type === 'text') {
                     const renderContent = () => {
                       if (!block.content) return null;
-                      
-                      const contentText = Array.isArray(block.content) 
+
+                      const contentText = Array.isArray(block.content)
                         ? block.content.join(' ')
                         : block.content;
-                      
+
                       // If there are multiple inline links
                       if (block.inlineLinks && block.inlineLinks.length > 0) {
                         const parts: (string | JSX.Element)[] = [];
                         let remainingText = contentText;
-                        
+
                         block.inlineLinks.forEach((link, linkIndex) => {
                           const linkPosition = remainingText.indexOf(link.text);
                           if (linkPosition !== -1) {
@@ -317,15 +317,15 @@ export default function PortfolioDetails() {
                             remainingText = remainingText.substring(linkPosition + link.text.length);
                           }
                         });
-                        
+
                         // Add any remaining text
                         if (remainingText) {
                           parts.push(remainingText);
                         }
-                        
+
                         return <>{parts}</>;
                       }
-                      
+
                       // No inline links - render normally
                       return Array.isArray(block.content) ? (
                         block.content.map((line, i) => (
@@ -396,11 +396,17 @@ export default function PortfolioDetails() {
                     to={`/portfolio/${similarProject.slug}`}
                     className="block group"
                   >
-                    <div className="relative overflow-hidden mb-3 bg-neutral-100 " style={{ aspectRatio: '16 / 9' }}>
-                      <img
+                    <div className="relative overflow-hidden mb-3 bg-neutral-100 aspect-video">
+                      <LazyImage
                         src={similarProject.images[0]}
                         alt={similarProject.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        className="w-full h-full"
+                        imgClassName="transition-transform duration-700 group-hover:scale-110"
+                        imgStyle={{
+                          objectPosition: similarProject.imagePosition === 'top' ? 'top' :
+                            similarProject.imagePosition === 'bottom' ? 'bottom' :
+                              'center'
+                        }}
                         loading="lazy"
                       />
                     </div>
