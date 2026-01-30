@@ -9,7 +9,7 @@ export const interiorProjects: Project[] = [
     title: 'Brownstone Residence',
     location: 'Bukit Damansara, Kuala Lumpur',
     category: 'Interior',
-    status: 'N/A',
+    status: 'Proposal',
     projectTeam: ['Edric Choo Poo Liang', 'Kong Xiang Lynn', 'Lim Min Syn'],
     images: [
       '/Gallery/Interior/Brownstone/CP.avif',
@@ -44,7 +44,7 @@ export const interiorProjects: Project[] = [
     title: 'Cafe 100',
     location: 'Taman Desa, Kuala Lumpur',
     category: 'Interior',
-    status: 'N/A',
+    status: 'Proposal',
     projectTeam: ['Edric Choo Poo Liang', 'Kong Xiang Lynn'],
     images: [
       '/Gallery/Interior/Cafe100/CP.avif',
@@ -82,7 +82,7 @@ export const interiorProjects: Project[] = [
     title: 'Dharma',
     location: 'Taman Desa, Kuala Lumpur',
     category: 'Interior',
-    status: 'N/A',
+    status: 'Construction',
     projectTeam: ['Edric Choo Poo Liang', 'Kong Xiang Lynn'],
     images: [
       '/Gallery/Interior/Dharma/CP.avif',
@@ -119,7 +119,7 @@ export const interiorProjects: Project[] = [
     title: 'Quartz ID',
     location: 'Taman Desa, Kuala Lumpur',
     category: 'Interior',
-    status: 'N/A',
+    status: 'Schematic',
     projectTeam: ['Edric Choo Poo Liang', 'Kong Xiang Lynn'],
     images: [
       '/Gallery/Interior/QuartzID/CP.avif',
@@ -152,7 +152,7 @@ export const interiorProjects: Project[] = [
     title: 'Sentul Works',
     location: 'Taman Desa, Kuala Lumpur',
     category: 'Interior',
-    status: 'N/A',
+    status: 'Completed',
     projectTeam: ['Edric Choo Poo Liang', 'Kong Xiang Lynn'],
     images: [
       '/Gallery/Interior/SentulWorksID/CP.avif',
