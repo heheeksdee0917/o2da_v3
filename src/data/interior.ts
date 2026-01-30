@@ -5,8 +5,8 @@ export const interiorProjects: Project[] = [
   // 1. Brownstone Residence
   {
     id: 1,
-    slug: 'brownstone-residence',
-    title: 'Brownstone Residence',
+    slug: 'brownstone-',
+    title: 'Brownstone',
     location: 'Bukit Damansara, Kuala Lumpur',
     category: 'Interior',
     status: 'Proposal',
@@ -79,7 +79,7 @@ export const interiorProjects: Project[] = [
   {
     id: 3,
     slug: 'dharma',
-    title: 'Dharma',
+    title: 'Dharma Drum Buddhist Centre',
     location: 'Taman Desa, Kuala Lumpur',
     category: 'Interior',
     status: 'Construction',
@@ -116,7 +116,7 @@ export const interiorProjects: Project[] = [
   {
     id: 4,
     slug: 'quartz-id',
-    title: 'Quartz ID',
+    title: 'Quartz',
     location: 'Taman Desa, Kuala Lumpur',
     category: 'Interior',
     status: 'Schematic',
