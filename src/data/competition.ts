@@ -2,14 +2,45 @@ import type { Project } from './mockData';
 
 export const competitionProjects: Project[] = [
 
-  // 1. Kenya’s Orphanage
+  // 1. UNO Sg Merab
+  {
+    id: 6,
+    slug: 'uno-sg-merab',
+    title: 'UNO Sg Merab',
+    location: 'Sg. Merab, Kajang',
+    category: 'Competition',
+    status: '3rd Prize',
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn', 'Henry'],
+    images: [
+      '/Gallery/Competition/UnoSgMerab/CP.avif',
+      '/Gallery/Competition/UnoSgMerab/A1.avif',
+      '/Gallery/Competition/UnoSgMerab/A2.avif',
+      '/Gallery/Competition/UnoSgMerab/A3.avif',
+      '/Gallery/Competition/UnoSgMerab/A4.avif',
+      '/Gallery/Competition/UnoSgMerab/A5.avif',
+      '/Gallery/Competition/UnoSgMerab/A6.avif',
+      '/Gallery/Competition/UnoSgMerab/A7.avif',
+      '/Gallery/Competition/UnoSgMerab/A8.avif',
+      '/Gallery/Competition/UnoSgMerab/A9.avif',
+      '/Gallery/Competition/UnoSgMerab/A10.avif',
+      '/Gallery/Competition/UnoSgMerab/A11.avif',
+      '/Gallery/Competition/UnoSgMerab/A12.avif',
+    ],
+    detailContent: [
+      { type: 'text', content: 'The site is located in a unique sub-rural area surrounded by highly developed urban area, massive administrative capital and main highways. The design takes clues from the surrounding sub-rural architecture language of vernacular utilitarian houses and business sheds, combining with modern planning and material to create a highly contextual and vibrant commercial space for the local people.' },
+      { type: 'text', content: 'Commercial Concept \n• Rethink conventional retail space\n• Semi-outdoor sellable retail floor\n• Diversify types of retail spaces\n• Double frontage for maximum customer permeability\n• Increase the legibility of all shopfronts from main road\n• Carpark positioned to the rear to free up development frontage\n• DRIVE-IN & DRIVE-THRU concepts' },
+      { type: 'text', content: 'Sustainability Concept\n• Organic Form/Plan with a Big Roof Shelter\n• Cross Natural Ventilation\n• Natural Lighting\n• Robust recycled Local Materials\n• Low-E Glass, Solar Energy & Rainwater Harvesting' },
+      { type: 'text', content: 'Architecture Concept\n• Rustic durable & Recycled material + Glass & Steel\n• Elevates the retail environment\n• Multiple small blocks design break away the homogeneity of conventional Shop lot Design' },
+    ],
+  },
+  // 2. Kenya’s Orphanage
   {
     id: 1,
     slug: 'kenyas-orphanage',
     title: 'ORPHANED & CHILDREN’s ECO-VILLAGE',
     location: 'SOY, KENYA',
     category: 'Competition',
-    status: 'N/A',
+    status: '1st Prize',
     projectTeam: ['Edric Choo Poo Liang', 'Tang Ying Jien'],
     images: [
       '/Gallery/Competition/KenyaOrph/CP.avif',
@@ -40,14 +71,14 @@ export const competitionProjects: Project[] = [
       },
     ],
   },
-  // 2. Landasan Jauhar
+  // 3. Landasan Jauhar
   {
     id: 2,
     slug: 'landasan-jauhar',
     title: 'Landasan Jauhar',
     location: 'Johor Bahru',
     category: 'Competition',
-    status: 'N/A',
+    status: 'Submission',
     projectTeam: ['Edric Choo Poo Liang', 'Aaron Neo On E', 'Nicole Hooi Yi Tien', 'Mohd Afi b Abdul Malik', 'Amirul Shah Mumfahir'],
     images: [
       '/Gallery/Competition/LandasanJauhar/CP.avif',
@@ -73,7 +104,72 @@ export const competitionProjects: Project[] = [
       { type: 'text', content: 'With this magnificent Architecture Typology demarking the New architecture language in train station design will surely make Landasan Jauhar Station an International Masterpiece and Pride for the Sultan and Johorian !!' },
     ],
   },
-  // 3. New York City Aquarium
+  // 4. Fittorie
+  {
+    id: 4,
+    slug: 'fittorie',
+    title: 'Fittorie',
+    location: 'Vicenza, Italy',
+    category: 'Competition',
+    status: 'Submission',
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn', 'Quek Yi Jane', 'Nicole Hooi Yi Tien'],
+    images: [
+      '/Gallery/Competition/Fittorie/CP.avif',
+      '/Gallery/Competition/Fittorie/A1.avif',
+      '/Gallery/Competition/Fittorie/A2.avif',
+      '/Gallery/Competition/Fittorie/A3.avif',
+      '/Gallery/Competition/Fittorie/A4.avif',
+      '/Gallery/Competition/Fittorie/A5.avif',
+      '/Gallery/Competition/Fittorie/A6.avif',
+      '/Gallery/Competition/Fittorie/A7.avif',
+      '/Gallery/Competition/Fittorie/A8.avif',
+      '/Gallery/Competition/Fittorie/A9.avif',
+      '/Gallery/Competition/Fittorie/A10.avif',
+      '/Gallery/Competition/Fittorie/A11.avif',
+      '/Gallery/Competition/Fittorie/A12.avif',
+      '/Gallery/Competition/Fittorie/A13.avif',
+      '/Gallery/Competition/Fittorie/A14.avif',
+      '/Gallery/Competition/Fittorie/A15.avif',
+      '/Gallery/Competition/Fittorie/Diagram1.avif',
+      '/Gallery/Competition/Fittorie/Diagram2.avif',
+      '/Gallery/Competition/Fittorie/Diagram3.avif',
+    ],
+    detailContent: [
+      { type: 'text', content: 'The inspiration started with the understanding of Fitts, the Context, and Palladio.      ' },
+      { type: 'text', content: 'The new Fitt HQ consists of a new fluid form juxtaposed with the existing rectilinear factory, mapping with the surrounding farmscape pattern and framed with Palladian Loggia to give a completely new dimension for Fitt.' },
+      { type: 'text', content: 'The site consists of an existing factory, villa, warehouse, and storage barn. The new fluid building form spreading across the site connects the existing villa, warehouse, and the operating factory, forming a series of courtyards and in-between spaces.' },
+      { type: 'text', content: 'The surrounding farms inspire the design by mapping their aerial plot pattern onto the site, forming the ground patterns with textured gold strips. Some of the formal office space was extruded from the plots intersecting with the fluid building. Different types of local crops are cultivated within a series of courtyards formed by the fluid office.' },
+      { type: 'text', content: 'The existing tarmac space in between the new office form and the existing factory has transformed into an informal event space. Sunken amphitheater, sports courts, landscaped lawn, outdoor café, and water bodies are created. The continuous landscape connects seamlessly up to the roof terrace with jogging paths.' },
+      { type: 'text', content: 'Fitt company members can enjoy a fitness gym, sleep capsules, a residential unit for overnight rest, a multi-purpose presentation, or a celebration hall within the complex as part of a well-balanced working environment.' },
+      { type: 'text', content: 'The existing villa is preserved and repurposed as a guests’ reception, while the metal-clad warehouse is re-integrated as a new company museum. Local Vicenza stone integrated with Fitt metal gutters lines the façade skin for the operating factory, with rooftop solar PVs harvesting energy for the new HQ.' },
+      { type: 'text', content: 'A continuous loggia in Palladio’s language frames the site as the pedestrian linkage between the car park, office, and factory while defining the edges of the site with its neighbors' },
+    ],
+  },
+  // 5. The Elemental Mosque
+  {
+    id: 7,
+    slug: 'elemental-mosque',
+    title: 'The Elemental Mosque',
+    location: 'Dubai',
+    category: 'Competition',
+    status: 'Submission',
+    projectTeam: ['Edric Choo Poo Liang', 'Wan Azhar (Coda)', 'Farah Aliza Badarudin', 'Lim Min Syn'],
+    images: [
+      '/Gallery/Competition/Mosque/CP.avif',
+      '/Gallery/Competition/Mosque/A1.avif',
+      '/Gallery/Competition/Mosque/A2.avif',
+      '/Gallery/Competition/Mosque/A3.avif',
+      '/Gallery/Competition/Mosque/A4.avif',
+      '/Gallery/Competition/Mosque/A5.avif',
+    ],
+    detailContent: [
+      { type: 'text', content: 'MAKING THE IMMATERIAL VISIBLE THROUGH THE FIVE ELEMENTS OF NATURE' },
+      { type: 'text', content: 'Our design approach is to compose a subtle coalescence between the five natural elements of nature [Earth, Water, Air, Fire and Landscape] and examine the following Architectural principles of traditional mosque design such as the idea of Grandeur vs. Humility, Glorification vs. Submission, Enclosure vs. Transparency, Rigid vs. Formless, Seen vs. Be Seen.' },
+      { type: 'text', content: 'The fundamental elements to form a mosque can be derived from the first mosque; which is the house of the Prophet Muhammad s.a.w. in Medina. The style of the mosque is known as the Hypostyle type, meaning a building having a roof supported by pillars.' },
+      { type: 'text', content: 'Our proposed ELEMENTAL MOSQUE design unfolds and reinterprets the space and materiality of a traditional mosque into an Architecture of Humility where we adopted the concept of the hypostyle mosque (First mosque) that features a large rectangular-shaped prayer hall, with forest of columns to support the roof structure and large inner Sahn (courtyard) for gathering purposes.' },
+    ],
+  },
+  // 6. New York City Aquarium
   {
     id: 3,
     slug: 'new-york-city-aquarium',
@@ -108,55 +204,14 @@ export const competitionProjects: Project[] = [
       },
     ],
   },
-  // 4. Fittorie
-  {
-    id: 4,
-    slug: 'fittorie',
-    title: 'Fittorie',
-    location: 'Vicenza, Italy',
-    category: 'Competition',
-    status: 'N/A',
-    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn', 'Quek Yi Jane', 'Nicole Hooi Yi Tien'],
-    images: [
-      '/Gallery/Competition/Fittorie/CP.avif',
-      '/Gallery/Competition/Fittorie/A1.avif',
-      '/Gallery/Competition/Fittorie/A2.avif',
-      '/Gallery/Competition/Fittorie/A3.avif',
-      '/Gallery/Competition/Fittorie/A4.avif',
-      '/Gallery/Competition/Fittorie/A5.avif',
-      '/Gallery/Competition/Fittorie/A6.avif',
-      '/Gallery/Competition/Fittorie/A7.avif',
-      '/Gallery/Competition/Fittorie/A8.avif',
-      '/Gallery/Competition/Fittorie/A9.avif',
-      '/Gallery/Competition/Fittorie/A10.avif',
-      '/Gallery/Competition/Fittorie/A11.avif',
-      '/Gallery/Competition/Fittorie/A12.avif',
-      '/Gallery/Competition/Fittorie/A13.avif',
-      '/Gallery/Competition/Fittorie/A14.avif',
-      '/Gallery/Competition/Fittorie/A15.avif',
-      '/Gallery/Competition/Fittorie/Diagram1.avif',
-      '/Gallery/Competition/Fittorie/Diagram2.avif',
-      '/Gallery/Competition/Fittorie/Diagram3.avif',
-    ],
-    detailContent: [
-      { type: 'text', content: 'The inspiration started with the understanding of Fitts, the Context, and Palladio.      ' },
-      { type: 'text', content: 'The new Fitt HQ consists of a new fluid form juxtaposed with the existing rectilinear factory, mapping with the surrounding farmscape pattern and framed with Palladian Loggia to give a completely new dimension for Fitt.' },
-      { type: 'text', content: 'The site consists of an existing factory, villa, warehouse, and storage barn. The new fluid building form spreading across the site connects the existing villa, warehouse, and the operating factory, forming a series of courtyards and in-between spaces.' },
-      { type: 'text', content: 'The surrounding farms inspire the design by mapping their aerial plot pattern onto the site, forming the ground patterns with textured gold strips. Some of the formal office space was extruded from the plots intersecting with the fluid building. Different types of local crops are cultivated within a series of courtyards formed by the fluid office.' },
-      { type: 'text', content: 'The existing tarmac space in between the new office form and the existing factory has transformed into an informal event space. Sunken amphitheater, sports courts, landscaped lawn, outdoor café, and water bodies are created. The continuous landscape connects seamlessly up to the roof terrace with jogging paths.' },
-      { type: 'text', content: 'Fitt company members can enjoy a fitness gym, sleep capsules, a residential unit for overnight rest, a multi-purpose presentation, or a celebration hall within the complex as part of a well-balanced working environment.' },
-      { type: 'text', content: 'The existing villa is preserved and repurposed as a guests’ reception, while the metal-clad warehouse is re-integrated as a new company museum. Local Vicenza stone integrated with Fitt metal gutters lines the façade skin for the operating factory, with rooftop solar PVs harvesting energy for the new HQ.' },
-      { type: 'text', content: 'A continuous loggia in Palladio’s language frames the site as the pedestrian linkage between the car park, office, and factory while defining the edges of the site with its neighbors' },
-    ],
-  },
-  // 5. Marshland Stadia
+  // 7. Marshland Stadia
   {
     id: 5,
     slug: 'marshland-stadia',
     title: 'Marshland Stadia',
     location: 'New York, US',
     category: 'Competition',
-    status: 'N/A',
+    status: 'Submission',
     projectTeam: ['Edric Choo Poo Liang', 'Farah Aliza Badarudin'],
     images: [
       '/Gallery/Competition/Marshland/CP.avif',
@@ -182,61 +237,6 @@ export const competitionProjects: Project[] = [
       { type: 'text', content: 'This mixed development-stadium-park complex integration is a subtle yet modest proposal that focuses more on the sustainable, environmental, community-driven (social) aspects; where McCarren Park is given back to the community.' },
     ],
   },
-  // 6. UNO Sg Merab
-  {
-    id: 6,
-    slug: 'uno-sg-merab',
-    title: 'UNO Sg Merab',
-    location: 'Sg. Merab, Kajang',
-    category: 'Competition',
-    status: 'N/A',
-    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn', 'Henry'],
-    images: [
-      '/Gallery/Competition/UnoSgMerab/CP.avif',
-      '/Gallery/Competition/UnoSgMerab/A1.avif',
-      '/Gallery/Competition/UnoSgMerab/A2.avif',
-      '/Gallery/Competition/UnoSgMerab/A3.avif',
-      '/Gallery/Competition/UnoSgMerab/A4.avif',
-      '/Gallery/Competition/UnoSgMerab/A5.avif',
-      '/Gallery/Competition/UnoSgMerab/A6.avif',
-      '/Gallery/Competition/UnoSgMerab/A7.avif',
-      '/Gallery/Competition/UnoSgMerab/A8.avif',
-      '/Gallery/Competition/UnoSgMerab/A9.avif',
-      '/Gallery/Competition/UnoSgMerab/A10.avif',
-      '/Gallery/Competition/UnoSgMerab/A11.avif',
-      '/Gallery/Competition/UnoSgMerab/A12.avif',
-    ],
-    detailContent: [
-      { type: 'text', content: 'The site is located in a unique sub-rural area surrounded by highly developed urban area, massive administrative capital and main highways. The design takes clues from the surrounding sub-rural architecture language of vernacular utilitarian houses and business sheds, combining with modern planning and material to create a highly contextual and vibrant commercial space for the local people.' },
-      { type: 'text', content: 'Commercial Concept \n• Rethink conventional retail space\n• Semi-outdoor sellable retail floor\n• Diversify types of retail spaces\n• Double frontage for maximum customer permeability\n• Increase the legibility of all shopfronts from main road\n• Carpark positioned to the rear to free up development frontage\n• DRIVE-IN & DRIVE-THRU concepts' },
-      { type: 'text', content: 'Sustainability Concept\n• Organic Form/Plan with a Big Roof Shelter\n• Cross Natural Ventilation\n• Natural Lighting\n• Robust recycled Local Materials\n• Low-E Glass, Solar Energy & Rainwater Harvesting' },
-      { type: 'text', content: 'Architecture Concept\n• Rustic durable & Recycled material + Glass & Steel\n• Elevates the retail environment\n• Multiple small blocks design break away the homogeneity of conventional Shop lot Design' },
-    ],
-  },
-  // 7. The Elemental Mosque
-  {
-    id: 7,
-    slug: 'elemental-mosque',
-    title: 'The Elemental Mosque',
-    location: 'Dubai',
-    category: 'Competition',
-    status: 'N/A',
-    projectTeam: ['Edric Choo Poo Liang', 'Wan Azhar (Coda)', 'Farah Aliza Badarudin', 'Lim Min Syn'],
-    images: [
-      '/Gallery/Competition/Mosque/CP.avif',
-      '/Gallery/Competition/Mosque/A1.avif',
-      '/Gallery/Competition/Mosque/A2.avif',
-      '/Gallery/Competition/Mosque/A3.avif',
-      '/Gallery/Competition/Mosque/A4.avif',
-      '/Gallery/Competition/Mosque/A5.avif',
-    ],
-    detailContent: [
-      { type: 'text', content: 'MAKING THE IMMATERIAL VISIBLE THROUGH THE FIVE ELEMENTS OF NATURE' },
-      { type: 'text', content: 'Our design approach is to compose a subtle coalescence between the five natural elements of nature [Earth, Water, Air, Fire and Landscape] and examine the following Architectural principles of traditional mosque design such as the idea of Grandeur vs. Humility, Glorification vs. Submission, Enclosure vs. Transparency, Rigid vs. Formless, Seen vs. Be Seen.' },
-      { type: 'text', content: 'The fundamental elements to form a mosque can be derived from the first mosque; which is the house of the Prophet Muhammad s.a.w. in Medina. The style of the mosque is known as the Hypostyle type, meaning a building having a roof supported by pillars.' },
-      { type: 'text', content: 'Our proposed ELEMENTAL MOSQUE design unfolds and reinterprets the space and materiality of a traditional mosque into an Architecture of Humility where we adopted the concept of the hypostyle mosque (First mosque) that features a large rectangular-shaped prayer hall, with forest of columns to support the roof structure and large inner Sahn (courtyard) for gathering purposes.' },
-    ],
-  },
   // 8. Singapore Founders’ Memorial
   {
     id: 8,
@@ -244,7 +244,7 @@ export const competitionProjects: Project[] = [
     title: 'Singapore Founders’ Memorial',
     location: 'Singapore',
     category: 'Competition',
-    status: 'Proposal',
+    status: 'Submission',
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
     images: [
       '/Gallery/Competition/SingaporeMemorial/CP.avif',
@@ -293,7 +293,7 @@ export const competitionProjects: Project[] = [
     title: 'Imbauan Residence',
     location: 'Kwasa Damansara, Selangor',
     category: 'Competition',
-    status: 'N/A',
+    status: '2nd Prize',
     projectTeam: ['Edric Choo Poo Liang', 'Tang Ying Jien'],
     images: [
       '/Gallery/Competition/ImbauanResidence/CP.avif',
@@ -387,7 +387,7 @@ export const competitionProjects: Project[] = [
     title: 'MGBC Headquarters',
     location: 'Bangi, Selangor',
     category: 'Competition',
-    status: 'N/A',
+    status: 'Honorable Mention',
     projectTeam: ['Edric Choo Poo Liang', 'Clyde Ong'],
     images: [
       '/Gallery/Competition/MGBC/CP.avif',
@@ -414,7 +414,7 @@ export const competitionProjects: Project[] = [
     title: 'PR1MA Affordable Housing',
     location: 'Petaling Jaya, Selangor',
     category: 'Competition',
-    status: 'N/A',
+    status: '1st Prize',
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn', 'Clyde Ong'],
     images: [
       '/Gallery/Competition/Pr1ma/CP.avif',
@@ -444,7 +444,7 @@ export const competitionProjects: Project[] = [
     title: 'Hong Kong Pixelated Housing',
     location: 'Hong Kong',
     category: 'Competition',
-    status: 'N/A',
+    status: 'Submission',
     projectTeam: ['Edric Choo Poo Liang', 'Queenie Wong', 'Lee Chaer Shean', 'Goh Chew Yet'],
     images: [
       '/Gallery/Competition/HongKong/CP.avif',
@@ -471,7 +471,7 @@ export const competitionProjects: Project[] = [
     title: 'Future House',
     location: 'Flexible',
     category: 'Competition',
-    status: 'N/A',
+    status: '1st Prize',
     projectTeam: ['Edric Choo Poo Liang', 'Lee Chaer Shean'],
     images: [
       '/Gallery/Competition/FutureHouse/CP.avif',
@@ -510,7 +510,7 @@ export const competitionProjects: Project[] = [
     title: 'Wet Market (Teluk Kumbar Market)',
     location: 'Teluk Kumbar, Penang',
     category: 'Competition',
-    status: 'N/A',
+    status: '2nd Prize',
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn', 'Clyde Ong'],
     images: [
       '/Gallery/Competition/TelukGumbar/CP.avif',
@@ -538,7 +538,7 @@ export const competitionProjects: Project[] = [
     title: 'A House For Master Lee',
     location: 'Gayasan-Ro, South Korea',
     category: 'Competition',
-    status: 'N/A',
+    status: 'Submission',
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
     images: [
       '/Gallery/Competition/HouseForLee/CP.avif',
@@ -579,7 +579,7 @@ export const competitionProjects: Project[] = [
     title: 'Tokyo Vertical Cemetery',
     location: 'Shinjuku, Tokyo',
     category: 'Competition',
-    status: 'N/A',
+    status: 'Submission',
     projectTeam: ['Edric Choo Poo Liang', 'Clyde Ong'],
     images: [
       '/Gallery/Competition/TokyoVertical/CP.avif',
@@ -603,7 +603,7 @@ export const competitionProjects: Project[] = [
     title: 'House for A Dream',
     location: 'South London',
     category: 'Competition',
-    status: 'N/A',
+    status: 'Submission',
     projectTeam: ['Edric Choo Poo Liang', 'Tang Ying Jien'],
     images: [
       '/Gallery/Competition/OurHome/CP.avif',
@@ -631,10 +631,10 @@ export const competitionProjects: Project[] = [
   {
     id: 19,
     slug: 'nne',
-    title: 'Nothing & Everything Else',
+    title: 'Nothingness & Fullness',
     location: 'Penang//Kuala Lumpur, Malaysia',
     category: 'Competition',
-    status: 'N/A',
+    status: 'Submission',
     projectTeam: ['Edric Choo Poo Liang'],
     images: [
       '/Gallery/Competition/NNE/A1.avif',
@@ -644,8 +644,8 @@ export const competitionProjects: Project[] = [
       {
         type: 'text',
         content: ['“Khoo Kongsi” – a Hokkien Clan Temple. Location : Cannon Square, George Town, Penang.',
-        'Year 1906 – Completion of Khoo Kongsi clan temple.',
-      ]
+          'Year 1906 – Completion of Khoo Kongsi clan temple.',
+        ]
       },
       {
         type: 'text',
@@ -691,7 +691,7 @@ export const competitionProjects: Project[] = [
     title: 'City Of Tomorrow',
     location: 'Petaling Jaya, Selangor',
     category: 'Competition',
-    status: 'N/A',
+    status: 'Submission',
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
     images: [
       '/Gallery/Competition/CityofTmorrow/CP.avif',
@@ -704,21 +704,21 @@ export const competitionProjects: Project[] = [
     detailContent: [
       {
         type: 'text',
-        heading:'Manmade City vs Mother Nature',
+        heading: 'Manmade City vs Mother Nature',
         content: 'Up till today, our society develop townships and cities horizontally by means of destroying land. Miles of forest are lost each year equivalent to 48 football fields every minutes. If thing persist, all of Mother Nature will be replaced with manmade environment. The global Coronavirus pandemic could be an indirect sign that the Earth has fallen sick.'
       },
       {
         type: 'text',
-        heading:'The Covid-19 Pandemic',
-        content: 
-        [
-          '2020 is a year of global pandemic with over 1 million people killed worldwide due to the Coronavirus. While the COVID-19 virus is primarily transmitted between people through respiratory droplets and contact routes, there is a possibility of such virus to develop airborne transmission capability. Most countries have implemented lockdown measures, limiting travel between home and workplace and restricting close contact between human and the outside world.',
-          'The question is how do we live in the future if we are unable to permanently curb the thrive of such viruses that contaminate our external environment?'
-        ]
+        heading: 'The Covid-19 Pandemic',
+        content:
+          [
+            '2020 is a year of global pandemic with over 1 million people killed worldwide due to the Coronavirus. While the COVID-19 virus is primarily transmitted between people through respiratory droplets and contact routes, there is a possibility of such virus to develop airborne transmission capability. Most countries have implemented lockdown measures, limiting travel between home and workplace and restricting close contact between human and the outside world.',
+            'The question is how do we live in the future if we are unable to permanently curb the thrive of such viruses that contaminate our external environment?'
+          ]
       },
       {
         type: 'text',
-        heading:'New Epoch',
+        heading: 'New Epoch',
         content: 'On the technological front human have realize personal flying car, a car-plane hybrid that gives maximum freedom of mobility. In the pandemic time, online meeting technology allow us to virtually interact via computer screen, physical distance is no longer a hindrance to meet. But how do we balance between life in isolation during pandemic time and still allow a degree of freedom of movement and interaction?'
       },
       {
@@ -735,7 +735,7 @@ export const competitionProjects: Project[] = [
       },
       {
         type: 'text',
-        heading:'The City Tower',
+        heading: 'The City Tower',
         content: 'A City is consisting of several self-sustaining Towers. Within the self-sustaining Tower, one can find places for work, play, shop, sport and culture. Each Tower has work meeting platforms where individual capsules meet physically within a controlled and sanitized environment. There is a retail street to cater for daily needs and dedicated sport complexes with sport courts and various physical activities programs. After plugged-in to the Tower, people can remain indoor and interact thru the capsule glass panel or disembark and interact physically with people at the central interaction platform. The central platform is a controlled street where one can meet people and travel between floors and visit neighbouring capsules.'
       },
       {
@@ -748,12 +748,12 @@ export const competitionProjects: Project[] = [
       },
       {
         type: 'text',
-        heading:'The Fleet',
+        heading: 'The Fleet',
         content: 'Flying fleets of live-work-travel Crossover capsules use clean energy to run. Stationed capsules use energy charging receptor to hold on to the Tower core while the rest cruise freely along the infinite airspace from one Tower neighbourhood to another. There are mass transit and logistic capsule to help big volume movements. The travel is based on computerized auto navigation system.'
       },
       {
         type: 'text',
-        heading:'The Land Returned to Nature',
+        heading: 'The Land Returned to Nature',
         content: 'The new City is lifted, leaving uninterrupted growth of big trees and wildlife on the ground. Former highways and carparks are now slowly colonized by extending forest and new ecosystems. People on the City Towers can do regulated recreational or scientific visits to the Nature below. Mother Nature to back its original condition without damage by every new human development.'
       },
     ],
@@ -765,8 +765,8 @@ export const competitionProjects: Project[] = [
     title: 'VOXEL HOUSE',
     location: 'N/A',
     category: 'Competition',
-    status: 'N/A',
-    projectTeam: ['Edric Choo Poo Liang', 'Clyde Ong'],
+    status: 'Submission',
+    projectTeam: ['Edric Choo Poo Liang', 'Raven'],
     images: [
       '/Gallery/Competition/Voxel/CP.avif',
       '/Gallery/Competition/Voxel/A1.avif',
@@ -776,12 +776,12 @@ export const competitionProjects: Project[] = [
     detailContent: [
       {
         type: 'text',
-        heading:'VOXEL',
+        heading: 'VOXEL',
         content: 'Virtual reality has given humanity a chance of unrestricted constructability where everything can be against physics. Many schemes in metaverse virtual assets had tried exploring the possibility with different materials, shapes and forms. What is there to push further? VOXEL home will demonstrate immersive spatial sensation with infinite possibilities; Infinite tranformation according to desire and wishes of the user.'
       },
       {
         type: 'text',
-        heading:'Idea',
+        heading: 'Idea',
         content: [
           'In Physical world, historically home/house form by pieces of bricks and mortar. In Meta-verse, brick and mortar replace by voxels. Physical Home bounds by physics. In metaverse there are million of possibilities.',
           'Voxel explores infinite possibility of transformation and experience crafted in virtual space giving the home owner infinite experience that cannot be found in physical world.'
@@ -789,14 +789,14 @@ export const competitionProjects: Project[] = [
       },
       {
         type: 'text',
-        heading:'Concept',
+        heading: 'Concept',
         content: 'Voxel Home design proposal is a single cube in the virtual world which filled with billions of voxelated particles. Unlike bricks, these voxels are able to move, transform, float. These programmable characteristics of voxel will make our home into endless possibilities of form making. Snap of time, the space can be altered or morphed to different space without any restriction from mass, volume, scale, color, material, climate, location and so on. Imagination and desire will be our only limit here at this home. If power and wealth precede in this virtual world, owning voxels will be prioritized like purchasing landmass in physical world.'
       },
       {
         type: 'text',
-        heading:'Amy’s VOXEL',
+        heading: 'Amy’s VOXEL',
         content: ['In the far future, VOXEL home is a single cube sits on metaverse which filled with a billion of voxelated particles. In this future reality, Voxels able to read our memory and emotion owned voxel home cube recently with ETH0.05. Basically, Voxel made her reality now, where she works, meet and gather, purchase in the virtual market, gamble, gaming and so on.',
-        'Amy made her space with any material she could think of and surfacing through everywhere. Amy knows that spatial experience gains through this space in virtual is unrealistic to physical world could achieve. Infinite possibilities with voxel particles made each space unique according to her desire where she get to choose what she wants in her atmospheric life.'
+          'Amy made her space with any material she could think of and surfacing through everywhere. Amy knows that spatial experience gains through this space in virtual is unrealistic to physical world could achieve. Infinite possibilities with voxel particles made each space unique according to her desire where she get to choose what she wants in her atmospheric life.'
         ]
       },
     ],
@@ -808,7 +808,7 @@ export const competitionProjects: Project[] = [
     title: 'KLAF',
     location: 'N/A',
     category: 'Competition',
-    status: 'N/A',
+    status: 'Submission',
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
     images: [
       '/Gallery/Competition/KLAF/CP.avif',
@@ -851,9 +851,9 @@ export const competitionProjects: Project[] = [
     id: 23,
     slug: 'go-beyond',
     title: 'Go Beyond',
-    location: 'N/A',
+    location: 'Flexible',
     category: 'Competition',
-    status: 'N/A',
+    status: '1st Prize',
     projectTeam: ['Edric Choo Poo Liang'],
     images: [
       '/Gallery/Competition/GoBeyond/CP.avif',
@@ -907,7 +907,7 @@ export const competitionProjects: Project[] = [
     title: 'Architect\'s Chair',
     location: 'N/A',
     category: 'Competition',
-    status: 'N/A',
+    status: '1st Prize',
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
     images: [
       '/Gallery/Competition/ArchChair/A1.avif',
