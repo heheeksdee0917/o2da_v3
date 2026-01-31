@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, useLocation, useParams } from 'react-router-dom';
-import { useEffect, useRef, lazy, Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -11,29 +11,6 @@ const News = lazy(() => import('./pages/News'));
 const NewsDetails = lazy(() => import('./pages/NewsDetails'));
 const Portfolio = lazy(() => import('./pages/Portfolio'));
 const PortfolioDetails = lazy(() => import('./pages/PortfolioDetails'));
-
-// Force content re-render on route change with key prop
-function ContentRefresher() {
-  const { pathname } = useLocation();
-  const [refreshKey, setRefreshKey] = React.useState(0);
-  const isFirstRender = useRef(true);
-
-  useEffect(() => {
-    // Skip on first render
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
-    }
-
-    // Scroll to top instantly
-    window.scrollTo(0, 0);
-    
-    // Force re-render of content
-    setRefreshKey(prev => prev + 1);
-  }, [pathname]);
-
-  return refreshKey;
-}
 
 // Wrapper to force remount PortfolioDetails on :id change
 function PortfolioDetailsWithRemount() {
@@ -64,15 +41,12 @@ function LoadingFallback() {
 function AppContent() {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
-  const refreshKey = ContentRefresher();
 
   return (
     <>
-      {/* Navbar stays mounted - never refreshes */}
       <Navbar />
       
-      {/* Content area with key - forces remount on navigation */}
-      <div key={refreshKey} className={isHomePage ? '' : 'min-h-screen'}>
+      <div className={isHomePage ? '' : 'min-h-screen'}>
         <Routes>
           <Route path="/" element={<Home />} />
           

@@ -22,6 +22,7 @@ export default function PortfolioDetails() {
   const desktopGalleryRef = useRef<HTMLDivElement>(null);
   const sidebarRef = useRef<HTMLDivElement>(null);
   const imageRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const [hasInteracted, setHasInteracted] = useState(false);
 
   // Early return if no project
   if (!project) {
@@ -43,9 +44,18 @@ export default function PortfolioDetails() {
 
   // Touch gestures for lightbox - swipe to navigate & close
   const lightboxGestures = useTouchGestures({
-    onSwipeLeft: goToNext,
-    onSwipeRight: goToPrevious,
-    onSwipeDown: closeLightbox,
+    onSwipeLeft: () => {
+      setHasInteracted(true); // ← ADD THIS
+      goToNext();
+    },
+    onSwipeRight: () => {
+      setHasInteracted(true); // ← ADD THIS
+      goToPrevious();
+    },
+    onSwipeDown: () => {
+      setHasInteracted(true); // ← ADD THIS
+      closeLightbox();
+    },
     threshold: 60,
     enabled: isLightboxOpen,
   });
@@ -161,6 +171,7 @@ export default function PortfolioDetails() {
     setIsExpanded(false);
     setPageVisible(false);
     setActiveImageIndex(0);
+    setHasInteracted(false);
 
     if (isLightboxOpen) {
       closeLightbox();
@@ -450,11 +461,13 @@ export default function PortfolioDetails() {
           </div>
 
           {/* Swipe hint - only show on mobile, fades out after first interaction */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-[103] md:hidden">
-            <div className="text-white/40 text-xs text-center animate-pulse">
-              Swipe to navigate • Swipe down to close
+          {!hasInteracted && (
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-[103] md:hidden">
+              <div className="text-white/40 text-xs text-center animate-pulse">
+                Swipe to navigate • Swipe down to close
+              </div>
             </div>
-          </div>
+          )}
 
           <div
             className="absolute inset-0 z-[101] flex items-center justify-center px-12 py-16"
@@ -472,6 +485,7 @@ export default function PortfolioDetails() {
           <button
             onClick={(e) => {
               e.stopPropagation();
+              setHasInteracted(true);
               goToPrevious();
             }}
             className="absolute left-6 top-1/2 -translate-y-1/2 text-white/80 hover:text-white transition-colors z-[102]"

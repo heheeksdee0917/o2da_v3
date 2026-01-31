@@ -501,7 +501,7 @@ export const newsItems: NewsItem[] = [
     title: "Introvert House / O2 Design Atelier + Choo Poo Liang Architect",
     date: "2020",
     excerpt: "This renovation of a two-storey terrace house in Kuala Lumpur adapts a standard 22 ft x 75 ft layout for a Chinese family of five plus helper, adding bedrooms for grown children and improving interior quality through thoughtful spatial adjustments.",
-    image: '/Gallery/Residential/IntrovertHouse/CP.avif', 
+    image: '/Gallery/Residential/IntrovertHouse/CP1.avif', 
     slug: "introvert-house-o2-design-atelier",
     content: [
       {
@@ -699,7 +699,7 @@ export const newsItems: NewsItem[] = [
     title: "UNO Retail Shop & KFC Drive-Thru",
     date: "",
     excerpt: "UNO Retail Shop & KFC Drive-Thru (associated with the Genkan House listing) features innovative retail design by O2 Design Atelier, likely incorporating the distinctive retro-modern elements seen in related projects such as full-height glass façades, curved forms, and elevated aesthetics to create engaging commercial spaces (details limited in available sources).",
-    image: '/Gallery/Commercial/KFCBukitRaja/A12.avif', 
+    image: '/Gallery/Commercial/KFCBukitRaja/CP.avif', 
     slug: "uno-retail-shop-kfc-drive-thru",
     content: [
       {
