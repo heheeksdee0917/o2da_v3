@@ -8,13 +8,50 @@ export default function HeroSection() {
   const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [videoReady, setVideoReady] = useState(false);
+  const [imagesCanLoad, setImagesCanLoad] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const handleSectionClick = (slug: string) => {
     navigate(`/portfolio/${slug}`);
   };
 
+  // PHASE 1: Load video immediately on mount
+  useEffect(() => {
+    const videoSection = heroSections.find(s => s.img.endsWith('.mp4'));
+    if (!videoSection) {
+      // No video found, allow images to load immediately
+      setImagesCanLoad(true);
+      return;
+    }
+
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Video can play through smoothly - hide thumbnail and allow images to load
+    const handleCanPlayThrough = () => {
+      setVideoReady(true);
+      setImagesCanLoad(true);
+    };
+
+    // Fallback: If video takes too long, allow images after 3 seconds
+    const fallbackTimer = setTimeout(() => {
+      if (!imagesCanLoad) {
+        setImagesCanLoad(true);
+      }
+    }, 3000);
+
+    video.addEventListener('canplaythrough', handleCanPlayThrough);
+
+    return () => {
+      video.removeEventListener('canplaythrough', handleCanPlayThrough);
+      clearTimeout(fallbackTimer);
+    };
+  }, []);
+
+  // Scroll handling
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
@@ -25,7 +62,6 @@ export default function HeroSection() {
       const progress = (scrollTop / scrollHeight) * 100;
       setScrollProgress(progress);
 
-      // Detect active section
       sectionRefs.current.forEach((section, index) => {
         if (section) {
           const rect = section.getBoundingClientRect();
@@ -67,6 +103,16 @@ export default function HeroSection() {
 
   return (
     <>
+      {/* Preload video with highest priority */}
+      {heroSections.find(s => s.img.endsWith('.mp4')) && (
+        <link 
+          rel="preload" 
+          as="video" 
+          href={heroSections.find(s => s.img.endsWith('.mp4'))!.img}
+          type="video/mp4"
+        />
+      )}
+
       {/* Section Navigation Indicators */}
       <div className="fixed right-8 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-3">
         {heroSections.map((_, index) => (
@@ -75,10 +121,11 @@ export default function HeroSection() {
             onClick={() => {
               sectionRefs.current[index]?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${activeSection === index
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              activeSection === index
                 ? 'bg-white h-8'
                 : 'bg-white/30 hover:bg-white/60'
-              }`}
+            }`}
             aria-label={`Go to section ${index + 1}`}
           />
         ))}
@@ -89,8 +136,6 @@ export default function HeroSection() {
         className="h-screen overflow-y-scroll scroll-smooth"
       >
         {heroSections.map((section, index) => {
-          // First 3 sections load immediately (priority), rest lazy load
-          const isPriority = index < 3;
           const isVideo = section.img.endsWith('.mp4');
           const isLastSection = index === heroSections.length - 1;
 
@@ -103,32 +148,49 @@ export default function HeroSection() {
                 style={{ zIndex: section.zIndex }}
                 onClick={() => handleSectionClick(section.slug)}
               >
-                {/* Background - with LazyImage for images, native for videos */}
                 <div className="absolute inset-0 w-full h-full">
                   {isVideo ? (
-                    // Videos always load (can't lazy load videos easily)
                     <>
+                      {/* PHASE 1: Thumbnail shows first (instant) */}
+                      {section.thumbnail && (
+                        <img
+                          src={section.thumbnail}
+                          alt={section.title}
+                          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+                            videoReady ? 'opacity-0' : 'opacity-100'
+                          }`}
+                        />
+                      )}
+                      
+                      {/* PHASE 2: Video loads and replaces thumbnail when ready */}
                       <video
+                        ref={videoRef}
                         src={section.img}
-                        poster={section.thumbnail}
                         autoPlay
                         loop
                         muted
                         playsInline
-                        className="w-full h-full object-cover"
+                        preload="auto"
+                        className={`w-full h-full object-cover transition-opacity duration-500 ${
+                          videoReady ? 'opacity-100' : 'opacity-0'
+                        }`}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                     </>
                   ) : (
-                    // Images use LazyImage component
                     <>
-                      <LazyImage
-                        src={section.img}
-                        alt={section.title}
-                        className="w-full h-full"
-                        priority={isPriority}
-                        loading={isPriority ? 'eager' : 'lazy'}
-                      />
+                      {/* PHASE 3: Images load only after video is ready */}
+                      {imagesCanLoad ? (
+                        <LazyImage
+                          src={section.img}
+                          alt={section.title}
+                          className="w-full h-full"
+                          priority={false}
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-black" />
+                      )}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                     </>
                   )}
@@ -156,20 +218,17 @@ export default function HeroSection() {
       </div>
 
       <style>{`
-        /* Text animation when section becomes visible */
         .hero-section.section-visible .hero-title,
         .hero-section.section-visible .hero-location {
           opacity: 1;
           transform: translateY(0);
         }
 
-        /* Hide scrollbar but keep functionality */
         .overflow-y-scroll::-webkit-scrollbar {
           width: 0px;
           background: transparent;
         }
 
-        /* Reduced motion support for accessibility */
         @media (prefers-reduced-motion: reduce) {
           .hero-title,
           .hero-location {
