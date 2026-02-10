@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import React from 'react';
 
 export default function Awards() {
-  const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
+  const [visibleYears, setVisibleYears] = useState<Set<string>>(new Set());
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   // Separate awards and competitions
@@ -32,15 +32,15 @@ export default function Awards() {
   const awardYears = Object.keys(awardsByYear).map(Number).sort((a, b) => b - a);
   const competitionYears = Object.keys(competitionsByYear).map(Number).sort((a, b) => b - a);
 
-  // Intersection Observer for scroll animations
+  // Intersection Observer for scroll animations - observe year sections
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('data-award-id');
-            if (id) {
-              setVisibleItems((prev) => new Set([...prev, parseInt(id)]));
+            const yearId = entry.target.getAttribute('data-year-section');
+            if (yearId) {
+              setVisibleYears((prev) => new Set([...prev, yearId]));
             }
           }
         });
@@ -51,8 +51,8 @@ export default function Awards() {
       }
     );
 
-    // Observe all award items
-    const elements = document.querySelectorAll('[data-award-id]');
+    // Observe all year sections
+    const elements = document.querySelectorAll('[data-year-section]');
     elements.forEach((el) => observerRef.current?.observe(el));
 
     return () => {
@@ -66,7 +66,7 @@ export default function Awards() {
     <div className="page-fade-in">
       <div data-theme="light" className="bg-white min-h-screen">
         <div className="max-w-[1200px] mx-auto px-12 pt-32 pb-32">
-          
+
           {/* Header */}
           <div className="mb-24 text-center">
             <h1 className="text-5xl font-light tracking-wide text-black/90 mb-4">Recognition</h1>
@@ -81,13 +81,19 @@ export default function Awards() {
               {/* Awards Category Header */}
               <div className="mb-16">
                 <h2 className="text-3xl font-light text-black/70 mb-2">Awards</h2>
-                <div className="h-px bg-black/10"></div>
               </div>
 
               {/* Awards by Year */}
               <div className="space-y-20">
                 {awardYears.map((year) => (
-                  <div key={`award-${year}`}>
+                  <div
+                    key={`award-${year}`}
+                    data-year-section={`award-${year}`}
+                    className={`transition-all duration-700 ${visibleYears.has(`award-${year}`)
+                      ? 'opacity-100 translate-y-0'
+                      : 'opacity-0 translate-y-8'
+                      }`}
+                  >
                     {/* Year Divider */}
                     <div className="flex items-center gap-8 mb-12">
                       <div className="text-6xl font-light text-black/20">{year}</div>
@@ -100,21 +106,18 @@ export default function Awards() {
                         <Link
                           key={award.id}
                           to={award.slug ? `/portfolio/${award.slug}` : '#'}
-                          data-award-id={award.id}
-                          className={`group block transition-all duration-700 ${
-                            visibleItems.has(award.id)
-                              ? 'opacity-100 translate-y-0'
-                              : 'opacity-0 translate-y-8'
-                          } ${!award.slug ? 'pointer-events-none' : ''}`}
+                          className={`group block ${!award.slug ? 'pointer-events-none' : ''}`}
                         >
                           <div className="flex items-start justify-between gap-8 py-6 border-b border-black/5 hover:border-black/20 transition-all duration-300">
                             {/* Left: Award Name & Project */}
                             <div className="flex-1 min-w-0">
-                              <h3 className="text-xl font-light text-black mb-2 group-hover:text-black/60 transition-colors">
+                              <h3 className="text-xl font-light text-black mb-2">
                                 {award.competition}
                               </h3>
-                              <p className="text-sm font-light text-black/40 uppercase tracking-widest">
-                                {award.project}
+                              <p className="text-sm font-light uppercase tracking-widest text-black/50">
+                                <span className="px-2 py-1 group-hover:bg-lime-400/30 group-hover:text-black transition-all">
+                                  {award.project}
+                                </span>
                               </p>
                             </div>
 
@@ -140,13 +143,19 @@ export default function Awards() {
               {/* Competitions Category Header */}
               <div className="mb-16">
                 <h2 className="text-3xl font-light text-black/70 mb-2">Competitions</h2>
-                <div className="h-px bg-black/10"></div>
               </div>
 
               {/* Competitions by Year */}
               <div className="space-y-20">
                 {competitionYears.map((year) => (
-                  <div key={`competition-${year}`}>
+                  <div
+                    key={`competition-${year}`}
+                    data-year-section={`competition-${year}`}
+                    className={`transition-all duration-700 ${visibleYears.has(`competition-${year}`)
+                      ? 'opacity-100 translate-y-0'
+                      : 'opacity-0 translate-y-8'
+                      }`}
+                  >
                     {/* Year Divider */}
                     <div className="flex items-center gap-8 mb-12">
                       <div className="text-6xl font-light text-black/20">{year}</div>
@@ -159,21 +168,18 @@ export default function Awards() {
                         <Link
                           key={competition.id}
                           to={competition.slug ? `/portfolio/${competition.slug}` : '#'}
-                          data-award-id={competition.id}
-                          className={`group block transition-all duration-700 ${
-                            visibleItems.has(competition.id)
-                              ? 'opacity-100 translate-y-0'
-                              : 'opacity-0 translate-y-8'
-                          } ${!competition.slug ? 'pointer-events-none' : ''}`}
+                          className={`group block ${!competition.slug ? 'pointer-events-none' : ''}`}
                         >
                           <div className="flex items-start justify-between gap-8 py-6 border-b border-black/5 hover:border-black/20 transition-all duration-300">
                             {/* Left: Competition Name & Project */}
                             <div className="flex-1 min-w-0">
-                              <h3 className="text-xl font-light text-black mb-2 group-hover:text-black/60 transition-colors">
+                              <h3 className="text-xl font-light text-black mb-2">
                                 {competition.competition}
                               </h3>
-                              <p className="text-sm font-light text-black/40 uppercase tracking-widest">
-                                {competition.project}
+                              <p className="text-sm font-light uppercase tracking-widest text-black/50">
+                                <span className="px-2 py-1 group-hover:bg-lime-400/30 group-hover:text-black transition-all">
+                                  {competition.project}
+                                </span>
                               </p>
                             </div>
 

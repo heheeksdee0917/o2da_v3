@@ -225,8 +225,8 @@ export default function PortfolioDetails() {
                   src={image}
                   alt={`${project.title} ${index + 1}`}
                   className="w-full h-full object-contain transition-opacity group-hover:opacity-90"
-                  priority={index < 3}
-                  loading={index < 3 ? "eager" : "lazy"}
+                  priority={index < 6}
+                  loading={index < 6 ? "eager" : "lazy"}
                 />
               </button>
             ))}
