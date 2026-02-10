@@ -586,10 +586,10 @@ export const newsItems: NewsItem[] = [
   },
   {
     id: 26,
-    title: "About 02 Design Atelier (02DA)",
+    title: "About O2 Design Atelier (O2DA)",
     date: "",
     excerpt: "02 Design Atelier (02DA), founded by Malaysian architect Ar. Edric Choo Poo Liang, is a Selangor-based firm emphasizing context-responsive design, local culture, social behaviors, and climate considerations through meticulous processes across master planning, architecture, interiors, landscape, and furniture.",
-    image: '', 
+    image: '/Publications/archify_o2.avif', 
     slug: "about-02-design-atelier",
     content: [
       {
@@ -611,7 +611,7 @@ export const newsItems: NewsItem[] = [
     title: "O2 design atelier",
     date: "",
     excerpt: "O2 Design Atelier (O2DA), founded by Malaysian architect Edric Choo Poo Liang, is a Kuala Lumpur-based firm that follows a creative industries model, delivering integrated designs across master planning, architecture, interiors, landscape, and furniture, with a focus on context-responsive solutions that address local culture, social behavior, climate change, and site-specific requirements through meticulous processes.",
-    image: '', 
+    image: '/Publications/archello_o2.avif', 
     slug: "o2-design-atelier-profile",
     content: [
       {

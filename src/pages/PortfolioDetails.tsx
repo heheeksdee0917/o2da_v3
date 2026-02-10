@@ -358,9 +358,10 @@ export default function PortfolioDetails() {
                           </h2>
                         )}
                         {block.content && (
-                          <p className="text-sm md:text-base leading-relaxed text-neutral-700">
-                            {renderContent()}
-                          </p>
+                          <p
+                            className="text-sm md:text-base leading-relaxed text-neutral-700"
+                            dangerouslySetInnerHTML={{ __html: renderContent() as string }}
+                          />
                         )}
                       </div>
                     );

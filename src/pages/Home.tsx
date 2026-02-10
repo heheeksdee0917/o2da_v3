@@ -110,6 +110,7 @@ export default function HeroSection() {
                     <>
                       <video
                         src={section.img}
+                        poster={section.thumbnail}
                         autoPlay
                         loop
                         muted

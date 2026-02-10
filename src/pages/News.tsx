@@ -2,19 +2,19 @@ import { Link } from 'react-router-dom';
 import { newsItems } from '../data/news';
 import LazyImage from '../components/LazyImage';
 import React, { useState, useEffect, useRef } from 'react';
-import { useInfiniteScroll } from '../components/ScrollLoad'; // ← Add this import
+import { useInfiniteScroll } from '../components/ScrollLoad';
 
 // Sort news items by date (newest to oldest)
 const sortedNewsItems = [...newsItems].sort((a, b) => {
-  const dateA = a.date ? new Date(a.date) : new Date(0); // Fallback to very old date if empty
+  const dateA = a.date ? new Date(a.date) : new Date(0);
   const dateB = b.date ? new Date(b.date) : new Date(0);
-  return dateB.getTime() - dateA.getTime(); // descending (newest first)
+  return dateB.getTime() - dateA.getTime();
 });
 
 export default function News() {
   const [fadeIn, setFadeIn] = useState(false);
-  const [visibleSections, setVisibleSections] = useState<Record<string, boolean>>({});
-  const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
+  const [headerVisible, setHeaderVisible] = useState(false);
+  const headerRef = useRef<HTMLDivElement | null>(null);
 
   // Use sorted items for infinite scroll
   const {
@@ -23,10 +23,10 @@ export default function News() {
     hasMore,
     observerTarget,
   } = useInfiniteScroll({
-    items: sortedNewsItems, // ← Use the sorted version
-    initialLoad: 9,         // Load 9 items initially (3 rows of 3 on desktop)
-    loadMoreCount: 6,       // Load 6 more items when scrolling
-    enabled: true,          // Always enabled for news page
+    items: sortedNewsItems,
+    initialLoad: 6,        // Changed to 6 for consistency
+    loadMoreCount: 6,
+    enabled: true,
   });
 
   useEffect(() => {
@@ -36,35 +36,27 @@ export default function News() {
     return () => clearTimeout(timer);
   }, []);
 
+  // Only observe the header for fade-in animation
   useEffect(() => {
     const observerOptions = {
       threshold: 0.15,
-      rootMargin: '0px 0px -100px 0px'
+      rootMargin: '0px'
     };
 
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const sectionId = entry.target.getAttribute('data-section');
-          if (sectionId) {
-            setVisibleSections(prev => ({ ...prev, [sectionId]: true }));
-          }
+          setHeaderVisible(true);
         }
       });
-    };
+    }, observerOptions);
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    Object.values(sectionRefs.current).forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
+    if (headerRef.current) {
+      observer.observe(headerRef.current);
+    }
 
     return () => observer.disconnect();
   }, []);
-
-  const setRef = (id: string) => (el: HTMLElement | null) => {
-    sectionRefs.current[id] = el;
-  };
 
   // Format date
   const formatDate = (dateString: string) => {
@@ -84,10 +76,9 @@ export default function News() {
           
           {/* Header */}
           <div 
-            ref={setRef('header')}
-            data-section="header"
+            ref={headerRef}
             className={`mb-24 text-center transition-all duration-1000 ease-out ${
-              visibleSections.header ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+              headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
             }`}
           >
             <h1 className="text-4xl md:text-5xl font-light tracking-wide text-black/90 mb-4">News & Updates</h1>
@@ -96,18 +87,13 @@ export default function News() {
             </p>
           </div>
 
-          {/* News Grid */}
+          {/* News Grid - Removed staggered animation, items appear as they load */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {displayedNews.map((item, index) => (
               <Link
                 key={item.id}
                 to={`/news/${item.slug}`}
-                ref={index === 0 ? setRef('news') : undefined}
-                data-section={index === 0 ? 'news' : undefined}
-                className={`group block transition-all duration-1000 ease-out hover:scale-105 hover:-translate-y-2 ${
-                  visibleSections.news ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-                }`}
-                style={{ transitionDelay: `${index * 150}ms` }}
+                className="group block transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-2"
               >
                 {/* Card Container */}
                 <div className="bg-white border border-black/5 overflow-hidden transition-all duration-300 hover:border-black/20 hover:shadow-lg">
@@ -118,6 +104,8 @@ export default function News() {
                       src={item.image}
                       alt={item.title}
                       className="w-full h-full object-cover"
+                      batchLoad={true}
+                      batchIndex={index}
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                   </div>

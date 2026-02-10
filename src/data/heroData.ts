@@ -6,6 +6,7 @@ interface HeroSection {
   img: string;
   zIndex: number;
   vimeoId?: string;
+  thumbnail?: string;
 }
 
 export const heroSections: HeroSection[] = [
@@ -15,6 +16,7 @@ export const heroSections: HeroSection[] = [
     location: "Kuala Lumpur",
     slug: "tropical-shift-house",
     img: '/Gallery/Residential/TropicalShiftHouse/hero_video.mp4',
+    thumbnail: '/Gallery/Residential/TropicalShiftHouse/tropical_thumbnail.avif',
     zIndex: 10,
   },
   {

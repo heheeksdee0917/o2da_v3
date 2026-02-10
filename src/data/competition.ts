@@ -28,9 +28,9 @@ export const competitionProjects: Project[] = [
     ],
     detailContent: [
       { type: 'text', content: 'The site is located in a unique sub-rural area surrounded by highly developed urban area, massive administrative capital and main highways. The design takes clues from the surrounding sub-rural architecture language of vernacular utilitarian houses and business sheds, combining with modern planning and material to create a highly contextual and vibrant commercial space for the local people.' },
-      { type: 'text', content: 'Commercial Concept \n• Rethink conventional retail space\n• Semi-outdoor sellable retail floor\n• Diversify types of retail spaces\n• Double frontage for maximum customer permeability\n• Increase the legibility of all shopfronts from main road\n• Carpark positioned to the rear to free up development frontage\n• DRIVE-IN & DRIVE-THRU concepts' },
-      { type: 'text', content: 'Sustainability Concept\n• Organic Form/Plan with a Big Roof Shelter\n• Cross Natural Ventilation\n• Natural Lighting\n• Robust recycled Local Materials\n• Low-E Glass, Solar Energy & Rainwater Harvesting' },
-      { type: 'text', content: 'Architecture Concept\n• Rustic durable & Recycled material + Glass & Steel\n• Elevates the retail environment\n• Multiple small blocks design break away the homogeneity of conventional Shop lot Design' },
+      { type: 'text', content: 'Commercial Concept <br />• Rethink conventional retail space<br />• Semi-outdoor sellable retail floor<br />• Diversify types of retail spaces<br />• Double frontage for maximum customer permeability<br />• Increase the legibility of all shopfronts from main road<br />• Carpark positioned to the rear to free up development frontage<br />• DRIVE-IN & DRIVE-THRU concepts' },
+      { type: 'text', content: 'Sustainability Concept<br />• Organic Form/Plan with a Big Roof Shelter<br />• Cross Natural Ventilation<br />• Natural Lighting<br />• Robust recycled Local Materials<br />• Low-E Glass, Solar Energy & Rainwater Harvesting' },
+      { type: 'text', content: 'Architecture Concept<br />• Rustic durable & Recycled material + Glass & Steel<br />• Elevates the retail environment<br />• Multiple small blocks design break away the homogeneity of conventional Shop lot Design' },
     ],
   },
   // 2. Kenya’s Orphanage

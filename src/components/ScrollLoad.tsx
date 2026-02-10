@@ -18,7 +18,7 @@ interface UseInfiniteScrollReturn<T> {
 
 export function useInfiniteScroll<T>({
   items,
-  initialLoad = 12,
+  initialLoad = 6,
   loadMoreCount = 6,
   enabled = true,
 }: UseInfiniteScrollOptions<T>): UseInfiniteScrollReturn<T> {

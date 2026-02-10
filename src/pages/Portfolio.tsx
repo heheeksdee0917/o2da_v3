@@ -33,7 +33,7 @@ export default function Portfolio() {
     observerTarget,
   } = useInfiniteScroll({
     items: filteredProjects,
-    initialLoad: 12,
+    initialLoad: 6,
     loadMoreCount: 6,
     enabled: filter !== 'All',
   });
