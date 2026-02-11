@@ -50,7 +50,7 @@ export const competitionProjects: Project[] = [
       '/Gallery/Competition/KenyaOrph/A4.avif',
       '/Gallery/Competition/KenyaOrph/Diagram1.avif',
       '/Gallery/Competition/KenyaOrph/Diagram2.avif',
-      '/Gallery/Competition/KenyaOrph/Diagram2.avif',
+      '/Gallery/Competition/KenyaOrph/Diagram3.avif',
     ],
     detailContent: [
       {

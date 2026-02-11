@@ -64,8 +64,6 @@ export const commercialProjects: Project[] = [
       '/Gallery/Commercial/SentulWorks/A10.avif',
       '/Gallery/Commercial/SentulWorks/A11.avif',
       '/Gallery/Commercial/SentulWorks/A12.avif',
-      '/Gallery/Commercial/SentulWorks/A13.avif',
-      '/Gallery/Commercial/SentulWorks/A14.avif',
     ],
     detailContent: [
       {

@@ -45,15 +45,15 @@ export default function PortfolioDetails() {
   // Touch gestures for lightbox - swipe to navigate & close
   const lightboxGestures = useTouchGestures({
     onSwipeLeft: () => {
-      setHasInteracted(true); // ← ADD THIS
+      setHasInteracted(true);
       goToNext();
     },
     onSwipeRight: () => {
-      setHasInteracted(true); // ← ADD THIS
+      setHasInteracted(true);
       goToPrevious();
     },
     onSwipeDown: () => {
-      setHasInteracted(true); // ← ADD THIS
+      setHasInteracted(true);
       closeLightbox();
     },
     threshold: 60,
@@ -232,24 +232,36 @@ export default function PortfolioDetails() {
             ))}
           </div>
 
-          {/* Desktop: Vertical scroll */}
+          {/* Desktop: Vertical scroll - NO EXTRA PADDING */}
           <div
             ref={desktopGalleryRef}
-            className="hidden md:block space-y-6 pb-6 overflow-y-auto overflow-x-hidden scrollbar-hide"
-            style={{ height: 'calc(100vh - 4rem)' }}
+            className="hidden md:block overflow-y-auto overflow-x-hidden scrollbar-hide"
+            style={{
+              height: 'calc(100vh - 4rem)',
+              padding: 0,
+              margin: 0,
+              WebkitOverflowScrolling: 'touch', // iOS smooth scrolling
+              scrollBehavior: 'auto', // Prevent smooth scroll animation
+              willChange: 'scroll-position' // Optimize for Edge
+            }}
           >
             {images.map((image, index) => (
               <button
                 key={`desktop-${index}-${imageKey}`}
                 ref={(el) => (imageRefs.current[index] = el)}
                 onClick={() => openLightbox(index)}
-                className="relative w-full bg-white overflow-hidden cursor-pointer group block"
+                className={`relative w-full bg-white overflow-hidden cursor-pointer group block ${index < images.length - 1 ? 'mb-6' : ''
+                  }`}
+                style={{ padding: 0, margin: index < images.length - 1 ? '0 0 1.5rem 0' : '0', lineHeight: 0 }}
                 aria-label={`View image ${index + 1} in lightbox`}
               >
                 <LazyImage
                   src={image}
                   alt={`${project.title} ${index + 1}`}
-                  className="w-full h-auto object-cover transition-opacity group-hover:opacity-90"
+                  className="w-full block"
+                  imgClassName="w-full h-auto block"
+                  imgStyle={{ display: 'block', margin: 0, padding: 0 }}
+                  style={{ lineHeight: 0, margin: 0, padding: 0 }}
                   priority={index < 3}
                   loading={index < 3 ? "eager" : "lazy"}
                 />
@@ -293,63 +305,6 @@ export default function PortfolioDetails() {
               >
                 {project.detailContent?.map((block, index) => {
                   if (block.type === 'text') {
-                    const renderContent = () => {
-                      if (!block.content) return null;
-
-                      const contentText = Array.isArray(block.content)
-                        ? block.content.join(' ')
-                        : block.content;
-
-                      // If there are multiple inline links
-                      if (block.inlineLinks && block.inlineLinks.length > 0) {
-                        const parts: (string | JSX.Element)[] = [];
-                        let remainingText = contentText;
-
-                        block.inlineLinks.forEach((link, linkIndex) => {
-                          const linkPosition = remainingText.indexOf(link.text);
-                          if (linkPosition !== -1) {
-                            // Add text before the link
-                            if (linkPosition > 0) {
-                              parts.push(remainingText.substring(0, linkPosition));
-                            }
-                            // Add the link
-                            parts.push(
-                              <a
-                                key={linkIndex}
-                                href={link.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="underline hover:text-black/70 transition-colors"
-                              >
-                                {link.text}
-                              </a>
-                            );
-                            // Update remaining text
-                            remainingText = remainingText.substring(linkPosition + link.text.length);
-                          }
-                        });
-
-                        // Add any remaining text
-                        if (remainingText) {
-                          parts.push(remainingText);
-                        }
-
-                        return <>{parts}</>;
-                      }
-
-                      // No inline links - render normally
-                      return Array.isArray(block.content) ? (
-                        block.content.map((line, i) => (
-                          <React.Fragment key={i}>
-                            {line}
-                            {i < (block.content as string[]).length - 1 && <br />}
-                          </React.Fragment>
-                        ))
-                      ) : (
-                        block.content
-                      );
-                    };
-
                     return (
                       <div key={index} className="mb-6">
                         {block.heading && (
@@ -358,10 +313,64 @@ export default function PortfolioDetails() {
                           </h2>
                         )}
                         {block.content && (
-                          <p
-                            className="text-sm md:text-base leading-relaxed text-neutral-700"
-                            dangerouslySetInnerHTML={{ __html: renderContent() as string }}
-                          />
+                          <p className="text-sm md:text-base leading-relaxed text-neutral-700">
+                            {(() => {
+                              if (!block.content) return null;
+
+                              const contentText = Array.isArray(block.content)
+                                ? block.content.join(' ')
+                                : block.content;
+
+                              // If there are inline links
+                              if (block.inlineLinks && block.inlineLinks.length > 0) {
+                                const parts: (string | JSX.Element)[] = [];
+                                let remainingText = contentText;
+
+                                block.inlineLinks.forEach((link, linkIndex) => {
+                                  const linkPosition = remainingText.indexOf(link.text);
+                                  if (linkPosition !== -1) {
+                                    // Add text before the link
+                                    if (linkPosition > 0) {
+                                      parts.push(remainingText.substring(0, linkPosition));
+                                    }
+                                    // Add the link
+                                    parts.push(
+                                      <a
+                                        key={linkIndex}
+                                        href={link.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="underline hover:text-black/70 transition-colors"
+                                      >
+                                        {link.text}
+                                      </a>
+                                    );
+                                    // Update remaining text
+                                    remainingText = remainingText.substring(linkPosition + link.text.length);
+                                  }
+                                });
+
+                                // Add any remaining text
+                                if (remainingText) {
+                                  parts.push(remainingText);
+                                }
+
+                                return <>{parts}</>;
+                              }
+
+                              // No inline links - render normally
+                              return Array.isArray(block.content) ? (
+                                block.content.map((line, i) => (
+                                  <React.Fragment key={i}>
+                                    {line}
+                                    {i < (block.content as string[]).length - 1 && <br />}
+                                  </React.Fragment>
+                                ))
+                              ) : (
+                                block.content
+                              );
+                            })()}
+                          </p>
                         )}
                       </div>
                     );
