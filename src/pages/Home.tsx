@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom';
 import { heroSections } from '../data/heroData';
 import Footer from '../components/Footer';
 import React, { useState, useEffect, useRef } from 'react';
-import LazyImage from '../components/LazyImage';
 
 export default function HeroSection() {
   const navigate = useNavigate();
@@ -18,36 +17,26 @@ export default function HeroSection() {
     navigate(`/portfolio/${slug}`);
   };
 
-  // PHASE 1: Load video immediately on mount
+  // Load video and images together on mount
   useEffect(() => {
+    // Always allow images to load immediately
+    setImagesCanLoad(true);
+
     const videoSection = heroSections.find(s => s.img.endsWith('.mp4'));
-    if (!videoSection) {
-      // No video found, allow images to load immediately
-      setImagesCanLoad(true);
-      return;
-    }
+    if (!videoSection) return;
 
     const video = videoRef.current;
     if (!video) return;
 
-    // Video can play through smoothly - hide thumbnail and allow images to load
+    // Video can play through smoothly - hide thumbnail
     const handleCanPlayThrough = () => {
       setVideoReady(true);
-      setImagesCanLoad(true);
     };
-
-    // Fallback: If video takes too long, allow images after 3 seconds
-    const fallbackTimer = setTimeout(() => {
-      if (!imagesCanLoad) {
-        setImagesCanLoad(true);
-      }
-    }, 3000);
 
     video.addEventListener('canplaythrough', handleCanPlayThrough);
 
     return () => {
       video.removeEventListener('canplaythrough', handleCanPlayThrough);
-      clearTimeout(fallbackTimer);
     };
   }, []);
 
@@ -105,9 +94,9 @@ export default function HeroSection() {
     <>
       {/* Preload video with highest priority */}
       {heroSections.find(s => s.img.endsWith('.mp4')) && (
-        <link 
-          rel="preload" 
-          as="video" 
+        <link
+          rel="preload"
+          as="video"
           href={heroSections.find(s => s.img.endsWith('.mp4'))!.img}
           type="video/mp4"
         />
@@ -121,11 +110,10 @@ export default function HeroSection() {
             onClick={() => {
               sectionRefs.current[index]?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              activeSection === index
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${activeSection === index
                 ? 'bg-white h-8'
                 : 'bg-white/30 hover:bg-white/60'
-            }`}
+              }`}
             aria-label={`Go to section ${index + 1}`}
           />
         ))}
@@ -133,7 +121,7 @@ export default function HeroSection() {
 
       <div
         ref={containerRef}
-        className="h-screen overflow-y-scroll scroll-smooth"
+        className="h-screen overflow-y-scroll scrollbar-hide smooth-scroll"
       >
         {heroSections.map((section, index) => {
           const isVideo = section.img.endsWith('.mp4');
@@ -151,18 +139,17 @@ export default function HeroSection() {
                 <div className="absolute inset-0 w-full h-full">
                   {isVideo ? (
                     <>
-                      {/* PHASE 1: Thumbnail shows first (instant) */}
+                      {/* Thumbnail shows first (instant) */}
                       {section.thumbnail && (
                         <img
                           src={section.thumbnail}
                           alt={section.title}
-                          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-                            videoReady ? 'opacity-0' : 'opacity-100'
-                          }`}
+                          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${videoReady ? 'opacity-0' : 'opacity-100'
+                            }`}
                         />
                       )}
-                      
-                      {/* PHASE 2: Video loads and replaces thumbnail when ready */}
+
+                      {/* Video loads and replaces thumbnail when ready */}
                       <video
                         ref={videoRef}
                         src={section.img}
@@ -171,25 +158,20 @@ export default function HeroSection() {
                         muted
                         playsInline
                         preload="auto"
-                        className={`w-full h-full object-cover transition-opacity duration-500 ${
-                          videoReady ? 'opacity-100' : 'opacity-0'
-                        }`}
+                        className={`w-full h-full object-cover transition-opacity duration-500 ${videoReady ? 'opacity-100' : 'opacity-0'
+                          }`}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                     </>
                   ) : (
                     <>
-                      {/* PHASE 3: Images load only after video is ready */}
-                      {imagesCanLoad ? (
-                        <LazyImage
+                      {/* Images load immediately (no lazy loading) */}
+                      {imagesCanLoad && (
+                        <img
                           src={section.img}
                           alt={section.title}
-                          className="w-full h-full"
-                          priority={false}
-                          loading="lazy"
+                          className="w-full h-full object-cover"
                         />
-                      ) : (
-                        <div className="w-full h-full bg-black" />
                       )}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                     </>
@@ -222,11 +204,6 @@ export default function HeroSection() {
         .hero-section.section-visible .hero-location {
           opacity: 1;
           transform: translateY(0);
-        }
-
-        .overflow-y-scroll::-webkit-scrollbar {
-          width: 0px;
-          background: transparent;
         }
 
         @media (prefers-reduced-motion: reduce) {

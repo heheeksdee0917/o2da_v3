@@ -14,6 +14,7 @@ const sortedNewsItems = [...newsItems].sort((a, b) => {
 export default function News() {
   const [fadeIn, setFadeIn] = useState(false);
   const [headerVisible, setHeaderVisible] = useState(false);
+  const [loadedCards, setLoadedCards] = useState<Set<number>>(new Set());
   const headerRef = useRef<HTMLDivElement | null>(null);
 
   // Use sorted items for infinite scroll
@@ -24,7 +25,7 @@ export default function News() {
     observerTarget,
   } = useInfiniteScroll({
     items: sortedNewsItems,
-    initialLoad: 6,        // Changed to 6 for consistency
+    initialLoad: 6,
     loadMoreCount: 6,
     enabled: true,
   });
@@ -58,6 +59,11 @@ export default function News() {
     return () => observer.disconnect();
   }, []);
 
+  // Handle image load completion
+  const handleImageLoad = (index: number) => {
+    setLoadedCards(prev => new Set(prev).add(index));
+  };
+
   // Format date
   const formatDate = (dateString: string) => {
     if (!dateString) return 'Date not available';
@@ -87,51 +93,61 @@ export default function News() {
             </p>
           </div>
 
-          {/* News Grid - Removed staggered animation, items appear as they load */}
+          {/* News Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {displayedNews.map((item, index) => (
-              <Link
-                key={item.id}
-                to={`/news/${item.slug}`}
-                className="group block transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-2"
-              >
-                {/* Card Container */}
-                <div className="bg-white border border-black/5 overflow-hidden transition-all duration-300 hover:border-black/20 hover:shadow-lg">
-                  
-                  {/* Image */}
-                  <div className="relative overflow-hidden aspect-[16/10] bg-neutral-100">
-                    <LazyImage
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-full object-cover"
-                      batchLoad={true}
-                      batchIndex={index}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-6">
-                    {/* Category & Date */}
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="text-xs font-light text-black/40">
-                        {formatDate(item.date)}
-                      </span>
+            {displayedNews.map((item, index) => {
+              const isCardLoaded = loadedCards.has(index);
+              
+              return (
+                <Link
+                  key={item.id}
+                  to={`/news/${item.slug}`}
+                  className="group block"
+                >
+                  {/* Card - fades in when image loads */}
+                  <div 
+                    className={`bg-white border border-black/5 overflow-hidden transition-all duration-500 ${
+                      isCardLoaded 
+                        ? 'opacity-100 scale-100 hover:scale-105 hover:-translate-y-2 hover:border-black/20 hover:shadow-lg' 
+                        : 'opacity-0 scale-95'
+                    }`}
+                  >
+                    {/* Image - LazyImage handles loading animation internally */}
+                    <div className="relative overflow-hidden aspect-[16/10] bg-neutral-100">
+                      <LazyImage
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-full"
+                        batchLoad={true}
+                        batchIndex={index}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        onLoad={() => handleImageLoad(index)}
+                      />
                     </div>
 
-                    {/* Title */}
-                    <h2 className="text-xl font-light mb-3 relative inline-block">
-                      {item.title}
-                    </h2>
+                    {/* Content */}
+                    <div className="p-6">
+                      {/* Category & Date */}
+                      <div className="flex items-center gap-3 mb-4">
+                        <span className="text-xs font-light text-black/40">
+                          {formatDate(item.date)}
+                        </span>
+                      </div>
 
-                    {/* Excerpt */}
-                    <p className="text-sm font-light text-black/60 leading-relaxed">
-                      {item.excerpt}
-                    </p>
+                      {/* Title */}
+                      <h2 className="text-xl font-light mb-3 relative inline-block">
+                        {item.title}
+                      </h2>
+
+                      {/* Excerpt */}
+                      <p className="text-sm font-light text-black/60 leading-relaxed">
+                        {item.excerpt}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Loading Indicator */}

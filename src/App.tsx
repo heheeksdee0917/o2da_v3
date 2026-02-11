@@ -46,7 +46,8 @@ function AppContent() {
     <>
       <Navbar />
       
-      <div className={isHomePage ? '' : 'min-h-screen'}>
+      {/* ✅ Added smooth-scroll here for all pages except Home */}
+      <div className={isHomePage ? '' : 'min-h-screen smooth-scroll'}>
         <Routes>
           <Route path="/" element={<Home />} />
           

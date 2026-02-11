@@ -16,6 +16,7 @@ interface LazyImageProps {
   batchIndex?: number;
   sizes?: string;
   loading?: 'lazy' | 'eager';
+  onLoad?: () => void;
 }
 
 export default function LazyImage({ 
@@ -31,10 +32,11 @@ export default function LazyImage({
   batchLoad = false,
   batchIndex = 0,
   sizes = '100vw',
-  loading
+  loading,
+  onLoad
 }: LazyImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isInView, setIsInView] = useState(priority);
+  const [isInView, setIsInView] = useState(false);
   const [shouldLoad, setShouldLoad] = useState(priority);
   const [hasError, setHasError] = useState(false);
   const [showBlur, setShowBlur] = useState(!!blurDataURL);
@@ -44,42 +46,24 @@ export default function LazyImage({
   // Generate a simple blur placeholder if none provided
   const defaultBlurDataURL = `data:image/svg+xml;base64,${btoa('<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="#f0f0f0"/></svg>')}`;
 
-  // IMPROVED: Staggered loading - don't wait for entire batch
+  // OPTIMIZATION 1: Intersection Observer - Load when near viewport
   useEffect(() => {
-    if (!batchLoad || priority) return;
-
-    // Load first 6 immediately
-    if (batchIndex < 6) {
+    if (priority) {
       setShouldLoad(true);
+      setIsInView(true);
       return;
     }
-
-    // For images 7+: stagger with small delays
-    // Every image gets 300ms delay from the previous one
-    const delay = batchIndex * 300;
-
-    const timer = setTimeout(() => {
-      setShouldLoad(true);
-    }, delay);
-
-    return () => clearTimeout(timer);
-  }, [batchLoad, batchIndex, priority]);
-
-  // Intersection Observer (fallback for non-batch images)
-  useEffect(() => {
-    if (priority || batchLoad) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsInView(true);
-          setShouldLoad(true);
           observer.disconnect();
         }
       },
       {
-        threshold: 0.1,
-        rootMargin: '100px'
+        threshold: 0.01,
+        rootMargin: '400px' // Start loading 400px before entering viewport
       }
     );
 
@@ -88,12 +72,61 @@ export default function LazyImage({
     }
 
     return () => observer.disconnect();
-  }, [priority, batchLoad]);
+  }, [priority]);
+
+  // OPTIMIZATION 2 & 3: Connection-Aware + Batch Limits
+  useEffect(() => {
+    if (!isInView || priority) return;
+    if (!batchLoad) {
+      setShouldLoad(true);
+      return;
+    }
+
+    // Detect connection speed
+    const connection = (navigator as any).connection || (navigator as any).mozConnection || (navigator as any).webkitConnection;
+    const isSlow = connection?.effectiveType === 'slow-2g' || connection?.effectiveType === '2g' || connection?.saveData;
+
+    // First 6 images: Always load immediately
+    if (batchIndex < 6) {
+      setShouldLoad(true);
+      return;
+    }
+
+    // Images 7+: Different strategies based on connection
+    if (isSlow) {
+      // SLOW CONNECTION: Conservative staggered loading
+      // Load in groups of 2 with 400ms delays
+      const groupIndex = Math.floor((batchIndex - 6) / 2);
+      const delay = groupIndex * 400;
+      
+      const timer = setTimeout(() => {
+        setShouldLoad(true);
+      }, delay);
+      
+      return () => clearTimeout(timer);
+    } else {
+      // FAST CONNECTION: Moderate batch loading
+      // Load in groups of 3 with 300ms delays
+      const groupIndex = Math.floor((batchIndex - 6) / 3);
+      const delay = groupIndex * 300;
+      
+      const timer = setTimeout(() => {
+        setShouldLoad(true);
+      }, delay);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [isInView, batchLoad, batchIndex, priority]);
 
   const handleLoad = () => {
     setIsLoaded(true);
     // Delay blur removal for smooth transition
     setTimeout(() => setShowBlur(false), 100);
+    
+    // Call parent's onLoad callback if provided
+    if (onLoad) {
+      onLoad();
+    }
   };
 
   const handleError = () => {
@@ -109,14 +142,13 @@ export default function LazyImage({
       style={style} 
       onClick={onClick}
     >
-      {/* Green pulsing circle loading state */}
+      {/* Bouncing dots loading state - before image starts loading */}
       {!shouldLoad && (
         <div className="absolute inset-0 flex items-center justify-center bg-white/80 backdrop-blur-sm">
-          <div className="relative flex items-center justify-center w-16 h-16">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-16 h-16 rounded-full bg-lime-400/20 animate-ping" />
-            </div>
-            <span className="relative z-10 text-xs font-medium text-neutral-600">Loading...</span>
+          <div className="flex space-x-2">
+            <div className="w-2 h-2 bg-black/40 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+            <div className="w-2 h-2 bg-black/40 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+            <div className="w-2 h-2 bg-black/40 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
           </div>
         </div>
       )}
@@ -149,14 +181,13 @@ export default function LazyImage({
         />
       )}
       
-      {/* Green pulsing circle for in-view images */}
+      {/* Bouncing dots for in-view images that are loading */}
       {shouldLoad && !isLoaded && !hasError && (
         <div className="absolute inset-0 flex items-center justify-center bg-white/80 backdrop-blur-sm">
-          <div className="relative flex items-center justify-center w-16 h-16">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-16 h-16 rounded-full bg-lime-400/20 animate-ping" />
-            </div>
-            <span className="relative z-10 text-xs font-medium text-neutral-600">Loading...</span>
+          <div className="flex space-x-2">
+            <div className="w-2 h-2 bg-black/40 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+            <div className="w-2 h-2 bg-black/40 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+            <div className="w-2 h-2 bg-black/40 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
           </div>
         </div>
       )}
