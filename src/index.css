@@ -184,41 +184,13 @@
     filter: brightness(0.94);
   }
 
-  /* Hide scrollbar for all browsers - Chrome, Safari, Opera */
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
 
-  /* Hide scrollbar for IE, Edge, and Firefox */
   .scrollbar-hide {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
-
-  /* Smooth scrolling optimizations for all browsers */
-  .smooth-scroll {
-    -webkit-overflow-scrolling: touch;  /* iOS momentum scrolling */
-    scroll-behavior: auto;  /* Disable CSS smooth scroll to prevent Edge blinking */
-    will-change: scroll-position;  /* Optimize scrolling performance */
-    transform: translateZ(0);  /* Force GPU acceleration */
-    backface-visibility: hidden;  /* Prevent flickering in Edge */
-  }
-
-  /* Edge-specific scroll optimization */
-  @supports (-ms-ime-align: auto) {
-    .scrollbar-hide {
-      overflow: -ms-autohiding-scrollbar;
-    }
-  }
-
-  /* Prevent Edge blinking during scroll */
-  @supports (-ms-accelerator: true) {
-    .scrollbar-hide {
-      -ms-scroll-chaining: none;
-      -ms-content-zooming: none;
-      -ms-scroll-rails: none;
-      -ms-overflow-style: -ms-autohiding-scrollbar;
-    }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 
   .animate-shimmer {

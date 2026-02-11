@@ -106,6 +106,22 @@ export default function PortfolioDetails() {
     }
   }, [project]);
 
+  // Prevent body scroll when lightbox is open
+  useEffect(() => {
+    if (isLightboxOpen) {
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    };
+  }, [isLightboxOpen]);
+
   // Track active image on scroll
   useEffect(() => {
     const mobileGallery = mobileGalleryRef.current;
@@ -211,7 +227,7 @@ export default function PortfolioDetails() {
           </div>
 
           {/* Mobile: Horizontal scroll */}
-          <div ref={mobileGalleryRef} className="md:hidden flex gap-4 h-full py-6 overflow-x-auto overflow-y-hidden snap-x snap-mandatory scrollbar-hide">
+          <div ref={mobileGalleryRef} className="md:hidden flex gap-4 h-full py-6 overflow-x-auto overflow-y-hidden snap-x snap-mandatory scrollbar-hide smooth-scroll">
             {images.map((image, index) => (
               <button
                 key={`mobile-${index}-${imageKey}`}
@@ -232,36 +248,24 @@ export default function PortfolioDetails() {
             ))}
           </div>
 
-          {/* Desktop: Vertical scroll - NO EXTRA PADDING */}
+          {/* Desktop: Vertical scroll */}
           <div
             ref={desktopGalleryRef}
-            className="hidden md:block overflow-y-auto overflow-x-hidden scrollbar-hide"
-            style={{
-              height: 'calc(100vh - 4rem)',
-              padding: 0,
-              margin: 0,
-              WebkitOverflowScrolling: 'touch', // iOS smooth scrolling
-              scrollBehavior: 'auto', // Prevent smooth scroll animation
-              willChange: 'scroll-position' // Optimize for Edge
-            }}
+            className="hidden md:block space-y-6 pb-6 overflow-y-auto overflow-x-hidden scrollbar-hide smooth-scroll"
+            style={{ height: 'calc(100vh - 4rem)' }}
           >
             {images.map((image, index) => (
               <button
                 key={`desktop-${index}-${imageKey}`}
                 ref={(el) => (imageRefs.current[index] = el)}
                 onClick={() => openLightbox(index)}
-                className={`relative w-full bg-white overflow-hidden cursor-pointer group block ${index < images.length - 1 ? 'mb-6' : ''
-                  }`}
-                style={{ padding: 0, margin: index < images.length - 1 ? '0 0 1.5rem 0' : '0', lineHeight: 0 }}
+                className="relative w-full bg-white overflow-hidden cursor-pointer group block"
                 aria-label={`View image ${index + 1} in lightbox`}
               >
                 <LazyImage
                   src={image}
                   alt={`${project.title} ${index + 1}`}
-                  className="w-full block"
-                  imgClassName="w-full h-auto block"
-                  imgStyle={{ display: 'block', margin: 0, padding: 0 }}
-                  style={{ lineHeight: 0, margin: 0, padding: 0 }}
+                  className="w-full h-auto object-cover transition-opacity group-hover:opacity-90"
                   priority={index < 3}
                   loading={index < 3 ? "eager" : "lazy"}
                 />
@@ -271,7 +275,7 @@ export default function PortfolioDetails() {
         </div>
 
         {/* Project Info */}
-        <div ref={sidebarRef} className="w-full md:w-[40%] md:h-full md:overflow-y-auto px-4 md:px-8 md:pt-24">
+        <div ref={sidebarRef} className="w-full md:w-[40%] md:h-full md:overflow-y-auto scrollbar-hide smooth-scroll px-4 md:px-8 md:pt-24">
           <div className="pb-12 pt-6 md:pb-6">
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-light mb-6 md:mb-8 uppercase">
               {project.title}
@@ -305,6 +309,63 @@ export default function PortfolioDetails() {
               >
                 {project.detailContent?.map((block, index) => {
                   if (block.type === 'text') {
+                    const renderContent = () => {
+                      if (!block.content) return null;
+
+                      const contentText = Array.isArray(block.content)
+                        ? block.content.join(' ')
+                        : block.content;
+
+                      // If there are multiple inline links
+                      if (block.inlineLinks && block.inlineLinks.length > 0) {
+                        const parts: (string | JSX.Element)[] = [];
+                        let remainingText = contentText;
+
+                        block.inlineLinks.forEach((link, linkIndex) => {
+                          const linkPosition = remainingText.indexOf(link.text);
+                          if (linkPosition !== -1) {
+                            // Add text before the link
+                            if (linkPosition > 0) {
+                              parts.push(remainingText.substring(0, linkPosition));
+                            }
+                            // Add the link
+                            parts.push(
+                              <a
+                                key={linkIndex}
+                                href={link.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="underline hover:text-black/70 transition-colors"
+                              >
+                                {link.text}
+                              </a>
+                            );
+                            // Update remaining text
+                            remainingText = remainingText.substring(linkPosition + link.text.length);
+                          }
+                        });
+
+                        // Add any remaining text
+                        if (remainingText) {
+                          parts.push(remainingText);
+                        }
+
+                        return <>{parts}</>;
+                      }
+
+                      // No inline links - render normally
+                      return Array.isArray(block.content) ? (
+                        block.content.map((line, i) => (
+                          <React.Fragment key={i}>
+                            {line}
+                            {i < (block.content as string[]).length - 1 && <br />}
+                          </React.Fragment>
+                        ))
+                      ) : (
+                        block.content
+                      );
+                    };
+
                     return (
                       <div key={index} className="mb-6">
                         {block.heading && (
@@ -314,62 +375,7 @@ export default function PortfolioDetails() {
                         )}
                         {block.content && (
                           <p className="text-sm md:text-base leading-relaxed text-neutral-700">
-                            {(() => {
-                              if (!block.content) return null;
-
-                              const contentText = Array.isArray(block.content)
-                                ? block.content.join(' ')
-                                : block.content;
-
-                              // If there are inline links
-                              if (block.inlineLinks && block.inlineLinks.length > 0) {
-                                const parts: (string | JSX.Element)[] = [];
-                                let remainingText = contentText;
-
-                                block.inlineLinks.forEach((link, linkIndex) => {
-                                  const linkPosition = remainingText.indexOf(link.text);
-                                  if (linkPosition !== -1) {
-                                    // Add text before the link
-                                    if (linkPosition > 0) {
-                                      parts.push(remainingText.substring(0, linkPosition));
-                                    }
-                                    // Add the link
-                                    parts.push(
-                                      <a
-                                        key={linkIndex}
-                                        href={link.url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="underline hover:text-black/70 transition-colors"
-                                      >
-                                        {link.text}
-                                      </a>
-                                    );
-                                    // Update remaining text
-                                    remainingText = remainingText.substring(linkPosition + link.text.length);
-                                  }
-                                });
-
-                                // Add any remaining text
-                                if (remainingText) {
-                                  parts.push(remainingText);
-                                }
-
-                                return <>{parts}</>;
-                              }
-
-                              // No inline links - render normally
-                              return Array.isArray(block.content) ? (
-                                block.content.map((line, i) => (
-                                  <React.Fragment key={i}>
-                                    {line}
-                                    {i < (block.content as string[]).length - 1 && <br />}
-                                  </React.Fragment>
-                                ))
-                              ) : (
-                                block.content
-                              );
-                            })()}
+                            {renderContent()}
                           </p>
                         )}
                       </div>
@@ -448,99 +454,123 @@ export default function PortfolioDetails() {
 
       {/* Lightbox with Touch Gestures */}
       {isLightboxOpen && (
-        <div
-          onTouchStart={lightboxGestures.handleTouchStart}
-          onTouchMove={lightboxGestures.handleTouchMove}
-          onTouchEnd={lightboxGestures.handleTouchEnd}
-          className="fixed inset-0 bg-black z-[100]"
-          onClick={closeLightbox}
-          role="dialog"
-          aria-modal="true"
-          aria-label="Image lightbox"
-        >
+        <>
+          {/* Backdrop */}
+          <div
+            onTouchStart={lightboxGestures.handleTouchStart}
+            onTouchMove={lightboxGestures.handleTouchMove}
+            onTouchEnd={lightboxGestures.handleTouchEnd}
+            className="fixed inset-0 bg-black/95 z-[100]"
+            onClick={closeLightbox}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Image lightbox"
+          />
+
+          {/* Close Button - Top Right */}
           <button
             onClick={closeLightbox}
-            className="absolute top-6 right-6 text-white/80 hover:text-white transition-colors z-[103]"
+            className="fixed top-6 right-6 text-white/80 hover:text-white transition-colors z-[103]"
             aria-label="Close lightbox"
           >
             <X size={32} strokeWidth={1.5} />
           </button>
 
-          <div className="absolute top-6 left-6 text-sm text-white/80 tracking-wider z-[103]">
+          {/* Image Counter - Top Left */}
+          <div className="fixed top-6 left-6 text-sm text-white/80 tracking-wider z-[103]">
             {lightboxImageIndex + 1} / {images.length}
           </div>
 
-          {/* Swipe hint - only show on mobile, fades out after first interaction */}
+          {/* Swipe hint - Mobile only */}
           {!hasInteracted && (
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-[103] md:hidden">
+            <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-[104] md:hidden">
               <div className="text-white/40 text-xs text-center animate-pulse">
                 Swipe to navigate • Swipe down to close
               </div>
             </div>
           )}
 
+          {/* Main Image - Centered */}
           <div
-            className="absolute inset-0 z-[101] flex items-center justify-center px-12 py-16"
+            className="fixed inset-0 z-[101] flex items-center justify-center"
+            style={{ 
+              paddingTop: '80px',
+              paddingBottom: '180px',
+              paddingLeft: '80px', 
+              paddingRight: '80px'
+            }}
             onClick={(e) => e.stopPropagation()}
           >
             <img
               key={`lightbox-${lightboxImageIndex}-${imageKey}`}
               src={images[lightboxImageIndex]}
               alt={`${project.title} ${lightboxImageIndex + 1}`}
-              className="max-w-full max-h-full object-contain"
+              className="max-w-full max-h-full w-auto h-auto object-contain"
               loading="eager"
+              onClick={(e) => e.stopPropagation()}
             />
           </div>
 
+          {/* Previous Button - Left */}
           <button
             onClick={(e) => {
               e.stopPropagation();
               setHasInteracted(true);
               goToPrevious();
             }}
-            className="absolute left-6 top-1/2 -translate-y-1/2 text-white/80 hover:text-white transition-colors z-[102]"
+            className="fixed left-6 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors z-[102]"
             aria-label="Previous image"
           >
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M15 18l-6-6 6-6" />
             </svg>
           </button>
 
+          {/* Next Button - Right */}
           <button
             onClick={(e) => {
               e.stopPropagation();
+              setHasInteracted(true);
               goToNext();
             }}
-            className="absolute right-6 top-1/2 -translate-y-1/2 text-white/80 hover:text-white transition-colors z-[102]"
+            className="fixed right-6 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors z-[102]"
             aria-label="Next image"
           >
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M9 18l6-6-6-6" />
             </svg>
           </button>
 
+          {/* Thumbnail Strip - Bottom */}
           <div
-            className="absolute bottom-0 left-0 right-0 z-[102] bg-gradient-to-t from-black/90 via-black/60 to-transparent pt-20 pb-6"
+            className="fixed bottom-0 left-0 right-0 z-[102] bg-gradient-to-t from-black via-black/80 to-transparent"
+            style={{ paddingTop: '60px', paddingBottom: '24px' }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-center gap-2">
+            <div className="flex items-center justify-center gap-3 px-4">
               {visibleThumbnails.map((thumb, displayIndex) => {
-                const isCenter = images.length <= 7
+                const isActive = images.length <= 7
                   ? thumb.actualIndex === lightboxImageIndex
                   : displayIndex === 3;
 
                 return (
                   <button
                     key={`thumb-${thumb.actualIndex}-${imageKey}`}
-                    onClick={() => openLightbox(thumb.actualIndex)}
-                    className={`flex-shrink-0 transition-all duration-300 overflow-hidden rounded ${isCenter ? 'ring-2 ring-white opacity-100 scale-110' : 'opacity-50 hover:opacity-100'
-                      }`}
+                    onClick={() => {
+                      setHasInteracted(true);
+                      openLightbox(thumb.actualIndex);
+                    }}
+                    className={`flex-shrink-0 transition-all duration-300 overflow-hidden rounded ${
+                      isActive 
+                        ? 'ring-2 ring-white opacity-100 scale-110' 
+                        : 'opacity-60 hover:opacity-100 scale-100'
+                    }`}
                     aria-label={`Go to image ${thumb.actualIndex + 1}`}
                   >
                     <img
                       src={thumb.src}
                       alt={`Thumbnail ${thumb.actualIndex + 1}`}
-                      className="w-16 h-12 object-cover"
+                      className="w-20 h-14 object-cover"
                       loading="eager"
                     />
                   </button>
@@ -548,7 +578,7 @@ export default function PortfolioDetails() {
               })}
             </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );
