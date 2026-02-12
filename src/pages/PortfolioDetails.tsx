@@ -122,51 +122,73 @@ export default function PortfolioDetails() {
     };
   }, [isLightboxOpen]);
 
-  // Track active image on scroll
+  // Track active image on scroll - DESKTOP FOCUSED FIX
   useEffect(() => {
-    const mobileGallery = mobileGalleryRef.current;
     const desktopGallery = desktopGalleryRef.current;
+    if (!desktopGallery) return;
 
     const handleScroll = () => {
-      if (window.innerWidth < 768 && mobileGallery) {
-        // Mobile: horizontal scroll
-        const scrollLeft = mobileGallery.scrollLeft;
-        const itemWidth = mobileGallery.scrollWidth / images.length;
-        const index = Math.round(scrollLeft / itemWidth);
-        setActiveImageIndex(Math.min(index, images.length - 1));
-      } else if (desktopGallery) {
-        // Desktop: vertical scroll - check which image is most visible
-        imageRefs.current.forEach((imgRef, index) => {
-          if (imgRef) {
-            const rect = imgRef.getBoundingClientRect();
-            const galleryRect = desktopGallery.getBoundingClientRect();
-            const visibleHeight = Math.min(rect.bottom, galleryRect.bottom) - Math.max(rect.top, galleryRect.top);
-            const imgHeight = rect.height;
+      // Only run on desktop
+      if (window.innerWidth < 768) return;
 
-            if (visibleHeight / imgHeight > 0.5) {
-              setActiveImageIndex(index);
-            }
-          }
-        });
-      }
+      const galleryRect = desktopGallery.getBoundingClientRect();
+      const galleryTop = galleryRect.top;
+      const galleryHeight = galleryRect.height;
+      const viewportCenter = galleryTop + galleryHeight / 2;
+
+      let activeIndex = 0;
+      let maxVisibleHeight = 0;
+
+      // Check each image to find which one is most visible
+      imageRefs.current.forEach((imgRef, index) => {
+        if (!imgRef) return;
+
+        const rect = imgRef.getBoundingClientRect();
+        
+        // Calculate how much of this image is visible in the gallery viewport
+        const visibleTop = Math.max(rect.top, galleryTop);
+        const visibleBottom = Math.min(rect.bottom, galleryTop + galleryHeight);
+        const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+
+        // Update if this image is more visible than previous ones
+        if (visibleHeight > maxVisibleHeight) {
+          maxVisibleHeight = visibleHeight;
+          activeIndex = index;
+        }
+      });
+
+      console.log('Desktop scroll - Active index:', activeIndex, 'Max visible height:', maxVisibleHeight);
+      setActiveImageIndex(activeIndex);
     };
 
-    if (mobileGallery) {
-      mobileGallery.addEventListener('scroll', handleScroll, { passive: true });
-    }
-    if (desktopGallery) {
-      desktopGallery.addEventListener('scroll', handleScroll, { passive: true });
-    }
+    // Debounce with requestAnimationFrame for performance
+    let rafId: number | null = null;
+    const debouncedHandleScroll = () => {
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+      }
+      rafId = requestAnimationFrame(handleScroll);
+    };
+
+    // Initial call after mount
+    const initialTimeout = setTimeout(() => {
+      console.log('Initial scroll check');
+      handleScroll();
+    }, 200);
+
+    // Attach scroll listener to the desktop gallery
+    desktopGallery.addEventListener('scroll', debouncedHandleScroll, { passive: true });
+    window.addEventListener('resize', debouncedHandleScroll, { passive: true });
 
     return () => {
-      if (mobileGallery) {
-        mobileGallery.removeEventListener('scroll', handleScroll);
+      clearTimeout(initialTimeout);
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
       }
-      if (desktopGallery) {
-        desktopGallery.removeEventListener('scroll', handleScroll);
-      }
+      desktopGallery.removeEventListener('scroll', debouncedHandleScroll);
+      window.removeEventListener('resize', debouncedHandleScroll);
     };
-  }, [project, images.length]);
+  }, [images.length]);
 
   // Reset on route change
   useEffect(() => {
@@ -216,16 +238,7 @@ export default function PortfolioDetails() {
     >
       {/* Split Layout */}
       <div className="flex flex-col md:flex-row md:h-screen">
-        {/* Images Gallery with Indicator */}
         <div className="relative w-full md:w-[60%] md:h-full px-4 pt-16 md:pt-16">
-
-          {/* Image Counter - Desktop Only */}
-          <div className="hidden md:block fixed top-20 left-8 z-10">
-            <span className="text-sm text-neutral-600">
-              {activeImageIndex + 1} / {images.length}
-            </span>
-          </div>
-
           {/* Mobile: Horizontal scroll */}
           <div ref={mobileGalleryRef} className="md:hidden flex gap-4 h-full py-6 overflow-x-auto overflow-y-hidden snap-x snap-mandatory scrollbar-hide smooth-scroll">
             {images.map((image, index) => (
@@ -257,7 +270,10 @@ export default function PortfolioDetails() {
             {images.map((image, index) => (
               <button
                 key={`desktop-${index}-${imageKey}`}
-                ref={(el) => (imageRefs.current[index] = el)}
+                ref={(el) => {
+                  imageRefs.current[index] = el;
+                  console.log(`Setting imageRef[${index}]:`, el ? 'element exists' : 'null');
+                }}
                 onClick={() => openLightbox(index)}
                 className="relative w-full bg-white overflow-hidden cursor-pointer group block"
                 aria-label={`View image ${index + 1} in lightbox`}
@@ -492,12 +508,10 @@ export default function PortfolioDetails() {
 
           {/* Main Image - Centered */}
           <div
-            className="fixed inset-0 z-[101] flex items-center justify-center"
+            className="fixed inset-0 z-[101] flex items-center justify-center px-4 md:px-16"
             style={{ 
-              paddingTop: '80px',
-              paddingBottom: '180px',
-              paddingLeft: '80px', 
-              paddingRight: '80px'
+              paddingTop: '60px',
+              paddingBottom: '100px',
             }}
             onClick={(e) => e.stopPropagation()}
           >

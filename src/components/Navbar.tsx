@@ -80,7 +80,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav ref={navRef} className="fixed top-0 left-0 right-0 z-[100]">
+      <nav ref={navRef} className="fixed top-0 left-0 right-0 z-50">
         <div className="transition-all duration-500 backdrop-blur-xl bg-white/10 border-b border-white/20">
           <div className="max-w-[1800px] mx-auto px-12 py-4 flex items-center justify-between">
             <div className="flex items-center space-x-12">
@@ -137,7 +137,7 @@ export default function Navbar() {
       {/* Mobile Menu Button - with glass effect */}
       <button
         onClick={() => setIsMobileMenuOpen(prev => !prev)}
-        className="md:hidden fixed bottom-6 left-6 z-[90] px-3 py-2 transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-2 backdrop-blur-xl bg-white/10 border border-white/20"
+        className="md:hidden fixed bottom-6 left-6 z-[150] px-3 py-2 transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-2 backdrop-blur-xl bg-white/10 border border-white/20"
       >
         {isMobileMenuOpen ? (
           <>
@@ -152,7 +152,7 @@ export default function Navbar() {
       {/* Mobile Contact Button - with glass effect */}
       <button
         onClick={() => setIsContactOpen(prev => !prev)}
-        className="md:hidden fixed bottom-6 right-6 z-[90] px-5 py-1.5 transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-2 backdrop-blur-xl bg-white/10 border border-white/20"
+        className="md:hidden fixed bottom-6 right-6 z-[150] px-5 py-1.5 transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-2 backdrop-blur-xl bg-white/10 border border-white/20"
       >
         {isContactOpen ? (
           <>
@@ -166,7 +166,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Overlay - click outside to close */}
       {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 bg-white z-[95]" onClick={() => setIsMobileMenuOpen(false)}>
+        <div className="md:hidden fixed inset-0 bg-white z-[140]" onClick={() => setIsMobileMenuOpen(false)}>
           <div className="h-full w-full flex items-center justify-center px-8" onClick={(e) => e.stopPropagation()}>
             <nav className="space-y-8 text-center">
               <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className={`block text-2xl ${isActive('/') ? 'text-black font-medium' : 'text-black/70 hover:text-black'}`}>Home</Link>
@@ -190,7 +190,7 @@ export default function Navbar() {
 
       {/* Mobile Contact Overlay - same close behavior as menu */}
       {isContactOpen && (
-        <div className="md:hidden fixed inset-0 bg-white z-[95]" onClick={() => setIsContactOpen(false)}>
+        <div className="md:hidden fixed inset-0 bg-white z-[140]" onClick={() => setIsContactOpen(false)}>
           <div className="h-full w-full flex items-center justify-center px-8" onClick={(e) => e.stopPropagation()}>
             <div className="text-center">
               <div className="text-3xl font-medium mb-16" style={{ fontFamily: "'Gill Sans', system-ui, -apple-system, sans-serif" }}>
@@ -219,8 +219,8 @@ export default function Navbar() {
         </div>
       )}
 
-      {/* Desktop Contact Panel */}
-      <div className={`hidden md:block fixed inset-y-0 right-0 z-[70] w-96 bg-white shadow-2xl transform transition-transform duration-500 ease-out ${isContactOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+      {/* Desktop Contact Panel — highest z-index */}
+      <div className={`hidden md:block fixed inset-y-0 right-0 z-[300] w-96 bg-white shadow-2xl transform transition-transform duration-500 ease-out ${isContactOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <div className="h-full flex flex-col p-12 overflow-y-auto">
           <button onClick={() => setIsContactOpen(false)} className="absolute top-8 right-8 text-black hover:text-gray-600">
             <X size={28} />
@@ -237,19 +237,25 @@ export default function Navbar() {
           </div>
 
           <div className="mt-auto flex gap-6">
-            <a href="https://instagram.com/yourstudio" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-600">
+            <a href="https://www.facebook.com/o2DesignAtelier" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-600">
+              <Facebook size={28} strokeWidth={1.5} />
+            </a>
+            <a href="https://instagram.com/o2designatelier" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-600">
               <Instagram size={28} strokeWidth={1.5} />
             </a>
-            <a href="https://linkedin.com/company/yourstudio" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-600">
+            <a href="https://linkedin.com/company/o2da-cpla" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-600">
               <Linkedin size={28} strokeWidth={1.5} />
             </a>
           </div>
         </div>
       </div>
 
-      {/* Desktop backdrop */}
+      {/* Desktop backdrop — blurs everything behind the panel */}
       {isContactOpen && (
-        <div className="hidden md:block fixed inset-0 bg-black/40 z-[60]" onClick={() => setIsContactOpen(false)} />
+        <div
+          className="hidden md:block fixed inset-0 z-[299] backdrop-blur-sm bg-black/20"
+          onClick={() => setIsContactOpen(false)}
+        />
       )}
     </>
   );
