@@ -5,35 +5,53 @@ import React from 'react';
 
 interface ProjectCardProps {
   project: Project;
-  batchLoad?: boolean;   // Enable batch loading
-  batchIndex?: number;   // Position in the grid
+  batchLoad?: boolean;
+  batchIndex?: number;
+  shouldPreload?: boolean;
+  onImageLoad?: () => void;
+  isVisible?: boolean;
+  isImageLoaded?: boolean;
 }
 
 export default function ProjectCard({
   project,
-  batchLoad = true,      // Default to batch loading enabled
-  batchIndex = 0
+  batchLoad = true,
+  batchIndex = 0,
+  shouldPreload = false,
+  onImageLoad,
+  isVisible = true,
+  isImageLoaded = true,
 }: ProjectCardProps) {
   return (
     <Link
       to={`/portfolio/${project.slug}`}
-      className="group block transition-all duration-500 ease-out md:hover:scale-105 md:hover:-translate-y-2"
+      className={`group block transition-all duration-300 ${
+        isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+      }`}
     >
-      <div className="bg-white border border-transparent overflow-hidden transition-all duration-300 md:hover:border-black/20 md:hover:shadow-lg">
-        <div className="relative overflow-hidden aspect-video">
+      <div className="bg-white border border-transparent overflow-hidden transition-all duration-300 md:hover:scale-105 md:hover:-translate-y-2 md:hover:border-black/20 md:hover:shadow-lg">
+        <div className="relative overflow-hidden aspect-video bg-neutral-100">
           <LazyImage
             src={project.images[0]}
             alt={project.title}
-            className="w-full h-full"  // ← Container styling
+            className={`w-full h-full transition-opacity duration-300 ${
+              isImageLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
             imgStyle={{
               objectPosition: project.imagePosition === 'top' ? 'top' :
                 project.imagePosition === 'bottom' ? 'bottom' :
                   'center'
-            }}  // ← Image-specific styling
+            }}
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             batchLoad={batchLoad}
             batchIndex={batchIndex}
+            loading={shouldPreload || batchIndex < 6 ? 'eager' : 'lazy'}
+            onLoad={onImageLoad}
           />
+          {/* Loading skeleton */}
+          {!isImageLoaded && (
+            <div className="absolute inset-0 bg-gradient-to-r from-neutral-100 via-neutral-50 to-neutral-100 animate-pulse" />
+          )}
         </div>
 
         <div className="p-5 pl-0 md:p-6">

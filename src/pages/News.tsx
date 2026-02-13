@@ -3,6 +3,7 @@ import { newsItems } from '../data/news';
 import LazyImage from '../components/LazyImage';
 import React, { useState, useEffect, useRef } from 'react';
 import { useInfiniteScroll } from '../components/ScrollLoad';
+import { useCardPreload } from '../hooks/useCardPreload';
 
 // Sort news items by date (newest to oldest)
 const sortedNewsItems = [...newsItems].sort((a, b) => {
@@ -14,7 +15,6 @@ const sortedNewsItems = [...newsItems].sort((a, b) => {
 export default function News() {
   const [fadeIn, setFadeIn] = useState(false);
   const [headerVisible, setHeaderVisible] = useState(false);
-  const [loadedCards, setLoadedCards] = useState<Set<number>>(new Set());
   const headerRef = useRef<HTMLDivElement | null>(null);
 
   // Use sorted items for infinite scroll
@@ -28,6 +28,19 @@ export default function News() {
     initialLoad: 6,
     loadMoreCount: 6,
     enabled: true,
+  });
+
+  // Use card preload hook
+  const {
+    getCardRef,
+    handleImageLoad,
+    isCardVisible,
+    isImageLoaded,
+    shouldPreload,
+  } = useCardPreload({
+    itemCount: displayedNews.length,
+    preloadCount: 3,
+    rootMargin: '200px',
   });
 
   useEffect(() => {
@@ -58,11 +71,6 @@ export default function News() {
 
     return () => observer.disconnect();
   }, []);
-
-  // Handle image load completion
-  const handleImageLoad = (index: number) => {
-    setLoadedCards(prev => new Set(prev).add(index));
-  };
 
   // Format date
   const formatDate = (dateString: string) => {
@@ -95,59 +103,63 @@ export default function News() {
 
           {/* News Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {displayedNews.map((item, index) => {
-              const isCardLoaded = loadedCards.has(index);
-              
-              return (
-                <Link
-                  key={item.id}
-                  to={`/news/${item.slug}`}
-                  className="group block"
+            {displayedNews.map((item, index) => (
+              <Link
+                key={item.id}
+                to={`/news/${item.slug}`}
+                className="group block"
+              >
+                {/* Card - shows when visible */}
+                <div 
+                  ref={getCardRef(index)}
+                  className={`bg-white border border-black/5 overflow-hidden transition-all duration-300 ${
+                    isCardVisible(index)
+                      ? 'opacity-100 scale-100 hover:scale-105 hover:-translate-y-2 hover:border-black/20 hover:shadow-lg' 
+                      : 'opacity-0 scale-95'
+                  }`}
                 >
-                  {/* Card - fades in when image loads */}
-                  <div 
-                    className={`bg-white border border-black/5 overflow-hidden transition-all duration-500 ${
-                      isCardLoaded 
-                        ? 'opacity-100 scale-100 hover:scale-105 hover:-translate-y-2 hover:border-black/20 hover:shadow-lg' 
-                        : 'opacity-0 scale-95'
-                    }`}
-                  >
-                    {/* Image - LazyImage handles loading animation internally */}
-                    <div className="relative overflow-hidden aspect-[16/10] bg-neutral-100">
-                      <LazyImage
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-full"
-                        batchLoad={true}
-                        batchIndex={index}
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        onLoad={() => handleImageLoad(index)}
-                      />
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-6">
-                      {/* Category & Date */}
-                      <div className="flex items-center gap-3 mb-4">
-                        <span className="text-xs font-light text-black/40">
-                          {formatDate(item.date)}
-                        </span>
-                      </div>
-
-                      {/* Title */}
-                      <h2 className="text-xl font-light mb-3 relative inline-block">
-                        {item.title}
-                      </h2>
-
-                      {/* Excerpt */}
-                      <p className="text-sm font-light text-black/60 leading-relaxed">
-                        {item.excerpt}
-                      </p>
-                    </div>
+                  {/* Image area - shows immediately, image fades in subtly */}
+                  <div className="relative overflow-hidden aspect-[16/10] bg-neutral-100">
+                    <LazyImage
+                      src={item.image}
+                      alt={item.title}
+                      className={`w-full h-full transition-opacity duration-300 ${
+                        isImageLoaded(index) ? 'opacity-100' : 'opacity-0'
+                      }`}
+                      batchLoad={true}
+                      batchIndex={index}
+                      loading={index < 6 || shouldPreload(index) ? 'eager' : 'lazy'}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      onLoad={() => handleImageLoad(index)}
+                    />
+                    {/* Loading skeleton */}
+                    {!isImageLoaded(index) && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-neutral-100 via-neutral-50 to-neutral-100 animate-pulse" />
+                    )}
                   </div>
-                </Link>
-              );
-            })}
+
+                  {/* Content */}
+                  <div className="p-6">
+                    {/* Category & Date */}
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="text-xs font-light text-black/40">
+                        {formatDate(item.date)}
+                      </span>
+                    </div>
+
+                    {/* Title */}
+                    <h2 className="text-xl font-light mb-3 relative inline-block">
+                      {item.title}
+                    </h2>
+
+                    {/* Excerpt */}
+                    <p className="text-sm font-light text-black/60 leading-relaxed">
+                      {item.excerpt}
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
 
           {/* Loading Indicator */}

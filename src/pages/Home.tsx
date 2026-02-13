@@ -7,40 +7,13 @@ export default function HeroSection() {
   const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [videoReady, setVideoReady] = useState(false);
-  const [imagesCanLoad, setImagesCanLoad] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const videoRef = useRef<HTMLVideoElement>(null);
 
   const handleSectionClick = (slug: string) => {
     navigate(`/portfolio/${slug}`);
   };
 
-  // Load video and images together on mount
-  useEffect(() => {
-    // Always allow images to load immediately
-    setImagesCanLoad(true);
-
-    const videoSection = heroSections.find(s => s.img.endsWith('.mp4'));
-    if (!videoSection) return;
-
-    const video = videoRef.current;
-    if (!video) return;
-
-    // Video can play through smoothly - hide thumbnail
-    const handleCanPlayThrough = () => {
-      setVideoReady(true);
-    };
-
-    video.addEventListener('canplaythrough', handleCanPlayThrough);
-
-    return () => {
-      video.removeEventListener('canplaythrough', handleCanPlayThrough);
-    };
-  }, []);
-
-  // Scroll handling
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
@@ -51,6 +24,7 @@ export default function HeroSection() {
       const progress = (scrollTop / scrollHeight) * 100;
       setScrollProgress(progress);
 
+      // Detect active section
       sectionRefs.current.forEach((section, index) => {
         if (section) {
           const rect = section.getBoundingClientRect();
@@ -63,13 +37,16 @@ export default function HeroSection() {
     };
 
     container.addEventListener('scroll', handleScroll, { passive: true });
-    return () => container.removeEventListener('scroll', handleScroll);
+    
+    return () => {
+      container.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
-  // Intersection Observer for text animations
+  // Intersection Observer for fade-in animations
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.5,
+      threshold: 0.2,
       rootMargin: '0px'
     };
 
@@ -77,8 +54,6 @@ export default function HeroSection() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('section-visible');
-        } else {
-          entry.target.classList.remove('section-visible');
         }
       });
     }, observerOptions);
@@ -92,16 +67,6 @@ export default function HeroSection() {
 
   return (
     <>
-      {/* Preload video with highest priority */}
-      {heroSections.find(s => s.img.endsWith('.mp4')) && (
-        <link
-          rel="preload"
-          as="video"
-          href={heroSections.find(s => s.img.endsWith('.mp4'))!.img}
-          type="video/mp4"
-        />
-      )}
-
       {/* Section Navigation Indicators */}
       <div className="fixed right-8 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-3">
         {heroSections.map((_, index) => (
@@ -121,99 +86,109 @@ export default function HeroSection() {
 
       <div
         ref={containerRef}
-        className="h-screen overflow-y-scroll scrollbar-hide smooth-scroll"
+        className="h-screen overflow-y-scroll snap-y snap-mandatory scrollbar-hide"
+        style={{ scrollBehavior: 'smooth' }}
       >
-        {heroSections.map((section, index) => {
-          const isVideo = section.img.endsWith('.mp4');
-          const isLastSection = index === heroSections.length - 1;
+        {heroSections.map((section, index) => (
+          <div
+            key={section.id}
+            ref={(el) => (sectionRefs.current[index] = el)}
+            data-theme="dark"
+            className="hero-section relative h-screen w-full overflow-hidden cursor-pointer snap-start bg-black opacity-0 transition-all duration-1000 ease-out flex-shrink-0"
+            onClick={() => handleSectionClick(section.slug)}
+          >
+            {/* Parallax Background with Scale Effect */}
+            <div className="absolute inset-0 w-full h-full">
+              {section.img.endsWith('.mp4') ? (
+                <video
+                  src={section.img}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <img
+                  src={section.img}
+                  alt={section.title}
+                  className="w-full h-full object-cover zoom-reset"
+                />
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+            </div>
 
-          return (
-            <React.Fragment key={section.id}>
-              <div
-                ref={(el) => (sectionRefs.current[index] = el)}
-                data-theme="dark"
-                className="hero-section sticky top-0 h-screen w-full overflow-hidden cursor-pointer bg-black"
-                style={{ zIndex: section.zIndex }}
-                onClick={() => handleSectionClick(section.slug)}
-              >
-                <div className="absolute inset-0 w-full h-full">
-                  {isVideo ? (
-                    <>
-                      {/* Thumbnail shows first (instant) */}
-                      {section.thumbnail && (
-                        <img
-                          src={section.thumbnail}
-                          alt={section.title}
-                          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${videoReady ? 'opacity-0' : 'opacity-100'
-                            }`}
-                        />
-                      )}
+            {/* Content with Staggered Animation */}
+            <div className="absolute bottom-0 left-0 right-0 pb-24 text-center z-10">
+              <h2 className="text-white text-4xl md:text-5xl uppercase font-light mb-4 tracking-wider opacity-0 translate-y-8 transition-all duration-1000 delay-300 hero-title">
+                {section.title}
+              </h2>
+              <p className="text-white/70 text-lg md:text-1xl font-light tracking-widest opacity-0 translate-y-8 transition-all duration-1000 delay-500 hero-location">
+                {section.location}
+              </p>
+            </div>
+          </div>
+        ))}
 
-                      {/* Video loads and replaces thumbnail when ready */}
-                      <video
-                        ref={videoRef}
-                        src={section.img}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        preload="auto"
-                        className={`w-full h-full object-cover transition-opacity duration-500 ${videoReady ? 'opacity-100' : 'opacity-0'
-                          }`}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                    </>
-                  ) : (
-                    <>
-                      {/* Images load immediately (no lazy loading) */}
-                      {imagesCanLoad && (
-                        <img
-                          src={section.img}
-                          alt={section.title}
-                          className="w-full h-full object-cover"
-                        />
-                      )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                    </>
-                  )}
-                </div>
-
-                {/* Content */}
-                <div className="absolute bottom-0 left-0 right-0 pb-24 text-center z-10">
-                  <h2 className="text-white text-4xl md:text-5xl uppercase font-light mb-4 tracking-wider opacity-0 translate-y-8 transition-all duration-1000 delay-300 hero-title">
-                    {section.title}
-                  </h2>
-                  <p className="text-white/70 text-lg md:text-xl font-light tracking-widest opacity-0 translate-y-8 transition-all duration-1000 delay-500 hero-location">
-                    {section.location}
-                  </p>
-                </div>
-              </div>
-
-              {!isLastSection && <div className="h-64 md:h-128 bg-black"></div>}
-            </React.Fragment>
-          );
-        })}
-
-        <div data-theme="light" className="relative" style={{ zIndex: 70 }}>
+        <div data-theme="light" className="relative flex-shrink-0">
           <Footer />
         </div>
       </div>
 
       <style>{`
+        .hero-section.section-visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
         .hero-section.section-visible .hero-title,
         .hero-section.section-visible .hero-location {
           opacity: 1;
           transform: translateY(0);
         }
 
+
+        @keyframes zoom-cycle {
+          0% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.15);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+
+        /* Trigger zoom only when section is visible */
+        .hero-section.section-visible .zoom-reset {
+          animation: zoom-cycle 20s ease-in-out forwards;
+        }
+
+        /* Hide scrollbar but keep functionality */
+        .scrollbar-hide::-webkit-scrollbar {
+          width: 0px;
+          background: transparent;
+        }
+        
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+
+        /* Reduced motion support for accessibility */
         @media (prefers-reduced-motion: reduce) {
+          .hero-section,
           .hero-title,
-          .hero-location {
+          .hero-location,
+          img,
+          video {
             transition: none !important;
+            animation: none !important;
           }
           
-          .scroll-smooth {
-            scroll-behavior: auto;
+          div[style*="scroll-behavior"] {
+            scroll-behavior: auto !important;
           }
         }
       `}</style>

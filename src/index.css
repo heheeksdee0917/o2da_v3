@@ -118,13 +118,6 @@
 }
 
 @layer utilities {
-  .grid-background {
-    background-image:
-      linear-gradient(rgba(204, 204, 204, 0.07) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(204, 204, 204, 0.07) 1px, transparent 1px);
-    background-size: 50px 50px;
-    background-attachment: fixed;
-  }
 
   .caption {
     font-size: 13px;

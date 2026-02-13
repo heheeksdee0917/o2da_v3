@@ -4,6 +4,7 @@ import { projects, Project } from '../data/mockData';
 import React from 'react';
 import { useInfiniteScroll } from '../components/ScrollLoad';
 import { usePortfolioFilter, CATEGORIES } from '../components/usePortfolioFilter';
+import { useCardPreload } from '../hooks/useCardPreload';
 import ProjectCard from '../components/ProjectCard';
 
 type FilterCategory = 'All' | Project['category'];
@@ -35,6 +36,20 @@ export default function Portfolio() {
     items: filteredProjects,
     initialLoad: 6,
     loadMoreCount: 6,
+    enabled: filter !== 'All',
+  });
+
+  // Use card preload hook (only for single category views with infinite scroll)
+  const {
+    getCardRef,
+    handleImageLoad,
+    isCardVisible,
+    isImageLoaded,
+    shouldPreload,
+  } = useCardPreload({
+    itemCount: displayedProjects.length,
+    preloadCount: 3,
+    rootMargin: '200px',
     enabled: filter !== 'All',
   });
 
@@ -102,7 +117,7 @@ export default function Portfolio() {
                   {category}
                 </h2>
                 
-                {/* Category Grid - No manual priority needed! */}
+                {/* Category Grid - Simple rendering without preload */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-8">
                   {categoryProjects.map((project, projectIndex) => (
                     <ProjectCard 
@@ -117,7 +132,7 @@ export default function Portfolio() {
             ))}
           </div>
         ) : (
-          /* Single Category View with infinite scroll */
+          /* Single Category View with infinite scroll and preload */
           <div 
             key={filterVersion}
             className={`transition-opacity duration-300 ${
@@ -129,15 +144,23 @@ export default function Portfolio() {
               {filter}
             </h2>
             
-            {/* Grid - No manual priority needed! */}
+            {/* Grid with preload */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-8">
               {displayedProjects.map((project, index) => (
-                <ProjectCard 
-                  key={project.id} 
-                  project={project}
-                  batchLoad={true}
-                  batchIndex={index}
-                />
+                <div 
+                  key={project.id}
+                  ref={getCardRef(index)}
+                >
+                  <ProjectCard 
+                    project={project}
+                    batchLoad={true}
+                    batchIndex={index}
+                    shouldPreload={shouldPreload(index)}
+                    onImageLoad={() => handleImageLoad(index)}
+                    isVisible={isCardVisible(index)}
+                    isImageLoaded={isImageLoaded(index)}
+                  />
+                </div>
               ))}
             </div>
           </div>
@@ -145,7 +168,7 @@ export default function Portfolio() {
 
         {/* Loading Indicator */}
         {isLoading && filter !== 'All' && (
-          <div className="flex justify-center items-center py-8">
+          <div className="flex justify-center items-center py-8 mt-8">
             <div className="flex space-x-2">
               <div className="w-2 h-2 bg-black/40 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
               <div className="w-2 h-2 bg-black/40 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>

@@ -23,6 +23,7 @@ export default function PortfolioDetails() {
   const sidebarRef = useRef<HTMLDivElement>(null);
   const imageRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const [hasInteracted, setHasInteracted] = useState(false);
+  const scrollTimeoutRef = useRef<number | null>(null);
 
   // Early return if no project
   if (!project) {
@@ -122,7 +123,7 @@ export default function PortfolioDetails() {
     };
   }, [isLightboxOpen]);
 
-  // Track active image on scroll - DESKTOP FOCUSED FIX
+  // Track active image on scroll with snap-to-center behavior - DESKTOP
   useEffect(() => {
     const desktopGallery = desktopGalleryRef.current;
     if (!desktopGallery) return;
@@ -136,29 +137,72 @@ export default function PortfolioDetails() {
       const galleryHeight = galleryRect.height;
       const viewportCenter = galleryTop + galleryHeight / 2;
 
-      let activeIndex = 0;
-      let maxVisibleHeight = 0;
+      let closestIndex = 0;
+      let minDistance = Infinity;
 
-      // Check each image to find which one is most visible
+      // Find the image closest to the center of the viewport
       imageRefs.current.forEach((imgRef, index) => {
         if (!imgRef) return;
 
         const rect = imgRef.getBoundingClientRect();
-        
-        // Calculate how much of this image is visible in the gallery viewport
-        const visibleTop = Math.max(rect.top, galleryTop);
-        const visibleBottom = Math.min(rect.bottom, galleryTop + galleryHeight);
-        const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+        const imageCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(imageCenter - viewportCenter);
 
-        // Update if this image is more visible than previous ones
-        if (visibleHeight > maxVisibleHeight) {
-          maxVisibleHeight = visibleHeight;
-          activeIndex = index;
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestIndex = index;
         }
       });
 
-      console.log('Desktop scroll - Active index:', activeIndex, 'Max visible height:', maxVisibleHeight);
-      setActiveImageIndex(activeIndex);
+      setActiveImageIndex(closestIndex);
+    };
+
+    // Snap to center when scrolling stops
+    const handleScrollEnd = () => {
+      if (window.innerWidth < 768) return;
+
+      // Clear any existing timeout
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+
+      // Wait for scroll to stop
+      scrollTimeoutRef.current = window.setTimeout(() => {
+        const galleryRect = desktopGallery.getBoundingClientRect();
+        const galleryTop = galleryRect.top;
+        const galleryHeight = galleryRect.height;
+        const viewportCenter = galleryTop + galleryHeight / 2;
+
+        let closestIndex = 0;
+        let minDistance = Infinity;
+
+        // Find the image closest to center
+        imageRefs.current.forEach((imgRef, index) => {
+          if (!imgRef) return;
+
+          const rect = imgRef.getBoundingClientRect();
+          const imageCenter = rect.top + rect.height / 2;
+          const distance = Math.abs(imageCenter - viewportCenter);
+
+          if (distance < minDistance) {
+            minDistance = distance;
+            closestIndex = index;
+          }
+        });
+
+        // Scroll to center the closest image
+        const targetImage = imageRefs.current[closestIndex];
+        if (targetImage) {
+          const targetRect = targetImage.getBoundingClientRect();
+          const targetCenter = targetRect.top + targetRect.height / 2;
+          const scrollOffset = targetCenter - viewportCenter;
+
+          desktopGallery.scrollBy({
+            top: scrollOffset,
+            behavior: 'smooth'
+          });
+        }
+      }, 150); // Wait 150ms after scroll stops
     };
 
     // Debounce with requestAnimationFrame for performance
@@ -167,12 +211,14 @@ export default function PortfolioDetails() {
       if (rafId !== null) {
         cancelAnimationFrame(rafId);
       }
-      rafId = requestAnimationFrame(handleScroll);
+      rafId = requestAnimationFrame(() => {
+        handleScroll();
+        handleScrollEnd();
+      });
     };
 
     // Initial call after mount
     const initialTimeout = setTimeout(() => {
-      console.log('Initial scroll check');
       handleScroll();
     }, 200);
 
@@ -182,6 +228,9 @@ export default function PortfolioDetails() {
 
     return () => {
       clearTimeout(initialTimeout);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
       if (rafId !== null) {
         cancelAnimationFrame(rafId);
       }
@@ -239,15 +288,27 @@ export default function PortfolioDetails() {
       {/* Split Layout */}
       <div className="flex flex-col md:flex-row md:h-screen">
         <div className="relative w-full md:w-[60%] md:h-full px-4 pt-16 md:pt-16">
-          {/* Mobile: Horizontal scroll */}
-          <div ref={mobileGalleryRef} className="md:hidden flex gap-4 h-full py-6 overflow-x-auto overflow-y-hidden snap-x snap-mandatory scrollbar-hide smooth-scroll">
+          {/* Mobile: Horizontal scroll with snap */}
+          <div 
+            ref={mobileGalleryRef} 
+            className="md:hidden flex gap-4 h-full py-6 overflow-x-auto overflow-y-hidden snap-x snap-mandatory scrollbar-hide"
+            style={{ 
+              scrollSnapType: 'x mandatory',
+              scrollBehavior: 'smooth',
+              WebkitOverflowScrolling: 'touch'
+            }}
+          >
             {images.map((image, index) => (
               <button
                 key={`mobile-${index}-${imageKey}`}
                 ref={(el) => (imageRefs.current[index] = el)}
                 onClick={() => openLightbox(index)}
-                className="relative flex-shrink-0 w-[80vw] bg-white overflow-hidden cursor-pointer group snap-center"
-                style={{ height: 'calc(50vh - 3rem)' }}
+                className="relative flex-shrink-0 w-[80vw] bg-white overflow-hidden cursor-pointer group snap-center snap-always"
+                style={{ 
+                  height: 'calc(50vh - 3rem)',
+                  scrollSnapAlign: 'center',
+                  scrollSnapStop: 'always'
+                }}
                 aria-label={`View image ${index + 1} in lightbox`}
               >
                 <LazyImage
@@ -261,18 +322,20 @@ export default function PortfolioDetails() {
             ))}
           </div>
 
-          {/* Desktop: Vertical scroll */}
+          {/* Desktop: Vertical scroll with smooth centering */}
           <div
             ref={desktopGalleryRef}
-            className="hidden md:block space-y-6 pb-6 overflow-y-auto overflow-x-hidden scrollbar-hide smooth-scroll"
-            style={{ height: 'calc(100vh - 4rem)' }}
+            className="hidden md:block space-y-6 pb-6 overflow-y-auto overflow-x-hidden scrollbar-hide"
+            style={{ 
+              height: 'calc(100vh - 4rem)',
+              scrollBehavior: 'smooth'
+            }}
           >
             {images.map((image, index) => (
               <button
                 key={`desktop-${index}-${imageKey}`}
                 ref={(el) => {
                   imageRefs.current[index] = el;
-                  console.log(`Setting imageRef[${index}]:`, el ? 'element exists' : 'null');
                 }}
                 onClick={() => openLightbox(index)}
                 className="relative w-full bg-white overflow-hidden cursor-pointer group block"
