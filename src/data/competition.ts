@@ -37,7 +37,7 @@ export const competitionProjects: Project[] = [
   {
     id: 1,
     slug: 'kenyas-orphanage',
-    title: 'ORPHANED & CHILDREN’s ECO-VILLAGE',
+    title: 'Kenya‘s Orphanage',
     location: 'SOY, KENYA',
     category: 'Competition',
     status: '1st Prize',
@@ -75,7 +75,7 @@ export const competitionProjects: Project[] = [
   {
     id: 2,
     slug: 'landasan-jauhar',
-    title: 'Landasan Jauhar',
+    title: 'RTS Johor - Landasan Jauhar',
     location: 'Johor Bahru',
     category: 'Competition',
     status: 'Submission',
@@ -108,7 +108,7 @@ export const competitionProjects: Project[] = [
   {
     id: 4,
     slug: 'fittorie',
-    title: 'Fittorie',
+    title: 'Fittorie - Vicenza, Italy',
     location: 'Vicenza, Italy',
     category: 'Competition',
     status: 'Submission',
@@ -149,7 +149,7 @@ export const competitionProjects: Project[] = [
   {
     id: 7,
     slug: 'elemental-mosque',
-    title: 'The Elemental Mosque',
+    title: 'Dubai Creek Harbour Iconic Mosque',
     location: 'Dubai',
     category: 'Competition',
     status: 'Submission',
@@ -384,7 +384,7 @@ export const competitionProjects: Project[] = [
   {
     id: 11,
     slug: 'mgbc-hq',
-    title: 'MGBC Headquarters',
+    title: 'MGBC HQ',
     location: 'Bangi, Selangor',
     category: 'Competition',
     status: 'Honorable Mention',
@@ -468,7 +468,7 @@ export const competitionProjects: Project[] = [
   {
     id: 14,
     slug: 'future-house',
-    title: 'Future House',
+    title: 'Future House ; Micro House',
     location: 'Flexible',
     category: 'Competition',
     status: '1st Prize',
@@ -583,7 +583,6 @@ export const competitionProjects: Project[] = [
     projectTeam: ['Edric Choo Poo Liang', 'Clyde Ong'],
     images: [
       '/Gallery/Competition/TokyoVertical/A3.avif',
-      '/Gallery/Competition/TokyoVertical/A0.avif',
       '/Gallery/Competition/TokyoVertical/A1.avif',
       '/Gallery/Competition/TokyoVertical/A2.avif',
       '/Gallery/Competition/TokyoVertical/A4.avif',

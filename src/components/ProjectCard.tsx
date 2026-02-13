@@ -33,7 +33,7 @@ export default function ProjectCard({
       }`}
     >
       <div className="bg-white border border-transparent overflow-hidden transition-all duration-300 md:hover:scale-105 md:hover:-translate-y-2 md:hover:border-black/20 md:hover:shadow-lg">
-        <div className="relative overflow-hidden aspect-video bg-neutral-100">
+        <div className="relative overflow-hidden aspect-video">
           <LazyImage
             src={displayImage}
             alt={project.title}
