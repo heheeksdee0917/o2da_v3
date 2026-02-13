@@ -22,6 +22,9 @@ export default function ProjectCard({
   isVisible = true,
   isImageLoaded = true,
 }: ProjectCardProps) {
+  // Use coverPhoto if defined, otherwise fall back to first image
+  const displayImage = project.coverPhoto || project.images[0];
+
   return (
     <Link
       to={`/portfolio/${project.slug}`}
@@ -32,7 +35,7 @@ export default function ProjectCard({
       <div className="bg-white border border-transparent overflow-hidden transition-all duration-300 md:hover:scale-105 md:hover:-translate-y-2 md:hover:border-black/20 md:hover:shadow-lg">
         <div className="relative overflow-hidden aspect-video bg-neutral-100">
           <LazyImage
-            src={project.images[0]}
+            src={displayImage}
             alt={project.title}
             className={`w-full h-full transition-opacity duration-300 ${
               isImageLoaded ? 'opacity-100' : 'opacity-0'

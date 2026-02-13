@@ -507,7 +507,7 @@ export const competitionProjects: Project[] = [
   {
     id: 15,
     slug: 'teluk-kumbar-wet-market',
-    title: 'Wet Market (Teluk Kumbar Market)',
+    title: 'Teluk Kumbar Market',
     location: 'Teluk Kumbar, Penang',
     category: 'Competition',
     status: '2nd Prize',
@@ -582,10 +582,10 @@ export const competitionProjects: Project[] = [
     status: 'Submission',
     projectTeam: ['Edric Choo Poo Liang', 'Clyde Ong'],
     images: [
-      '/Gallery/Competition/TokyoVertical/CP.avif',
+      '/Gallery/Competition/TokyoVertical/A3.avif',
+      '/Gallery/Competition/TokyoVertical/A0.avif',
       '/Gallery/Competition/TokyoVertical/A1.avif',
       '/Gallery/Competition/TokyoVertical/A2.avif',
-      '/Gallery/Competition/TokyoVertical/A3.avif',
       '/Gallery/Competition/TokyoVertical/A4.avif',
       '/Gallery/Competition/TokyoVertical/A5.avif',
       '/Gallery/Competition/TokyoVertical/Diagram1.avif',
@@ -806,7 +806,7 @@ export const competitionProjects: Project[] = [
   {
     id: 22,
     slug: 'klaf-2018',
-    title: 'KLAF',
+    title: 'PAM KLAF 2018 Future Malaysian Housing Exhibition',
     location: 'N/A',
     category: 'Competition',
     status: 'Submission',

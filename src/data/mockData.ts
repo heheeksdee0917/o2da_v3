@@ -49,6 +49,7 @@ export interface Project {
   location: string;
   category: 'Residential' | 'Commercial' | 'Housing' | 'Interior' | 'Competition'| 'Hospitality';
   images: string[];
+  coverPhoto?: string;
   hero?: boolean;
   detailContent?: ContentBlock[];
   status?: string;
