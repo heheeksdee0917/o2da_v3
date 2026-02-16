@@ -125,6 +125,7 @@ export default function Portfolio() {
                       project={project}
                       batchLoad={true}
                       batchIndex={projectIndex}
+                      priority={projectIndex < 3}
                     />
                   ))}
                 </div>
@@ -155,6 +156,7 @@ export default function Portfolio() {
                     project={project}
                     batchLoad={true}
                     batchIndex={index}
+                    priority={index < 3}
                     shouldPreload={shouldPreload(index)}
                     onImageLoad={() => handleImageLoad(index)}
                     isVisible={isCardVisible(index)}

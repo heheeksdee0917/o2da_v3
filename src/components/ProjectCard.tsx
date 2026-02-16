@@ -6,6 +6,7 @@ import React from 'react';
 interface ProjectCardProps {
   project: Project;
   batchLoad?: boolean;
+  priority?: boolean; 
   batchIndex?: number;
   shouldPreload?: boolean;
   onImageLoad?: () => void;
@@ -18,6 +19,7 @@ export default function ProjectCard({
   batchLoad = true,
   batchIndex = 0,
   shouldPreload = false,
+  priority = false,
   onImageLoad,
   isVisible = true,
   isImageLoaded = true,
@@ -43,6 +45,7 @@ export default function ProjectCard({
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             batchLoad={batchLoad}
             batchIndex={batchIndex}
+            priority={priority}
             loading={shouldPreload || batchIndex < 6 ? 'eager' : 'lazy'}
             onLoad={onImageLoad}
           />

@@ -56,10 +56,10 @@ export default function Navbar() {
     const handleScroll = () => {
       requestAnimationFrame(checkBackground);
     };
-    
+
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', checkBackground);
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', checkBackground);
@@ -124,11 +124,11 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-
       {/* Mobile Menu Button */}
       <button
         onClick={() => setIsMobileMenuOpen(prev => !prev)}
-        className="md:hidden fixed bottom-6 left-6 z-[150] px-3 py-2 transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-2 backdrop-blur-xl bg-white/10 border border-white/20"
+        className={`md:hidden fixed bottom-6 left-6 px-3 py-2 transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-2 backdrop-blur-xl bg-white/10 border border-white/20 ${isMobileMenuOpen ? 'z-[160]' : 'z-[150]'
+          }`}
       >
         {isMobileMenuOpen ? (
           <>
@@ -143,7 +143,7 @@ export default function Navbar() {
       {/* Mobile Contact Button */}
       <Link
         to="/contact"
-        className="md:hidden fixed bottom-6 right-6 z-[150] px-5 py-1.5 transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-2 backdrop-blur-xl bg-white/10 border border-white/20"
+        className="md:hidden fixed bottom-6 right-6 z-[140] px-5 py-1.5 transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-2 backdrop-blur-xl bg-white/10 border border-white/20"
       >
         <span className={`text-sm font-medium ${textColor}`}>Contact</span>
       </Link>
@@ -167,7 +167,6 @@ export default function Navbar() {
                   ))}
                 </div>
               </div>
-              <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className={`block text-2xl ${isActive('/contact') ? 'text-black font-medium' : 'text-black/70 hover:text-black'}`}>Contact</Link>
             </nav>
           </div>
         </div>

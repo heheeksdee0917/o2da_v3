@@ -63,7 +63,7 @@ export default function LazyImage({
       },
       {
         threshold: 0.01,
-        rootMargin: '400px' // Start loading 400px before entering viewport
+        rootMargin: '200px'
       }
     );
 
@@ -86,18 +86,17 @@ export default function LazyImage({
     const connection = (navigator as any).connection || (navigator as any).mozConnection || (navigator as any).webkitConnection;
     const isSlow = connection?.effectiveType === 'slow-2g' || connection?.effectiveType === '2g' || connection?.saveData;
 
-    // First 6 images: Always load immediately
-    if (batchIndex < 6) {
+    // First 3 images: Always load immediately
+    if (batchIndex < 3) {
       setShouldLoad(true);
       return;
     }
 
-    // Images 7+: Different strategies based on connection
+    // Images 4+: Load with minimal delays
     if (isSlow) {
-      // SLOW CONNECTION: Conservative staggered loading
-      // Load in groups of 2 with 400ms delays
-      const groupIndex = Math.floor((batchIndex - 6) / 2);
-      const delay = groupIndex * 400;
+      // SLOW CONNECTION: Load in groups of 2 with 200ms delays
+      const groupIndex = Math.floor((batchIndex - 3) / 2);
+      const delay = groupIndex * 200;
       
       const timer = setTimeout(() => {
         setShouldLoad(true);
@@ -105,16 +104,8 @@ export default function LazyImage({
       
       return () => clearTimeout(timer);
     } else {
-      // FAST CONNECTION: Moderate batch loading
-      // Load in groups of 3 with 300ms delays
-      const groupIndex = Math.floor((batchIndex - 6) / 3);
-      const delay = groupIndex * 300;
-      
-      const timer = setTimeout(() => {
-        setShouldLoad(true);
-      }, delay);
-      
-      return () => clearTimeout(timer);
+      // FAST CONNECTION: Load immediately after first 3
+      setShouldLoad(true);
     }
   }, [isInView, batchLoad, batchIndex, priority]);
 
@@ -177,7 +168,7 @@ export default function LazyImage({
           style={imgStyle}  
           onLoad={handleLoad}
           onError={handleError}
-          loading="eager"
+          loading={loading || (priority ? 'eager' : 'lazy')}
         />
       )}
       
