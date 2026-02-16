@@ -156,7 +156,7 @@ export const commercialProjects: Project[] = [
   {
     id: 3,
     slug: 'kfc-ijok',
-    title: 'KFC',
+    title: 'KFC Ijok',
     location: 'Ijok, Selangor',
     category: 'Commercial',
     status: 'Submission',
@@ -196,8 +196,6 @@ export const commercialProjects: Project[] = [
       '/Gallery/Commercial/KFCBukitRaja/A8.avif',
       '/Gallery/Commercial/KFCBukitRaja/A9.avif',
       '/Gallery/Commercial/KFCBukitRaja/A10.avif',
-      '/Gallery/Commercial/KFCBukitRaja/A11.avif',
-      '/Gallery/Commercial/KFCBukitRaja/A12.avif',
     ],
     detailContent: [
       { type: 'text', content: 'The KFC design language echoes the rest of commercial retail design, using retrospective architectural lines and geometry that remind Malaysians of the past Art Deco and Modernist style architecture in the early 20th century. The spirit of that era also marks the exploration of aerodynamics in post-war automobile design, as well as resonating with the iconic American Art Deco-styled fast food chain drive-thru and diner culture.' },
@@ -212,7 +210,7 @@ export const commercialProjects: Project[] = [
     id: 5,
     slug: 'shoplot-kepong',
     title: 'Shoplot',
-    location: 'Kuala Lumpur',
+    location: 'Kepong, Kuala Lumpur',
     category: 'Commercial',
     status: 'Proposal',
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
@@ -270,7 +268,7 @@ export const commercialProjects: Project[] = [
   {
     id: 7,
     slug: 'uno-rivertree-bukit-raja',
-    title: 'UNO',
+    title: 'UNO Bukit Raja',
     location: 'Bukit Raja, Klang',
     category: 'Commercial',
     status: 'Completed',

@@ -11,6 +11,7 @@ const News = lazy(() => import('./pages/News'));
 const NewsDetails = lazy(() => import('./pages/NewsDetails'));
 const Portfolio = lazy(() => import('./pages/Portfolio'));
 const PortfolioDetails = lazy(() => import('./pages/PortfolioDetails'));
+const Contact = lazy(() => import('./pages/Contact'));
 
 // Wrapper to force remount PortfolioDetails on :id change
 function PortfolioDetailsWithRemount() {
@@ -84,6 +85,12 @@ function AppContent() {
           <Route path="/portfolio/:id" element={
             <Suspense fallback={<LoadingFallback />}>
               <PortfolioDetailsWithRemount />
+            </Suspense>
+          } />
+          
+          <Route path="/contact" element={
+            <Suspense fallback={<LoadingFallback />}>
+              <Contact />
             </Suspense>
           } />
         </Routes>

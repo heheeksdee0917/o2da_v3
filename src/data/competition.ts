@@ -693,6 +693,7 @@ export const competitionProjects: Project[] = [
     title: 'City Of Tomorrow',
     location: 'N/A',
     category: 'Competition',
+    status:'Proposal',
     accolades: ['Ideal Proposal (International Publication)'],
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
     images: [
@@ -810,6 +811,7 @@ export const competitionProjects: Project[] = [
     title: 'PAM KLAF 2018 Future Malaysian Housing Exhibition',
     location: 'Glenmarie Station, Petaling Jaya',
     category: 'Competition',
+    status:'Proposal',
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
     images: [
       '/Gallery/Competition/KLAF/CP.avif',
@@ -907,7 +909,7 @@ export const competitionProjects: Project[] = [
     location: 'N/A',
     category: 'Competition',
     accolades: ['1st Prize (International Comp)'],
-    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
+    projectTeam: ['Edric Choo Poo Liang', 'Queenie Wong'],
     images: [
       '/Gallery/Competition/ArchChair/A1.avif',
     ],

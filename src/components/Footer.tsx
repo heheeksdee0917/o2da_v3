@@ -74,7 +74,7 @@ export default function Footer() {
                 className="text-base text-black hover:text-black/60 transition-colors duration-300 block"
               >
                 9-1 Block A, Zenith Corporate Park<br />
-                Jalan SS7/26, SS 7<br />
+                Jalan SS7/26<br />
                 47301 Petaling Jaya, Selangor
               </a>
             </address>

@@ -40,11 +40,6 @@ export default function ProjectCard({
             className={`w-full h-full transition-opacity duration-300 ${
               isImageLoaded ? 'opacity-100' : 'opacity-0'
             }`}
-            imgStyle={{
-              objectPosition: project.imagePosition === 'top' ? 'top' :
-                project.imagePosition === 'bottom' ? 'bottom' :
-                  'center'
-            }}
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             batchLoad={batchLoad}
             batchIndex={batchIndex}
@@ -58,10 +53,9 @@ export default function ProjectCard({
         </div>
 
         <div className="p-5 pl-0 md:p-6">
-          <h3 className="text-2xl md:text-xl font-light mb-2 md:mb-3 relative inline-block uppercase">
-            <span className="relative">
+          <h3 className="text-2xl md:text-xl font-light mb-2 md:mb-3 uppercase inline">
+            <span className="bg-gradient-to-r from-black to-black bg-[length:0%_1px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 md:group-hover:bg-[length:100%_1px] pb-0.5">
               {project.title}
-              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-black transition-all duration-500 md:group-hover:w-full" />
             </span>
           </h3>
 

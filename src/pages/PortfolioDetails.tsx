@@ -447,7 +447,22 @@ export default function PortfolioDetails() {
                         return <>{parts}</>;
                       }
 
-                      // No inline links - render normally
+                      // Handle <br /> tags - split by <br /> and render with line breaks
+                      if (contentText.includes('<br />')) {
+                        const segments = contentText.split('<br />');
+                        return (
+                          <>
+                            {segments.map((segment, i) => (
+                              <React.Fragment key={i}>
+                                {segment}
+                                {i < segments.length - 1 && <br />}
+                              </React.Fragment>
+                            ))}
+                          </>
+                        );
+                      }
+
+                      // No inline links or <br /> - render normally
                       return Array.isArray(block.content) ? (
                         block.content.map((line, i) => (
                           <React.Fragment key={i}>
@@ -503,169 +518,173 @@ export default function PortfolioDetails() {
       </div>
 
       {/* Similar Projects */}
-      {similarProjects.length > 0 && (
-        <div className="w-full bg-white py-12">
-          <div className="flex justify-center">
-            <div className="w-full max-w-[2340px] px-4 md:px-8">
-              <h3 className="caption text-neutral-500 mb-8">
-                Similar Projects
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {similarProjects.map((similarProject) => (
-                  <Link
-                    key={similarProject.id}
-                    to={`/portfolio/${similarProject.slug}`}
-                    className="block group"
-                  >
-                    <div className="relative overflow-hidden mb-3 bg-neutral-100 aspect-video">
-                      <LazyImage
-                        src={similarProject.images[0]}
-                        alt={similarProject.title}
-                        className="w-full h-full"
-                        imgClassName="transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                      />
-                    </div>
-                    <h4 className="text-base font-light mb-1 relative inline-block uppercase">
-                      <span className="relative">
-                        {similarProject.title}
-                        <span className="absolute left-0 bottom-0 w-full h-[1px] bg-black scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100"></span>
-                      </span>
-                    </h4>
-                    <p className="text-sm text-neutral-500">{similarProject.location}</p>
-                  </Link>
-                ))}
+      {
+        similarProjects.length > 0 && (
+          <div className="w-full bg-white py-12">
+            <div className="flex justify-center">
+              <div className="w-full max-w-[2340px] px-4 md:px-8">
+                <h3 className="caption text-neutral-500 mb-8">
+                  Similar Projects
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {similarProjects.map((similarProject) => (
+                    <Link
+                      key={similarProject.id}
+                      to={`/portfolio/${similarProject.slug}`}
+                      className="block group"
+                    >
+                      <div className="relative overflow-hidden mb-3 bg-neutral-100 aspect-video">
+                        <LazyImage
+                          src={similarProject.images[0]}
+                          alt={similarProject.title}
+                          className="w-full h-full"
+                          imgClassName="transition-transform duration-700 group-hover:scale-110"
+                          loading="lazy"
+                        />
+                      </div>
+                      <h4 className="text-base font-light mb-1 relative inline-block uppercase">
+                        <span className="relative">
+                          {similarProject.title}
+                          <span className="absolute left-0 bottom-0 w-full h-[1px] bg-black scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100"></span>
+                        </span>
+                      </h4>
+                      <p className="text-sm text-neutral-500">{similarProject.location}</p>
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      )}
+        )
+      }
 
       {/* Lightbox with Touch Gestures */}
-      {isLightboxOpen && (
-        <>
-          {/* Backdrop */}
-          <div
-            onTouchStart={lightboxGestures.handleTouchStart}
-            onTouchMove={lightboxGestures.handleTouchMove}
-            onTouchEnd={lightboxGestures.handleTouchEnd}
-            className="fixed inset-0 bg-black/95 z-[100]"
-            onClick={closeLightbox}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Image lightbox"
-          />
+      {
+        isLightboxOpen && (
+          <>
+            {/* Backdrop */}
+            <div
+              onTouchStart={lightboxGestures.handleTouchStart}
+              onTouchMove={lightboxGestures.handleTouchMove}
+              onTouchEnd={lightboxGestures.handleTouchEnd}
+              className="fixed inset-0 bg-black/95 z-[100]"
+              onClick={closeLightbox}
+              role="dialog"
+              aria-modal="true"
+              aria-label="Image lightbox"
+            />
 
-          {/* Close Button - Top Right */}
-          <button
-            onClick={closeLightbox}
-            className="fixed top-6 right-6 text-white/80 hover:text-white transition-colors z-[103]"
-            aria-label="Close lightbox"
-          >
-            <X size={32} strokeWidth={1.5} />
-          </button>
+            {/* Close Button - Top Right */}
+            <button
+              onClick={closeLightbox}
+              className="fixed top-6 right-6 text-white/80 hover:text-white transition-colors z-[103]"
+              aria-label="Close lightbox"
+            >
+              <X size={32} strokeWidth={1.5} />
+            </button>
 
-          {/* Image Counter - Top Left */}
-          <div className="fixed top-6 left-6 text-sm text-white/80 tracking-wider z-[103]">
-            {lightboxImageIndex + 1} / {images.length}
-          </div>
+            {/* Image Counter - Top Left */}
+            <div className="fixed top-6 left-6 text-sm text-white/80 tracking-wider z-[103]">
+              {lightboxImageIndex + 1} / {images.length}
+            </div>
 
-          {/* Swipe hint - Mobile only */}
-          {!hasInteracted && (
-            <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-[104] md:hidden">
-              <div className="text-white/40 text-xs text-center animate-pulse">
-                Swipe to navigate • Swipe down to close
+            {/* Swipe hint - Mobile only */}
+            {!hasInteracted && (
+              <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-[104] md:hidden">
+                <div className="text-white/40 text-xs text-center animate-pulse">
+                  Swipe to navigate • Swipe down to close
+                </div>
+              </div>
+            )}
+
+            {/* Main Image - Centered */}
+            <div
+              className="fixed inset-0 z-[101] flex items-center justify-center px-4 md:px-16"
+              style={{
+                paddingTop: '60px',
+                paddingBottom: '100px',
+              }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                key={`lightbox-${lightboxImageIndex}-${imageKey}`}
+                src={images[lightboxImageIndex]}
+                alt={`${project.title} ${lightboxImageIndex + 1}`}
+                className="max-w-full max-h-full w-auto h-auto object-contain"
+                loading="eager"
+                onClick={(e) => e.stopPropagation()}
+              />
+            </div>
+
+            {/* Previous Button - Left */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setHasInteracted(true);
+                goToPrevious();
+              }}
+              className="fixed left-6 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors z-[102]"
+              aria-label="Previous image"
+            >
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
+
+            {/* Next Button - Right */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setHasInteracted(true);
+                goToNext();
+              }}
+              className="fixed right-6 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors z-[102]"
+              aria-label="Next image"
+            >
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+            </button>
+
+            {/* Thumbnail Strip - Bottom */}
+            <div
+              className="fixed bottom-0 left-0 right-0 z-[102] bg-gradient-to-t from-black via-black/80 to-transparent"
+              style={{ paddingTop: '60px', paddingBottom: '24px' }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-center gap-3 px-4">
+                {visibleThumbnails.map((thumb, displayIndex) => {
+                  const isActive = images.length <= 7
+                    ? thumb.actualIndex === lightboxImageIndex
+                    : displayIndex === 3;
+
+                  return (
+                    <button
+                      key={`thumb-${thumb.actualIndex}-${imageKey}`}
+                      onClick={() => {
+                        setHasInteracted(true);
+                        openLightbox(thumb.actualIndex);
+                      }}
+                      className={`flex-shrink-0 transition-all duration-300 overflow-hidden rounded ${isActive
+                        ? 'ring-2 ring-white opacity-100 scale-110'
+                        : 'opacity-60 hover:opacity-100 scale-100'
+                        }`}
+                      aria-label={`Go to image ${thumb.actualIndex + 1}`}
+                    >
+                      <img
+                        src={thumb.src}
+                        alt={`Thumbnail ${thumb.actualIndex + 1}`}
+                        className="w-20 h-14 object-cover"
+                        loading="eager"
+                      />
+                    </button>
+                  );
+                })}
               </div>
             </div>
-          )}
-
-          {/* Main Image - Centered */}
-          <div
-            className="fixed inset-0 z-[101] flex items-center justify-center px-4 md:px-16"
-            style={{
-              paddingTop: '60px',
-              paddingBottom: '100px',
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <img
-              key={`lightbox-${lightboxImageIndex}-${imageKey}`}
-              src={images[lightboxImageIndex]}
-              alt={`${project.title} ${lightboxImageIndex + 1}`}
-              className="max-w-full max-h-full w-auto h-auto object-contain"
-              loading="eager"
-              onClick={(e) => e.stopPropagation()}
-            />
-          </div>
-
-          {/* Previous Button - Left */}
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              setHasInteracted(true);
-              goToPrevious();
-            }}
-            className="fixed left-6 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors z-[102]"
-            aria-label="Previous image"
-          >
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
-          </button>
-
-          {/* Next Button - Right */}
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              setHasInteracted(true);
-              goToNext();
-            }}
-            className="fixed right-6 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors z-[102]"
-            aria-label="Next image"
-          >
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M9 18l6-6-6-6" />
-            </svg>
-          </button>
-
-          {/* Thumbnail Strip - Bottom */}
-          <div
-            className="fixed bottom-0 left-0 right-0 z-[102] bg-gradient-to-t from-black via-black/80 to-transparent"
-            style={{ paddingTop: '60px', paddingBottom: '24px' }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-center justify-center gap-3 px-4">
-              {visibleThumbnails.map((thumb, displayIndex) => {
-                const isActive = images.length <= 7
-                  ? thumb.actualIndex === lightboxImageIndex
-                  : displayIndex === 3;
-
-                return (
-                  <button
-                    key={`thumb-${thumb.actualIndex}-${imageKey}`}
-                    onClick={() => {
-                      setHasInteracted(true);
-                      openLightbox(thumb.actualIndex);
-                    }}
-                    className={`flex-shrink-0 transition-all duration-300 overflow-hidden rounded ${isActive
-                      ? 'ring-2 ring-white opacity-100 scale-110'
-                      : 'opacity-60 hover:opacity-100 scale-100'
-                      }`}
-                    aria-label={`Go to image ${thumb.actualIndex + 1}`}
-                  >
-                    <img
-                      src={thumb.src}
-                      alt={`Thumbnail ${thumb.actualIndex + 1}`}
-                      className="w-20 h-14 object-cover"
-                      loading="eager"
-                    />
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        </>
-      )}
-    </div>
+          </>
+        )
+      }
+    </div >
   );
 }
