@@ -9,10 +9,10 @@ export default function Footer() {
         {/* Logo and Tagline */}
         <div className="mb-16">
           <h3 className="text-4xl lg:text-5xl font-light mb-6" style={{ fontFamily: "'Gill Sans', system-ui, -apple-system, sans-serif" }}>
-            O<span className="lime-accent">2</span>DA + CPLA
+            O<span className="lime-accent">2</span>DA + CPL<span className="hot-rod-accent">A</span>
           </h3>
           <p className="text-black/50 text-lg leading-relaxed max-w-md">
-            Architecture that speaks through silence, light, and material honesty.
+            Architecture of Form and Pattern languages
           </p>
         </div>
 

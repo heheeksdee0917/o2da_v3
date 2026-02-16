@@ -289,10 +289,10 @@ export default function PortfolioDetails() {
       <div className="flex flex-col md:flex-row md:h-screen">
         <div className="relative w-full md:w-[60%] md:h-full px-4 pt-16 md:pt-16">
           {/* Mobile: Horizontal scroll with snap */}
-          <div 
-            ref={mobileGalleryRef} 
+          <div
+            ref={mobileGalleryRef}
             className="md:hidden flex gap-4 h-full py-6 overflow-x-auto overflow-y-hidden snap-x snap-mandatory scrollbar-hide"
-            style={{ 
+            style={{
               scrollSnapType: 'x mandatory',
               scrollBehavior: 'smooth',
               WebkitOverflowScrolling: 'touch'
@@ -304,7 +304,7 @@ export default function PortfolioDetails() {
                 ref={(el) => (imageRefs.current[index] = el)}
                 onClick={() => openLightbox(index)}
                 className="relative flex-shrink-0 w-[80vw] bg-white overflow-hidden cursor-pointer group snap-center snap-always"
-                style={{ 
+                style={{
                   height: 'calc(50vh - 3rem)',
                   scrollSnapAlign: 'center',
                   scrollSnapStop: 'always'
@@ -326,7 +326,7 @@ export default function PortfolioDetails() {
           <div
             ref={desktopGalleryRef}
             className="hidden md:block space-y-6 pb-6 overflow-y-auto overflow-x-hidden scrollbar-hide"
-            style={{ 
+            style={{
               height: 'calc(100vh - 4rem)',
               scrollBehavior: 'smooth'
             }}
@@ -365,11 +365,26 @@ export default function PortfolioDetails() {
                 <span className="text-xs md:text-sm text-neutral-500 min-w-[120px] md:min-w-[140px]">Project Location:</span>
                 <span className="text-sm md:text-base text-black">{project.location}</span>
               </div>
-
-              <div className="flex items-baseline gap-2 border-b border-black/10 pb-3 md:pb-4">
-                <span className="text-xs md:text-sm text-neutral-500 min-w-[120px] md:min-w-[140px]">Status:</span>
-                <span className="text-sm md:text-base text-black">{project.status || 'Completed'}</span>
-              </div>
+              {/* Accolades - Only show if they exist */}
+              {project.accolades && project.accolades.length > 0 && (
+                <div className="flex items-baseline gap-2 border-b border-black/10 pb-3 md:pb-4">
+                  <span className="text-xs md:text-sm text-neutral-500 min-w-[120px] md:min-w-[140px]">Accolades:</span>
+                  <div className="text-sm md:text-base text-black">
+                    {project.accolades.map((accolade, index) => (
+                      <div key={index} className="mb-1 last:mb-0">
+                        {accolade}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {/* Status - Only show if it exists */}
+              {project.status && (
+                <div className="flex items-baseline gap-2 border-b border-black/10 pb-3 md:pb-4">
+                  <span className="text-xs md:text-sm text-neutral-500 min-w-[120px] md:min-w-[140px]">Status:</span>
+                  <span className="text-sm md:text-base text-black">{project.status}</span>
+                </div>
+              )}
 
               <div className="flex items-baseline gap-2 border-b border-black/10 pb-3 md:pb-4">
                 <span className="text-xs md:text-sm text-neutral-500 min-w-[120px] md:min-w-[140px]">Project Team:</span>
@@ -508,11 +523,6 @@ export default function PortfolioDetails() {
                         alt={similarProject.title}
                         className="w-full h-full"
                         imgClassName="transition-transform duration-700 group-hover:scale-110"
-                        imgStyle={{
-                          objectPosition: similarProject.imagePosition === 'top' ? 'top' :
-                            similarProject.imagePosition === 'bottom' ? 'bottom' :
-                              'center'
-                        }}
                         loading="lazy"
                       />
                     </div>
@@ -572,7 +582,7 @@ export default function PortfolioDetails() {
           {/* Main Image - Centered */}
           <div
             className="fixed inset-0 z-[101] flex items-center justify-center px-4 md:px-16"
-            style={{ 
+            style={{
               paddingTop: '60px',
               paddingBottom: '100px',
             }}
@@ -637,11 +647,10 @@ export default function PortfolioDetails() {
                       setHasInteracted(true);
                       openLightbox(thumb.actualIndex);
                     }}
-                    className={`flex-shrink-0 transition-all duration-300 overflow-hidden rounded ${
-                      isActive 
-                        ? 'ring-2 ring-white opacity-100 scale-110' 
-                        : 'opacity-60 hover:opacity-100 scale-100'
-                    }`}
+                    className={`flex-shrink-0 transition-all duration-300 overflow-hidden rounded ${isActive
+                      ? 'ring-2 ring-white opacity-100 scale-110'
+                      : 'opacity-60 hover:opacity-100 scale-100'
+                      }`}
                     aria-label={`Go to image ${thumb.actualIndex + 1}`}
                   >
                     <img

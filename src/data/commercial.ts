@@ -1,14 +1,38 @@
 import type { Project } from './mockData';
 
 export const commercialProjects: Project[] = [
+  //  Botanic Centre
+  {
+    id: 12,
+    slug: 'botanic-centre',
+    title: 'Botanic Central',
+    location: 'Termeloh, Pahang',
+    category: 'Commercial',
+    status: 'Submission',
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn', 'Woon Zhi Zheng', 'Danish Azhan'],
+    images: [
+      '/Gallery/Housing/BahagiaCentre/CP.avif',
+      '/Gallery/Housing/BahagiaCentre/A1.avif',
+      '/Gallery/Housing/BahagiaCentre/A2.avif',
+      '/Gallery/Housing/BahagiaCentre/A3.avif',
+      '/Gallery/Housing/BahagiaCentre/A4.avif',
+    ],
+    detailContent: [
+      { type: 'text', content: 'Botanic Central is positioned within a fast-growing peri-urban corridor where commercial growth tends to arrive as familiar, repeatable shop-office blocks: wide service roads, recessed canopies, and full-width glazing that is later overwhelmed by ad-hoc signboards and banners. The prevalence of this typology exposes a disciplinary gap—signage is rarely given an architectural place, so tenants colonise every available surface, flattening the façade into visual noise while masking glazing that should support display, daylight, and ventilation. This project accepts the two-storey shop-office as an efficient urban instrument, then refines its public face by treating branding as a designed layer rather than an afterthought.' },
+      { type: 'text', content: 'The precinct is organised by rhythm, depth, and a clear signage hierarchy. Bold cubic upper volumes act as calibrated frames to the street, thickening the façade into legible planes sized to host tenant identity without spilling into openings. A three-tier system is embedded within this composition: primary tenant panels are reserved on the main upper planes for high-visibility identification; a continuous secondary sign band is aligned as a consistent datum for smaller names and wayfinding; and vertical lot markers are confined to recesses and party-wall seams to register individual units and stairs. By fixing where graphics may land, the architecture preserves windows as windows and signage as signage—improving readability from the road while protecting façade performance from the common cycle of over-application.' },
+      { type: 'text', content: 'Arrival is staged through a clear hierarchy of markers and edges, where a darker base plane anchors the row, accommodating shutters, entries, and shopfronts as a robust, serviceable datum. Ground-floor glazing is protected as the commercial interface, kept clear of primary signage so display and visibility remain intact, while louvres and deep reveals moderate sun and glare. Across the elevation, the white blocks are set in a four-step height variation—enough to give each unit a distinct beat and a livelier streetscape, while remaining robust and repeatable for cost control and long-term coherence.' },
+      { type: 'text', content: 'Above, upper-floor openings are set back and screened to reduce heat gain and glare, and to remain visually subordinate to the primary sign fields. The façade therefore performs as a controlled framework: it grants tenants generous branding capacity, but only within zones that preserve legibility, protect glazing, and maintain a coherent street edge over time.' },
+      { type: 'text', content: 'Botanic Central therefore delivers a retail environment that is functional, legible, and resilient. By formalising the shop-office typology through shading depth and an integrated signage framework, the precinct can accommodate tenant turnover without visual disorder, holding a clear architectural identity within the everyday flux of commercial life.' },
+    ],
+  },
   //Community Centre
   {
     id: 11,
     slug: 'community-centre',
-    title: 'Community Center @ Tmn Desa',
-    location: 'Kuala Lumpur',
+    title: 'Community Center',
+    location: 'Taman Desa',
     category: 'Commercial',
-    status: 'Submission',
+    status: 'Proposal',
     projectTeam: ['Edric Choo Poo Liang'],
     images: [
       '/Gallery/Commercial/CommunityCenter/CP.avif',
@@ -50,6 +74,10 @@ export const commercialProjects: Project[] = [
     category: 'Commercial',
     status: 'Completed',
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
+    accolades: [
+      'Malaysia Fiabsi Award Heritage & Office Category (Winner)',
+      'World Arch itecture Festival Award 2022 (Finalist)'
+    ],
     images: [
       '/Gallery/Commercial/SentulWorks/CP.avif',
       '/Gallery/Commercial/SentulWorks/A1.avif',
@@ -108,7 +136,7 @@ export const commercialProjects: Project[] = [
     location: 'Sentul, Kuala Lumpur',
     category: 'Commercial',
     status: 'Completed',
-    projectTeam: ['Edric Choo Poo Liang','Lim Min Syn'],
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
     images: [
       '/Gallery/Commercial/Warehouse3/CP.avif',
       '/Gallery/Commercial/Warehouse3/A1.avif',
@@ -128,11 +156,11 @@ export const commercialProjects: Project[] = [
   {
     id: 3,
     slug: 'kfc-ijok',
-    title: 'KFC @ Ijok',
-    location: 'Selangor',
+    title: 'KFC',
+    location: 'Ijok, Selangor',
     category: 'Commercial',
     status: 'Submission',
-    projectTeam: ['Edric Choo Poo Liang','Lim Min Syn'],
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
     images: [
       '/Gallery/Commercial/KFCIjok/CP.avif',
       '/Gallery/Commercial/KFCIjok/A1.avif',
@@ -150,11 +178,12 @@ export const commercialProjects: Project[] = [
   {
     id: 4,
     slug: 'kfc-drive-thru-bukit-raja',
-    title: 'KFC @ Bkt Raja',
-    location: 'Kuala Lumpur',
+    title: 'KFC Bukit Raja',
+    location: 'Bukit Raja, Klang',
     category: 'Commercial',
-    status: 'Submission',
+    status: 'Completed',
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
+    accolades: ['International KFC Competition (1st Prize)'],
     images: [
       '/Gallery/Commercial/KFCBukitRaja/CP.avif',
       '/Gallery/Commercial/KFCBukitRaja/A1.avif',
@@ -182,10 +211,10 @@ export const commercialProjects: Project[] = [
   {
     id: 5,
     slug: 'shoplot-kepong',
-    title: 'Shoplot @ Kepong',
+    title: 'Shoplot',
     location: 'Kuala Lumpur',
     category: 'Commercial',
-    status: 'Submission',
+    status: 'Proposal',
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
     images: [
       '/Gallery/Commercial/ShoplotKepong/CP.avif',
@@ -216,11 +245,11 @@ export const commercialProjects: Project[] = [
   {
     id: 6,
     slug: 'thc-warehouse',
-    title: 'THC Warehouse @ Rawang',
+    title: 'THC Warehouse',
     location: 'Rawang, Selangor',
     category: 'Commercial',
-    status: 'Submission',
-    projectTeam: ['Edric Choo Poo Liang','Lim Min Syn'],
+    status: 'Proposal',
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
     images: [
       '/Gallery/Commercial/THCWarehouse/CP.avif',
       '/Gallery/Commercial/THCWarehouse/A1.avif',
@@ -241,11 +270,17 @@ export const commercialProjects: Project[] = [
   {
     id: 7,
     slug: 'uno-rivertree-bukit-raja',
-    title: 'UNO @ Rivertree',
-    location: 'Sentul, Kuala Lumpur',
+    title: 'UNO',
+    location: 'Bukit Raja, Klang',
     category: 'Commercial',
     status: 'Completed',
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
+    accolades: [
+      'Asia Pacific Property Awards 2021-2022 (Retail Development Malaysia)',
+      'Asia Pacific Property Awards 2021-2022 (Best Development Marketing Malaysia)',
+      'Asia Pacific Property Awards 2021-2022 (Best Leisure Interior Malaysia for KFC @ UNO)',
+      'PropertyGuru Asia Property Awards 2020 (Best Retail Development)',
+    ],
     images: [
       '/Gallery/Commercial/UnoBukitRaja/CP.avif',
       '/Gallery/Commercial/UnoBukitRaja/A1.avif',
@@ -270,58 +305,5 @@ export const commercialProjects: Project[] = [
       },
     ],
   },
-  // 8. Illoura
-  {
-    id: 8,
-    slug: 'illoura',
-    title: 'Illoura',
-    location: 'Old Holland Road, Singapore',
-    category: 'Commercial',
-    status: 'Completed',
-    projectTeam: ['N/A'],
-    images: [
-      '/Gallery/Commercial/Illoura/CP.avif',
-      '/Gallery/Commercial/Illoura/A1.avif',
-    ],
-    detailContent: [
-      { type: 'text', content: 'Set along the quiet, tree-lined enclave of Old Holland Road, this contemporary residential development unfolds as a sequence of luminous villas edged by a continuous turquoise lap pool. The architecture is anchored by crisp rectilinear volumes that appear to hover lightly above the water, their white frames and deep overhangs creating a rhythmic façade against the tropical sky. Horizontal aluminium screens wrap the upper floors, tempering sunlight while maintaining a sense of openness and calm privacy.' },
-      { type: 'text', content: 'The ground plane is intentionally porous: landscaped terraces, planted edges, and pockets of greenery slip between built forms, softening the modern palette of concrete, stone, and glass. Mature climbers and vertical gardens drape selectively over the tall brick-clad walls, introducing a gentle contrast between the development’s refined lines and the lushness of Singapore’s climate.' },
-    ],
-  },
-  // 9. Dawson Hub
-  {
-    id: 9,
-    slug: 'dawson-hub',
-    title: 'Dawson Hub',
-    location: 'Queenstown, Singapore',
-    category: 'Commercial',
-    status: 'Completed',
-    projectTeam: ['N/A'],
-    images: [
-      '/Gallery/Commercial/Dawson/CP.avif',
-      '/Gallery/Commercial/Dawson/A1.avif',
-      '/Gallery/Commercial/Dawson/A2.avif',
-    ],
-    detailContent: [
-      { type: 'text', content: 'This high-rise composition is defined by two slender towers articulated with staggered balconies and deep frames, giving the façade a rhythmic, almost pixelated texture. Mid-level sky bridges stitch the towers together, creating shared vantage points while accentuating the vertical void between them. At the base, a multi-storey podium wrapped in continuous planted terraces forms a green plinth that softens the scale of the development and anchors it to the streetscape. The interplay of greenery, structural clarity, and sculpted massing produces a contemporary urban silhouette—one that balances density with permeability, and height with moments of elevated communal space.' },
-    ],
-  },
-  // 10. Hilltop
-  {
-    id: 10,
-    slug: 'hilltop',
-    title: 'Hilltop',
-    location: 'Cairnhill, Singapore',
-    category: 'Commercial',
-    status: 'Completed (as Project Architect at W Architect PTD LTD, Singapore)',
-    projectTeam: ['Edric Choo Poo Liang'],
-    images: [
-      '/Gallery/Commercial/Hilltop/CP.avif',
-      '/Gallery/Commercial/Hilltop/A1.avif',
-      '/Gallery/Commercial/Hilltop/A2.avif',
-    ],
-    detailContent: [
-      { type: 'text', content: 'Luxury condominium located amidst the lush landscape of Cairne Hills. With its sprawling grounds and balmy breezes Hilltops provide the perfect setting for a botanical urban retreat. The expansive estate features a centerpiece 50m swimming pool, jacuzzi and wading pool flanked by a glass-walled gymnasium and private dining facilities set within landscaped gardens.' },
-    ],
-  },
+
 ];

@@ -1,14 +1,49 @@
 import type { Project } from './mockData';
 
 export const residentialProjects: Project[] = [
+  //TraceHouse
+  {
+    id: 33,
+    slug: 'trace-house',
+    title: 'Trace House',
+    location: 'Kuala Lumpur',
+    category: 'Residential',
+    status: 'Construction',
+    projectTeam: ['Edric Choo Poo Liang', 'Evans Khor'],
+    images: [
+      '/Gallery/Residential/TraceHouse/A1.avif',
+      '/Gallery/Residential/TraceHouse/A2.avif',
+      '/Gallery/Residential/TraceHouse/A3.avif',
+      '/Gallery/Residential/TraceHouse/A4.avif',
+      '/Gallery/Residential/TraceHouse/A5.avif',
+      '/Gallery/Residential/TraceHouse/A6.avif',
+      '/Gallery/Residential/TraceHouse/A7.avif',
+      '/Gallery/Residential/TraceHouse/A8.avif',
+      '/Gallery/Residential/TraceHouse/A9.avif',
+      '/Gallery/Residential/TraceHouse/A10.avif',
+      '/Gallery/Residential/TraceHouse/A11.avif',
+      '/Gallery/Residential/TraceHouse/A12.avif',
+      '/Gallery/Residential/TraceHouse/A13.avif',
+      '/Gallery/Residential/TraceHouse/A14.avif',
+    ],
+    detailContent: [
+      { type: 'text', content: 'Nested among a cluster of hilltop bungalows, Trace House commands a sweeping vantage over the lush tropical landscape at the rear of the plot. The brief called for a home that could host expansively without dissolving into openness, and retreat without becoming sealed. Rather than treating the site as a passive backdrop, the house is shaped as a direct response to it—deepened, shaded, and thickened—so that light, air, and movement are drawn inward and held..' },
+      { type: 'text', content: 'The house begins not as a plan, but as a path. Spaces are conceived as moments along a continuous rise: slabs extend and pull back, edges soften, and volumes slip past one another as if caught mid-motion. What appears from the outside as a series of sculpted bands is, from within, a legible sequence of movement.' },
+      { type: 'text', content: 'At the centre, a courtyard void gathers this momentum. It is neither residual nor symbolic, but a spatial pause that anchors the house while allowing it to turn upward and outward. There is no single front to the building. Instead, its presence is assembled from long edges, deep reveals, and shifting profiles that register differently as one moves around it. The house is less an object than a trace—an accumulation of decisions that record passage.' },
+      { type: 'text', content: 'Arrival occurs beneath a lifted plane, where the underside of the house becomes a shaded threshold. The car porch reads as an outdoor room, compressed and protected, before releasing into the interior. Living and dining unfold as a broad, continuous field oriented toward the courtyard and the landscape beyond. Glazing is held back in depth, allowing reflections, shadows, and overhangs to temper the scale of openness.' },
+      { type: 'text', content: 'The courtyard intensifies the experience of movement. A red spiral stair threads the void, its form turning circulation into an event rather than a shortcut. As one ascends, views shift across water, concrete, and sky; light is pulled downward and softened by distance and shade. The void breathes, drawing air upward and releasing heat, so that the centre of the house becomes a tempered interior climate rather than a sealed atrium.' },
+      { type: 'text', content: 'Private rooms occupy quieter bands above, set back beneath deeper overhangs. Here, the promenade slows. Roof terraces extend the sequence into planted ground, dissolving the boundary between building and landscape and allowing the house to be read as a series of elevated gardens rather than a terminal form.' },
+      { type: 'text', content: 'Trace House holds movement in moments without mistaking them for finality. Its courtyard and spiral organise a sequence of pauses and releases—spaces that gather intensity just long enough to be inhabited, before opening again to terrace, garden, and sky. The house reads as a productive plateau: a coherent phase within an ongoing trajectory, structured enough to support daily life and generous gathering, yet deliberately resistant to closure.' },
+    ],
+  },
   //Modeco House - chceked
   {
     id: 1,
     slug: 'modeco-house',
     title: 'MODÉCO HOUSE',
-    location: 'Kuala Lumpur',
+    location: 'Seri Beringin, Kuala Lumpur',
     category: 'Residential',
-    status: 'Construction',
+    status: 'Submission',
     projectTeam: ['Edric Choo Poo Liang', 'S.Kadhiraven', 'Danish Azhan'],
     images: [
       '/Gallery/Residential/Modeco/CP.avif',
@@ -131,7 +166,7 @@ export const residentialProjects: Project[] = [
     title: 'Arch',
     location: 'Petaling Jaya, Selangor',
     category: 'Residential',
-    status: 'Completed',
+    status: 'Construction',
     projectTeam: ['Edric Choo Poo Liang', 'Joshua Quah', 'Wendy Woon'],
     images: [
       '/Gallery/Residential/Arch/CP.avif',
@@ -243,10 +278,10 @@ export const residentialProjects: Project[] = [
     location: 'Petaling Jaya, Selangor',
     category: 'Residential',
     status: 'Completed',
-    projectTeam: ['Edric Choo Poo Liang', 'Joshua Quah'],
+    projectTeam: ['Edric Choo Poo Liang', 'Joshua Quah', 'Evans Khor'],
     images: [
-      '/Gallery/Residential/TropicalShiftHouse/CP.avif',
       '/Gallery/Residential/TropicalShiftHouse/A1.avif',
+      '/Gallery/Residential/TropicalShiftHouse/CP.avif',
       '/Gallery/Residential/TropicalShiftHouse/A2.avif',
       '/Gallery/Residential/TropicalShiftHouse/A3.avif',
       '/Gallery/Residential/TropicalShiftHouse/A4.avif',
@@ -284,6 +319,7 @@ export const residentialProjects: Project[] = [
       '/Gallery/Residential/TropicalShiftHouse/Diagram6.avif',
       '/Gallery/Residential/TropicalShiftHouse/Diagram7.avif',
       '/Gallery/Residential/TropicalShiftHouse/Diagram8.avif',
+      '/Gallery/Residential/TropicalShiftHouse/Diagram9.avif',
     ],
     detailContent: [
       {
@@ -381,7 +417,7 @@ export const residentialProjects: Project[] = [
     id: 10,
     slug: 'the-rooms',
     title: 'The Rooms',
-    location: 'Petaling Jaya',
+    location: 'Taman Selamat, Penang',
     category: 'Residential',
     status: 'DEsign',
     projectTeam: ['Edric Choo Poo Liang', 'Wong Jia Xin', 'Germin Lim'],
@@ -411,7 +447,7 @@ export const residentialProjects: Project[] = [
     location: 'Kuala Lumpur',
     category: 'Residential',
     status: 'Submission',
-    projectTeam: ['Edric Choo Poo Liang', 'Quek Yi Jane'],
+    projectTeam: ['Edric Choo Poo Liang', 'Quek Yi Jane','Lim Min Syn'],
     images: [
       '/Gallery/Residential/Twin/CP.avif',
       '/Gallery/Residential/Twin/A1.avif',
@@ -520,7 +556,7 @@ export const residentialProjects: Project[] = [
     location: 'Janda Baik, Pahang',
     category: 'Residential',
     status: 'Schematic',
-    projectTeam: ['Edric Choo Poo Liang'],
+    projectTeam: ['Edric Choo Poo Liang','Lim Min Syn','Kong Xiang Lynn'],
     images: [
       '/Gallery/Residential/PavInForest/CP.avif',
       '/Gallery/Residential/PavInForest/A1.avif',
@@ -666,7 +702,7 @@ export const residentialProjects: Project[] = [
     title: 'Railwork',
     location: 'Kota Kemuning, Selangor',
     category: 'Residential',
-    status: 'Towards Completion',
+    status: 'Completed',
     projectTeam: ['Edric Choo Poo Liang', 'Kong Xhiang Lynn', 'Kho Jia Xin'],
     images: [
       '/Gallery/Residential/RailworkBungalow/CP.avif',
@@ -702,15 +738,14 @@ export const residentialProjects: Project[] = [
     id: 18,
     slug: 'infill-house',
     title: 'Infill House',
-    location: 'Taman Tun Dr Ismail, Kuala Lumpur',
+    location: 'Taman Tunku, Kuala Lumpur',
     category: 'Residential',
     status: 'Completed',
-    projectTeam: ['Edric Choo Poo Liang'],
+    projectTeam: ['Edric Choo Poo Liang','Lim Min Syn','Carrol Lee'],
     images: [
       '/Gallery/Residential/Infill/CP.avif',
       '/Gallery/Residential/Infill/A1.avif',
-      '/Gallery/Residential/Infill/A2.avif',
-      '/Gallery/Residential/Infill/A4.avif',
+      '/Gallery/Residential/Infill/A3.avif',
       '/Gallery/Residential/Infill/A5.avif',
       '/Gallery/Residential/Infill/A6.avif',
       '/Gallery/Residential/Infill/A8.avif',
@@ -721,6 +756,7 @@ export const residentialProjects: Project[] = [
       '/Gallery/Residential/Infill/A13.avif',
       '/Gallery/Residential/Infill/A14.avif',
       '/Gallery/Residential/Infill/A16.avif',
+      '/Gallery/Residential/Infill/Diagram1.avif',
     ],
     detailContent: [
       { type: 'text', content: 'The site is a bungalow lot in the center of Kuala Lumpur. There is an existing abandoned house on site. The project explores the possibility of reusing the existing house structure to accommodate a vastly different space requirement of the new owner.' },
@@ -730,9 +766,9 @@ export const residentialProjects: Project[] = [
   //Stackhouse - chceked
   {
     id: 19,
-    slug: 'stackhouse',
-    title: 'Stackhouse',
-    location: 'Petaling Jaya',
+    slug: 'stack-house',
+    title: 'Stack House',
+    location: 'Parit Raja, Johor',
     category: 'Residential',
     status: 'Completed',
     projectTeam: ['Edric Choo Poo Liang'],
@@ -873,9 +909,9 @@ export const residentialProjects: Project[] = [
     title: 'Interval House',
     location: 'Kuala Lumpur',
     category: 'Residential',
-    status: 'Construction',
+    status: 'Completed',
     projectTeam: ['Edric Choo Poo Liang'],
-    coverPhoto:'/Gallery/Residential/JNDHouse/CP.avif',
+    coverPhoto: '/Gallery/Residential/JNDHouse/CP.avif',
     images: [
       '/Gallery/Residential/JNDHouse/A0.avif',
       '/Gallery/Residential/JNDHouse/A1.avif',
@@ -983,7 +1019,7 @@ export const residentialProjects: Project[] = [
     id: 24,
     slug: 'cascade-house',
     title: 'Cascade House',
-    location: 'Petaling Jaya',
+    location: 'Bukit Jalil, Kuala Lumpur',
     category: 'Residential',
     status: 'Completed',
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn', 'Wendy Woon'],
@@ -997,7 +1033,6 @@ export const residentialProjects: Project[] = [
       '/Gallery/Residential/CascadeHouse/A6.avif',
       '/Gallery/Residential/CascadeHouse/A7.avif',
       '/Gallery/Residential/CascadeHouse/A8.avif',
-      '/Gallery/Residential/CascadeHouse/A9.avif',
     ],
     detailContent: [
       { type: 'text', content: 'Cascade House is a reconstruction of an existing three-storey bungalow on a corner lot within a quiet housing district in Bukit Jalil. The original dwelling belonged to a familiar suburban lineage: pale rendered walls, layered pitched clay-tile roofs, and small projecting balconies supported by simple brackets. It read as incremental additions rather than a single, legible idea. Time had also made its presence visible in a patchwork envelope—deep eaves and narrow openings prioritised shade and enclosure, leaving the overall massing visually unsettled against the street.' },
@@ -1013,9 +1048,9 @@ export const residentialProjects: Project[] = [
     id: 25,
     slug: 'shift',
     title: 'Shift',
-    location: 'Selangor',
+    location: 'Taman Desa, Kuala Lumpur',
     category: 'Residential',
-    status: 'Construction',
+    status: 'Completed',
     projectTeam: ['Edric Choo Poo Liang', 'Joshua Quah'],
     images: [
       '/Gallery/Residential/Shift/CP.avif',
@@ -1126,6 +1161,9 @@ export const residentialProjects: Project[] = [
     category: 'Residential',
     status: 'Completed',
     projectTeam: ['Edric Choo Poo Liang', 'Lee Chaer Shean', 'Goh Chew Yet'],
+    accolades:[
+      'Iconic Award 2019 - Innovative Architecture'
+    ],
     images: [
       '/Gallery/Residential/Homefor2/CP.avif',
       '/Gallery/Residential/Homefor2/A1.avif',
@@ -1175,10 +1213,16 @@ export const residentialProjects: Project[] = [
     id: 30,
     slug: '3-courtyard-house',
     title: '3 Courtyard House',
-    location: 'Bandar Sri Damansara',
+    location: 'bandar Sri Damansara, Selangor',
     category: 'Residential',
     status: 'Completed',
     projectTeam: ['Edric Choo Poo Liang', 'Goh Chew Yet'],
+    accolades:[
+      'Archdaily Building Of The Year 2020 (Nominated)',
+      'European Iconic Award 2019 (Winner)',
+      'Malaysia Miid Reka Awards 2017 (Shortlisted)',
+      'Archdaily (Published)'
+    ],
     images: [
       '/Gallery/Residential/3CourtyardHouse/CP.avif',
       '/Gallery/Residential/3CourtyardHouse/A1.avif',
@@ -1268,6 +1312,13 @@ export const residentialProjects: Project[] = [
     category: 'Residential',
     status: 'Completed',
     projectTeam: ['Edric Choo Poo Liang'],
+    accolades: [
+      'PAM-HOMEDEC Award 2015 (Silver)',
+      'World Architecture Festival Award 2017 (Finalist)',
+      'Malaysia Miid Reka Award 2017 (Shortlisted)',
+      'Designer Of The Year Award 2017 (Winner)',
+      'Archdaily (Published)',
+    ],
     images: [
       '/Gallery/Residential/CourtyardHouse/A1.avif',
       '/Gallery/Residential/CourtyardHouse/A2.avif',

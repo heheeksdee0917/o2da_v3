@@ -54,7 +54,7 @@ export interface Project {
   detailContent?: ContentBlock[];
   status?: string;
   projectTeam?: string[];
-  imagePosition?: 'top' | 'center' | 'bottom' | string;
+  accolades?: string[]; 
 }
 
 interface Award {
@@ -301,5 +301,32 @@ export const awards: Award[] = [
     place: 'Honorable Mention',
     type: 'competition',
     slug: ''
+  },
+  {
+    id: 27,
+    year: 2024,
+    competition: 'Malaysia Fiabsi Award heritage & Office Category',
+    project: 'Sentul Works',
+    place: 'Winner',
+    type: 'award',
+    slug: 'sentul-works'
+  },
+  {
+    id: 28,
+    year: 2022,
+    competition: 'World Architecture Festival Award 2022',
+    project: 'Sentul Works',
+    place: 'Finalist',
+    type: 'award',
+    slug: 'sentul-works'
+  },
+  {
+    id: 29,
+    year: 2016,
+    competition: 'International Competition',
+    project: 'Go Beyond',
+    place: '1st Prize',
+    type: 'competition',
+    slug: 'go-beyond'
   },
 ];

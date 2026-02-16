@@ -9,7 +9,7 @@ export const competitionProjects: Project[] = [
     title: 'UNO Sg Merab',
     location: 'Sg. Merab, Kajang',
     category: 'Competition',
-    status: '3rd Prize',
+    accolades: ['3rd Prize (National Comp)'],
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn', 'Henry'],
     images: [
       '/Gallery/Competition/UnoSgMerab/CP.avif',
@@ -40,8 +40,12 @@ export const competitionProjects: Project[] = [
     title: 'Kenya‘s Orphanage',
     location: 'SOY, KENYA',
     category: 'Competition',
-    status: '1st Prize',
-    projectTeam: ['Edric Choo Poo Liang', 'Tang Ying Jien'],
+    projectTeam: ['Edric Choo Poo Liang', 'Tang Ying Jien','Lim Min Syn'],
+    accolades:[
+      'International Architecture Review Future Project Awards 2018 (Commendation)',
+      'World Architecture Festival Award 2017 (Commendation)',
+      'International Competition 1st prize',
+    ],
     images: [
       '/Gallery/Competition/KenyaOrph/CP.avif',
       '/Gallery/Competition/KenyaOrph/A1.avif',
@@ -78,7 +82,7 @@ export const competitionProjects: Project[] = [
     title: 'RTS Johor - Landasan Jauhar',
     location: 'Johor Bahru',
     category: 'Competition',
-    status: 'Submission',
+    accolades: ['Submission (National Comp)'],
     projectTeam: ['Edric Choo Poo Liang', 'Aaron Neo On E', 'Nicole Hooi Yi Tien', 'Mohd Afi b Abdul Malik', 'Amirul Shah Mumfahir'],
     images: [
       '/Gallery/Competition/LandasanJauhar/CP.avif',
@@ -111,7 +115,7 @@ export const competitionProjects: Project[] = [
     title: 'Fittorie - Vicenza, Italy',
     location: 'Vicenza, Italy',
     category: 'Competition',
-    status: 'Submission',
+    accolades: ['Submission (International Comp)'],
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn', 'Quek Yi Jane', 'Nicole Hooi Yi Tien'],
     images: [
       '/Gallery/Competition/Fittorie/CP.avif',
@@ -152,7 +156,7 @@ export const competitionProjects: Project[] = [
     title: 'Dubai Creek Harbour Iconic Mosque',
     location: 'Dubai',
     category: 'Competition',
-    status: 'Submission',
+    accolades: ['Submission (International Comp)'],
     projectTeam: ['Edric Choo Poo Liang', 'Wan Azhar (Coda)', 'Farah Aliza Badarudin', 'Lim Min Syn'],
     images: [
       '/Gallery/Competition/Mosque/CP.avif',
@@ -176,12 +180,11 @@ export const competitionProjects: Project[] = [
     title: 'Marshland Stadia',
     location: 'New York, US',
     category: 'Competition',
-    status: 'Submission',
+    accolades: ['Submission (International Comp)'],
     projectTeam: ['Edric Choo Poo Liang', 'Farah Aliza Badarudin','Lim Min Syn'],
     images: [
       '/Gallery/Competition/Marshland/CP.avif',
       '/Gallery/Competition/Marshland/A1.avif',
-      '/Gallery/Competition/Marshland/A2.avif',
       '/Gallery/Competition/Marshland/A3.avif',
       '/Gallery/Competition/Marshland/A4.avif',
       '/Gallery/Competition/Marshland/A5.avif',
@@ -209,7 +212,7 @@ export const competitionProjects: Project[] = [
     title: 'Singapore Founders’ Memorial',
     location: 'Singapore',
     category: 'Competition',
-    status: 'Submission',
+    accolades: ['Submission (International Comp)'],
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
     images: [
       '/Gallery/Competition/SingaporeMemorial/CP.avif',
@@ -235,7 +238,7 @@ export const competitionProjects: Project[] = [
     title: 'National Museum of World Writing',
     location: 'Songdo, Seoul, South Korea',
     category: 'Competition',
-    status: 'Submission',
+    accolades: ['Submission (International Comp)'],
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
     images: [
       '/Gallery/Competition/Museum/CP.avif',
@@ -258,8 +261,8 @@ export const competitionProjects: Project[] = [
       title: 'New York City Aquarium',
       location: 'New York, USA',
       category: 'Competition',
-      status: 'Submission',
-      projectTeam: ['Edric Choo Poo Liang'],
+      accolades: ['Submission (International Comp)'],
+      projectTeam: ['Edric Choo Poo Liang','Lim Min Syn'],
       images: [
         '/Gallery/Competition/NYCA/CP.avif',
         '/Gallery/Competition/NYCA/A1.avif',
@@ -293,8 +296,8 @@ export const competitionProjects: Project[] = [
     title: 'Imbauan Residence',
     location: 'Kwasa Damansara, Selangor',
     category: 'Competition',
-    status: '2nd Prize',
-    projectTeam: ['Edric Choo Poo Liang', 'Tang Ying Jien'],
+    accolades: ['2nd Prize (National Comp)'],
+    projectTeam: ['Edric Choo Poo Liang', 'Tang Ying Jien','Lim Min Syn'],
     images: [
       '/Gallery/Competition/ImbauanResidence/CP.avif',
       '/Gallery/Competition/ImbauanResidence/A1.avif',
@@ -387,7 +390,7 @@ export const competitionProjects: Project[] = [
     title: 'MGBC HQ',
     location: 'Bangi, Selangor',
     category: 'Competition',
-    status: 'Honorable Mention',
+    accolades: ['Honorable Mention (National Comp)'],
     projectTeam: ['Edric Choo Poo Liang', 'Clyde Ong'],
     images: [
       '/Gallery/Competition/MGBC/CP.avif',
@@ -412,9 +415,9 @@ export const competitionProjects: Project[] = [
     id: 12,
     slug: 'pr1ma-affordable-housing',
     title: 'PR1MA Affordable Housing',
-    location: 'Petaling Jaya, Selangor',
+    location: 'Brickfield, Kuala Lumpur',
     category: 'Competition',
-    status: '1st Prize',
+    accolades: ['1st Prize (National Comp)'],
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn', 'Clyde Ong'],
     images: [
       '/Gallery/Competition/Pr1ma/CP.avif',
@@ -444,7 +447,7 @@ export const competitionProjects: Project[] = [
     title: 'Hong Kong Pixelated Housing',
     location: 'Hong Kong',
     category: 'Competition',
-    status: 'Submission',
+    accolades: ['Submission  (International Comp)'],
     projectTeam: ['Edric Choo Poo Liang', 'Queenie Wong', 'Lee Chaer Shean', 'Goh Chew Yet'],
     images: [
       '/Gallery/Competition/HongKong/CP.avif',
@@ -471,7 +474,7 @@ export const competitionProjects: Project[] = [
     title: 'Future House ; Micro House',
     location: 'Flexible',
     category: 'Competition',
-    status: '1st Prize',
+    accolades: ['1st Prize (International Comp)'],
     projectTeam: ['Edric Choo Poo Liang', 'Lee Chaer Shean'],
     images: [
       '/Gallery/Competition/FutureHouse/CP.avif',
@@ -510,7 +513,7 @@ export const competitionProjects: Project[] = [
     title: 'Teluk Kumbar Market',
     location: 'Teluk Kumbar, Penang',
     category: 'Competition',
-    status: '2nd Prize',
+    accolades: ['2nd Prize (National Comp)'],
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn', 'Clyde Ong'],
     images: [
       '/Gallery/Competition/TelukGumbar/CP.avif',
@@ -538,7 +541,7 @@ export const competitionProjects: Project[] = [
     title: 'A House For Master Lee',
     location: 'Gayasan-Ro, South Korea',
     category: 'Competition',
-    status: 'Submission',
+    accolades: ['Submission (International Comp)'],
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
     images: [
       '/Gallery/Competition/HouseForLee/CP.avif',
@@ -579,7 +582,7 @@ export const competitionProjects: Project[] = [
     title: 'Tokyo Vertical Cemetery',
     location: 'Shinjuku, Tokyo',
     category: 'Competition',
-    status: 'Submission',
+    accolades: ['Submission (International Comp)'],
     projectTeam: ['Edric Choo Poo Liang', 'Clyde Ong'],
     images: [
       '/Gallery/Competition/TokyoVertical/A3.avif',
@@ -603,7 +606,7 @@ export const competitionProjects: Project[] = [
     title: 'House for A Dream',
     location: 'South London',
     category: 'Competition',
-    status: 'Submission',
+    accolades: ['Submission  (International Comp)'],
     projectTeam: ['Edric Choo Poo Liang', 'Tang Ying Jien'],
     images: [
       '/Gallery/Competition/OurHome/CP.avif',
@@ -634,8 +637,7 @@ export const competitionProjects: Project[] = [
     title: 'Nothingness & Fullness',
     location: 'Penang//Kuala Lumpur, Malaysia',
     category: 'Competition',
-    status: 'Submission',
-    projectTeam: ['Edric Choo Poo Liang'],
+    projectTeam: ['Edric Choo Poo Liang','Farah Baharudin','Ng Yi Meng'],
     images: [
       '/Gallery/Competition/NNE/A1.avif',
       '/Gallery/Competition/NNE/A2.avif',
@@ -689,9 +691,9 @@ export const competitionProjects: Project[] = [
     id: 20,
     slug: 'city-of-tomorrow',
     title: 'City Of Tomorrow',
-    location: 'Petaling Jaya, Selangor',
+    location: 'N/A',
     category: 'Competition',
-    status: 'Submission',
+    accolades: ['Ideal Proposal (International Publication)'],
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
     images: [
       '/Gallery/Competition/CityofTmorrow/CP.avif',
@@ -765,7 +767,7 @@ export const competitionProjects: Project[] = [
     title: 'VOXEL HOUSE',
     location: 'N/A',
     category: 'Competition',
-    status: 'Submission',
+    accolades: ['Submission  (International Comp)'],
     projectTeam: ['Edric Choo Poo Liang', 'Raven'],
     images: [
       '/Gallery/Competition/Voxel/CP.avif',
@@ -806,9 +808,8 @@ export const competitionProjects: Project[] = [
     id: 22,
     slug: 'klaf-2018',
     title: 'PAM KLAF 2018 Future Malaysian Housing Exhibition',
-    location: 'N/A',
+    location: 'Glenmarie Station, Petaling Jaya',
     category: 'Competition',
-    status: 'Submission',
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
     images: [
       '/Gallery/Competition/KLAF/CP.avif',
@@ -851,7 +852,7 @@ export const competitionProjects: Project[] = [
     title: 'Go Beyond',
     location: 'Flexible',
     category: 'Competition',
-    status: '1st Prize',
+    accolades: ['1st Prize (International Comp)'],
     projectTeam: ['Edric Choo Poo Liang'],
     images: [
       '/Gallery/Competition/GoBeyond/CP.avif',
@@ -905,7 +906,7 @@ export const competitionProjects: Project[] = [
     title: 'Architect\'s Chair',
     location: 'N/A',
     category: 'Competition',
-    status: '1st Prize',
+    accolades: ['1st Prize (International Comp)'],
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
     images: [
       '/Gallery/Competition/ArchChair/A1.avif',

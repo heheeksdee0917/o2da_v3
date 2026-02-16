@@ -40,7 +40,7 @@ export const hospitalityProjects: Project[] = [
     location: 'Ulu Yam, Selangor',
     category: 'Hospitality',
     status: 'Proposal',
-    projectTeam: ['Edric Choo Poo Liang', 'Ng Yi Meng', 'Khor Jia Xin'],
+    projectTeam: ['Edric Choo Poo Liang', 'Ng Yi Meng', 'Khor Jia Xin','Lim Min Syn'],
     images: [
       '/Gallery/Hospitality/Retreat/CP.avif',
       '/Gallery/Hospitality/Retreat/A1.avif',

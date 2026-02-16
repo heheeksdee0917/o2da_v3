@@ -12,7 +12,7 @@ export const heroSections: HeroSection[] = [
   {
     id: 1,
     title: "Tropical Shift House",
-    location: "Kuala Lumpur",
+    location: "Petaling Jaya, Selangor",
     slug: "tropical-shift-house",
     img: '/Gallery/Residential/TropicalShiftHouse/hero_video.mp4',
     thumbnail: '/Gallery/Residential/TropicalShiftHouse/tropical_thumbnail.avif',

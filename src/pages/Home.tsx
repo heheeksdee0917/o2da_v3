@@ -37,10 +37,7 @@ export default function HeroSection() {
     };
 
     container.addEventListener('scroll', handleScroll, { passive: true });
-    
-    return () => {
-      container.removeEventListener('scroll', handleScroll);
-    };
+    return () => container.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Intersection Observer for fade-in animations
@@ -86,15 +83,14 @@ export default function HeroSection() {
 
       <div
         ref={containerRef}
-        className="h-screen overflow-y-scroll snap-y snap-mandatory scrollbar-hide"
-        style={{ scrollBehavior: 'smooth' }}
+        className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth"
       >
         {heroSections.map((section, index) => (
           <div
             key={section.id}
             ref={(el) => (sectionRefs.current[index] = el)}
             data-theme="dark"
-            className="hero-section relative h-screen w-full overflow-hidden cursor-pointer snap-start bg-black opacity-0 transition-all duration-1000 ease-out flex-shrink-0"
+            className="hero-section relative h-screen w-full overflow-hidden cursor-pointer snap-start snap-always bg-black opacity-0 transition-all duration-1000 ease-out"
             onClick={() => handleSectionClick(section.slug)}
           >
             {/* Parallax Background with Scale Effect */}
@@ -130,7 +126,7 @@ export default function HeroSection() {
           </div>
         ))}
 
-        <div data-theme="light" className="relative flex-shrink-0">
+        <div data-theme="light" className="snap-start snap-always">
           <Footer />
         </div>
       </div>
@@ -166,15 +162,11 @@ export default function HeroSection() {
         }
 
         /* Hide scrollbar but keep functionality */
-        .scrollbar-hide::-webkit-scrollbar {
+        .overflow-y-scroll::-webkit-scrollbar {
           width: 0px;
           background: transparent;
         }
         
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
 
         /* Reduced motion support for accessibility */
         @media (prefers-reduced-motion: reduce) {
@@ -187,8 +179,8 @@ export default function HeroSection() {
             animation: none !important;
           }
           
-          div[style*="scroll-behavior"] {
-            scroll-behavior: auto !important;
+          .scroll-smooth {
+            scroll-behavior: auto;
           }
         }
       `}</style>

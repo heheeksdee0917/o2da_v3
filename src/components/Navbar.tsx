@@ -86,7 +86,7 @@ export default function Navbar() {
             <div className="flex items-center space-x-12">
               <Link to="/">
                 <span className={`text-xl font-medium transition-colors duration-300 ${textColor}`} style={{ fontFamily: "'Gill Sans', system-ui, -apple-system, sans-serif" }}>
-                  O<span className="lime-accent">2</span>DA + CPLA
+                  O<span className="lime-accent">2</span>DA + CPL<span className="hot-rod-accent">A</span>
                 </span>
               </Link>
 

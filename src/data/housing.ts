@@ -7,10 +7,10 @@ export const housingProjects: Project[] = [
     id: 1,
     slug: 'bahagia-height',
     title: 'Bahagia Height',
-    location: 'Termeloh Pahang, Kedah',
+    location: 'Termeloh, Pahang',
     category: 'Housing',
-    status: 'Proposal',
-    projectTeam: ['Edric Choo Poo Liang','Lim Min Syn','Woon Zhi Zheng','Danish Azhan'],
+    status: 'Submission',
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn', 'Woon Zhi Zheng', 'Danish Azhan'],
     images: [
       '/Gallery/Housing/BahagiaHeight/CP.avif',
       '/Gallery/Housing/BahagiaHeight/A1.avif',
@@ -27,39 +27,16 @@ export const housingProjects: Project[] = [
       { type: 'text', content: 'Bahagia Heights is designed as a disciplined neighbourhood with calibrated choice. The diptych strategy introduces variation that is legible and market-ready, offering buyers options while maintaining a coherent streetscape. From the framed entrance to the gateless porch threshold, the project prioritises comfort, shade, and a sense of lived character—an architecture that stays consistent in its fundamentals, yet leaves room for households to differentiate themselves through use, daily rituals, and time.' },
     ],
   },
-  // 2. Botanic Centre
-  {
-    id: 2,
-    slug: 'botanic-centre',
-    title: 'Botanic Central',
-    location: 'Termeloh Pahang, Kedah',
-    category: 'Housing',
-    status: 'Proposal',
-    projectTeam: ['Edric Choo Poo Liang','Lim Min Syn','Woon Zhi Zheng','Danish Azhan'],
-    images: [
-      '/Gallery/Housing/BahagiaCentre/CP.avif',
-      '/Gallery/Housing/BahagiaCentre/A1.avif',
-      '/Gallery/Housing/BahagiaCentre/A2.avif',
-      '/Gallery/Housing/BahagiaCentre/A3.avif',
-      '/Gallery/Housing/BahagiaCentre/A4.avif',
-    ],
-    detailContent: [
-      { type: 'text', content: 'Botanic Central is positioned within a fast-growing peri-urban corridor where commercial growth tends to arrive as familiar, repeatable shop-office blocks: wide service roads, recessed canopies, and full-width glazing that is later overwhelmed by ad-hoc signboards and banners. The prevalence of this typology exposes a disciplinary gap—signage is rarely given an architectural place, so tenants colonise every available surface, flattening the façade into visual noise while masking glazing that should support display, daylight, and ventilation. This project accepts the two-storey shop-office as an efficient urban instrument, then refines its public face by treating branding as a designed layer rather than an afterthought.' },
-      { type: 'text', content: 'The precinct is organised by rhythm, depth, and a clear signage hierarchy. Bold cubic upper volumes act as calibrated frames to the street, thickening the façade into legible planes sized to host tenant identity without spilling into openings. A three-tier system is embedded within this composition: primary tenant panels are reserved on the main upper planes for high-visibility identification; a continuous secondary sign band is aligned as a consistent datum for smaller names and wayfinding; and vertical lot markers are confined to recesses and party-wall seams to register individual units and stairs. By fixing where graphics may land, the architecture preserves windows as windows and signage as signage—improving readability from the road while protecting façade performance from the common cycle of over-application.' },
-      { type: 'text', content: 'Arrival is staged through a clear hierarchy of markers and edges, where a darker base plane anchors the row, accommodating shutters, entries, and shopfronts as a robust, serviceable datum. Ground-floor glazing is protected as the commercial interface, kept clear of primary signage so display and visibility remain intact, while louvres and deep reveals moderate sun and glare. Across the elevation, the white blocks are set in a four-step height variation—enough to give each unit a distinct beat and a livelier streetscape, while remaining robust and repeatable for cost control and long-term coherence.' },
-      { type: 'text', content: 'Above, upper-floor openings are set back and screened to reduce heat gain and glare, and to remain visually subordinate to the primary sign fields. The façade therefore performs as a controlled framework: it grants tenants generous branding capacity, but only within zones that preserve legibility, protect glazing, and maintain a coherent street edge over time.' },
-      { type: 'text', content: 'Botanic Central therefore delivers a retail environment that is functional, legible, and resilient. By formalising the shop-office typology through shading depth and an integrated signage framework, the precinct can accommodate tenant turnover without visual disorder, holding a clear architectural identity within the everyday flux of commercial life.' },
-    ],
-  },
+
   // 3. Split
   {
     id: 3,
     slug: 'splay',
     title: 'Splay',
-    location: 'Sentul, Kuala Lumpur',
+    location: 'Jalan Kuching, Kuala Lumpur',
     category: 'Housing',
-    status: 'Proposal',
-    projectTeam: ['Edric Choo Poo Liang','Lim Min Syn'],
+    status: 'Schematic',
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
     images: [
       '/Gallery/Housing/ServiceApartment/CP.avif',
       '/Gallery/Housing/ServiceApartment/A1.avif',
@@ -115,11 +92,11 @@ export const housingProjects: Project[] = [
     location: 'Jalan Alor, Kuala Lumpur',
     category: 'Housing',
     status: 'Planning',
-    projectTeam: ['Edric Choo Poo Liang'],
+    projectTeam: ['Edric Choo Poo Liang','Lim Min Syn'],
     images: [
+      '/Gallery/Housing/Vertical/A2.avif',
       '/Gallery/Housing/Vertical/CP.avif',
       '/Gallery/Housing/Vertical/A1.avif',
-      '/Gallery/Housing/Vertical/A2.avif',
       '/Gallery/Housing/Vertical/A3.avif',
     ],
     detailContent: [
@@ -132,7 +109,7 @@ export const housingProjects: Project[] = [
     id: 6,
     slug: 'the-mountain',
     title: 'The Mountain',
-    location: 'Selangor',
+    location: 'Puchong, Selangor',
     category: 'Housing',
     status: 'Planning',
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
@@ -159,7 +136,7 @@ export const housingProjects: Project[] = [
     location: 'Mont Kiara, Kuala Lumpur',
     category: 'Housing',
     status: 'Proposal',
-    projectTeam: ['Edric Choo Poo Liang', 'Kong Xiang Lynn'],
+    projectTeam: ['Edric Choo Poo Liang', 'Kong Xiang Lynn','Lim Min Syn'],
     images: [
       '/Gallery/Housing/Cascade31/CP.avif',
       '/Gallery/Housing/Cascade31/A1.avif',
@@ -199,8 +176,7 @@ export const housingProjects: Project[] = [
     location: 'Kota Damansara, Selangor',
     category: 'Housing',
     status: 'Proposal',
-    imagePosition: 'bottom',
-    projectTeam: ['Edric Choo Poo Liang', 'Joshua Quah'],
+    projectTeam: ['Edric Choo Poo Liang', 'Joshua Quah','Lim Min Syn'],
     images: [
       '/Gallery/Housing/ShuffleShuttle/CP.avif',
       '/Gallery/Housing/ShuffleShuttle/A1.avif',
@@ -222,7 +198,6 @@ export const housingProjects: Project[] = [
     location: 'Sentul, Kuala Lumpur',
     category: 'Housing',
     status: 'Proposal',
-    imagePosition: 'bottom',
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
     images: [
       '/Gallery/Housing/SentulRaya/CP.avif',
@@ -251,6 +226,10 @@ export const housingProjects: Project[] = [
     category: 'Housing',
     status: 'Towards CCC',
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn', 'Rina Kamar', 'Lee Chear Shean', 'Goh Chew Yet', 'Khor Jia Xin', 'Tan YJ'],
+    accolades: [
+      'PAM 2022 (Silver Award',
+      'Asia Pacific Property Awards 2021-2022 (Best Residential Development Malaysia (5 Star Winner)',
+      'Asia Pacific Property Awards 2021-2022 (Best Architecture Multiple Residence Malaysia (5 Star Winner)'],
     images: [
       '/Gallery/Housing/GarisanPuchong/CP.avif',
       '/Gallery/Housing/GarisanPuchong/A1.avif',
@@ -277,4 +256,58 @@ export const housingProjects: Project[] = [
       { type: 'text', content: 'External of the houses are articulated in 2 form variants expressing different built heights, colors and finish textures to break away the norm of extreme linearity in Malaysian terrace housing. Windows on the east-west facing facades are shaded with operable louvers with 2 different alternating mechanisms.' },
     ],
   },
+    // Illoura
+    {
+      id: 11,
+      slug: 'illoura',
+      title: 'Illoura',
+      location: 'Old Holland Road, Singapore',
+      category: 'Housing',
+      status: 'Built (as Project Architect at SCDA PTE LTD)',
+      projectTeam: ['N/A'],
+      images: [
+        '/Gallery/Commercial/Illoura/CP.avif',
+        '/Gallery/Commercial/Illoura/A1.avif',
+      ],
+      detailContent: [
+        { type: 'text', content: 'Set along the quiet, tree-lined enclave of Old Holland Road, this contemporary residential development unfolds as a sequence of luminous villas edged by a continuous turquoise lap pool. The architecture is anchored by crisp rectilinear volumes that appear to hover lightly above the water, their white frames and deep overhangs creating a rhythmic façade against the tropical sky. Horizontal aluminium screens wrap the upper floors, tempering sunlight while maintaining a sense of openness and calm privacy.' },
+        { type: 'text', content: 'The ground plane is intentionally porous: landscaped terraces, planted edges, and pockets of greenery slip between built forms, softening the modern palette of concrete, stone, and glass. Mature climbers and vertical gardens drape selectively over the tall brick-clad walls, introducing a gentle contrast between the development’s refined lines and the lushness of Singapore’s climate.' },
+      ],
+    },
+    // Dawson Hub
+    {
+      id: 12,
+      slug: 'dawson-hub',
+      title: 'Dawson Hub',
+      location: 'Queenstown, Singapore',
+      category: 'Housing',
+      status: 'Built (as Design Architect at SCDA PTE LTD, Singapore)',
+      projectTeam: ['N/A'],
+      images: [
+        '/Gallery/Commercial/Dawson/CP.avif',
+        '/Gallery/Commercial/Dawson/A1.avif',
+        '/Gallery/Commercial/Dawson/A2.avif',
+      ],
+      detailContent: [
+        { type: 'text', content: 'This high-rise composition is defined by two slender towers articulated with staggered balconies and deep frames, giving the façade a rhythmic, almost pixelated texture. Mid-level sky bridges stitch the towers together, creating shared vantage points while accentuating the vertical void between them. At the base, a multi-storey podium wrapped in continuous planted terraces forms a green plinth that softens the scale of the development and anchors it to the streetscape. The interplay of greenery, structural clarity, and sculpted massing produces a contemporary urban silhouette—one that balances density with permeability, and height with moments of elevated communal space.' },
+      ],
+    },
+    // Hilltop
+    {
+      id: 13,
+      slug: 'hilltop',
+      title: 'Hilltop',
+      location: 'Cairnhill, Singapore',
+      category: 'Housing',
+      status: 'Built (as Design Architect at W Architect PTE LTD, Singapore)',
+      projectTeam: ['Edric Choo Poo Liang'],
+      images: [
+        '/Gallery/Commercial/Hilltop/CP.avif',
+        '/Gallery/Commercial/Hilltop/A1.avif',
+        '/Gallery/Commercial/Hilltop/A2.avif',
+      ],
+      detailContent: [
+        { type: 'text', content: 'Luxury condominium located amidst the lush landscape of Cairne Hills. With its sprawling grounds and balmy breezes Hilltops provide the perfect setting for a botanical urban retreat. The expansive estate features a centerpiece 50m swimming pool, jacuzzi and wading pool flanked by a glass-walled gymnasium and private dining facilities set within landscaped gardens.' },
+      ],
+    },
 ]

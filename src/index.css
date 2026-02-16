@@ -129,6 +129,10 @@
     color: #A6FF00;
   }
 
+  .hot-rod-accent {
+    color: #A72A2B;
+  }
+
   .page-fade-in {
     animation: fadeInPage 1s ease-in-out;
   }

@@ -60,12 +60,12 @@ export default function About() {
         <div data-theme="light" className="bg-white grid-background">
           <div className="max-w-[1400px] mx-auto px-12 pt-32 pb-32">
             <div ref={philosophyRef} className="mb-24 max-w-5xl mx-auto text-center">
-              <h2 className="mb-8 text-3xl font-normal">About O<span className="lime-accent">2</span>DA+CPLA</h2>
+              <h2 className="mb-8 text-3xl font-normal">O<span className="lime-accent">2</span>DA+CPL<span className="hot-rod-accent">A</span></h2>
               <p className="mb-6 leading-relaxed">
-              Established in 2015 by Malaysian architect <span className="font-medium">Edric Choo Poo Liang</span>, O2DA—comprising <span className="font-medium">O2 Design Atelier and CPLA (Choo Poo Liang Architect)</span>—is a multidisciplinary design practice rooted in the creative industries. The studio operates at the intersection of architecture, culture, and environmental consciousness, offering design solutions that are both innovative and contextually grounded.
+              Established in 2015 by Malaysian architect <span className="font-medium">Ar. Edric Choo Poo Liang</span>, O2DA + CPLA — comprising <span className="font-medium">O2 Design Atelier and Choo Poo Liang Architect</span>—is a multidisciplinary design practice rooted in the creative industries. The studio operates at the intersection of architecture, culture, and environmental consciousness, offering design solutions that are both innovative and contextually grounded.
               </p>
               <p className="mb-6 leading-relaxed">
-              Rather than adhering to a singular aesthetic or style, <span className="font-medium">CPLA’s design philosophy is responsive</span>—each project is shaped by its site, cultural backdrop, client vision, and the broader architectural language. Central to our approach is a deep awareness of climate change and its implications for the built environment. This drives us to engage critically with issues of sustainability, social behavior, and urban culture.
+              Rather than adhering to a singular aesthetic or style, <span className="font-medium">CPLA’s design philosophy is responsive</span>—each project is shaped by its site, cultural backdrop, client vision, and the formal architectural language. Central to our approach is a deep awareness of climate change and its implications for the built environment. This drives us to engage critically with issues of sustainability, social behavior, and urban culture.
               </p>
               <p className="mb-6 leading-relaxed">
               Our work is defined by a rigorous, research-driven design process. We believe that meaningful architecture begins with <span className="font-medium">listening</span>—to our clients, to communities, and to the environment. This dialogue informs bespoke, design-led outcomes that are tailored, purposeful, and enduring.
