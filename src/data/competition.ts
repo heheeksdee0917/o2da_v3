@@ -40,11 +40,11 @@ export const competitionProjects: Project[] = [
     title: 'Kenya‘s Orphanage',
     location: 'SOY, KENYA',
     category: 'Competition',
-    projectTeam: ['Edric Choo Poo Liang', 'Tang Ying Jien','Lim Min Syn'],
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
     accolades:[
       'International Architecture Review Future Project Awards 2018 (Commendation)',
       'World Architecture Festival Award 2017 (Commendation)',
-      'International Competition 1st prize',
+      '1st prize (International Competition)',
     ],
     images: [
       '/Gallery/Competition/KenyaOrph/CP.avif',
@@ -297,7 +297,7 @@ export const competitionProjects: Project[] = [
     location: 'Kwasa Damansara, Selangor',
     category: 'Competition',
     accolades: ['2nd Prize (National Comp)'],
-    projectTeam: ['Edric Choo Poo Liang', 'Tang Ying Jien','Lim Min Syn'],
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
     images: [
       '/Gallery/Competition/ImbauanResidence/CP.avif',
       '/Gallery/Competition/ImbauanResidence/A1.avif',
@@ -908,7 +908,7 @@ export const competitionProjects: Project[] = [
     title: 'Architect\'s Chair',
     location: 'N/A',
     category: 'Competition',
-    accolades: ['1st Prize (International Comp)'],
+    accolades: ['Mentioned (International Comp)'],
     projectTeam: ['Edric Choo Poo Liang', 'Queenie Wong'],
     images: [
       '/Gallery/Competition/ArchChair/A1.avif',

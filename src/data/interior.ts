@@ -83,7 +83,7 @@ export const interiorProjects: Project[] = [
     location: 'Kwasa Damansara, Selangor',
     category: 'Interior',
     status: 'Construction',
-    projectTeam: ['Edric Choo Poo Liang', 'Kong Xiang Lynn', 'Wendy Woon'],
+    projectTeam: ['Edric Choo Poo Liang', 'Wendy Woon'],
     images: [
       '/Gallery/Interior/Dharma/CP.avif',
       '/Gallery/Interior/Dharma/A1.avif',
@@ -120,7 +120,7 @@ export const interiorProjects: Project[] = [
     location: 'Cheras, Kuala Lumpur',
     category: 'Interior',
     status: 'Schematic',
-    projectTeam: ['Edric Choo Poo Liang', 'Kong Xiang Lynn'],
+    projectTeam: ['Edric Choo Poo Liang','Lim Min Syn', 'Kong Xiang Lynn'],
     images: [
       '/Gallery/Interior/QuartzID/CP.avif',
       '/Gallery/Interior/QuartzID/A1.avif',
@@ -150,7 +150,7 @@ export const interiorProjects: Project[] = [
     id: 5,
     slug: 'sentul-works-id',
     title: 'Sentul Works',
-    location: 'Taman Desa, Kuala Lumpur',
+    location: 'Sentul, Kuala Lumpur',
     category: 'Interior',
     status: 'Completed',
     projectTeam: ['Edric Choo Poo Liang', 'Kong Xiang Lynn','Lim Min Syn'],

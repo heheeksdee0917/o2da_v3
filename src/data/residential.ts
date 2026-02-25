@@ -419,7 +419,7 @@ export const residentialProjects: Project[] = [
     title: 'The Rooms',
     location: 'Taman Selamat, Penang',
     category: 'Residential',
-    status: 'DEsign',
+    status: 'Schematic',
     projectTeam: ['Edric Choo Poo Liang', 'Wong Jia Xin', 'Germin Lim'],
     images: [
       '/Gallery/Residential/TheRooms/CP.avif',
@@ -447,7 +447,7 @@ export const residentialProjects: Project[] = [
     location: 'Kuala Lumpur',
     category: 'Residential',
     status: 'Submission',
-    projectTeam: ['Edric Choo Poo Liang', 'Quek Yi Jane','Lim Min Syn','Wendy Woon','Evans Khor','Raven'],
+    projectTeam: ['Edric Choo Poo Liang','Lim Min Syn','Wendy Woon','Evans Khor','Raven'],
     images: [
       '/Gallery/Residential/Twin/CP.avif',
       '/Gallery/Residential/Twin/A1.avif',
@@ -741,7 +741,7 @@ export const residentialProjects: Project[] = [
     location: 'Taman Tunku, Kuala Lumpur',
     category: 'Residential',
     status: 'Completed',
-    projectTeam: ['Edric Choo Poo Liang','Lim Min Syn','Carrol Lee'],
+    projectTeam: ['Edric Choo Poo Liang','Lim Min Syn','Carrol Lee','Goh Chew Yet','Lee Chaer Shean','Vanessa','Ng Yi Meng'],
     images: [
       '/Gallery/Residential/Infill/CP.avif',
       '/Gallery/Residential/Infill/A1.avif',
@@ -910,7 +910,7 @@ export const residentialProjects: Project[] = [
     location: 'Kuala Lumpur',
     category: 'Residential',
     status: 'Completed',
-    projectTeam: ['Edric Choo Poo Liang'],
+    projectTeam: ['Edric Choo Poo Liang','Joshua','Kong Xiang Lynn','Evans Khor'],
     coverPhoto: '/Gallery/Residential/JNDHouse/CP.avif',
     images: [
       '/Gallery/Residential/JNDHouse/A0.avif',
@@ -919,7 +919,6 @@ export const residentialProjects: Project[] = [
       '/Gallery/Residential/JNDHouse/A3.avif',
       '/Gallery/Residential/JNDHouse/A4.avif',
       '/Gallery/Residential/JNDHouse/A5.avif',
-      '/Gallery/Residential/JNDHouse/A6.avif',
       '/Gallery/Residential/JNDHouse/A7.avif',
       '/Gallery/Residential/JNDHouse/A8.avif',
       '/Gallery/Residential/JNDHouse/A9.avif',
@@ -1213,7 +1212,7 @@ export const residentialProjects: Project[] = [
     id: 30,
     slug: '3-courtyard-house',
     title: '3 Courtyard House',
-    location: 'Bandar Sri Damansara, Selangor',
+    location: 'Bandar Sri Damansara, Kuala Lumpur',
     category: 'Residential',
     status: 'Completed',
     projectTeam: ['Edric Choo Poo Liang', 'Goh Chew Yet'],

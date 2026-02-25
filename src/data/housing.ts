@@ -136,7 +136,7 @@ export const housingProjects: Project[] = [
     location: 'Mont Kiara, Kuala Lumpur',
     category: 'Housing',
     status: 'Proposal',
-    projectTeam: ['Edric Choo Poo Liang', 'Kong Xiang Lynn','Lim Min Syn'],
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
     images: [
       '/Gallery/Housing/Cascade31/CP.avif',
       '/Gallery/Housing/Cascade31/A1.avif',
@@ -176,7 +176,7 @@ export const housingProjects: Project[] = [
     location: 'Kota Damansara, Selangor',
     category: 'Housing',
     status: 'Proposal',
-    projectTeam: ['Edric Choo Poo Liang', 'Joshua Quah','Lim Min Syn'],
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
     images: [
       '/Gallery/Housing/ShuffleShuttle/CP.avif',
       '/Gallery/Housing/ShuffleShuttle/A1.avif',
@@ -224,7 +224,7 @@ export const housingProjects: Project[] = [
     title: 'Garisan',
     location: 'Puchong Prima, Selangor',
     category: 'Housing',
-    status: 'Towards CCC',
+    status: 'Completed',
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn', 'Rina Kamar', 'Lee Chear Shean', 'Goh Chew Yet', 'Khor Jia Xin', 'Tan YJ'],
     accolades: [
       'PAM 2022 (Silver Award',
