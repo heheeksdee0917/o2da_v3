@@ -215,7 +215,7 @@ export const newsItems: NewsItem[] = [
     title: "Skyscrapers do we need them?",
     date: "2023-03-12",
     excerpt: "Edric Choo questions the role of skyscrapers in addressing urban density, land scarcity, and post-pandemic challenges, weighing vertical efficiency benefits against environmental, social, and safety drawbacks while proposing future self-sustaining towers that free ground space for nature.",
-    image: '/Gallery/Competition/CityofTmorrow/CP.avif', 
+    image: '/Gallery/Competition/CityofTmorrow/CP.avif',
     slug: "skyscrapers-do-we-need-them",
     content: [
       {
@@ -237,7 +237,7 @@ export const newsItems: NewsItem[] = [
     title: "A CONVERSATION WITH AR SYED SOBRI SYED ISMAIL",
     date: "2025-12-27",
     excerpt: "Ar. Edric Choo interviews Ar. Syed Sobri Syed Ismail, co-founder of GDP Architects, on firm origins, business realities in Malaysian architecture, climate-responsive design, ESG as the new standard, and practical advice for young architects to build professionalism and trust.",
-    image: '/Publications/conversation.avif', 
+    image: '/Publications/conversation.avif',
     slug: "conversation-ar-syed-sobri-syed-ismail",
     content: [
       {
@@ -259,7 +259,7 @@ export const newsItems: NewsItem[] = [
     title: "Interview with Dato’ Tengku Abdul Aziz Tengku Mahmud and Ar Farid Baharuddin",
     date: "2025-04-16",
     excerpt: "Interview by Ar. David Teoh and Ar. Edric Choo explores the vision behind Merdeka 118, architect selection, structural/fire-safety innovations, pandemic challenges, heritage integration, sustainability goals (LEED Platinum), and the project's role in economic revitalization and global positioning for Malaysian architecture.",
-    image: '/Publications/interview1.avif', 
+    image: '/Publications/interview1.avif',
     slug: "interview-dato-tengku-abdul-aziz-ar-farid-baharuddin",
     content: [
       {
@@ -281,7 +281,7 @@ export const newsItems: NewsItem[] = [
     title: "Perfection Imperfection",
     date: "2023-12-18",
     excerpt: "Ar Edric Choo introduces wabi-sabi philosophy—embracing beauty in imperfection, transience, and natural authenticity—as a counter to modern architecture's obsession with precision, mass production, and permanence, advocating for organic, site-responsive, sustainable designs that evolve with time.",
-    image: '/Publications/perfect-imperfection.avif', 
+    image: '/Publications/perfect-imperfection.avif',
     slug: "perfection-imperfection",
     content: [
       {
@@ -303,7 +303,7 @@ export const newsItems: NewsItem[] = [
     title: "Glassy Act",
     date: "2023-06-18",
     excerpt: "The Retro KFC Drive-Thru Restaurant at Bukit Raja breaks from standard templates with a retrospective Art Deco and Modernist design inspired by early 20th-century aerodynamics and classic American fast-food culture, featuring a 'lifted' floating cabin effect, prominent red KFC branding, and a giant illuminated Chicken Bucket as a landmark beacon.",
-    image: '/Gallery/Commercial/KFCBukitRaja/A2.avif', 
+    image: '/Gallery/Commercial/KFCBukitRaja/A2.avif',
     slug: "glassy-act",
     content: [
       {
@@ -325,7 +325,7 @@ export const newsItems: NewsItem[] = [
     title: "Pilgrimage of an Architect",
     date: "2022-12-18",
     excerpt: "Edric Choo reflects on architectural travel as an essential pilgrimage that expands mental horizons, awakens all senses, gathers energy, and provides true inspiration through direct, immersive experiences of iconic global works that photos and drawings cannot fully convey.",
-    image: '/Publications/pilgrimage.avif', 
+    image: '/Publications/pilgrimage.avif',
     slug: "pilgrimage-of-an-architect",
     content: [
       {
@@ -347,7 +347,7 @@ export const newsItems: NewsItem[] = [
     title: "THINKING OUTSIDE THE BOX",
     date: "2022-06-18",
     excerpt: "This cluster of twelve linked 2½-storey terrace houses in Puchong rethinks tropical suburban living by centering spaces around a triple-volume courtyard with natural light and greenery, incorporating monsoon windows, operable louvers, and heritage-inspired elements to improve ventilation, brightness, and livability over standard dark terrace designs.",
-    image: '/Gallery/Housing/GarisanPuchong/A2.avif', 
+    image: '/Gallery/Housing/GarisanPuchong/A2.avif',
     slug: "thinking-outside-the-box",
     content: [
       {
@@ -369,7 +369,7 @@ export const newsItems: NewsItem[] = [
     title: "Nothingness and Fullness",
     date: "2022-06-18",
     excerpt: "Edric Choo explores the interconnected philosophical concepts of nothingness and fullness in architecture, drawing from Zen, Buddhist, and Western thought to advocate for mindful design that embraces emptiness as a path to equilibrium, presence, and meaningful built environments rather than object-centric production.",
-    image: '/Gallery/Competition/NNE/A1.avif', 
+    image: '/Gallery/Competition/NNE/A1.avif',
     slug: "nothingness-and-fullness",
     content: [
       {
@@ -391,7 +391,7 @@ export const newsItems: NewsItem[] = [
     title: "STANDING THE TEST OF TIME: Sentul Works",
     date: "2022-03-18",
     excerpt: "This feature explores the adaptive reuse of a century-old colonial Federated Malay States Railways building in Sentul West, Kuala Lumpur, transformed into Sentul Works modern office space through innovative engineering, contrasting old and new elements, and collaborative onsite solutions to preserve heritage while meeting contemporary needs.",
-    image: '/Gallery/Commercial/SentulWorks/A7.avif', 
+    image: '/Gallery/Commercial/SentulWorks/A7.avif',
     slug: "standing-the-test-of-time-sentul-works",
     content: [
       {
@@ -413,7 +413,7 @@ export const newsItems: NewsItem[] = [
     title: "A Home for 2 / O2 Design Atelier",
     date: "2018-11-24",
     excerpt: "O2 Design Atelier revamps the interior of a residence in a prominent northern Kuala Lumpur neighborhood, prioritizing client-specific design needs and spatial requirements while preserving most of the original exterior facade, achieved through close collaboration with the client (also a designer).",
-    image: '/Gallery/Residential/Homefor2/CP.avif', 
+    image: '/Gallery/Residential/Homefor2/CP.avif',
     slug: "a-home-for-2-o2-design-atelier",
     content: [
       {
@@ -435,7 +435,7 @@ export const newsItems: NewsItem[] = [
     title: "Terrace House Renovation / O2 Design Atelier",
     date: "2015",
     excerpt: "O2 Design Atelier renovates a standard terrace house in Sungai Buloh (near Kuala Lumpur) by extending outwards to maximize internal living space, transforming a typical 22x75 ft lot into a more spacious and functional home through strategic outward additions.",
-    image: '/Gallery/Residential/CourtyardHouse/A8.avif', 
+    image: '/Gallery/Residential/CourtyardHouse/A8.avif',
     slug: "terrace-house-renovation-o2-design-atelier",
     content: [
       {
@@ -457,7 +457,7 @@ export const newsItems: NewsItem[] = [
     title: "3 Courtyard House / O2 Design Atelier",
     date: "2018",
     excerpt: "O2 Design Atelier designs the 3 Courtyard House in Petaling Jaya with three strategically placed courtyards that promote natural ventilation, ample daylight, and privacy, creating a comfortable, tropical-responsive home through thoughtful spatial voids and cross-breeze pathways.",
-    image: '/Gallery/Residential/3CourtyardHouse/A3.avif', 
+    image: '/Gallery/Residential/3CourtyardHouse/A3.avif',
     slug: "3-courtyard-house-o2-design-atelier",
     content: [
       {
@@ -479,7 +479,7 @@ export const newsItems: NewsItem[] = [
     title: "Sentul Works / O2 Design Atelier + YTL Land & Development",
     date: "2021",
     excerpt: "O2 Design Atelier, in collaboration with YTL Land & Development, transforms a historic colonial railway building in Sentul, Kuala Lumpur, into Sentul Works — a contemporary office blending heritage preservation with modern Corten steel additions, innovative structural solutions, and adaptive reuse principles.",
-    image: '/Gallery/Commercial/SentulWorks/A2.avif', 
+    image: '/Gallery/Commercial/SentulWorks/A2.avif',
     slug: "sentul-works-o2-design-atelier-ytl",
     content: [
       {
@@ -501,7 +501,7 @@ export const newsItems: NewsItem[] = [
     title: "Introvert House / O2 Design Atelier + Choo Poo Liang Architect",
     date: "2020",
     excerpt: "This renovation of a two-storey terrace house in Kuala Lumpur adapts a standard 22 ft x 75 ft layout for a Chinese family of five plus helper, adding bedrooms for grown children and improving interior quality through thoughtful spatial adjustments.",
-    image: '/Gallery/Residential/IntrovertHouse/CP1.avif', 
+    image: '/Gallery/Residential/IntrovertHouse/CP1.avif',
     slug: "introvert-house-o2-design-atelier",
     content: [
       {
@@ -523,7 +523,7 @@ export const newsItems: NewsItem[] = [
     title: "O2 design atelier imagines a 'post-pandemic city of tomorrow' elevated above nature",
     date: "2020-11-02",
     excerpt: "O2 Design Atelier's visionary 'The Post-Pandemic City of Tomorrow' proposes self-sustaining elevated towers that integrate living, working, and mobility, lifting urban life above ground to allow forests, rivers, and ecosystems to regenerate naturally below, eliminating roads, suburbs, and deforestation.",
-    image: '/Gallery/Competition/CityofTmorrow/A1.avif', 
+    image: '/Gallery/Competition/CityofTmorrow/A1.avif',
     slug: "post-pandemic-city-of-tomorrow-o2-design-atelier",
     content: [
       {
@@ -545,7 +545,7 @@ export const newsItems: NewsItem[] = [
     title: "corten steel mass rises up from a restored colonial building in kuala lumpur",
     date: "2021-09-21",
     excerpt: "Sentul Works restores a century-old colonial Federated Malay States Railways building in Kuala Lumpur, adding a recessed Corten steel mass above the preserved heritage structure for a modern office that contrasts old brickwork with contemporary abstraction, warm textures, and innovative spatial elements like pop-out balconies and glass curtain walls.",
-    image: '/Gallery/Commercial/SentulWorks/A9.avif', 
+    image: '/Gallery/Commercial/SentulWorks/A9.avif',
     slug: "corten-steel-mass-sentul-works",
     content: [
       {
@@ -567,7 +567,7 @@ export const newsItems: NewsItem[] = [
     title: "TOP 10 reader submissions of 2020 - visualizations of the future",
     date: "2020-12-08",
     excerpt: "O2 Design Atelier's 'The Post-Pandemic City of Tomorrow' ranks 7th in designboom's Top 10 reader-submitted visualizations of the future, recognized for its concept of elevated self-sustaining towers that set nature free by allowing forests and rivers to thrive below.",
-    image: '/Publications/BigStories.avif', 
+    image: '/Publications/BigStories.avif',
     slug: "top-10-reader-submissions-2020-post-pandemic-city",
     content: [
       {
@@ -589,7 +589,7 @@ export const newsItems: NewsItem[] = [
     title: "About O2 Design Atelier (O2DA)",
     date: "",
     excerpt: "02 Design Atelier (02DA), founded by Malaysian architect Ar. Edric Choo Poo Liang, is a Selangor-based firm emphasizing context-responsive design, local culture, social behaviors, and climate considerations through meticulous processes across master planning, architecture, interiors, landscape, and furniture.",
-    image: '/Publications/archify_o2.avif', 
+    image: '/Publications/archify_o2.avif',
     slug: "about-02-design-atelier",
     content: [
       {
@@ -611,7 +611,7 @@ export const newsItems: NewsItem[] = [
     title: "O2 design atelier",
     date: "",
     excerpt: "O2 Design Atelier (O2DA), founded by Malaysian architect Edric Choo Poo Liang, is a Kuala Lumpur-based firm that follows a creative industries model, delivering integrated designs across master planning, architecture, interiors, landscape, and furniture, with a focus on context-responsive solutions that address local culture, social behavior, climate change, and site-specific requirements through meticulous processes.",
-    image: '/Publications/archello_o2.avif', 
+    image: '/Publications/archello_o2.avif',
     slug: "o2-design-atelier-profile",
     content: [
       {
@@ -633,7 +633,7 @@ export const newsItems: NewsItem[] = [
     title: "Design Works: In touch with nature, light and spatial experience",
     date: "2020-09-07",
     excerpt: "Edric Choo Poo Liang of O2 Design Atelier shares insights into his residential projects — including The Courtyard House (his own renovated terrace), A Home for 2, and 3 Courtyard House — emphasizing harmony with nature, natural light integration, spatial fluidity, sustainability, and user-centric design that blurs indoor-outdoor boundaries through courtyards, open plans, and thoughtful materials.",
-    image: '/Gallery/Residential/CourtyardHouse/A10.avif', 
+    image: '/Gallery/Residential/CourtyardHouse/A10.avif',
     slug: "design-works-nature-light-spatial-experience",
     content: [
       {
@@ -655,7 +655,7 @@ export const newsItems: NewsItem[] = [
     title: "Between History and Modernity: KL’s Old Railway Complex Revived into a Modern Office Building.",
     date: "2022-08-04",
     excerpt: "Sentul Works revives a 1904 colonial Federated Malay States Railways headquarters in Kuala Lumpur into a contemporary office, preserving the original brick-and-concrete arched façade while adding a recessed Corten steel mass above, supported by independent steel frames, for a harmonious blend of heritage symmetry and modern abstraction with warm textures and contextual views.",
-    image: '/Gallery/Commercial/SentulWorks/A10.avif', 
+    image: '/Gallery/Commercial/SentulWorks/A10.avif',
     slug: "between-history-and-modernity-sentul-works",
     content: [
       {
@@ -677,7 +677,7 @@ export const newsItems: NewsItem[] = [
     title: "Children Eco-Village",
     date: "",
     excerpt: "Children Eco-Village is a conceptual or proposed sustainable community project by O2 Design Atelier, focusing on eco-friendly design principles tailored for children, emphasizing environmental integration, natural materials, and educational spaces that promote harmony with nature (details limited in available sources).",
-    image: '/Gallery/Competition/KenyaOrph/CP.avif', 
+    image: '/Gallery/Competition/KenyaOrph/CP.avif',
     slug: "children-eco-village",
     content: [
       {
@@ -699,7 +699,7 @@ export const newsItems: NewsItem[] = [
     title: "UNO Retail Shop & KFC Drive-Thru",
     date: "",
     excerpt: "UNO Retail Shop & KFC Drive-Thru (associated with the Genkan House listing) features innovative retail design by O2 Design Atelier, likely incorporating the distinctive retro-modern elements seen in related projects such as full-height glass façades, curved forms, and elevated aesthetics to create engaging commercial spaces (details limited in available sources).",
-    image: '/Gallery/Commercial/KFCBukitRaja/CP.avif', 
+    image: '/Gallery/Commercial/KFCBukitRaja/CP.avif',
     slug: "uno-retail-shop-kfc-drive-thru",
     content: [
       {
@@ -721,7 +721,7 @@ export const newsItems: NewsItem[] = [
     title: "Park by the River",
     date: "",
     excerpt: "Park by the River is a public green space project by O2 Design Atelier that integrates natural landscapes with urban riverfront revitalization, focusing on sustainable design, community accessibility, and ecological restoration through thoughtful pathways, native planting, and open recreational areas.",
-    image: '/Publications/park-by-the-river.avif', 
+    image: '/Publications/park-by-the-river.avif',
     slug: "park-by-the-river",
     content: [
       {
@@ -743,7 +743,7 @@ export const newsItems: NewsItem[] = [
     title: "Kayu Ara Townhouse",
     date: "",
     excerpt: "Kayu Ara Townhouse by O2 Design Atelier reimagines contemporary townhouse living with tropical adaptations, incorporating natural ventilation, courtyards, timber-inspired elements, and spatial efficiency to create comfortable, context-responsive homes in a suburban Malaysian setting.",
-    image: '/Publications/kayu-ara.avif', 
+    image: '/Publications/kayu-ara.avif',
     slug: "kayu-ara-townhouse",
     content: [
       {
@@ -765,7 +765,7 @@ export const newsItems: NewsItem[] = [
     title: "Malaysia Green Building Council HQ",
     date: "",
     excerpt: "The Malaysia Green Building Council HQ, designed by O2 Design Atelier, serves as an exemplary sustainable headquarters that demonstrates green building principles through energy-efficient systems, natural materials, passive design strategies, and integration of greenery to promote environmental stewardship and occupant well-being.",
-    image: '/Gallery/Competition/MGBC/CP.avif', 
+    image: '/Gallery/Competition/MGBC/CP.avif',
     slug: "malaysia-green-building-council-hq",
     content: [
       {
@@ -787,7 +787,7 @@ export const newsItems: NewsItem[] = [
     title: "THE HIGHWAY-CRUISE BLOCK - Capitalizing the Infinitely Urban Wasted Space",
     date: "",
     excerpt: "THE HIGHWAY-CRUISE BLOCK proposes an innovative urban intervention that reclaims wasted space beneath or along highways, transforming underutilized infrastructure into vibrant, multi-functional blocks for community use, mixed programs, and sustainable urban density.",
-    image: '/Publications/highway.avif', 
+    image: '/Publications/highway.avif',
     slug: "highway-cruise-block",
     content: [
       {
@@ -809,7 +809,7 @@ export const newsItems: NewsItem[] = [
     title: "GO BEYOND: CONTAINER DESIGN CHALLENGE",
     date: "",
     excerpt: "GO BEYOND is a container design challenge entry by O2 Design Atelier that pushes the boundaries of modular shipping container architecture, reimagining repurposed containers for innovative, sustainable, and adaptable living or programmatic solutions with creative spatial configurations.",
-    image: '/Gallery/Competition/GoBeyond/CP.avif', 
+    image: '/Gallery/Competition/GoBeyond/CP.avif',
     slug: "go-beyond-container-design-challenge",
     content: [
       {
@@ -831,7 +831,7 @@ export const newsItems: NewsItem[] = [
     title: "Hong Kong PIxel Housing",
     date: "",
     excerpt: "Hong Kong Pixel Housing is a conceptual high-density residential proposal by O2 Design Atelier that reimagines urban living in Hong Kong through a pixelated modular system, optimizing vertical stacking, natural light penetration, ventilation, and communal spaces in a compact, adaptable framework.",
-    image: '/Gallery/Competition/HongKong/CP.avif', 
+    image: '/Gallery/Competition/HongKong/CP.avif',
     slug: "hong-kong-pixel-housing",
     content: [
       {
@@ -853,7 +853,7 @@ export const newsItems: NewsItem[] = [
     title: "Affordable Housing @ Brickfield",
     date: "",
     excerpt: "Affordable Housing @ Brickfield by O2 Design Atelier proposes practical, cost-effective residential solutions for Brickfield, Kuala Lumpur, focusing on modular construction, community-oriented layouts, natural ventilation, and local materials to deliver quality, accessible homes in an urban context.",
-    image: '/Publications/Affordable-Housing.avif', 
+    image: '/Publications/Affordable-Housing.avif',
     slug: "affordable-housing-brickfield",
     content: [
       {
@@ -875,7 +875,7 @@ export const newsItems: NewsItem[] = [
     title: "GARISAN",
     date: "",
     excerpt: "GARISAN (meaning 'line' in Malay) is a design exploration by O2 Design Atelier that uses linear elements, rhythmic forms, and spatial lines to create dynamic architecture, likely focusing on facade articulation, circulation flow, and integration with site context for a cohesive, expressive built environment.",
-    image: '/Gallery/Housing/GarisanPuchong/A5.avif', 
+    image: '/Gallery/Housing/GarisanPuchong/A5.avif',
     slug: "garisan",
     content: [
       {
@@ -897,7 +897,7 @@ export const newsItems: NewsItem[] = [
     title: "Courtyard House",
     date: "",
     excerpt: "Courtyard House (also known as A Home for 2) by O2 Design Atelier transforms an existing residence in Kuala Lumpur into a personalized, courtyard-centered home with open spatial planning, natural light, and indoor-outdoor flow, achieved through close collaboration and interior-focused upgrades.",
-    image: '/Gallery/Residential/CourtyardHouse/A11.avif', 
+    image: '/Gallery/Residential/CourtyardHouse/A11.avif',
     slug: "courtyard-house",
     content: [
       {
@@ -919,7 +919,7 @@ export const newsItems: NewsItem[] = [
     title: "3 Courtyards House",
     date: "",
     excerpt: "3 Courtyards House by O2 Design Atelier is a tropical residence in Petaling Jaya featuring three strategically placed courtyards that facilitate natural ventilation, daylighting, and privacy, creating a serene, nature-integrated home through passive design and open spatial voids.",
-    image: '/Gallery/Residential/3CourtyardHouse/A12.avif', 
+    image: '/Gallery/Residential/3CourtyardHouse/A12.avif',
     slug: "3-courtyards-house",
     content: [
       {
@@ -941,7 +941,7 @@ export const newsItems: NewsItem[] = [
     title: "A Home For Two",
     date: "",
     excerpt: "A Home For Two (also referred to as Courtyard House) by O2 Design Atelier is a renovated residential project featuring a central courtyard garden that introduces natural light and greenery upon entry, creating a double-volume living space with seamless indoor-outdoor connection in a Kuala Lumpur home.",
-    image: '/Gallery/Residential/Homefor2/A26.avif', 
+    image: '/Gallery/Residential/Homefor2/A26.avif',
     slug: "a-home-for-two",
     content: [
       {
@@ -963,7 +963,7 @@ export const newsItems: NewsItem[] = [
     title: "Designer of the Year Awards 2017: Best Interior Design (Residential)- O2 Design Atelier Sdn Bhd",
     date: "2017",
     excerpt: "O2 Design Atelier Sdn Bhd won Best Interior Design (Residential) at the Designer of the Year Awards 2017 for their 'Terrace House' project, celebrated for bringing the outdoors inside through burnished cement walls, wooden furnishings, live plants creating a jungle-like ambiance, high ceilings for airiness, and a rustic yet secure and hospitable dwelling that feels like a magical concealment from the outside world.",
-    image: '/Gallery/Residential/CourtyardHouse/A12.avif', 
+    image: '/Gallery/Residential/CourtyardHouse/A12.avif',
     slug: "designer-of-the-year-awards-2017-o2-design-atelier",
     content: [
       {
@@ -985,7 +985,7 @@ export const newsItems: NewsItem[] = [
     title: "Sentul Works Is An Immaculate Suburban Office In KL",
     date: "2021-09-25",
     excerpt: "Sentul Works revitalizes the 1904 Federated Malay States Railways headquarters in Kuala Lumpur into a modern suburban office, blending preserved heritage brickwork with contemporary steel frames, open-plan floors, and industrial-inspired elements in a symmetrical layout that honors classical roots while embracing the site's railway history.",
-    image: '/Gallery/Commercial/SentulWorks/A12.avif', 
+    image: '/Gallery/Commercial/SentulWorks/A12.avif',
     slug: "sentul-works-immaculate-suburban-office",
     content: [
       {
@@ -1007,7 +1007,7 @@ export const newsItems: NewsItem[] = [
     title: "Basic Selangor Double-Storey Terrace House is Transformed Into a Modern & Classic Masterpiece | Courtyard House by O2 Design Atelier",
     date: "",
     excerpt: "This renovation transforms a standard double-storey terrace house in Selangor into a modern-classic masterpiece known as Courtyard House, incorporating central courtyards, natural light, greenery, and open spatial planning to elevate everyday living through thoughtful extensions and tropical-responsive features.",
-    image: '/Gallery/Residential/CourtyardHouse/A13.avif', 
+    image: '/Gallery/Residential/CourtyardHouse/A13.avif',
     slug: "courtyard-house-selangor-terrace-transformation",
     content: [
       {

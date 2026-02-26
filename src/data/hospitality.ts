@@ -3,7 +3,7 @@ import type { Project } from './mockData';
 
 export const hospitalityProjects: Project[] = [
 
-  // 1. Bukit Emas VIlla
+  // Bukit Emas VIlla
   {
     id: 1,
     slug: 'bukit-emas-villa',
@@ -32,7 +32,7 @@ export const hospitalityProjects: Project[] = [
     ],
   },
 
-  // 2. Retreat Ulu Yam
+  // Retreat Ulu Yam
   {
     id: 2,
     slug: 'Retreat',
@@ -74,7 +74,7 @@ export const hospitalityProjects: Project[] = [
       },
     ],
   },
-  //Valley OF Wind
+  // Valley OF Wind
   {
     id: 3,
     slug: 'valley-of-wind',

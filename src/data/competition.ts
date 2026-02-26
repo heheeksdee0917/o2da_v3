@@ -2,9 +2,9 @@ import type { Project } from './mockData';
 
 export const competitionProjects: Project[] = [
 
-  // 1. UNO Sg Merab
+  // UNO Sg Merab
   {
-    id: 6,
+    id: 1,
     slug: 'uno-sg-merab',
     title: 'UNO Sg Merab',
     location: 'Sg. Merab, Kajang',
@@ -33,15 +33,15 @@ export const competitionProjects: Project[] = [
       { type: 'text', content: 'Architecture Concept<br />• Rustic durable & Recycled material + Glass & Steel<br />• Elevates the retail environment<br />• Multiple small blocks design break away the homogeneity of conventional Shop lot Design' },
     ],
   },
-  // 2. Kenya’s Orphanage
+  // Kenya’s Orphanage
   {
-    id: 1,
+    id: 2,
     slug: 'kenyas-orphanage',
     title: 'Kenya‘s Orphanage',
     location: 'SOY, KENYA',
     category: 'Competition',
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
-    accolades:[
+    accolades: [
       'International Architecture Review Future Project Awards 2018 (Commendation)',
       'World Architecture Festival Award 2017 (Commendation)',
       '1st prize (International Competition)',
@@ -75,9 +75,9 @@ export const competitionProjects: Project[] = [
       },
     ],
   },
-  // 3. Landasan Jauhar
+  // Landasan Jauhar
   {
-    id: 2,
+    id: 3,
     slug: 'landasan-jauhar',
     title: 'RTS Johor - Landasan Jauhar',
     location: 'Johor Bahru',
@@ -108,7 +108,7 @@ export const competitionProjects: Project[] = [
       { type: 'text', content: 'With this magnificent Architecture Typology demarking the New architecture language in train station design will surely make Landasan Jauhar Station an International Masterpiece and Pride for the Sultan and Johorian !!' },
     ],
   },
-  // 4. Fittorie
+  // Fittorie
   {
     id: 4,
     slug: 'fittorie',
@@ -149,9 +149,9 @@ export const competitionProjects: Project[] = [
       { type: 'text', content: 'A continuous loggia in Palladio’s language frames the site as the pedestrian linkage between the car park, office, and factory while defining the edges of the site with its neighbors' },
     ],
   },
-  // 5. The Elemental Mosque
+  // The Elemental Mosque
   {
-    id: 7,
+    id: 5,
     slug: 'elemental-mosque',
     title: 'Dubai Creek Harbour Iconic Mosque',
     location: 'Dubai',
@@ -173,15 +173,15 @@ export const competitionProjects: Project[] = [
       { type: 'text', content: 'Our proposed ELEMENTAL MOSQUE design unfolds and reinterprets the space and materiality of a traditional mosque into an Architecture of Humility where we adopted the concept of the hypostyle mosque (First mosque) that features a large rectangular-shaped prayer hall, with forest of columns to support the roof structure and large inner Sahn (courtyard) for gathering purposes.' },
     ],
   },
-  // 6. Marshland Stadia
+  // Marshland Stadia
   {
-    id: 5,
+    id: 6,
     slug: 'marshland-stadia',
     title: 'Marshland Stadia',
     location: 'New York, US',
     category: 'Competition',
     accolades: ['Submission (International Comp)'],
-    projectTeam: ['Edric Choo Poo Liang', 'Farah Aliza Badarudin','Lim Min Syn'],
+    projectTeam: ['Edric Choo Poo Liang', 'Farah Aliza Badarudin', 'Lim Min Syn'],
     images: [
       '/Gallery/Competition/Marshland/CP.avif',
       '/Gallery/Competition/Marshland/A1.avif',
@@ -205,9 +205,9 @@ export const competitionProjects: Project[] = [
       { type: 'text', content: 'This mixed development-stadium-park complex integration is a subtle yet modest proposal that focuses more on the sustainable, environmental, community-driven (social) aspects; where McCarren Park is given back to the community.' },
     ],
   },
-  // 8. Singapore Founders’ Memorial
+  // Singapore Founders’ Memorial
   {
-    id: 8,
+    id: 7,
     slug: 'singapore-founders-memorial',
     title: 'Singapore Founders’ Memorial',
     location: 'Singapore',
@@ -231,9 +231,9 @@ export const competitionProjects: Project[] = [
       { type: 'text', content: 'Our symbolism focuses on subtleness of strength that gives a persistent pride towards the people. After all, a noble multiracial nation is a nation that projects stability, peaceful versatility and harmony unity.' },
     ],
   },
-  // 9. National Museum of World Writing
+  // National Museum of World Writing
   {
-    id: 9,
+    id: 8,
     slug: 'national-museum-world-writing',
     title: 'National Museum of World Writing',
     location: 'Songdo, Seoul, South Korea',
@@ -254,42 +254,42 @@ export const competitionProjects: Project[] = [
       { type: 'text', content: 'The stacking forms create volumes of gallery spaces and generate in-between spaces at the intersections.' },
     ],
   },
-    // 6. New York City Aquarium
-    {
-      id: 3,
-      slug: 'new-york-city-aquarium',
-      title: 'New York City Aquarium',
-      location: 'New York, USA',
-      category: 'Competition',
-      accolades: ['Submission (International Comp)'],
-      projectTeam: ['Edric Choo Poo Liang','Lim Min Syn'],
-      images: [
-        '/Gallery/Competition/NYCA/CP.avif',
-        '/Gallery/Competition/NYCA/A1.avif',
-        '/Gallery/Competition/NYCA/A2.avif',
-        '/Gallery/Competition/NYCA/A3.avif',
-        '/Gallery/Competition/NYCA/A4.avif'
-      ],
-      detailContent: [
-        {
-          type: 'text',
-          content: 'The rapid redevelopment in New York City is causing the loss of the area where the public deserved — waterfronts and public spaces. With the continuation of public park, the aquarium aims to lead the waterfront portion of the space where the area might be absorbed by private developers who only interested in profit returns. Instead of retreating the users far from the capitalized city, the proposal presents its low-building-profile but acted as a strong statement to preserve the waterfront. Rather than iconic building, our gentle aquarium links as a window of the waterfront, used Manhattan City and Roosevelt Island as the backdrop of the aquarium; it is aimed to change the way of how people appreciate the aquarium and Manhattan city skyline.'
-        },
-        {
-          type: 'text',
-          content: 'NYC Aquarium is a microcosm of New York City, seeing the same patterns reproduced at all levels of the city grid, from the largest city scale all the way down to the aquarium scale. The grid system, with the combination of the Queensboro Bridge and Central Park concept to carry out the spatial sensitively focus to context, which allows the people seamlessly linked to the city while walking within the aquarium.'
-        },
-        {
-          type: 'text',
-          content: 'The aquarium creates not just aims educate people by showing the beauty of water life, but instead shows the ugly side of the current water condition, by diverting East River water flow underneath the bridge tunnel, creating the awareness on the contrast of water quality while enjoying the beauty of aquarium. The similar approach applies to the side tunnel and the Tunnel of Reflection; we do not hesitate to expose the current condition of East River, either clean or polluted, the result will eventually update based on the human behaviour towards the river.'
-        },
-        {
-          type: 'text',
-          content: 'The Window of Atlantic Ocean symbolized as the liberty of nature and public ownership against the capitalist. Connected by the bridge of axis, which lead the people cross through the path and Window of Atlantic Ocean to the viewing deck, where direct towards Franklin Roosevelt Memorial Park and headquarters of United Nation, link to meaning of uniting the people fight for new liberty — the liberty from capitalism.'
-        },
-      ],
-    },
-  // 10. Imbauan Residence
+  // New York City Aquarium
+  {
+    id: 9,
+    slug: 'new-york-city-aquarium',
+    title: 'New York City Aquarium',
+    location: 'New York, USA',
+    category: 'Competition',
+    accolades: ['Submission (International Comp)'],
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
+    images: [
+      '/Gallery/Competition/NYCA/CP.avif',
+      '/Gallery/Competition/NYCA/A1.avif',
+      '/Gallery/Competition/NYCA/A2.avif',
+      '/Gallery/Competition/NYCA/A3.avif',
+      '/Gallery/Competition/NYCA/A4.avif'
+    ],
+    detailContent: [
+      {
+        type: 'text',
+        content: 'The rapid redevelopment in New York City is causing the loss of the area where the public deserved — waterfronts and public spaces. With the continuation of public park, the aquarium aims to lead the waterfront portion of the space where the area might be absorbed by private developers who only interested in profit returns. Instead of retreating the users far from the capitalized city, the proposal presents its low-building-profile but acted as a strong statement to preserve the waterfront. Rather than iconic building, our gentle aquarium links as a window of the waterfront, used Manhattan City and Roosevelt Island as the backdrop of the aquarium; it is aimed to change the way of how people appreciate the aquarium and Manhattan city skyline.'
+      },
+      {
+        type: 'text',
+        content: 'NYC Aquarium is a microcosm of New York City, seeing the same patterns reproduced at all levels of the city grid, from the largest city scale all the way down to the aquarium scale. The grid system, with the combination of the Queensboro Bridge and Central Park concept to carry out the spatial sensitively focus to context, which allows the people seamlessly linked to the city while walking within the aquarium.'
+      },
+      {
+        type: 'text',
+        content: 'The aquarium creates not just aims educate people by showing the beauty of water life, but instead shows the ugly side of the current water condition, by diverting East River water flow underneath the bridge tunnel, creating the awareness on the contrast of water quality while enjoying the beauty of aquarium. The similar approach applies to the side tunnel and the Tunnel of Reflection; we do not hesitate to expose the current condition of East River, either clean or polluted, the result will eventually update based on the human behaviour towards the river.'
+      },
+      {
+        type: 'text',
+        content: 'The Window of Atlantic Ocean symbolized as the liberty of nature and public ownership against the capitalist. Connected by the bridge of axis, which lead the people cross through the path and Window of Atlantic Ocean to the viewing deck, where direct towards Franklin Roosevelt Memorial Park and headquarters of United Nation, link to meaning of uniting the people fight for new liberty — the liberty from capitalism.'
+      },
+    ],
+  },
+  // Imbauan Residence
   {
     id: 10,
     slug: 'imbauan-residence',
@@ -383,7 +383,7 @@ export const competitionProjects: Project[] = [
       },
     ],
   },
-  // 11. MGBC HQ
+  // MGBC HQ
   {
     id: 11,
     slug: 'mgbc-hq',
@@ -410,7 +410,7 @@ export const competitionProjects: Project[] = [
       { type: 'text', content: 'Solar chimneys are installed over the roof of natural ventilated spaces to push hot air out and cool the interior.' },
     ],
   },
-  // 12. Pr1ma Affordable Housing
+  // Pr1ma Affordable Housing
   {
     id: 12,
     slug: 'pr1ma-affordable-housing',
@@ -440,7 +440,7 @@ export const competitionProjects: Project[] = [
       },
     ],
   },
-  // 13. Hong Kong Pixelated Housing
+  // Hong Kong Pixelated Housing
   {
     id: 13,
     slug: 'hong-kong-pixelated-housing',
@@ -467,7 +467,7 @@ export const competitionProjects: Project[] = [
       { type: 'text', content: 'By sharing the staircases, the commercial spaces, and the in-between spaces. the vertical self-sustaining community would be encouraged to share resources, ideas, knowledge, skills, and time.' },
     ],
   },
-  // 14. Future House
+  // Future House
   {
     id: 14,
     slug: 'future-house',
@@ -506,7 +506,7 @@ export const competitionProjects: Project[] = [
       },
     ],
   },
-  // 15. Wet Market (Teluk Kumbar Market)
+  // Wet Market (Teluk Kumbar Market)
   {
     id: 15,
     slug: 'teluk-kumbar-wet-market',
@@ -534,7 +534,7 @@ export const competitionProjects: Project[] = [
       },
     ],
   },
-  // 16. A House For Master Lee
+  // A House For Master Lee
   {
     id: 16,
     slug: 'house-for-master-lee',
@@ -575,7 +575,7 @@ export const competitionProjects: Project[] = [
       },
     ]
   },
-  // 17. Tokyo Vertical Cemetery
+  // Tokyo Vertical Cemetery
   {
     id: 17,
     slug: 'tokyo-vertical-cemetery',
@@ -599,7 +599,7 @@ export const competitionProjects: Project[] = [
       { type: 'text', content: 'It is a cemetery also functions as a public park, bringing back the essence of belief where the dead returns to the nature and reconnected with the living. The overall cemetery appears as a vertical green spaces towering over the street of Shinjuku.' },
     ],
   },
-  // 18. House for A Dream (Our Home)
+  // House for A Dream (Our Home)
   {
     id: 18,
     slug: 'house-for-a-dream',
@@ -630,14 +630,14 @@ export const competitionProjects: Project[] = [
       { type: 'text', content: 'With other multiple alters, Patricia is able to understand the disorder that not only she and others alters are facing, but other people on the streets that are suffering from dissociative identity disorder. With a hope, Patricia dreams of opening up and letting others bystanders to have a better understanding of this disorder. With a hope, Patricia dreams of opening up and letting other bystanders to have a better understanding of this disorder so as to clear up any misleading thoughts portrays by social media through movies and dramas. Having other people to know that they are not a victim to DID patients, but the DID patients are the only victims to themselves.' },
     ],
   },
-  // 19. NNE
+  // NNE
   {
     id: 19,
     slug: 'nne',
     title: 'Nothingness & Fullness',
     location: 'Penang//Kuala Lumpur, Malaysia',
     category: 'Competition',
-    projectTeam: ['Edric Choo Poo Liang','Farah Baharudin','Ng Yi Meng'],
+    projectTeam: ['Edric Choo Poo Liang', 'Farah Baharudin', 'Ng Yi Meng'],
     images: [
       '/Gallery/Competition/NNE/A1.avif',
       '/Gallery/Competition/NNE/A2.avif',
@@ -686,14 +686,14 @@ export const competitionProjects: Project[] = [
       },
     ],
   },
-  // 20. City Of Tomorrow
+  // City Of Tomorrow
   {
     id: 20,
     slug: 'city-of-tomorrow',
     title: 'City Of Tomorrow',
     location: 'N/A',
     category: 'Competition',
-    status:'Proposal',
+    status: 'Proposal',
     accolades: ['Ideal Proposal (International Publication)'],
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
     images: [
@@ -761,7 +761,7 @@ export const competitionProjects: Project[] = [
       },
     ],
   },
-  // 21. Virtual Home
+  // Virtual Home
   {
     id: 21,
     slug: 'virtual-home',
@@ -804,14 +804,14 @@ export const competitionProjects: Project[] = [
       },
     ],
   },
-  // 22. KLAF
+  // KLAF
   {
     id: 22,
     slug: 'klaf-2018',
     title: 'PAM KLAF 2018 Future Malaysian Housing Exhibition',
     location: 'Glenmarie Station, Petaling Jaya',
     category: 'Competition',
-    status:'Proposal',
+    status: 'Proposal',
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
     images: [
       '/Gallery/Competition/KLAF/CP.avif',
@@ -847,7 +847,7 @@ export const competitionProjects: Project[] = [
       },
     ],
   },
-  // 23. Go Beyond
+  // Go Beyond
   {
     id: 23,
     slug: 'go-beyond',
@@ -901,7 +901,7 @@ export const competitionProjects: Project[] = [
       }
     ],
   },
-  // 24. Architect's Chair
+  // Architect's Chair
   {
     id: 24,
     slug: 'Architect-chair',

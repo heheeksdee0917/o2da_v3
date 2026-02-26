@@ -102,9 +102,13 @@ export default function PortfolioDetails() {
 
   // Check if content needs "Show More"
   useEffect(() => {
-    if (contentRef.current) {
-      setNeedsShowMore(contentRef.current.scrollHeight > 600);
-    }
+    const observer = new ResizeObserver(() => {
+      if (contentRef.current) {
+        setNeedsShowMore(contentRef.current.scrollHeight > 600);
+      }
+    });
+    if (contentRef.current) observer.observe(contentRef.current);
+    return () => observer.disconnect();
   }, [project]);
 
   // Prevent body scroll when lightbox is open
@@ -501,6 +505,8 @@ export default function PortfolioDetails() {
               {needsShowMore && (
                 <button
                   onClick={() => setIsExpanded(!isExpanded)}
+                  aria-expanded={isExpanded}
+                  aria-controls="project-content"
                   className="relative z-10 w-full mt-4 md:mt-6 py-4 flex items-center justify-center gap-2 text-base font-normal text-black hover:text-black/70 transition-colors"
                 >
                   <span>{isExpanded ? 'Show Less' : 'Show More'}</span>

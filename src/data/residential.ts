@@ -3,7 +3,7 @@ import type { Project } from './mockData';
 export const residentialProjects: Project[] = [
   //TraceHouse
   {
-    id: 33,
+    id: 1,
     slug: 'trace-house',
     title: 'Trace House',
     location: 'Kuala Lumpur',
@@ -38,7 +38,7 @@ export const residentialProjects: Project[] = [
   },
   //Modeco House - chceked
   {
-    id: 1,
+    id: 2,
     slug: 'modeco-house',
     title: 'MODÉCO HOUSE',
     location: 'Seri Beringin, Kuala Lumpur',
@@ -81,7 +81,7 @@ export const residentialProjects: Project[] = [
   },
   //Pantai Outcrop - chceked
   {
-    id: 2,
+    id: 3,
     slug: 'pantai-outcrop',
     title: 'Pantai Outcrop',
     location: 'Kuala Lumpur',
@@ -116,7 +116,7 @@ export const residentialProjects: Project[] = [
   },
   //House K - chceked
   {
-    id: 3,
+    id: 4,
     slug: 'house-k',
     title: 'House K',
     location: 'Johor',
@@ -161,7 +161,7 @@ export const residentialProjects: Project[] = [
   },
   //The Arch - chceked
   {
-    id: 4,
+    id: 5,
     slug: 'the-arch',
     title: 'Arch',
     location: 'Petaling Jaya, Selangor',
@@ -198,7 +198,7 @@ export const residentialProjects: Project[] = [
   },
   //TSCMY - chceked
   {
-    id: 5,
+    id: 6,
     slug: 'free-loop-house',
     title: 'FREE-LOOP HOUSE',
     location: 'Kuala Lumpur',
@@ -239,7 +239,7 @@ export const residentialProjects: Project[] = [
   },
   //Tango House (Sean) - chceked
   {
-    id: 6,
+    id: 7,
     slug: 'tango-house',
     title: 'Tango House',
     location: 'Desa Park City, Kuala Lumpur',
@@ -272,7 +272,7 @@ export const residentialProjects: Project[] = [
   },
   //Tropical Shift - chceked
   {
-    id: 7,
+    id: 8,
     slug: 'tropical-shift-house',
     title: 'Tropical Shift House',
     location: 'Petaling Jaya, Selangor',
@@ -361,7 +361,7 @@ export const residentialProjects: Project[] = [
   },
   //Inner Court - chceked
   {
-    id: 8,
+    id: 9,
     slug: 'inner-court',
     title: 'Inner Court',
     location: 'Kuala Lumpur',
@@ -387,7 +387,7 @@ export const residentialProjects: Project[] = [
   },
   //Roof Eaves House - chceked
   {
-    id: 9,
+    id: 10,
     slug: 'roof-eaves-house',
     title: 'Roof Eaves House',
     location: 'Taman Selamat, Penang',
@@ -414,7 +414,7 @@ export const residentialProjects: Project[] = [
   },
   //The Rooms - chceked
   {
-    id: 10,
+    id: 11,
     slug: 'the-rooms',
     title: 'The Rooms',
     location: 'Taman Selamat, Penang',
@@ -441,7 +441,7 @@ export const residentialProjects: Project[] = [
   },
   //Twin - chceked
   {
-    id: 11,
+    id: 12,
     slug: 'twin',
     title: 'TWIN',
     location: 'Kuala Lumpur',
@@ -495,7 +495,7 @@ export const residentialProjects: Project[] = [
   },
   //Hilltop (Residential version – separate from Housing) - chceked
   {
-    id: 12,
+    id: 13,
     slug: 'hilltop-residential',
     title: 'Hilltop',
     location: 'Putra Hill, Selangor',
@@ -550,7 +550,7 @@ export const residentialProjects: Project[] = [
   },
   //Pavilion in  - chceked
   {
-    id: 13,
+    id: 14,
     slug: 'pavilion-in-forest',
     title: 'Pavilion in Forest',
     location: 'Janda Baik, Pahang',
@@ -1070,7 +1070,7 @@ export const residentialProjects: Project[] = [
   },
   //Introverted House - chceked
   {
-    id: 27,
+    id: 26,
     slug: 'introvert-house',
     title: 'Introvert House',
     location: 'Kuala Lumpur',
@@ -1108,7 +1108,7 @@ export const residentialProjects: Project[] = [
   },
   //Louvres Box - chceked
   {
-    id: 28,
+    id: 27,
     slug: 'louvres-box',
     title: 'Louvres Box',
     location: 'Bukit Jalil, Kuala Lumpur',
@@ -1152,7 +1152,7 @@ export const residentialProjects: Project[] = [
   },
   //A Home for 2 - chceked
   {
-    id: 29,
+    id: 28,
     slug: 'a-home-for-2',
     title: 'A Home for 2',
     location: 'Kuala Lumpur',
@@ -1209,7 +1209,7 @@ export const residentialProjects: Project[] = [
   },
   //3 Courtyard House - chceked
   {
-    id: 30,
+    id: 29,
     slug: '3-courtyard-house',
     title: '3 Courtyard House',
     location: 'Bandar Sri Damansara, Kuala Lumpur',
@@ -1262,7 +1262,7 @@ export const residentialProjects: Project[] = [
   },
   //Genkan House - chceked
   {
-    id: 31,
+    id: 30,
     slug: 'genkan-house',
     title: 'Genkan House',
     location: 'Petaling Jaya, Selangor',
@@ -1304,7 +1304,7 @@ export const residentialProjects: Project[] = [
   },
   //Courtyard House - chceked
   {
-    id: 32,
+    id: 31,
     slug: 'courtyard-house',
     title: 'Courtyard House',
     location: 'Sungai Buloh, Selangor',

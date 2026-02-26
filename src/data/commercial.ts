@@ -132,38 +132,14 @@ export const commercialProjects: Project[] = [
       '/Gallery/Commercial/SentulWorks/A12.avif',
     ],
     detailContent: [
-      {
-        type: 'text',
-        content: 'Sentul Park is nestled within the extended park setting of Sentul Park in Sentul West, Kuala Lumpur, Malaysia where the Federated Malay State Railway (FMSR) rail complexes were established in 1904. The century-old colonial building was formerly the headquarters of FMSR under British rule.'
-      },
-      {
-        type: 'text',
-        content: 'For years, this colonial building with its distinctive brick-and-concrete arched-colonnades façade stood prominently as a hollow shell amidst the leafy canopy of the park’s big old trees until YTL land Design Group spearheaded its restoration to create a unique atmosphere for a compatible new use as a modern office building. The brief to the architect was to ensure that building adaptations do not deviate materially from the building’s original architecture. The “new” must not overwhelm the “old” as ideally, both elements should coexist to express a fresh aesthetic to the building’s age and heritage.'
-      },
-      {
-        type: 'text',
-        content: 'The original layout of the Sentul Works consists of 2 main spaces separated by a central double volume hallway. Adapting to the original symmetry of the building interior, the new free plan office spaces flanked around the original hallway now serving as a double volume central atrium. A bridge on the first floor links both office floor plates at both sides. Visual connection is established between tenants on the ground and first floor within the working environment without compromise on privacy. The interior of the office is planned as a flexible free plan, giving tenants maximum adaptability according to their working needs.'
-      },
-      {
-        type: 'text',
-        content: 'The new extended second and third floors form a new mass rising from the majestic colonial form at the base. Steel posts and beam structures supporting the new floor slabs lightly raised from the ground, well-integrated, and yet structurally independent from the colonial structure. This, at the same time, brought the architecture challenge of creating a relationship between old and new. The new mass is made recessed inwards from the main colonial block below as a means to preserve the scale and presence of the old.'
-      },
-      {
-        type: 'text',
-        content: 'Corten steel which is used as an external building surface for the projected new mass above the existing building structure blends harmoniously with the exposed steel frame skeleton of the adjacent old railway workshops. The Corten cladding gives a modern cutting edge modern outlook and yet embodies a rich warm texture that resonates with the surrounding old rustic material palettes.'
-      },
-      {
-        type: 'text',
-        content: 'A central glass curtain wall breaks the homogeneity of the Corten-clad new mass. The façade break enhances the quality of modern abstraction and conformity to the domineering and symmetrical colonial architecture below.'
-      },
-      {
-        type: 'text',
-        content: 'Office tenants are visually linked to the surrounding context by the window openings on the new corten-clad building skin. Tranquil greenery is brought into the office interior through thoughtfully craved-out window openings.'
-      },
-      {
-        type: 'text',
-        content: 'A number of balconies and bay windows are strategically added to some of the openings between the grid projecting towards the historical railway workshops to the north, the lush park setting to the west, the YTL land sales gallery to the south-west and the iconic soaring towers of The Fennel by YTL Land towards the east. The balconies and pop-out windows create surprises and contribute to the overall abstraction of the upper mass in contrast to the formal language of the colonial architecture below.'
-      },
+      { type: 'text', content: 'Sentul Park is nestled within the extended park setting of Sentul Park in Sentul West, Kuala Lumpur, Malaysia where the Federated Malay State Railway (FMSR) rail complexes were established in 1904. The century-old colonial building was formerly the headquarters of FMSR under British rule.'},
+      { type: 'text', content: 'For years, this colonial building with its distinctive brick-and-concrete arched-colonnades façade stood prominently as a hollow shell amidst the leafy canopy of the park’s big old trees until YTL land Design Group spearheaded its restoration to create a unique atmosphere for a compatible new use as a modern office building. The brief to the architect was to ensure that building adaptations do not deviate materially from the building’s original architecture. The “new” must not overwhelm the “old” as ideally, both elements should coexist to express a fresh aesthetic to the building’s age and heritage.'},
+      { type: 'text', content: 'The original layout of the Sentul Works consists of 2 main spaces separated by a central double volume hallway. Adapting to the original symmetry of the building interior, the new free plan office spaces flanked around the original hallway now serving as a double volume central atrium. A bridge on the first floor links both office floor plates at both sides. Visual connection is established between tenants on the ground and first floor within the working environment without compromise on privacy. The interior of the office is planned as a flexible free plan, giving tenants maximum adaptability according to their working needs.'},
+      { type: 'text', content: 'The new extended second and third floors form a new mass rising from the majestic colonial form at the base. Steel posts and beam structures supporting the new floor slabs lightly raised from the ground, well-integrated, and yet structurally independent from the colonial structure. This, at the same time, brought the architecture challenge of creating a relationship between old and new. The new mass is made recessed inwards from the main colonial block below as a means to preserve the scale and presence of the old.'},
+      { type: 'text', content: 'Corten steel which is used as an external building surface for the projected new mass above the existing building structure blends harmoniously with the exposed steel frame skeleton of the adjacent old railway workshops. The Corten cladding gives a modern cutting edge modern outlook and yet embodies a rich warm texture that resonates with the surrounding old rustic material palettes.'},
+      { type: 'text', content: 'A central glass curtain wall breaks the homogeneity of the Corten-clad new mass. The façade break enhances the quality of modern abstraction and conformity to the domineering and symmetrical colonial architecture below.'},
+      { type: 'text', content: 'Office tenants are visually linked to the surrounding context by the window openings on the new corten-clad building skin. Tranquil greenery is brought into the office interior through thoughtfully craved-out window openings.'},
+      { type: 'text', content: 'A number of balconies and bay windows are strategically added to some of the openings between the grid projecting towards the historical railway workshops to the north, the lush park setting to the west, the YTL land sales gallery to the south-west and the iconic soaring towers of The Fennel by YTL Land towards the east. The balconies and pop-out windows create surprises and contribute to the overall abstraction of the upper mass in contrast to the formal language of the colonial architecture below.'},
     ],
   },
   // Warehouse 3
@@ -184,10 +160,7 @@ export const commercialProjects: Project[] = [
       '/Gallery/Commercial/Warehouse3/A5.avif',
     ],
     detailContent: [
-      {
-        type: 'text',
-        content: 'Warehouse 3 is one of the few warehouses existing within the extended park setting of Sentul Park in Sentul West, Kuala Lumpur, Malaysia where the Federated Malay State Railway (FMSR) rail complexes were established in 1904. The warehouse is restored and modified into an event space that hosts banquets and gatherings. All the little pieces of nostalgia within the park restores a certain history of the city. When appropriating these paraphernalia for modern use, a fragment of the past is extracted and bottled. A trace note anchoring our culture whilst the society boldly march forward.'
-      },
+      { type: 'text', content: 'Warehouse 3 is one of the few warehouses existing within the extended park setting of Sentul Park in Sentul West, Kuala Lumpur, Malaysia where the Federated Malay State Railway (FMSR) rail complexes were established in 1904. The warehouse is restored and modified into an event space that hosts banquets and gatherings. All the little pieces of nostalgia within the park restores a certain history of the city. When appropriating these paraphernalia for modern use, a fragment of the past is extracted and bottled. A trace note anchoring our culture whilst the society boldly march forward.'},
     ],
   },
   // Drive-thru KFC Bukit Raja
@@ -260,22 +233,10 @@ export const commercialProjects: Project[] = [
       '/Gallery/Commercial/ShoplotKepong/A3.avif',
     ],
     detailContent: [
-      {
-        type: 'text',
-        content: 'Developer’s brief call for a row of 4-storey shop lot with covered verandah-way and glass shopfront at ground level. The project explores the potential of inserting a central courtyard space for a typical multi-storey shop lot.'
-      },
-      {
-        type: 'text',
-        content: 'Due to the site context where the land is facing a noisy major road and an elevated MRT train line under construction, the proposed upper storey office or shop space creates an ‘inward looking’ environment with minimal and controlled window opening towards outside.'
-      },
-      {
-        type: 'text',
-        content: 'The exterior façade is mainly in solid walls with small windows that come with coping directing views to the ground street landscape and bounces back train and car noises away from the shop interior. Meanwhile the scheme creates a transparent glass surrounding walls and day-lit central courtyard to brighten interior spaces and encourage interaction around it.'
-      },
-      {
-        type: 'text',
-        content: 'Exterior shop signage is well planned integrated into the façade window strips. The corner unit rooftop is planned to be a semi-enclosed F&B terrace with commanding view towards KLCC.'
-      },
+      { type: 'text', content: 'Developer’s brief call for a row of 4-storey shop lot with covered verandah-way and glass shopfront at ground level. The project explores the potential of inserting a central courtyard space for a typical multi-storey shop lot.'},
+      { type: 'text', content: 'Due to the site context where the land is facing a noisy major road and an elevated MRT train line under construction, the proposed upper storey office or shop space creates an ‘inward looking’ environment with minimal and controlled window opening towards outside.'},
+      { type: 'text', content: 'The exterior façade is mainly in solid walls with small windows that come with coping directing views to the ground street landscape and bounces back train and car noises away from the shop interior. Meanwhile the scheme creates a transparent glass surrounding walls and day-lit central courtyard to brighten interior spaces and encourage interaction around it.'},
+      { type: 'text', content: 'Exterior shop signage is well planned integrated into the façade window strips. The corner unit rooftop is planned to be a semi-enclosed F&B terrace with commanding view towards KLCC.'},
     ],
   },
   // THC Warehouse Rawang

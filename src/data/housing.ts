@@ -2,7 +2,7 @@ import type { Project } from './mockData';
 
 export const housingProjects: Project[] = [
 
-  // 1. Bahagia Height
+  // Bahagia Height
   {
     id: 1,
     slug: 'bahagia-height',
@@ -27,10 +27,9 @@ export const housingProjects: Project[] = [
       { type: 'text', content: 'Bahagia Heights is designed as a disciplined neighbourhood with calibrated choice. The diptych strategy introduces variation that is legible and market-ready, offering buyers options while maintaining a coherent streetscape. From the framed entrance to the gateless porch threshold, the project prioritises comfort, shade, and a sense of lived character—an architecture that stays consistent in its fundamentals, yet leaves room for households to differentiate themselves through use, daily rituals, and time.' },
     ],
   },
-
-  // 3. Split
+  // Split
   {
-    id: 3,
+    id: 2,
     slug: 'splay',
     title: 'Splay',
     location: 'Jalan Kuching, Kuala Lumpur',
@@ -56,9 +55,9 @@ export const housingProjects: Project[] = [
       { type: 'text', content: 'Splay proposes density with legibility: community spaces are not concealed behind a neutral skin but inscribed into massing and skyline. By treating the podium as inhabited landform and the roof as shared garden, the project replaces the singular high-rise object with a layered experience—shaded at the base, communal in the middle, and landscaped at the summit—where architecture and planting are continuous.' },
     ],
   },
-  // 4. The Quartz
+  // The Quartz
   {
-    id: 4,
+    id: 3,
     slug: 'the-quartz',
     title: 'The Quartz',
     location: 'Cheras, Kuala Lumpur',
@@ -84,15 +83,15 @@ export const housingProjects: Project[] = [
       { type: 'text', content: 'Quartz therefore positions density as an experiential terrain: a development shaped as much by the public void it gives back as by the height it claims—crystalline in silhouette, but grounded in a clear sequence of streets, thresholds, gardens, and shared civic space.' },
     ],
   },
-  // 5. Vertical Street
+  // Vertical Street
   {
-    id: 5,
+    id: 4,
     slug: 'vertical-street',
     title: 'Vertical Street',
     location: 'Jalan Alor, Kuala Lumpur',
     category: 'Housing',
     status: 'Planning',
-    projectTeam: ['Edric Choo Poo Liang','Lim Min Syn'],
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
     images: [
       '/Gallery/Housing/Vertical/A2.avif',
       '/Gallery/Housing/Vertical/CP.avif',
@@ -104,9 +103,9 @@ export const housingProjects: Project[] = [
       { type: 'text', content: 'The residences above the mall reflect the market below through its staggered glass facade, a backdrop that shimmers together with the streets below, propagating the axis skyward.' },
     ],
   },
-  // 6. The Mountain
+  // The Mountain
   {
-    id: 6,
+    id: 5,
     slug: 'the-mountain',
     title: 'The Mountain',
     location: 'Puchong, Selangor',
@@ -128,9 +127,9 @@ export const housingProjects: Project[] = [
       { type: 'text', content: 'By composing retail, landscape, and housing as one continuous sectional experience, The Mountain shifts the mixed-use typology from object-building to living terrain. The project’s “mountain” is ultimately practical: a form that shades, breathes, and gathers public life at the foot, then rewards ascent with light, air, and outlook—an address that is legible in the city and comfortable in the tropics.' },
     ],
   },
-  // 7. Cascade 31
+  // Cascade 31
   {
-    id: 7,
+    id: 6,
     slug: 'cascade-31',
     title: 'Cascade 31',
     location: 'Mont Kiara, Kuala Lumpur',
@@ -165,12 +164,12 @@ export const housingProjects: Project[] = [
       { type: 'text', content: 'It started with the unique unit layout that gives each resident CORNER living, dining, and dry kitchen view toward the greenery and city across Mont-Kiara. Each bedroom can have a 90 degrees view toward the city with a floor-to-ceiling height glass façade.' },
       { type: 'text', content: 'Instead of having a straight vertical tower, we break the tower into 2 cubes, and 1 tower. The separated floor will capture the M&E requirement and some facilities. The break also gives a sense of scale in high-rise design and a new character that gives a distinct in its kinds. With these simple designs, it was added some spice with random cabanas and balconies for each unit will make Cascade 31 the ‘talk of the town’s development.' },
       { type: 'text', content: 'The tower structure will consist of shear wall systems with transfer columns at the ground floor lobby area and basement carpark. The shear wall allows structure integration into walls without large columns that protruded into bedrooms space.' },
-      { type: 'text', content: 'to accommodate growing commercial activity within a coherent architectural framework.' }
+      { type: 'text', content: 'To accommodate growing commercial activity within a coherent architectural framework.' }
     ],
   },
-  // 8. Shuffle & Shuttle
+  // Shuffle & Shuttle
   {
-    id: 8,
+    id: 7,
     slug: 'shuffle-and-shuttle',
     title: 'Shuffle & Shuttle',
     location: 'Kota Damansara, Selangor',
@@ -190,9 +189,9 @@ export const housingProjects: Project[] = [
       { type: 'text', content: 'Ground floor F&B and retail shops will attract neighboring population and give daily convenient to SoHo residents.' },
     ],
   },
-  // 9. Sentul Raya
+  // Sentul Raya
   {
-    id: 9,
+    id: 8,
     slug: 'sentul-raya',
     title: 'Sentul Raya',
     location: 'Sentul, Kuala Lumpur',
@@ -217,9 +216,9 @@ export const housingProjects: Project[] = [
       { type: 'text', content: 'There is a mixture of 1 to 3 bedrooms on each residential floor. The combination is varied on each floor to give variation to the facade overall permutation result from stacking of different size units. A few communal facilities and landscape deck are inserted onto the tower at different floors, serving as interaction spaces at high levels.' },
     ],
   },
-  // 10. Garisan
+  // Garisan
   {
-    id: 10,
+    id: 9,
     slug: 'garisan',
     title: 'Garisan',
     location: 'Puchong Prima, Selangor',
@@ -256,58 +255,58 @@ export const housingProjects: Project[] = [
       { type: 'text', content: 'External of the houses are articulated in 2 form variants expressing different built heights, colors and finish textures to break away the norm of extreme linearity in Malaysian terrace housing. Windows on the east-west facing facades are shaded with operable louvers with 2 different alternating mechanisms.' },
     ],
   },
-    // Illoura
-    {
-      id: 11,
-      slug: 'illoura',
-      title: 'Illoura',
-      location: 'Old Holland Road, Singapore',
-      category: 'Housing',
-      status: 'Built (as Project Architect at SCDA PTE LTD)',
-      projectTeam: ['N/A'],
-      images: [
-        '/Gallery/Commercial/Illoura/CP.avif',
-        '/Gallery/Commercial/Illoura/A1.avif',
-      ],
-      detailContent: [
-        { type: 'text', content: 'Set along the quiet, tree-lined enclave of Old Holland Road, this contemporary residential development unfolds as a sequence of luminous villas edged by a continuous turquoise lap pool. The architecture is anchored by crisp rectilinear volumes that appear to hover lightly above the water, their white frames and deep overhangs creating a rhythmic façade against the tropical sky. Horizontal aluminium screens wrap the upper floors, tempering sunlight while maintaining a sense of openness and calm privacy.' },
-        { type: 'text', content: 'The ground plane is intentionally porous: landscaped terraces, planted edges, and pockets of greenery slip between built forms, softening the modern palette of concrete, stone, and glass. Mature climbers and vertical gardens drape selectively over the tall brick-clad walls, introducing a gentle contrast between the development’s refined lines and the lushness of Singapore’s climate.' },
-      ],
-    },
-    // Dawson Hub
-    {
-      id: 12,
-      slug: 'dawson-hub',
-      title: 'Dawson',
-      location: 'Queenstown, Singapore',
-      category: 'Housing',
-      status: 'Built (as Design Architect at SCDA PTE LTD, Singapore)',
-      projectTeam: ['N/A'],
-      images: [
-        '/Gallery/Commercial/Dawson/CP.avif',
-        '/Gallery/Commercial/Dawson/A1.avif',
-        '/Gallery/Commercial/Dawson/A2.avif',
-      ],
-      detailContent: [
-        { type: 'text', content: 'This high-rise composition is defined by two slender towers articulated with staggered balconies and deep frames, giving the façade a rhythmic, almost pixelated texture. Mid-level sky bridges stitch the towers together, creating shared vantage points while accentuating the vertical void between them. At the base, a multi-storey podium wrapped in continuous planted terraces forms a green plinth that softens the scale of the development and anchors it to the streetscape. The interplay of greenery, structural clarity, and sculpted massing produces a contemporary urban silhouette—one that balances density with permeability, and height with moments of elevated communal space.' },
-      ],
-    },
-    // Hilltop
-    {
-      id: 13,
-      slug: 'hilltop',
-      title: 'Hilltop',
-      location: 'Cairnhill, Singapore',
-      category: 'Housing',
-      status: 'Built (as Design Architect at W Architect PTE LTD, Singapore)',
-      projectTeam: ['Edric Choo Poo Liang'],
-      images: [
-        '/Gallery/Commercial/Hilltop/CP.avif',
-        '/Gallery/Commercial/Hilltop/A1.avif',
-        '/Gallery/Commercial/Hilltop/A2.avif',
-      ],
-      detailContent: [
-        { type: 'text', content: 'Luxury condominium located amidst the lush landscape of Cairne Hills. With its sprawling grounds and balmy breezes Hilltops provide the perfect setting for a botanical urban retreat. The expansive estate features a centerpiece 50m swimming pool, jacuzzi and wading pool flanked by a glass-walled gymnasium and private dining facilities set within landscaped gardens.' },
-      ],
-    },
+  // Illoura
+  {
+    id: 10,
+    slug: 'illoura',
+    title: 'Illoura',
+    location: 'Old Holland Road, Singapore',
+    category: 'Housing',
+    status: 'Built (as Project Architect at SCDA PTE LTD)',
+    projectTeam: ['N/A'],
+    images: [
+      '/Gallery/Commercial/Illoura/CP.avif',
+      '/Gallery/Commercial/Illoura/A1.avif',
+    ],
+    detailContent: [
+      { type: 'text', content: 'Set along the quiet, tree-lined enclave of Old Holland Road, this contemporary residential development unfolds as a sequence of luminous villas edged by a continuous turquoise lap pool. The architecture is anchored by crisp rectilinear volumes that appear to hover lightly above the water, their white frames and deep overhangs creating a rhythmic façade against the tropical sky. Horizontal aluminium screens wrap the upper floors, tempering sunlight while maintaining a sense of openness and calm privacy.' },
+      { type: 'text', content: 'The ground plane is intentionally porous: landscaped terraces, planted edges, and pockets of greenery slip between built forms, softening the modern palette of concrete, stone, and glass. Mature climbers and vertical gardens drape selectively over the tall brick-clad walls, introducing a gentle contrast between the development’s refined lines and the lushness of Singapore’s climate.' },
+    ],
+  },
+  // Dawson
+  {
+    id: 11,
+    slug: 'dawson',
+    title: 'Dawson',
+    location: 'Queenstown, Singapore',
+    category: 'Housing',
+    status: 'Built (as Design Architect at SCDA PTE LTD, Singapore)',
+    projectTeam: ['N/A'],
+    images: [
+      '/Gallery/Commercial/Dawson/CP.avif',
+      '/Gallery/Commercial/Dawson/A1.avif',
+      '/Gallery/Commercial/Dawson/A2.avif',
+    ],
+    detailContent: [
+      { type: 'text', content: 'This high-rise composition is defined by two slender towers articulated with staggered balconies and deep frames, giving the façade a rhythmic, almost pixelated texture. Mid-level sky bridges stitch the towers together, creating shared vantage points while accentuating the vertical void between them. At the base, a multi-storey podium wrapped in continuous planted terraces forms a green plinth that softens the scale of the development and anchors it to the streetscape. The interplay of greenery, structural clarity, and sculpted massing produces a contemporary urban silhouette—one that balances density with permeability, and height with moments of elevated communal space.' },
+    ],
+  },
+  // Hilltop
+  {
+    id: 12,
+    slug: 'hilltop',
+    title: 'Hilltop',
+    location: 'Cairnhill, Singapore',
+    category: 'Housing',
+    status: 'Built (as Design Architect at W Architect PTE LTD, Singapore)',
+    projectTeam: ['Edric Choo Poo Liang'],
+    images: [
+      '/Gallery/Commercial/Hilltop/CP.avif',
+      '/Gallery/Commercial/Hilltop/A1.avif',
+      '/Gallery/Commercial/Hilltop/A2.avif',
+    ],
+    detailContent: [
+      { type: 'text', content: 'Luxury condominium located amidst the lush landscape of Cairne Hills. With its sprawling grounds and balmy breezes Hilltops provide the perfect setting for a botanical urban retreat. The expansive estate features a centerpiece 50m swimming pool, jacuzzi and wading pool flanked by a glass-walled gymnasium and private dining facilities set within landscaped gardens.' },
+    ],
+  },
 ]

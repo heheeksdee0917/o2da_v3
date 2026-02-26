@@ -2,7 +2,7 @@ import type { Project } from './mockData';
 
 export const interiorProjects: Project[] = [
 
-  // 1. Brownstone Residence
+  // Brownstone Residence
   {
     id: 1,
     slug: 'brownstone-',
@@ -37,7 +37,7 @@ export const interiorProjects: Project[] = [
       },
     ],
   },
-  // 2. Cafe 100
+  // Cafe 100
   {
     id: 2,
     slug: 'cafe-100',
@@ -75,7 +75,7 @@ export const interiorProjects: Project[] = [
       },
     ],
   },
-  // 3. Dharma
+  // Dharma
   {
     id: 3,
     slug: 'dharma',
@@ -112,7 +112,7 @@ export const interiorProjects: Project[] = [
       },
     ],
   },
-  // 4. Quartz - ID
+  // Quartz - ID
   {
     id: 4,
     slug: 'quartz-id',
@@ -120,7 +120,7 @@ export const interiorProjects: Project[] = [
     location: 'Cheras, Kuala Lumpur',
     category: 'Interior',
     status: 'Schematic',
-    projectTeam: ['Edric Choo Poo Liang','Lim Min Syn', 'Kong Xiang Lynn'],
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn', 'Kong Xiang Lynn'],
     images: [
       '/Gallery/Interior/QuartzID/CP.avif',
       '/Gallery/Interior/QuartzID/A1.avif',
@@ -143,17 +143,17 @@ export const interiorProjects: Project[] = [
       {
         type: 'text', content: 'Quartz’s interiors operate as an interface between bold massing and lived calm—luxury that is architectural rather than decorative. Through controlled geometry, layered thresholds, and a consistent material logic, each unit sustains a coherent identity while allowing variation in mood. The result is a set of sky homes that feel composed, quiet, and expansive—spaces that borrow the tower’s ambition, but return it as ease.'
       },
-     ],
+    ],
   },
-   // 5. Sentul Works
-   {
+  // Sentul Works
+  {
     id: 5,
     slug: 'sentul-works-id',
     title: 'Sentul Works',
     location: 'Sentul, Kuala Lumpur',
     category: 'Interior',
     status: 'Completed',
-    projectTeam: ['Edric Choo Poo Liang','Lim Min Syn'],
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
     images: [
       '/Gallery/Interior/SentulWorksID/CP.avif',
       '/Gallery/Interior/SentulWorksID/A1.avif',
