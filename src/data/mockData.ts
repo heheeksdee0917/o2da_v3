@@ -91,7 +91,7 @@ export const awards: Award[] = [
     year: 2022,
     competition: 'PAM Awards',
     project: 'Garisan @ Puchong',
-    place: 'Sulver (Multiple Residential Low Rise)',
+    place: 'Silver (Multiple Residential Low Rise)',
     type: 'award',
     slug: 'garisan'
   },

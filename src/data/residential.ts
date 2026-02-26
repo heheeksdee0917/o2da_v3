@@ -914,7 +914,6 @@ export const residentialProjects: Project[] = [
     coverPhoto: '/Gallery/Residential/JNDHouse/CP.avif',
     images: [
       '/Gallery/Residential/JNDHouse/A0.avif',
-      '/Gallery/Residential/JNDHouse/A1.avif',
       '/Gallery/Residential/JNDHouse/A2.avif',
       '/Gallery/Residential/JNDHouse/A3.avif',
       '/Gallery/Residential/JNDHouse/A4.avif',
@@ -1161,7 +1160,8 @@ export const residentialProjects: Project[] = [
     status: 'Completed',
     projectTeam: ['Edric Choo Poo Liang', 'Lee Chaer Shean', 'Goh Chew Yet'],
     accolades:[
-      'Iconic Award 2019 - Innovative Architecture'
+      'Iconic Award 2019 - Innovative Architecture',
+      'Archdaily (Published)'
     ],
     images: [
       '/Gallery/Residential/Homefor2/CP.avif',

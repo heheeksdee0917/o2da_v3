@@ -268,7 +268,7 @@ export const commercialProjects: Project[] = [
   {
     id: 7,
     slug: 'uno-rivertree-bukit-raja',
-    title: 'UNO Bukit Raja',
+    title: 'JOM RIVERTREE cafes',
     location: 'Bukit Raja, Klang',
     category: 'Commercial',
     status: 'Completed',
@@ -276,7 +276,6 @@ export const commercialProjects: Project[] = [
     accolades: [
       'Asia Pacific Property Awards 2021-2022 (Retail Development Malaysia)',
       'Asia Pacific Property Awards 2021-2022 (Best Development Marketing Malaysia)',
-      'Asia Pacific Property Awards 2021-2022 (Best Leisure Interior Malaysia for KFC @ UNO)',
       'PropertyGuru Asia Property Awards 2020 (Best Retail Development)',
     ],
     images: [

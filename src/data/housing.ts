@@ -278,7 +278,7 @@ export const housingProjects: Project[] = [
     {
       id: 12,
       slug: 'dawson-hub',
-      title: 'Dawson Hub',
+      title: 'Dawson',
       location: 'Queenstown, Singapore',
       category: 'Housing',
       status: 'Built (as Design Architect at SCDA PTE LTD, Singapore)',
