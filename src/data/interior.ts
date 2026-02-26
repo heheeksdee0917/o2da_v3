@@ -153,7 +153,7 @@ export const interiorProjects: Project[] = [
     location: 'Sentul, Kuala Lumpur',
     category: 'Interior',
     status: 'Completed',
-    projectTeam: ['Edric Choo Poo Liang', 'Kong Xiang Lynn','Lim Min Syn'],
+    projectTeam: ['Edric Choo Poo Liang','Lim Min Syn'],
     images: [
       '/Gallery/Interior/SentulWorksID/CP.avif',
       '/Gallery/Interior/SentulWorksID/A1.avif',

@@ -3,7 +3,7 @@ import type { Project } from './mockData';
 export const commercialProjects: Project[] = [
   //  Botanic Centre
   {
-    id: 12,
+    id: 1,
     slug: 'botanic-centre',
     title: 'Botanic Central',
     location: 'Temerloh, Pahang',
@@ -27,7 +27,7 @@ export const commercialProjects: Project[] = [
   },
   //Community Centre
   {
-    id: 11,
+    id: 2,
     slug: 'community-centre',
     title: 'Community Center',
     location: 'Taman Desa, Kuala Lumpur',
@@ -65,9 +65,47 @@ export const commercialProjects: Project[] = [
       },
     ],
   },
-  // 1. Sentul Works
+  // UNO Rivertree Signature (Bukit Raja)
   {
-    id: 1,
+    id: 3,
+    slug: 'uno-rivertree-bukit-raja',
+    title: 'JOM RIVERTREE cafes',
+    location: 'Bukit Raja, Klang',
+    category: 'Commercial',
+    status: 'Completed',
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
+    accolades: [
+      'Asia Pacific Property Awards 2021-2022 (Retail Development Malaysia)',
+      'Asia Pacific Property Awards 2021-2022 (Best Development Marketing Malaysia)',
+      'PropertyGuru Asia Property Awards 2020 (Best Retail Development)',
+    ],
+    images: [
+      '/Gallery/Commercial/UnoBukitRaja/CP.avif',
+      '/Gallery/Commercial/UnoBukitRaja/A1.avif',
+      '/Gallery/Commercial/UnoBukitRaja/A2.avif',
+      '/Gallery/Commercial/UnoBukitRaja/A3.avif',
+      '/Gallery/Commercial/UnoBukitRaja/A4.avif',
+      '/Gallery/Commercial/UnoBukitRaja/A5.avif',
+      '/Gallery/Commercial/UnoBukitRaja/A6.avif',
+    ],
+    detailContent: [
+      {
+        type: 'text',
+        content: 'The Uno retail development aim to lift the standard of shop lot retail to more exclusive and high-end design by having full height shopfront glass façade with high ceiling space and mezzanine floor inspired by the exclusive shopping mall shopfront. The idea is to move away from the conventional solid wall, small windows and unorganized signage placement in typical retail shop lot.'
+      },
+      {
+        type: 'text',
+        content: 'For the one storey retail, the glass façade has been designed with various sizes and heights to give variation to the façade. The two storey retail has a mezzanine floor with glass balustrade at first floor level to give a sense of openness and transparency to the retail interior. The mezzanine floor is designed to be a social gathering space for office tenants, a coffee break area with great view into the centre of the UNO commercial plaza.'
+      },
+      {
+        type: 'text',
+        content: 'The UNO retail development has a central plaza at the middle of single storey retail shop area. It is a place where visitors transit between rows of retail blocks and celebration or large commercial events can take place at this flexible multipurpose public space.'
+      },
+    ],
+  },
+  // Sentul Works
+  {
+    id: 4,
     slug: 'sentul-works',
     title: 'Sentul Works',
     location: 'Sentul, Kuala Lumpur',
@@ -76,7 +114,7 @@ export const commercialProjects: Project[] = [
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
     accolades: [
       'Malaysia Fiabsi Award Heritage & Office Category (Winner)',
-      'World Arch itecture Festival Award 2022 (Finalist)'
+      'World Architecture Festival Award 2022 (Finalist)'
     ],
     images: [
       '/Gallery/Commercial/SentulWorks/CP.avif',
@@ -128,9 +166,9 @@ export const commercialProjects: Project[] = [
       },
     ],
   },
-  // 2. Warehouse 3
+  // Warehouse 3
   {
-    id: 2,
+    id: 5,
     slug: 'warehouse-3',
     title: 'Warehouse 3',
     location: 'Sentul, Kuala Lumpur',
@@ -152,31 +190,9 @@ export const commercialProjects: Project[] = [
       },
     ],
   },
-  // 3. KFC @ Ijok
+  // Drive-thru KFC Bukit Raja
   {
-    id: 3,
-    slug: 'kfc-ijok',
-    title: 'KFC Ijok',
-    location: 'Ijok, Selangor',
-    category: 'Commercial',
-    status: 'Submission',
-    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
-    images: [
-      '/Gallery/Commercial/KFCIjok/CP.avif',
-      '/Gallery/Commercial/KFCIjok/A1.avif',
-      '/Gallery/Commercial/KFCIjok/A2.avif',
-      '/Gallery/Commercial/KFCIjok/A3.avif'
-    ],
-    detailContent: [
-      { type: 'text', content: 'The KFC design language echoes the rest of commercial retail design, using retrospective architectural lines and geometry that remind Malaysians of the past Art Deco and Modernist style architecture in the early 20th century. The spirit of that era also marks the exploration of aerodynamics in post-war automobile design, as well as resonating with the iconic American Art Deco-styled fast food chain drive-thru and diner culture. The mass of the building is conceived visually as a cabin ‘lifted’ from the ground with accentuation of KFC’s iconic red colour highlighting the elements like the roof canopy and window coping. A giant scaled-up KFC Chicken Bucket graces visitors at the top of the main entrance, functioning as a lit-up KFC advertisement mounting surface that forms the landmark beacon for the township.' },
-      { type: 'text', content: 'The design of the interior is an extension of the exterior concept mixing Art Deco, and Modernist style language but executed with contemporary material and technique. KFC customers can find retro café car seat style dining and classic mid-century Art Deco arches detailing in the interior.' },
-      { type: 'text', content: 'Customers will be greeted by a giant KFC Bucket from the foyer at the main entrance. Some of the dining area seating is part of a concrete façade curved-shaped bay window ledge. The form of the curved window ledge from the exterior gives the overall building a floating retro ‘lifted cabin’ effect.' },
-      { type: 'text', content: 'The overall architectural design and the big KFC bucket are iconic design statements that attract people’s attention hopefully from all over Klang Valley and beyond. We hope this KFC and Drive-thru not just provide F&B services but also an ‘Instagram able’ destination where people love to visit, gather, and share their experience of their time spent here.' },
-    ],
-  },
-  // 4. Drive-thru KFC Bukit Raja
-  {
-    id: 4,
+    id: 6,
     slug: 'kfc-drive-thru-bukit-raja',
     title: 'KFC Bukit Raja',
     location: 'Bukit Raja, Klang',
@@ -205,9 +221,32 @@ export const commercialProjects: Project[] = [
       { type: 'text', content: 'The overall architectural design and the big KFC bucket are iconic design statements that attract people’s attention hopefully from all over Klang Valley and beyond. We hope this KFC and Drive-thru not just provide F&B services but also an ‘Instagram able’ destination where people love to visit, gather, and share their experience of their time spent here.' },
     ],
   },
-  // 5. Shoplots @ Kepong
+  // KFC @ Ijok
   {
-    id: 5,
+    id: 7,
+    slug: 'kfc-ijok',
+    title: 'KFC Ijok',
+    location: 'Ijok, Selangor',
+    category: 'Commercial',
+    status: 'Submission',
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
+    images: [
+      '/Gallery/Commercial/KFCIjok/CP.avif',
+      '/Gallery/Commercial/KFCIjok/A1.avif',
+      '/Gallery/Commercial/KFCIjok/A2.avif',
+      '/Gallery/Commercial/KFCIjok/A3.avif',
+      '/Gallery/Commercial/KFCIjok/A4.avif'
+    ],
+    detailContent: [
+      { type: 'text', content: 'The KFC design language echoes the rest of commercial retail design, using retrospective architectural lines and geometry that remind Malaysians of the past Art Deco and Modernist style architecture in the early 20th century. The spirit of that era also marks the exploration of aerodynamics in post-war automobile design, as well as resonating with the iconic American Art Deco-styled fast food chain drive-thru and diner culture. The mass of the building is conceived visually as a cabin ‘lifted’ from the ground with accentuation of KFC’s iconic red colour highlighting the elements like the roof canopy and window coping. A giant scaled-up KFC Chicken Bucket graces visitors at the top of the main entrance, functioning as a lit-up KFC advertisement mounting surface that forms the landmark beacon for the township.' },
+      { type: 'text', content: 'The design of the interior is an extension of the exterior concept mixing Art Deco, and Modernist style language but executed with contemporary material and technique. KFC customers can find retro café car seat style dining and classic mid-century Art Deco arches detailing in the interior.' },
+      { type: 'text', content: 'Customers will be greeted by a giant KFC Bucket from the foyer at the main entrance. Some of the dining area seating is part of a concrete façade curved-shaped bay window ledge. The form of the curved window ledge from the exterior gives the overall building a floating retro ‘lifted cabin’ effect.' },
+      { type: 'text', content: 'The overall architectural design and the big KFC bucket are iconic design statements that attract people’s attention hopefully from all over Klang Valley and beyond. We hope this KFC and Drive-thru not just provide F&B services but also an ‘Instagram able’ destination where people love to visit, gather, and share their experience of their time spent here.' },
+    ],
+  },
+  // Shoplots @ Kepong
+  {
+    id: 8,
     slug: 'shoplot-kepong',
     title: 'Shoplot',
     location: 'Kepong, Kuala Lumpur',
@@ -239,9 +278,9 @@ export const commercialProjects: Project[] = [
       },
     ],
   },
-  // 6. THC Warehouse Rawang
+  // THC Warehouse Rawang
   {
-    id: 6,
+    id: 9,
     slug: 'thc-warehouse',
     title: 'THC Warehouse',
     location: 'Rawang, Selangor',
@@ -264,43 +303,4 @@ export const commercialProjects: Project[] = [
       { type: 'text', content: 'THC Warehouse treats efficiency as an architectural ethic: simple massing, clear circulation, and long-span space are shaped into a facility that is direct, resilient, and easy to operate. The result is an industrial complex that performs as infrastructure, yet carries a composed identity—defined by its paired volumes, disciplined detailing, and a spatial order that turns a sloped site into a coherent working campus.' },
     ],
   },
-  // 7. UNO Rivertree Signature (Bukit Raja)
-  {
-    id: 7,
-    slug: 'uno-rivertree-bukit-raja',
-    title: 'JOM RIVERTREE cafes',
-    location: 'Bukit Raja, Klang',
-    category: 'Commercial',
-    status: 'Completed',
-    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
-    accolades: [
-      'Asia Pacific Property Awards 2021-2022 (Retail Development Malaysia)',
-      'Asia Pacific Property Awards 2021-2022 (Best Development Marketing Malaysia)',
-      'PropertyGuru Asia Property Awards 2020 (Best Retail Development)',
-    ],
-    images: [
-      '/Gallery/Commercial/UnoBukitRaja/CP.avif',
-      '/Gallery/Commercial/UnoBukitRaja/A1.avif',
-      '/Gallery/Commercial/UnoBukitRaja/A2.avif',
-      '/Gallery/Commercial/UnoBukitRaja/A3.avif',
-      '/Gallery/Commercial/UnoBukitRaja/A4.avif',
-      '/Gallery/Commercial/UnoBukitRaja/A5.avif',
-      '/Gallery/Commercial/UnoBukitRaja/A6.avif',
-    ],
-    detailContent: [
-      {
-        type: 'text',
-        content: 'The Uno retail development aim to lift the standard of shop lot retail to more exclusive and high-end design by having full height shopfront glass façade with high ceiling space and mezzanine floor inspired by the exclusive shopping mall shopfront. The idea is to move away from the conventional solid wall, small windows and unorganized signage placement in typical retail shop lot.'
-      },
-      {
-        type: 'text',
-        content: 'For the one storey retail, the glass façade has been designed with various sizes and heights to give variation to the façade. The two storey retail has a mezzanine floor with glass balustrade at first floor level to give a sense of openness and transparency to the retail interior. The mezzanine floor is designed to be a social gathering space for office tenants, a coffee break area with great view into the centre of the UNO commercial plaza.'
-      },
-      {
-        type: 'text',
-        content: 'The UNO retail development has a central plaza at the middle of single storey retail shop area. It is a place where visitors transit between rows of retail blocks and celebration or large commercial events can take place at this flexible multipurpose public space.'
-      },
-    ],
-  },
-
 ];

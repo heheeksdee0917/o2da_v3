@@ -533,7 +533,7 @@ export default function PortfolioDetails() {
                       to={`/portfolio/${similarProject.slug}`}
                       className="block group"
                     >
-                      <div className="relative overflow-hidden mb-3 bg-neutral-100 aspect-video">
+                      <div className="relative overflow-hidden mb-3 aspect-video">
                         <LazyImage
                           src={similarProject.images[0]}
                           alt={similarProject.title}
