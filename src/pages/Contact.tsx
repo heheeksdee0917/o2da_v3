@@ -34,7 +34,7 @@ export default function Contact() {
 
   return (
     <div data-theme="light" className="min-h-screen bg-white pt-32 pb-20">
-      <div className="max-w-4xl mx-auto px-8 md:px-12">
+      <div className="max-w-4xl mx-auto px-8 md:px-6">
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-light mb-6 uppercase tracking-wide">

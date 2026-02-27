@@ -65,9 +65,6 @@ export default function ProjectCard({
           <p className="text-base md:text-sm font-light text-black/60 mb-1 md:mb-1">
             {project.location}
           </p>
-          <p className="text-sm md:text-xs font-light text-black/40">
-            {project.category}
-          </p>
         </div>
       </div>
     </Link>

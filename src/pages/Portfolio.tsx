@@ -82,7 +82,7 @@ export default function Portfolio() {
 
   return (
     <div data-theme="light" className="pt-24 bg-white grid-background animate-fade-in">
-      <div className="max-w-[1800px] mx-auto px-12 py-4">
+      <div className="max-w-[1800px] mx-auto px-6 py-4">
         {/* Filter Tabs */}
         <nav className="flex justify-start md:justify-center items-center gap-4 md:gap-8 mb-20 overflow-x-auto scrollbar-hide px-4 -mx-4">
           {CATEGORIES.map((category) => (
@@ -118,7 +118,7 @@ export default function Portfolio() {
                 </h2>
                 
                 {/* Category Grid - Simple rendering without preload */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-8">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-4">
                   {categoryProjects.map((project, projectIndex) => (
                     <ProjectCard 
                       key={project.id} 
@@ -146,7 +146,7 @@ export default function Portfolio() {
             </h2>
             
             {/* Grid with preload */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-4">
               {displayedProjects.map((project, index) => (
                 <div 
                   key={project.id}

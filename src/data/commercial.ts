@@ -69,11 +69,11 @@ export const commercialProjects: Project[] = [
   {
     id: 3,
     slug: 'uno-rivertree-bukit-raja',
-    title: 'JOM RIVERTREE cafes',
+    title: 'UNO Rivertree Signature',
     location: 'Bukit Raja, Klang',
     category: 'Commercial',
     status: 'Completed',
-    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn','Ny Yu Heng','Yi Mian'],
     accolades: [
       'Asia Pacific Property Awards 2021-2022 (Retail Development Malaysia)',
       'Asia Pacific Property Awards 2021-2022 (Best Development Marketing Malaysia)',
@@ -197,12 +197,12 @@ export const commercialProjects: Project[] = [
   // KFC @ Ijok
   {
     id: 7,
-    slug: 'kfc-ijok',
-    title: 'KFC Ijok',
+    slug: 'jom-rivertree-cafes',
+    title: 'JOM RIVERTREE cafes',
     location: 'Ijok, Selangor',
     category: 'Commercial',
     status: 'Submission',
-    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn','Syazwan Amidun','Jane Quak'],
     images: [
       '/Gallery/Commercial/KFCIjok/CP.avif',
       '/Gallery/Commercial/KFCIjok/A1.avif',

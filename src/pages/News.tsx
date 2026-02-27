@@ -86,7 +86,7 @@ export default function News() {
   return (
     <div className={`transition-opacity duration-500 ${fadeIn ? 'opacity-100' : 'opacity-0'}`}>
       <div data-theme="light" className="bg-white min-h-screen">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 pt-32 pb-32">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-6 pt-32 pb-32">
           
           {/* Header */}
           <div 

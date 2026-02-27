@@ -71,9 +71,9 @@ export default function Navbar() {
 
   return (
     <>
-      <nav ref={navRef} className="fixed top-0 left-0 right-0 z-50">
+      <nav ref={navRef} className="fixed top-0 left-0 right-0 z-30">
         <div className="transition-all duration-500 backdrop-blur-xl bg-white/10 border-b border-white/20">
-          <div className="max-w-[1800px] mx-auto px-12 py-4 flex items-center justify-between">
+          <div className="max-w-[1800px] mx-auto px-6 py-4 flex items-center justify-between">
             <div className="flex items-center space-x-12">
               <Link to="/">
                 <span className={`text-xl font-medium transition-colors duration-300 ${textColor}`} style={{ fontFamily: "'Gill Sans', system-ui, -apple-system, sans-serif" }}>
@@ -117,7 +117,9 @@ export default function Navbar() {
               </div>
             </div>
 
-            <Link to="/contact" className={`hidden md:block caption transition-all duration-300 ${textColor} relative group/link`}>
+            <Link to="/contact"
+            className={`hidden md:block caption transition-all duration-300 ${textColor} relative group/link`
+            }>
               Contact Us
               <span className={`absolute bottom-0 left-0 h-px transition-all duration-300 ease-out ${underlineColor} ${isActive('/contact') ? 'w-full' : 'w-0 group-hover/link:w-full'}`}></span>
             </Link>
@@ -127,7 +129,7 @@ export default function Navbar() {
       {/* Mobile Menu Button */}
       <button
         onClick={() => setIsMobileMenuOpen(prev => !prev)}
-        className={`md:hidden fixed bottom-6 left-6 px-3 py-2 transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-2 backdrop-blur-xl bg-white/10 border border-white/20 ${isMobileMenuOpen ? 'z-[160]' : 'z-[150]'
+        className={`md:hidden fixed bottom-6 left-6 px-3 py-2 transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-2 backdrop-blur-xl bg-white/10 border border-white/20 ${isMobileMenuOpen ? 'z-[30]' : 'z-[30]'
           }`}
       >
         {isMobileMenuOpen ? (
@@ -143,14 +145,15 @@ export default function Navbar() {
       {/* Mobile Contact Button */}
       <Link
         to="/contact"
-        className="md:hidden fixed bottom-6 right-6 z-[140] px-5 py-1.5 transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-2 backdrop-blur-xl bg-white/10 border border-white/20"
+        onClick={() => setIsMobileMenuOpen(false)} 
+        className="md:hidden fixed bottom-6 right-6 z-[30] px-5 py-1.5 transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-2 backdrop-blur-xl bg-white/10 border border-white/20"
       >
         <span className={`text-sm font-medium ${textColor}`}>Contact</span>
       </Link>
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 bg-white z-[140]" onClick={() => setIsMobileMenuOpen(false)}>
+        <div className="md:hidden fixed inset-0 bg-white z-[20]" onClick={() => setIsMobileMenuOpen(false)}>
           <div className="h-full w-full flex items-center justify-center px-8" onClick={(e) => e.stopPropagation()}>
             <nav className="space-y-8 text-center">
               <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className={`block text-2xl ${isActive('/') ? 'text-black font-medium' : 'text-black/70 hover:text-black'}`}>Home</Link>

@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, useLocation, useParams } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -13,19 +13,26 @@ const Portfolio = lazy(() => import('./pages/Portfolio'));
 const PortfolioDetails = lazy(() => import('./pages/PortfolioDetails'));
 const Contact = lazy(() => import('./pages/Contact'));
 
-// Wrapper to force remount PortfolioDetails on :id change
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function PortfolioDetailsWithRemount() {
   const { id } = useParams<{ id: string }>();
   return <PortfolioDetails key={id} />;
 }
 
-// Wrapper to force remount NewsDetails on :slug change
 function NewsDetailsWithRemount() {
   const { slug } = useParams<{ slug: string }>();
   return <NewsDetails key={slug} />;
 }
 
-// Loading fallback component for better UX
 function LoadingFallback() {
   return (
     <div className="min-h-screen bg-white flex items-center justify-center">
@@ -45,9 +52,9 @@ function AppContent() {
 
   return (
     <>
+      <ScrollToTop />
       <Navbar />
       
-      {/* ✅ Added smooth-scroll here for all pages except Home */}
       <div className={isHomePage ? '' : 'min-h-screen smooth-scroll'}>
         <Routes>
           <Route path="/" element={<Home />} />

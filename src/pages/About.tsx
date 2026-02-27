@@ -58,7 +58,7 @@ export default function About() {
     <div data-theme="light" className="bg-white grid-background">
       <div className="page-fade-in">
         <div data-theme="light" className="bg-white grid-background">
-          <div className="max-w-[1400px] mx-auto px-12 pt-32 pb-32">
+          <div className="max-w-[1400px] mx-auto px-6 pt-32 pb-32">
             <div ref={philosophyRef} className="mb-24 max-w-5xl mx-auto text-center">
               <h2 className="mb-8 text-3xl font-normal">O<span className="lime-accent">2</span>DA+CPL<span className="hot-rod-accent">A</span></h2>
               <p className="mb-6 leading-relaxed">

@@ -548,7 +548,7 @@ export default function PortfolioDetails() {
                           loading="lazy"
                         />
                       </div>
-                      <h4 className="text-base font-light mb-1 relative inline-block uppercase">
+                      <h4 className="text-xl font-light mb-1 relative inline-block uppercase">
                         <span className="relative">
                           {similarProject.title}
                           <span className="absolute left-0 bottom-0 w-full h-[1px] bg-black scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100"></span>

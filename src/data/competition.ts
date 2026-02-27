@@ -812,7 +812,7 @@ export const competitionProjects: Project[] = [
     location: 'Glenmarie Station, Petaling Jaya',
     category: 'Competition',
     status: 'Proposal',
-    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn','Kong Xhiang Lynn'],
     images: [
       '/Gallery/Competition/KLAF/CP.avif',
       '/Gallery/Competition/KLAF/A1.avif',

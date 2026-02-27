@@ -8,10 +8,10 @@ export default function Footer() {
       <div className="max-w-[1800px] mx-auto px-12 w-full py-20">
         {/* Logo and Tagline */}
         <div className="mb-16">
-          <h3 className="text-4xl lg:text-5xl font-light mb-6" style={{ fontFamily: "'Gill Sans', system-ui, -apple-system, sans-serif" }}>
+          <h3 className="text-4xl lg:text-5xl font-medium mb-6" style={{ fontFamily: "'Gill Sans', system-ui, -apple-system, sans-serif" }}>
             O<span className="lime-accent">2</span>DA + CPL<span className="hot-rod-accent">A</span>
           </h3>
-          <p className="text-black/50 text-lg leading-relaxed max-w-md">
+          <p className="text-black/80 text-xl leading-relaxed max-w-md">
             Architecture of Form and Pattern languages
           </p>
         </div>

@@ -65,7 +65,7 @@ export default function Awards() {
   return (
     <div className="page-fade-in">
       <div data-theme="light" className="bg-white min-h-screen">
-        <div className="max-w-[1200px] mx-auto px-12 pt-32 pb-32">
+        <div className="max-w-[1200px] mx-auto px-6 pt-32 pb-32">
 
           {/* Header */}
           <div className="mb-24 text-center">
@@ -114,7 +114,7 @@ export default function Awards() {
                               <h3 className="text-xl font-light text-black mb-2">
                                 {award.competition}
                               </h3>
-                              <p className="text-sm font-light uppercase tracking-widest text-black/50">
+                              <p className="text-sm font-light tracking-widest text-black/50">
                                 <span className="px-2 py-1 group-hover:bg-lime-400/30 group-hover:text-black transition-all">
                                   {award.project}
                                 </span>
@@ -176,7 +176,7 @@ export default function Awards() {
                               <h3 className="text-xl font-light text-black mb-2">
                                 {competition.competition}
                               </h3>
-                              <p className="text-sm font-light uppercase tracking-widest text-black/50">
+                              <p className="text-sm font-light tracking-widest text-black/50">
                                 <span className="px-2 py-1 group-hover:bg-lime-400/30 group-hover:text-black transition-all">
                                   {competition.project}
                                 </span>

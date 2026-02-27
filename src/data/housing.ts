@@ -197,7 +197,7 @@ export const housingProjects: Project[] = [
     location: 'Sentul, Kuala Lumpur',
     category: 'Housing',
     status: 'Proposal',
-    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn','Roslina Mohlas'],
     images: [
       '/Gallery/Housing/SentulRaya/CP.avif',
       '/Gallery/Housing/SentulRaya/A1.avif',
