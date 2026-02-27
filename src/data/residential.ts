@@ -677,7 +677,6 @@ export const residentialProjects: Project[] = [
       '/Gallery/Residential/ResortHome/A24.avif',
       '/Gallery/Residential/ResortHome/A25.avif',
       '/Gallery/Residential/ResortHome/A26.avif',
-      '/Gallery/Residential/ResortHome/A27.avif',
       '/Gallery/Residential/ResortHome/A28.avif',
       '/Gallery/Residential/ResortHome/Diagram1.avif',
       '/Gallery/Residential/ResortHome/Diagram2.avif',
