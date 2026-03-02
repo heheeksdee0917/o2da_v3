@@ -73,7 +73,7 @@ export const awards: Award[] = [
     year: 2023,
     competition: 'PAM Awards',
     project: 'UNO RIVERTTREE',
-    place: 'HON. MENTION (COLLABORATION)',
+    place: 'Hon. Mention (COLLABORATION)',
     type: 'award',
     slug: 'uno-rivertree-bukit-raja'
   },
@@ -98,7 +98,7 @@ export const awards: Award[] = [
   {
     id: 4,
     year: 2021,
-    competition: 'ASIA PACIFIC PROPERTY AWARDS (Best Residential Development Malaysia)',
+    competition: 'Asia Pacific Property Awards (Best Residential Development Malaysia)',
     project: 'Garisan @ Puchong',
     place: '5 Star Winner',
     type: 'award',
@@ -107,7 +107,7 @@ export const awards: Award[] = [
   {
     id: 5,
     year: 2021,
-    competition: 'ASIA PACIFIC PROPERTY AWARDS (Best Architecture Multiple Residence Malaysia)',
+    competition: 'Asia Pacific Property Awards (Best Architecture Multiple Residence Malaysia)',
     project: 'Garisan @ Puchong',
     place: '5 Star Winner',
     type: 'award',
@@ -116,7 +116,7 @@ export const awards: Award[] = [
   {
     id: 6,
     year: 2021,
-    competition: 'ASIA PACIFIC PROPERTY AWARDS (Retail Development Malaysia)',
+    competition: 'Asia Pacific Property Awards (Retail Development Malaysia)',
     project: 'UNO 1 @ BUKIT RAJA',
     place: 'Award Winner',
     type: 'award',
@@ -125,7 +125,7 @@ export const awards: Award[] = [
   {
     id: 7,
     year: 2021,
-    competition: 'ASIA PACIFIC PROPERTY AWARDS (Best Development Marketing Malaysia)',
+    competition: 'Asia Pacific Property Awards (Best Development Marketing Malaysia)',
     project: 'UNO 1 @ BUKIT RAJA',
     place: '5 Star Winner',
     type: 'award',
@@ -134,7 +134,7 @@ export const awards: Award[] = [
   {
     id: 8,
     year: 2021,
-    competition: 'ASIA PACIFIC PROPERTY AWARDS (Best Leisure Interior Malaysia)',
+    competition: 'Asia Pacific Property Awards (Best Leisure Interior Malaysia)',
     project: 'UNO 1 @ BUKIT RAJA',
     place: '5 Star Winner',
     type: 'award',
@@ -224,7 +224,7 @@ export const awards: Award[] = [
   {
     id: 18,
     year: 2015,
-    competition: 'PAM-HOMEDEC Award',
+    competition: 'PAM-Homedec Award',
     project: 'COURTYARD HOUSE@ SUNGAI BULOH',
     place: 'Silver',
     type: 'award',
@@ -305,7 +305,7 @@ export const awards: Award[] = [
   {
     id: 27,
     year: 2024,
-    competition: 'Malaysia Fiabsi Award heritage & Office Category',
+    competition: 'Malaysia Fiabsi Award Heritage & Office Category',
     project: 'Sentul Works',
     place: 'Winner',
     type: 'award',
