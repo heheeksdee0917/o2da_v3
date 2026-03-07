@@ -297,7 +297,7 @@ export const competitionProjects: Project[] = [
     location: 'Kwasa Damansara, Selangor',
     category: 'Competition',
     accolades: ['2nd Prize (National Comp)'],
-    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
+    projectTeam: ['Edric Choo Poo Liang'],
     images: [
       '/Gallery/Competition/ImbauanResidence/CP.avif',
       '/Gallery/Competition/ImbauanResidence/A1.avif',

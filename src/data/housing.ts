@@ -135,7 +135,7 @@ export const housingProjects: Project[] = [
     location: 'Mont Kiara, Kuala Lumpur',
     category: 'Housing',
     status: 'Proposal',
-    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn','Joshua Quah','Kong Xhiang Lynn'],
     images: [
       '/Gallery/Housing/Cascade31/CP.avif',
       '/Gallery/Housing/Cascade31/A1.avif',
@@ -175,7 +175,7 @@ export const housingProjects: Project[] = [
     location: 'Kota Damansara, Selangor',
     category: 'Housing',
     status: 'Proposal',
-    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn','Joshua Quah'],
     images: [
       '/Gallery/Housing/ShuffleShuttle/CP.avif',
       '/Gallery/Housing/ShuffleShuttle/A1.avif',

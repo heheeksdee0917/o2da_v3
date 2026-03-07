@@ -556,7 +556,7 @@ export const residentialProjects: Project[] = [
     location: 'Janda Baik, Pahang',
     category: 'Residential',
     status: 'Schematic',
-    projectTeam: ['Edric Choo Poo Liang','Lim Min Syn','Kong Xiang Lynn'],
+    projectTeam: ['Edric Choo Poo Liang','Quek Yi Jane','Aaren Neo','Amirul Shah'],
     images: [
       '/Gallery/Residential/PavInForest/CP.avif',
       '/Gallery/Residential/PavInForest/A1.avif',
@@ -773,12 +773,12 @@ export const residentialProjects: Project[] = [
     projectTeam: ['Edric Choo Poo Liang'],
     images: [
       '/Gallery/Residential/StackHouse/CP.avif',
-      '/Gallery/Residential/StackHouse/A1.avif',
-      '/Gallery/Residential/StackHouse/A3.avif',
-      '/Gallery/Residential/StackHouse/A4.avif',
-      '/Gallery/Residential/StackHouse/A5.avif',
       '/Gallery/Residential/StackHouse/A6.avif',
       '/Gallery/Residential/StackHouse/A7.avif',
+      '/Gallery/Residential/StackHouse/A4.avif',
+      '/Gallery/Residential/StackHouse/A5.avif',
+      '/Gallery/Residential/StackHouse/A1.avif',
+      '/Gallery/Residential/StackHouse/A3.avif',
     ],
     detailContent: [
       { type: 'text', content: 'This project is a private family house in a small township of Batu Pahat. The house is a series of stacking boxes that creates the relationship between the interior and exterior of the house itself. The difference oriented boxes left behind an outdoor garden space and roof terraces for each of the interior.' },
@@ -1048,7 +1048,7 @@ export const residentialProjects: Project[] = [
     location: 'Taman Desa, Kuala Lumpur',
     category: 'Residential',
     status: 'Completed',
-    projectTeam: ['Edric Choo Poo Liang', 'Joshua Quah'],
+    projectTeam: ['Edric Choo Poo Liang','Nicole Hooi','Poon Jin Yong'],
     images: [
       '/Gallery/Residential/Shift/CP.avif',
       '/Gallery/Residential/Shift/A1.avif',
@@ -1113,7 +1113,7 @@ export const residentialProjects: Project[] = [
     location: 'Bukit Jalil, Kuala Lumpur',
     category: 'Residential',
     status: 'Completed',
-    projectTeam: ['Edric Choo Poo Liang', 'Kong Xiang Lynn'],
+    projectTeam: ['Edric Choo Poo Liang', 'Quek Yi Jane','Khor Jia Xin'],
     coverPhoto: '/Gallery/Residential/LouvresBox/L_CP.avif',
     images: [
       '/Gallery/Residential/LouvresBox/CP.avif',

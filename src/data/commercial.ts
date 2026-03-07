@@ -202,7 +202,7 @@ export const commercialProjects: Project[] = [
     location: 'Ijok, Selangor',
     category: 'Commercial',
     status: 'Submission',
-    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn','Syazwan Amidun','Jane Quak'],
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn','Syazwan Amidun','Quak Yi Jane'],
     images: [
       '/Gallery/Commercial/KFCIjok/CP.avif',
       '/Gallery/Commercial/KFCIjok/A1.avif',
@@ -262,6 +262,42 @@ export const commercialProjects: Project[] = [
       { type: 'text', content: 'Arrival is framed by the two halls, which form a sheltered forecourt and a clear line of sight into the heart of the compound. The central drive rises gently, aligning vehicles to loading bays and staging zones with minimal turning conflict. Along the flanks, continuous canopies and recessed docks create a repeatable rhythm for servicing, while perimeter planting buffers the hardstand and softens long views across the site.' },
       { type: 'text', content: 'Inside, the experience shifts from enclosure to volume: a high truss roof lifts the ceiling plane into a single, expansive room, deliberately unobstructed to support changing machinery layouts and flexible assembly lines. Strip skylights introduce a measured daylight wash, and high-volume fans temper the air without compromising the clarity of the structure. Dedicated zones—such as the machine area—are held as legible fields within the larger hall, allowing the floor plate to be read as an adaptable working surface rather than a fixed diagram.' },
       { type: 'text', content: 'THC Warehouse treats efficiency as an architectural ethic: simple massing, clear circulation, and long-span space are shaped into a facility that is direct, resilient, and easy to operate. The result is an industrial complex that performs as infrastructure, yet carries a composed identity—defined by its paired volumes, disciplined detailing, and a spatial order that turns a sloped site into a coherent working campus.' },
+    ],
+  },
+  // Tagore Lane
+  {
+    id: 10,
+    slug: 'tagore-lane',
+    title: 'Tagore Lane',
+    location: 'Tagore Lane, Singapore',
+    category: 'Commercial',
+    status: 'Built (as Project Architect at SCDA PTE LTD)',
+    images: [
+      '/Gallery/Commercial/Tagore/CP.avif',
+      '/Gallery/Commercial/Tagore/A1.avif',
+    ],
+    detailContent: [
+      { type: 'text', content: 'coming soon...' },
+    ],
+  },
+  // Guomei HQ
+  {
+    id: 11,
+    slug: 'guomei-hq',
+    title: 'Guomei HQ',
+    location: 'Neihu, Taipei',
+    category: 'Commercial',
+    status: 'Schematic Design (as Design Architect at  WOHA ARCHITECTS)',
+    coverPhoto: '/Gallery/Commercial/GuoMei/A0.avif',
+    images: [
+      '/Gallery/Commercial/GuoMei/CP.avif',
+      '/Gallery/Commercial/GuoMei/A1.avif',
+      '/Gallery/Commercial/GuoMei/A2.avif',
+      '/Gallery/Commercial/GuoMei/A3.avif',
+
+    ],
+    detailContent: [
+      { type: 'text', content: 'coming soon...' },
     ],
   },
 ];
