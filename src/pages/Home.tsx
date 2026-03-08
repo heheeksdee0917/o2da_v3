@@ -24,7 +24,6 @@ export default function HeroSection() {
       const progress = (scrollTop / scrollHeight) * 100;
       setScrollProgress(progress);
 
-      // Detect active section
       sectionRefs.current.forEach((section, index) => {
         if (section) {
           const rect = section.getBoundingClientRect();
@@ -40,7 +39,6 @@ export default function HeroSection() {
     return () => container.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Intersection Observer for fade-in animations
   useEffect(() => {
     const observerOptions = {
       threshold: 0.2,
@@ -72,10 +70,9 @@ export default function HeroSection() {
             onClick={() => {
               sectionRefs.current[index]?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${activeSection === index
-                ? 'bg-white h-8'
-                : 'bg-white/30 hover:bg-white/60'
-              }`}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              activeSection === index ? 'bg-white h-8' : 'bg-white/30 hover:bg-white/60'
+            }`}
             aria-label={`Go to section ${index + 1}`}
           />
         ))}
@@ -90,10 +87,9 @@ export default function HeroSection() {
             key={section.id}
             ref={(el) => (sectionRefs.current[index] = el)}
             data-theme="dark"
-            className="hero-section relative h-screen w-full overflow-hidden cursor-pointer snap-start snap-always bg-black opacity-0 transition-all duration-1000 ease-out"
+            className="relative h-screen w-full overflow-hidden cursor-pointer snap-start snap-always bg-black"
             onClick={() => handleSectionClick(section.slug)}
           >
-            {/* Parallax Background with Scale Effect */}
             <div className="absolute inset-0 w-full h-full">
               {section.img.endsWith('.mp4') ? (
                 <video
@@ -114,12 +110,11 @@ export default function HeroSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
             </div>
 
-            {/* Content with Staggered Animation */}
             <div className="absolute bottom-0 left-0 right-0 pb-24 text-center z-10">
-              <h2 className="text-white text-4xl md:text-5xl uppercase font-light mb-4 tracking-wider opacity-0 translate-y-8 transition-all duration-1000 delay-300 hero-title">
+              <h2 className="text-white text-4xl md:text-5xl uppercase font-light mb-4 tracking-wider">
                 {section.title}
               </h2>
-              <p className="text-white/70 text-lg md:text-1xl font-light tracking-widest opacity-0 translate-y-8 transition-all duration-1000 delay-500 hero-location">
+              <p className="text-white/70 text-lg md:text-1xl font-light tracking-widest">
                 {section.location}
               </p>
             </div>
@@ -132,53 +127,26 @@ export default function HeroSection() {
       </div>
 
       <style>{`
-        .hero-section.section-visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
-        .hero-section.section-visible .hero-title,
-        .hero-section.section-visible .hero-location {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
-
         @keyframes zoom-cycle {
-          0% {
-            transform: scale(1);
-          }
-          50% {
-            transform: scale(1.15);
-          }
-          100% {
-            transform: scale(1);
-          }
+          0% { transform: scale(1); }
+          50% { transform: scale(1.15); }
+          100% { transform: scale(1); }
         }
 
-        /* Trigger zoom only when section is visible */
-        .hero-section.section-visible .zoom-reset {
+        .section-visible .zoom-reset {
           animation: zoom-cycle 20s ease-in-out forwards;
         }
 
-        /* Hide scrollbar but keep functionality */
         .overflow-y-scroll::-webkit-scrollbar {
           width: 0px;
           background: transparent;
         }
-        
 
-        /* Reduced motion support for accessibility */
         @media (prefers-reduced-motion: reduce) {
-          .hero-section,
-          .hero-title,
-          .hero-location,
-          img,
-          video {
+          img, video {
             transition: none !important;
             animation: none !important;
           }
-          
           .scroll-smooth {
             scroll-behavior: auto;
           }
