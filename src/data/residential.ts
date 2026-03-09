@@ -556,7 +556,7 @@ export const residentialProjects: Project[] = [
     location: 'Janda Baik, Pahang',
     category: 'Residential',
     status: 'Schematic',
-    projectTeam: ['Edric Choo Poo Liang','Quek Yi Jane','Aaren Neo','Amirul Shah'],
+    projectTeam: ['Edric Choo Poo Liang','Quak Yi Jane','Aaren Neo','Amirul Shah'],
     images: [
       '/Gallery/Residential/PavInForest/CP.avif',
       '/Gallery/Residential/PavInForest/A1.avif',
@@ -649,7 +649,7 @@ export const residentialProjects: Project[] = [
     location: 'Kota Damansara, Selangor',
     category: 'Residential',
     status: 'Completed',
-    projectTeam: ['Edric Choo Poo Liang', 'Kong Xiang Lynn', 'Wong Jia Xin', 'Quek Yi Jane', 'Naveen Ram', 'Pang Jun Wei', 'Alireza'],
+    projectTeam: ['Edric Choo Poo Liang', 'Kong Xiang Lynn', 'Wong Jia Xin', 'Quak Yi Jane', 'Naveen Ram', 'Pang Jun Wei', 'Alireza'],
     images: [
       '/Gallery/Residential/ResortHome/CP.avif',
       '/Gallery/Residential/ResortHome/A1.avif',
@@ -961,7 +961,7 @@ export const residentialProjects: Project[] = [
     location: 'Kuala Lumpur',
     category: 'Residential',
     status: 'Submission',
-    projectTeam: ['Edric Choo Poo Liang', 'Quek Yi Jane', 'Evans Khor', 'Danish Azhan'],
+    projectTeam: ['Edric Choo Poo Liang', 'Quak Yi Jane', 'Evans Khor', 'Danish Azhan'],
     images: [
       '/Gallery/Residential/MelodyHouse/CP.avif',
       '/Gallery/Residential/MelodyHouse/A1.avif',
@@ -1075,7 +1075,7 @@ export const residentialProjects: Project[] = [
     location: 'Kuala Lumpur',
     category: 'Residential',
     status: 'Completed',
-    projectTeam: ['Edric Choo Poo Liang', 'Quek Yi Jane'],
+    projectTeam: ['Edric Choo Poo Liang', 'Quak Yi Jane'],
     coverPhoto: '/Gallery/Residential/IntrovertHouse/A0.avif',
     images: [
       '/Gallery/Residential/IntrovertHouse/CP1.avif',
@@ -1113,7 +1113,7 @@ export const residentialProjects: Project[] = [
     location: 'Bukit Jalil, Kuala Lumpur',
     category: 'Residential',
     status: 'Completed',
-    projectTeam: ['Edric Choo Poo Liang', 'Quek Yi Jane','Khor Jia Xin'],
+    projectTeam: ['Edric Choo Poo Liang', 'Quak Yi Jane','Khor Jia Xin'],
     coverPhoto: '/Gallery/Residential/LouvresBox/L_CP.avif',
     images: [
       '/Gallery/Residential/LouvresBox/CP.avif',

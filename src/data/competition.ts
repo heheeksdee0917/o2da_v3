@@ -116,7 +116,7 @@ export const competitionProjects: Project[] = [
     location: 'Vicenza, Italy',
     category: 'Competition',
     accolades: ['Submission (International Comp)'],
-    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn', 'Quek Yi Jane', 'Nicole Hooi Yi Tien'],
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn', 'Quak Yi Jane', 'Nicole Hooi Yi Tien'],
     images: [
       '/Gallery/Competition/Fittorie/CP.avif',
       '/Gallery/Competition/Fittorie/A1.avif',
