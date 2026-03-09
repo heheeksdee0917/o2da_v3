@@ -277,7 +277,7 @@ export const commercialProjects: Project[] = [
       '/Gallery/Commercial/Tagore/A1.avif',
     ],
     detailContent: [
-      { type: 'text', content: 'coming soon...' },
+      { type: 'text', content: 'N/A' },
     ],
   },
   // Guomei HQ
@@ -297,7 +297,7 @@ export const commercialProjects: Project[] = [
 
     ],
     detailContent: [
-      { type: 'text', content: 'coming soon...' },
+      { type: 'text', content: 'N/A' },
     ],
   },
 ];
