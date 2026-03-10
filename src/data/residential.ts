@@ -11,6 +11,7 @@ export const residentialProjects: Project[] = [
     status: 'Construction',
     projectTeam: ['Edric Choo Poo Liang', 'Evans Khor'],
     images: [
+      '/Gallery/Residential/TraceHouse/CP.avif',
       '/Gallery/Residential/TraceHouse/A1.avif',
       '/Gallery/Residential/TraceHouse/A2.avif',
       '/Gallery/Residential/TraceHouse/A3.avif',
