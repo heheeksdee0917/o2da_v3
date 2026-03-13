@@ -175,7 +175,7 @@ export const housingProjects: Project[] = [
     location: 'Kota Damansara, Selangor',
     category: 'Housing',
     status: 'Proposal',
-    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn','Joshua Quah'],
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
     images: [
       '/Gallery/Housing/ShuffleShuttle/CP.avif',
       '/Gallery/Housing/ShuffleShuttle/A1.avif',

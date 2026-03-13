@@ -211,10 +211,12 @@ export const commercialProjects: Project[] = [
       '/Gallery/Commercial/KFCIjok/A4.avif'
     ],
     detailContent: [
-      { type: 'text', content: 'The KFC design language echoes the rest of commercial retail design, using retrospective architectural lines and geometry that remind Malaysians of the past Art Deco and Modernist style architecture in the early 20th century. The spirit of that era also marks the exploration of aerodynamics in post-war automobile design, as well as resonating with the iconic American Art Deco-styled fast food chain drive-thru and diner culture. The mass of the building is conceived visually as a cabin ‘lifted’ from the ground with accentuation of KFC’s iconic red colour highlighting the elements like the roof canopy and window coping. A giant scaled-up KFC Chicken Bucket graces visitors at the top of the main entrance, functioning as a lit-up KFC advertisement mounting surface that forms the landmark beacon for the township.' },
-      { type: 'text', content: 'The design of the interior is an extension of the exterior concept mixing Art Deco, and Modernist style language but executed with contemporary material and technique. KFC customers can find retro café car seat style dining and classic mid-century Art Deco arches detailing in the interior.' },
-      { type: 'text', content: 'Customers will be greeted by a giant KFC Bucket from the foyer at the main entrance. Some of the dining area seating is part of a concrete façade curved-shaped bay window ledge. The form of the curved window ledge from the exterior gives the overall building a floating retro ‘lifted cabin’ effect.' },
-      { type: 'text', content: 'The overall architectural design and the big KFC bucket are iconic design statements that attract people’s attention hopefully from all over Klang Valley and beyond. We hope this KFC and Drive-thru not just provide F&B services but also an ‘Instagram able’ destination where people love to visit, gather, and share their experience of their time spent here.' },
+      { type: 'text', content: 'Jom Rivertree Cafés occupies a prominent roadside clearing along a fast-moving vehicular corridor, where convenience, visibility, and quick access define the rhythms of everyday use. The project gathers several food brands within a single compact structure, serving both motorists passing through and nearby communities seeking a casual social stop. Rather than dispersing each tenant into separate outlets, the design consolidates them into a shared architectural volume, allowing multiple programs to coexist while maintaining clear identity and efficient circulation. Parking courts, sheltered drop-offs, and a covered forecourt establish the building as a recognizable waypoint within the landscape, where arrival is immediate and legible from the street.' },
+      { type: 'text', content: 'The massing evolves from a simple stacking of elongated rectangular volumes. 3 Volumes are designated to 3 premises: a KFC chain, a dimsum joint, and a cafe, with their gross area in descending order. With the main volume split into two, these four volumes are stacked and juxtaposed to produce shaded thresholds and deep overhangs that temper sun and rain whilst framing the deep entrance below.' },
+      { type: 'text', content: 'These volumes are then deliberately chamfered at their edges to open vistas. The cuts give movement and direction to the otherwise static form, with grounded volumes faced towards the sky and elevated volumes directed to the busy streets below. The composition reads as two interlocking blocks that are solid yet slightly displaced. Their shifting geometry breaks the scale of the building while emphasizing the individuality of each tenant. Large glazed surfaces wrap the front and rear façades, exposing the interior activity and reinforcing the café’s role as a lively roadside gathering point.' },
+      { type: 'text', content: 'Visitors arrive through a broad parking forecourt before passing beneath the cantilevered upper block. This sheltered apron forms the social threshold of the complex, where outdoor seating, signage, and transparent shopfronts animate the façade. Inside, the ground level unfolds as an open dining hall shared by several food operators. Clear sightlines connect the entrance, service counters, and pickup areas.' },
+      { type: 'text', content: 'Each of the elevated shops feature their own individual staircase connecting to the main alley, each hosting generous frontages tha overlooks the forecourt through tall glass panels. Natural light filters through narrow slots cut between the volumes and draws daylight deep into the interior. At the rear, a discreet drive-through lane supports quick transactions without disrupting the pedestrian forecourt.' },
+      { type: 'text', content: 'Jom Rivertree Cafés transforms a straightforward roadside program into a compact architectural landmark. Through the careful rotation, stacking, and chamfering of simple volumes, the building balances visibility, climatic comfort, and spatial clarity. The result is a contemporary café hub that operates efficiently while presenting a confident and recognizable form along the roadside landscape.' },
     ],
   },
   // Shoplots @ Kepong
@@ -277,7 +279,7 @@ export const commercialProjects: Project[] = [
       '/Gallery/Commercial/Tagore/A1.avif',
     ],
     detailContent: [
-      { type: 'text', content: 'N/A' },
+      { type: 'text', content: '' },
     ],
   },
   // Guomei HQ
@@ -297,7 +299,7 @@ export const commercialProjects: Project[] = [
 
     ],
     detailContent: [
-      { type: 'text', content: 'N/A' },
+      { type: 'text', content: '' },
     ],
   },
 ];

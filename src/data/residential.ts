@@ -17,8 +17,8 @@ export const residentialProjects: Project[] = [
       '/Gallery/Residential/TraceHouse/A3.avif',
       '/Gallery/Residential/TraceHouse/A4.avif',
       '/Gallery/Residential/TraceHouse/A5.avif',
-      '/Gallery/Residential/TraceHouse/A6.avif',
       '/Gallery/Residential/TraceHouse/A7.avif',
+      '/Gallery/Residential/TraceHouse/A6.avif',
       '/Gallery/Residential/TraceHouse/A8.avif',
       '/Gallery/Residential/TraceHouse/A9.avif',
       '/Gallery/Residential/TraceHouse/A10.avif',
@@ -246,7 +246,7 @@ export const residentialProjects: Project[] = [
     location: 'Desa Park City, Kuala Lumpur',
     category: 'Residential',
     status: 'Construction',
-    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn', 'Wendy Woon', 'Danish Azhan', 'Kadhiraven Samynathan'],
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn', 'Wendy Woon', 'Danish Azhan', 'S.Kadhiraven'],
     images: [
       '/Gallery/Residential/SeanHouse/CP.avif',
       '/Gallery/Residential/SeanHouse/A1.avif',
@@ -448,7 +448,7 @@ export const residentialProjects: Project[] = [
     location: 'Kuala Lumpur',
     category: 'Residential',
     status: 'Submission',
-    projectTeam: ['Edric Choo Poo Liang','Lim Min Syn','Wendy Woon','Evans Khor','Raven'],
+    projectTeam: ['Edric Choo Poo Liang','Lim Min Syn','Wendy Woon','Evans Khor','S.Kadhiraven'],
     images: [
       '/Gallery/Residential/Twin/CP.avif',
       '/Gallery/Residential/Twin/A1.avif',
@@ -1131,7 +1131,7 @@ export const residentialProjects: Project[] = [
       {
         type: 'text',
         content:
-          'The organising gesture is a suspended “box” of louvers that thickens the threshold into a climate device. Projecting from the centre of the house, the volume reads as a pragmatic piece of infrastructure that also carries a clear architectural intent. Its fine vertical fins and angled screens modulate sun and rain, reduce heat gain, and introduce privacy without resorting to opacity. The box shelters the car porch below, while the upper layers become a balcony and garden enclosure. White-on-white surfaces keep the mass legible in strong daylight, and planting is used as a secondary skin. Greenery sits behind the fins as a moving, seasonal texture that pS.Kadhiravents the façade from becoming purely graphic.',
+          'The organising gesture is a suspended “box” of louvers that thickens the threshold into a climate device. Projecting from the centre of the house, the volume reads as a pragmatic piece of infrastructure that also carries a clear architectural intent. Its fine vertical fins and angled screens modulate sun and rain, reduce heat gain, and introduce privacy without resorting to opacity. The box shelters the car porch below, while the upper layers become a balcony and garden enclosure. White-on-white surfaces keep the mass legible in strong daylight, and planting is used as a secondary skin. Greenery sits behind the fins as a moving, seasonal texture that prevents the façade from becoming purely graphic.',
       },
       {
         type: 'text',

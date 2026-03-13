@@ -769,7 +769,7 @@ export const competitionProjects: Project[] = [
     location: 'N/A',
     category: 'Competition',
     accolades: ['Submission  (International Comp)'],
-    projectTeam: ['Edric Choo Poo Liang', 'Raven'],
+    projectTeam: ['Edric Choo Poo Liang', 'S.Kadhiraven'],
     images: [
       '/Gallery/Competition/Voxel/CP.avif',
       '/Gallery/Competition/Voxel/A1.avif',
