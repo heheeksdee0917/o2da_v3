@@ -49,7 +49,6 @@ function ThumbnailStrip({
   const count = images.length;
   const stripRef = useRef<HTMLDivElement>(null);
   const isJumping = useRef(false);
-  const isDragging = useRef(false);
   const prevIndexRef = useRef(currentIndex);
 
   const tripled = useMemo(() =>
@@ -75,7 +74,7 @@ function ThumbnailStrip({
   // On navigation — pick the copy in the correct direction and scroll to it
   useEffect(() => {
     const strip = stripRef.current;
-    if (!strip || isJumping.current || isDragging.current) return;
+    if (!strip || isJumping.current) return;
 
     const prev = prevIndexRef.current;
     const curr = currentIndex;
@@ -101,53 +100,10 @@ function ThumbnailStrip({
     resetToB(stripRef as React.RefObject<HTMLElement>, count, curr, isJumping);
   }, [currentIndex]);
 
-  // On drag release — snap to nearest thumb and select it
-  const snapToNearest = useCallback(() => {
-    const strip = stripRef.current;
-    if (!strip) return;
-    const center = strip.scrollLeft + strip.clientWidth / 2;
-
-    let closest: HTMLElement | null = null;
-    let minDist = Infinity;
-    Array.from(strip.children).forEach((child) => {
-      const el = child as HTMLElement;
-      const dist = Math.abs(el.offsetLeft + el.offsetWidth / 2 - center);
-      if (dist < minDist) { minDist = dist; closest = el; }
-    });
-    if (!closest) return;
-
-    closest.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-    const actualIdx = parseInt(closest.dataset.globalIndex ?? '0', 10) % count;
-    onSelect(actualIdx);
-    resetToB(stripRef as React.RefObject<HTMLElement>, count, actualIdx, isJumping);
-  }, [count, onSelect]);
-
-  // Pointer tracking — distinguish drag from click
-  useEffect(() => {
-    const strip = stripRef.current;
-    if (!strip) return;
-    const onDown = () => { isDragging.current = false; };
-    const onMove = () => { isDragging.current = true; };
-    const onUp = () => {
-      if (isDragging.current) setTimeout(snapToNearest, 80);
-      isDragging.current = false;
-    };
-    strip.addEventListener('pointerdown', onDown);
-    strip.addEventListener('pointermove', onMove);
-    strip.addEventListener('pointerup', onUp);
-    strip.addEventListener('pointercancel', onUp);
-    return () => {
-      strip.removeEventListener('pointerdown', onDown);
-      strip.removeEventListener('pointermove', onMove);
-      strip.removeEventListener('pointerup', onUp);
-      strip.removeEventListener('pointercancel', onUp);
-    };
-  }, [snapToNearest]);
-
   // Edge teleport — keep infinite feel when user manually drags near the ends
   const handleScroll = useCallback(() => {
     const strip = stripRef.current;
-    if (!strip || isJumping.current || isDragging.current) return;
+    if (!strip || isJumping.current) return;
     const { scrollLeft, scrollWidth } = strip;
     const third = scrollWidth / 3;
     if (scrollLeft < third * 0.3 || scrollLeft > third * 2.7) {
@@ -178,11 +134,7 @@ function ThumbnailStrip({
         {tripled.map((thumb) => (
           <button
             key={`thumb-${thumb.globalIndex}-${imageKey}`}
-            data-global-index={thumb.globalIndex}
-            onClick={(e) => {
-              if (!isDragging.current) onSelect(thumb.actualIndex);
-              e.stopPropagation();
-            }}
+            onClick={() => onSelect(thumb.actualIndex)}
             style={{ scrollMarginInline: '40vw' }}
             className={`flex-shrink-0 transition-all duration-300 rounded ${
               thumb.copyIndex === 1 && thumb.actualIndex === currentIndex
