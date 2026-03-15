@@ -7,13 +7,33 @@ import { useLightbox } from '../hooks/useLightbox';
 import { useTouchGestures } from '../hooks/useTouchGestures';
 import LazyImage from '../components/LazyImage';
 
-// ─── Infinite Thumbnail Strip ────────────────────────────────────────────────
+// ─── Helpers ─────────────────────────────────────────────────────────────────
+
+// Silently jump a scroll container to center a child element (no animation)
+function jumpToCenter(strip: HTMLElement, child: HTMLElement) {
+  strip.style.scrollBehavior = 'auto';
+  child.scrollIntoView({ block: 'nearest', inline: 'center' });
+  strip.style.scrollBehavior = '';
+}
+
+// After a smooth scroll settles, silently re-center on copy B
+function resetToB(stripRef: React.RefObject<HTMLElement>, count: number, index: number, isJumping: React.MutableRefObject<boolean>) {
+  setTimeout(() => {
+    const s = stripRef.current;
+    if (!s || isJumping.current) return;
+    const target = s.children[count + index] as HTMLElement;
+    if (!target) return;
+    isJumping.current = true;
+    jumpToCenter(s, target);
+    requestAnimationFrame(() => { isJumping.current = false; });
+  }, 450);
+}
+
+// ─── Thumbnail Strip ──────────────────────────────────────────────────────────
 //
-// Strategy: render 3 copies of the image list side by side (prev | real | next).
-// On mount, silently jump to the "real" copy in the middle. When the user
-// scrolls near either end, silently teleport back to the equivalent position
-// in the middle copy — creating the illusion of infinite scroll.
-// Clicking a thumb calls onSelect with the real image index.
+// Renders 3 copies of the image list [A | B | C]. Always starts at B (center).
+// Navigation scrolls to the correct copy by direction. On drag release, snaps
+// to nearest thumb and selects it. Edge teleport keeps infinite feel on manual drag.
 
 function ThumbnailStrip({
   images,
@@ -29,9 +49,9 @@ function ThumbnailStrip({
   const count = images.length;
   const stripRef = useRef<HTMLDivElement>(null);
   const isJumping = useRef(false);
+  const isDragging = useRef(false);
   const prevIndexRef = useRef(currentIndex);
 
-  // Triple the list: [copy A] [copy B (real)] [copy C]
   const tripled = useMemo(() =>
     [...images, ...images, ...images].map((src, i) => ({
       src,
@@ -41,27 +61,21 @@ function ThumbnailStrip({
     })),
   [images, count]);
 
-  // On mount / project change — instant jump to copy B, no animation
+  // On project change — instant jump to copy B, reset state
   useEffect(() => {
     const strip = stripRef.current;
     if (!strip) return;
     prevIndexRef.current = currentIndex;
     isJumping.current = true;
-    strip.style.scrollBehavior = "auto";
-    (strip.children[count + currentIndex] as HTMLElement)
-      ?.scrollIntoView({ block: "nearest", inline: "center" });
-    requestAnimationFrame(() => {
-      strip.style.scrollBehavior = "";
-      isJumping.current = false;
-    });
+    const target = strip.children[count + currentIndex] as HTMLElement;
+    if (target) jumpToCenter(strip, target);
+    requestAnimationFrame(() => { isJumping.current = false; });
   }, [imageKey]);
 
-  // On navigation — find the nearest copy of the target thumb that is
-  // to the RIGHT of current scroll center (forward) or LEFT (backward),
-  // then scroll to it. No copy counters. No sequential validation.
+  // On navigation — pick the copy in the correct direction and scroll to it
   useEffect(() => {
     const strip = stripRef.current;
-    if (!strip || isJumping.current) return;
+    if (!strip || isJumping.current || isDragging.current) return;
 
     const prev = prevIndexRef.current;
     const curr = currentIndex;
@@ -70,68 +84,78 @@ function ThumbnailStrip({
     const isBackward = curr === (prev - 1 + count) % count;
     const center = strip.scrollLeft + strip.clientWidth / 2;
 
-    // Collect all 3 copies of the target index, pick the best one by direction
-    const candidates = [0, 1, 2].map(copyIdx => ({
-      copyIdx,
-      el: strip.children[copyIdx * count + curr] as HTMLElement,
-    })).filter(c => c.el);
+    const candidates = [0, 1, 2]
+      .map(ci => strip.children[ci * count + curr] as HTMLElement)
+      .filter(Boolean);
 
-    let target: HTMLElement | null = null;
-
+    let target: HTMLElement;
     if (isBackward) {
-      // Pick the rightmost copy that is still LEFT of center
-      const leftCandidates = candidates.filter(
-        c => c.el.offsetLeft + c.el.offsetWidth / 2 < center
-      );
-      if (leftCandidates.length > 0) {
-        target = leftCandidates[leftCandidates.length - 1].el;
-      } else {
-        // All copies are to the right — use copy B as fallback
-        target = candidates[1]?.el ?? candidates[0].el;
-      }
+      const left = candidates.filter(el => el.offsetLeft + el.offsetWidth / 2 < center);
+      target = left.at(-1) ?? candidates[1] ?? candidates[0];
     } else {
-      // Pick the leftmost copy that is to the RIGHT of center
-      const rightCandidates = candidates.filter(
-        c => c.el.offsetLeft + c.el.offsetWidth / 2 > center
-      );
-      if (rightCandidates.length > 0) {
-        target = rightCandidates[0].el;
-      } else {
-        // All copies are to the left — use copy B as fallback
-        target = candidates[1]?.el ?? candidates[0].el;
-      }
+      const right = candidates.filter(el => el.offsetLeft + el.offsetWidth / 2 > center);
+      target = right[0] ?? candidates[1] ?? candidates[0];
     }
 
-    if (!target) return;
-    target.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-
-    // After scroll settles, silently re-center on copy B so there's always room
-    setTimeout(() => {
-      const s = stripRef.current;
-      if (!s) return;
-      isJumping.current = true;
-      s.style.scrollBehavior = "auto";
-      (s.children[count + curr] as HTMLElement)
-        ?.scrollIntoView({ block: "nearest", inline: "center" });
-      requestAnimationFrame(() => {
-        s.style.scrollBehavior = "";
-        isJumping.current = false;
-      });
-    }, 450);
+    target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    resetToB(stripRef as React.RefObject<HTMLElement>, count, curr, isJumping);
   }, [currentIndex]);
 
-  // Manual drag — teleport back to copy B when user scrolls near the edges
+  // On drag release — snap to nearest thumb and select it
+  const snapToNearest = useCallback(() => {
+    const strip = stripRef.current;
+    if (!strip) return;
+    const center = strip.scrollLeft + strip.clientWidth / 2;
+
+    let closest: HTMLElement | null = null;
+    let minDist = Infinity;
+    Array.from(strip.children).forEach((child) => {
+      const el = child as HTMLElement;
+      const dist = Math.abs(el.offsetLeft + el.offsetWidth / 2 - center);
+      if (dist < minDist) { minDist = dist; closest = el; }
+    });
+    if (!closest) return;
+
+    closest.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    const actualIdx = parseInt(closest.dataset.globalIndex ?? '0', 10) % count;
+    onSelect(actualIdx);
+    resetToB(stripRef as React.RefObject<HTMLElement>, count, actualIdx, isJumping);
+  }, [count, onSelect]);
+
+  // Pointer tracking — distinguish drag from click
+  useEffect(() => {
+    const strip = stripRef.current;
+    if (!strip) return;
+    const onDown = () => { isDragging.current = false; };
+    const onMove = () => { isDragging.current = true; };
+    const onUp = () => {
+      if (isDragging.current) setTimeout(snapToNearest, 80);
+      isDragging.current = false;
+    };
+    strip.addEventListener('pointerdown', onDown);
+    strip.addEventListener('pointermove', onMove);
+    strip.addEventListener('pointerup', onUp);
+    strip.addEventListener('pointercancel', onUp);
+    return () => {
+      strip.removeEventListener('pointerdown', onDown);
+      strip.removeEventListener('pointermove', onMove);
+      strip.removeEventListener('pointerup', onUp);
+      strip.removeEventListener('pointercancel', onUp);
+    };
+  }, [snapToNearest]);
+
+  // Edge teleport — keep infinite feel when user manually drags near the ends
   const handleScroll = useCallback(() => {
     const strip = stripRef.current;
-    if (!strip || isJumping.current) return;
+    if (!strip || isJumping.current || isDragging.current) return;
     const { scrollLeft, scrollWidth } = strip;
     const third = scrollWidth / 3;
     if (scrollLeft < third * 0.3 || scrollLeft > third * 2.7) {
       isJumping.current = true;
-      strip.style.scrollBehavior = "auto";
+      strip.style.scrollBehavior = 'auto';
       strip.scrollLeft = third + (scrollLeft % third);
       requestAnimationFrame(() => {
-        strip.style.scrollBehavior = "";
+        strip.style.scrollBehavior = '';
         isJumping.current = false;
       });
     }
@@ -140,46 +164,47 @@ function ThumbnailStrip({
   useEffect(() => {
     const strip = stripRef.current;
     if (!strip) return;
-    strip.addEventListener("scroll", handleScroll, { passive: true });
-    return () => strip.removeEventListener("scroll", handleScroll);
+    strip.addEventListener('scroll', handleScroll, { passive: true });
+    return () => strip.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
 
   return (
     <div
       className="fixed bottom-0 left-0 right-0 z-[102] bg-gradient-to-t from-black via-black/80 to-transparent"
-      style={{ paddingTop: "60px", paddingBottom: "24px" }}
+      style={{ paddingTop: '60px', paddingBottom: '24px' }}
       onClick={(e) => e.stopPropagation()}
     >
       <div ref={stripRef} className="flex gap-2 overflow-x-auto scrollbar-hide py-2">
-        {tripled.map((thumb) => {
-          const isActive = thumb.copyIndex === 1 && thumb.actualIndex === currentIndex;
-          return (
-            <button
-              key={`thumb-${thumb.globalIndex}-${imageKey}`}
-              onClick={() => onSelect(thumb.actualIndex)}
-              style={{ scrollMarginInline: "40vw" }}
-              className={`flex-shrink-0 transition-all duration-300 rounded ${
-                isActive
-                  ? "ring-2 ring-white opacity-100 scale-110 relative z-10"
-                  : "opacity-40 hover:opacity-70 scale-100"
-              }`}
-              aria-label={`Go to image ${thumb.actualIndex + 1}`}
-            >
-              <img
-                src={thumb.src}
-                alt={`Thumbnail ${thumb.actualIndex + 1}`}
-                className="w-16 h-12 md:w-20 md:h-14 object-cover rounded block pointer-events-none"
-                loading="eager"
-              />
-            </button>
-          );
-        })}
+        {tripled.map((thumb) => (
+          <button
+            key={`thumb-${thumb.globalIndex}-${imageKey}`}
+            data-global-index={thumb.globalIndex}
+            onClick={(e) => {
+              if (!isDragging.current) onSelect(thumb.actualIndex);
+              e.stopPropagation();
+            }}
+            style={{ scrollMarginInline: '40vw' }}
+            className={`flex-shrink-0 transition-all duration-300 rounded ${
+              thumb.copyIndex === 1 && thumb.actualIndex === currentIndex
+                ? 'ring-2 ring-white opacity-100 scale-110 relative z-10'
+                : 'opacity-40 hover:opacity-70 scale-100'
+            }`}
+            aria-label={`Go to image ${thumb.actualIndex + 1}`}
+          >
+            <img
+              src={thumb.src}
+              alt={`Thumbnail ${thumb.actualIndex + 1}`}
+              className="w-16 h-12 md:w-20 md:h-14 object-cover rounded block pointer-events-none"
+              loading="eager"
+            />
+          </button>
+        ))}
       </div>
     </div>
   );
 }
 
-// ─── Main Page ───────────────────────────────────────────────────────────────
+// ─── Main Page ────────────────────────────────────────────────────────────────
 
 export default function PortfolioDetails() {
   const { id } = useParams<{ id: string }>();
@@ -189,19 +214,15 @@ export default function PortfolioDetails() {
   const [needsShowMore, setNeedsShowMore] = useState(false);
   const [pageVisible, setPageVisible] = useState(false);
   const [imageKey, setImageKey] = useState(0);
-  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [hasInteracted, setHasInteracted] = useState(false);
 
   const contentRef = useRef<HTMLDivElement>(null);
   const mobileGalleryRef = useRef<HTMLDivElement>(null);
   const desktopGalleryRef = useRef<HTMLDivElement>(null);
   const sidebarRef = useRef<HTMLDivElement>(null);
   const imageRefs = useRef<(HTMLButtonElement | null)[]>([]);
-  const [hasInteracted, setHasInteracted] = useState(false);
-  const scrollTimeoutRef = useRef<number | null>(null);
 
-  if (!project) {
-    return <Navigate to="/portfolio" replace />;
-  }
+  if (!project) return <Navigate to="/portfolio" replace />;
 
   const images = project.images;
 
@@ -223,29 +244,23 @@ export default function PortfolioDetails() {
   });
 
   const similarProjects = useMemo(() => {
-    if (!project) return [];
-    const filtered = projects.filter(
-      p => p.category === project.category && p.slug !== project.slug
-    );
     const allInCategory = projects.filter(p => p.category === project.category);
     const currentIdx = allInCategory.findIndex(p => p.slug === project.slug);
-    const result: typeof filtered = [];
+    const result: typeof allInCategory = [];
     for (let offset = -1; offset <= 2 && result.length < 3; offset++) {
       if (offset === 0) continue;
-      const index = currentIdx + offset;
-      if (index >= 0 && index < allInCategory.length) {
-        const neighbor = allInCategory[index];
-        if (neighbor.slug !== project.slug) result.push(neighbor);
-      }
+      const neighbor = allInCategory[currentIdx + offset];
+      if (neighbor && neighbor.slug !== project.slug) result.push(neighbor);
     }
-    if (result.length < 3) {
-      for (const p of filtered) {
-        if (!result.find(r => r.id === p.id) && result.length < 3) result.push(p);
-      }
+    // Fill remaining slots from rest of category
+    for (const p of allInCategory) {
+      if (result.length >= 3) break;
+      if (p.slug !== project.slug && !result.find(r => r.id === p.id)) result.push(p);
     }
-    return result.slice(0, 3);
-  }, [project?.id, project?.category]);
+    return result;
+  }, [project.id, project.category]);
 
+  // Show More detection
   useEffect(() => {
     const observer = new ResizeObserver(() => {
       if (contentRef.current) setNeedsShowMore(contentRef.current.scrollHeight > 600);
@@ -254,83 +269,67 @@ export default function PortfolioDetails() {
     return () => observer.disconnect();
   }, [project]);
 
+  // Lock body scroll when lightbox is open
   useEffect(() => {
-    if (isLightboxOpen) {
-      document.body.style.overflow = 'hidden';
-      document.documentElement.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
-    }
+    const lock = isLightboxOpen;
+    document.body.style.overflow = lock ? 'hidden' : '';
+    document.documentElement.style.overflow = lock ? 'hidden' : '';
     return () => {
       document.body.style.overflow = '';
       document.documentElement.style.overflow = '';
     };
   }, [isLightboxOpen]);
 
+  // Desktop gallery — track active image + snap on scroll end
   useEffect(() => {
-    const desktopGallery = desktopGalleryRef.current;
-    if (!desktopGallery) return;
+    const gallery = desktopGalleryRef.current;
+    if (!gallery) return;
 
-    const handleScroll = () => {
-      if (window.innerWidth < 768) return;
-      const galleryRect = desktopGallery.getBoundingClientRect();
-      const viewportCenter = galleryRect.top + galleryRect.height / 2;
+    const getClosest = () => {
+      const center = gallery.getBoundingClientRect().top + gallery.getBoundingClientRect().height / 2;
       let closestIndex = 0;
-      let minDistance = Infinity;
-      imageRefs.current.forEach((imgRef, index) => {
-        if (!imgRef) return;
-        const rect = imgRef.getBoundingClientRect();
-        const imageCenter = rect.top + rect.height / 2;
-        const distance = Math.abs(imageCenter - viewportCenter);
-        if (distance < minDistance) { minDistance = distance; closestIndex = index; }
+      let minDist = Infinity;
+      imageRefs.current.forEach((ref, i) => {
+        if (!ref) return;
+        const dist = Math.abs(ref.getBoundingClientRect().top + ref.getBoundingClientRect().height / 2 - center);
+        if (dist < minDist) { minDist = dist; closestIndex = i; }
       });
-      setActiveImageIndex(closestIndex);
+      return closestIndex;
     };
 
-    const handleScrollEnd = () => {
-      if (window.innerWidth < 768) return;
-      if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
-      scrollTimeoutRef.current = window.setTimeout(() => {
-        const galleryRect = desktopGallery.getBoundingClientRect();
-        const viewportCenter = galleryRect.top + galleryRect.height / 2;
-        let closestIndex = 0;
-        let minDistance = Infinity;
-        imageRefs.current.forEach((imgRef, index) => {
-          if (!imgRef) return;
-          const rect = imgRef.getBoundingClientRect();
-          const imageCenter = rect.top + rect.height / 2;
-          const distance = Math.abs(imageCenter - viewportCenter);
-          if (distance < minDistance) { minDistance = distance; closestIndex = index; }
-        });
-        const targetImage = imageRefs.current[closestIndex];
-        if (targetImage) {
-          const targetRect = targetImage.getBoundingClientRect();
-          const scrollOffset = (targetRect.top + targetRect.height / 2) - viewportCenter;
-          desktopGallery.scrollBy({ top: scrollOffset, behavior: 'smooth' });
-        }
-      }, 150);
-    };
-
+    let snapTimer: number | null = null;
     let rafId: number | null = null;
-    const debouncedScroll = () => {
+
+    const onScroll = () => {
+      if (window.innerWidth < 768) return;
       if (rafId !== null) cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(() => { handleScroll(); handleScrollEnd(); });
+      rafId = requestAnimationFrame(() => {
+        if (snapTimer !== null) clearTimeout(snapTimer);
+        snapTimer = window.setTimeout(() => {
+          const idx = getClosest();
+          const ref = imageRefs.current[idx];
+          if (!ref) return;
+          const center = gallery.getBoundingClientRect().top + gallery.getBoundingClientRect().height / 2;
+          const offset = ref.getBoundingClientRect().top + ref.getBoundingClientRect().height / 2 - center;
+          gallery.scrollBy({ top: offset, behavior: 'smooth' });
+        }, 150);
+      });
     };
 
-    const initialTimeout = setTimeout(() => handleScroll(), 200);
-    desktopGallery.addEventListener('scroll', debouncedScroll, { passive: true });
-    window.addEventListener('resize', debouncedScroll, { passive: true });
+    const initialTimer = setTimeout(() => getClosest(), 200);
+    gallery.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
 
     return () => {
-      clearTimeout(initialTimeout);
-      if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+      clearTimeout(initialTimer);
+      if (snapTimer !== null) clearTimeout(snapTimer);
       if (rafId !== null) cancelAnimationFrame(rafId);
-      desktopGallery.removeEventListener('scroll', debouncedScroll);
-      window.removeEventListener('resize', debouncedScroll);
+      gallery.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
     };
   }, [images.length]);
 
+  // Reset on route change
   useEffect(() => {
     window.scrollTo(0, 0);
     requestAnimationFrame(() => {
@@ -340,17 +339,63 @@ export default function PortfolioDetails() {
     });
     setIsExpanded(false);
     setPageVisible(false);
-    setActiveImageIndex(0);
     setHasInteracted(false);
     if (isLightboxOpen) closeLightbox();
     setImageKey(prev => prev + 1);
   }, [id]);
 
+  // Fade in
   useEffect(() => {
-    if (!project) return;
     const timer = setTimeout(() => setPageVisible(true), 50);
     return () => clearTimeout(timer);
   }, [project]);
+
+  // Render content blocks with inline links and <br /> support
+  const renderContent = (block: typeof project.detailContent[number]) => {
+    if (!block.content) return null;
+    const text = Array.isArray(block.content) ? block.content.join(' ') : block.content;
+
+    if (block.inlineLinks?.length) {
+      const parts: (string | JSX.Element)[] = [];
+      let remaining = text;
+      block.inlineLinks.forEach((link, i) => {
+        const pos = remaining.indexOf(link.text);
+        if (pos === -1) return;
+        if (pos > 0) parts.push(remaining.substring(0, pos));
+        parts.push(
+          <a key={i} href={link.url} target="_blank" rel="noopener noreferrer"
+            className="underline hover:text-black/70 transition-colors">
+            {link.text}
+          </a>
+        );
+        remaining = remaining.substring(pos + link.text.length);
+      });
+      if (remaining) parts.push(remaining);
+      return <>{parts}</>;
+    }
+
+    if (text.includes('<br />')) {
+      return (
+        <>
+          {text.split('<br />').map((seg, i, arr) => (
+            <React.Fragment key={i}>{seg}{i < arr.length - 1 && <br />}</React.Fragment>
+          ))}
+        </>
+      );
+    }
+
+    if (Array.isArray(block.content)) {
+      return (
+        <>
+          {block.content.map((line, i, arr) => (
+            <React.Fragment key={i}>{line}{i < arr.length - 1 && <br />}</React.Fragment>
+          ))}
+        </>
+      );
+    }
+
+    return block.content;
+  };
 
   return (
     <div
@@ -360,21 +405,21 @@ export default function PortfolioDetails() {
       className="min-h-screen bg-white"
     >
       <div className="flex flex-col md:flex-row md:h-screen md:overflow-hidden">
+
+        {/* Gallery column */}
         <div className="relative w-full md:w-[60%] md:h-full md:overflow-y-auto md:overflow-x-hidden scrollbar-hide px-4 pt-12 md:pt-16">
 
-          {/* Mobile: Horizontal scroll with snap */}
+          {/* Mobile: horizontal snap scroll */}
           <div
             ref={mobileGalleryRef}
             className="md:hidden flex gap-4 h-full py-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide"
-            style={{ scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}
           >
             {images.map((image, index) => (
               <button
                 key={`mobile-${index}-${imageKey}`}
-                ref={(el) => (imageRefs.current[index] = el)}
                 onClick={() => openLightbox(index)}
                 className="relative flex-shrink-0 w-[80vw] bg-white overflow-hidden cursor-pointer group snap-center snap-always"
-                style={{ height: 'calc(50svh - 3rem)', scrollSnapAlign: 'center', scrollSnapStop: 'always' }}
+                style={{ height: 'calc(50svh - 3rem)' }}
                 aria-label={`View image ${index + 1} in lightbox`}
               >
                 <LazyImage
@@ -388,11 +433,8 @@ export default function PortfolioDetails() {
             ))}
           </div>
 
-          {/* Desktop: Vertical scroll */}
-          <div
-            ref={desktopGalleryRef}
-            className="hidden md:block space-y-6 pb-6"
-          >
+          {/* Desktop: vertical scroll */}
+          <div ref={desktopGalleryRef} className="hidden md:block space-y-6 pb-6">
             {images.map((image, index) => (
               <button
                 key={`desktop-${index}-${imageKey}`}
@@ -413,8 +455,8 @@ export default function PortfolioDetails() {
           </div>
         </div>
 
-        {/* Project Info Sidebar */}
-        <div ref={sidebarRef} className="w-full md:w-[40%] md:h-full md:overflow-y-auto scrollbar-hide smooth-scroll px-4 md:px-8 md:pt-24">
+        {/* Project info sidebar */}
+        <div ref={sidebarRef} className="w-full md:w-[40%] md:h-full md:overflow-y-auto scrollbar-hide px-4 md:px-8 md:pt-24">
           <div className="pb-12 pt-6 md:pb-6">
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-light mb-6 md:mb-8 uppercase">
               {project.title}
@@ -430,8 +472,8 @@ export default function PortfolioDetails() {
                 <div className="flex items-baseline gap-2 border-b border-black/10 pb-3 md:pb-4">
                   <span className="text-xs md:text-sm text-neutral-500 min-w-[120px] md:min-w-[140px]">Accolades:</span>
                   <div className="text-sm md:text-base text-black">
-                    {project.accolades.map((accolade, index) => (
-                      <div key={index} className="mb-1 last:mb-0">{accolade}</div>
+                    {project.accolades.map((accolade, i) => (
+                      <div key={i} className="mb-1 last:mb-0">{accolade}</div>
                     ))}
                   </div>
                 </div>
@@ -457,70 +499,20 @@ export default function PortfolioDetails() {
                 ref={contentRef}
                 className={`transition-all duration-500 ease-in-out ${!isExpanded && needsShowMore ? 'max-h-[600px] overflow-hidden' : ''}`}
               >
-                {project.detailContent?.map((block, index) => {
-                  if (block.type === 'text') {
-                    const renderContent = () => {
-                      if (!block.content) return null;
-                      const contentText = Array.isArray(block.content)
-                        ? block.content.join(' ')
-                        : block.content;
-
-                      if (block.inlineLinks && block.inlineLinks.length > 0) {
-                        const parts: (string | JSX.Element)[] = [];
-                        let remainingText = contentText;
-                        block.inlineLinks.forEach((link, linkIndex) => {
-                          const pos = remainingText.indexOf(link.text);
-                          if (pos !== -1) {
-                            if (pos > 0) parts.push(remainingText.substring(0, pos));
-                            parts.push(
-                              <a key={linkIndex} href={link.url} target="_blank" rel="noopener noreferrer"
-                                className="underline hover:text-black/70 transition-colors">
-                                {link.text}
-                              </a>
-                            );
-                            remainingText = remainingText.substring(pos + link.text.length);
-                          }
-                        });
-                        if (remainingText) parts.push(remainingText);
-                        return <>{parts}</>;
-                      }
-
-                      if (contentText.includes('<br />')) {
-                        const segments = contentText.split('<br />');
-                        return (
-                          <>
-                            {segments.map((segment, i) => (
-                              <React.Fragment key={i}>
-                                {segment}
-                                {i < segments.length - 1 && <br />}
-                              </React.Fragment>
-                            ))}
-                          </>
-                        );
-                      }
-
-                      return Array.isArray(block.content) ? (
-                        block.content.map((line, i) => (
-                          <React.Fragment key={i}>
-                            {line}
-                            {i < (block.content as string[]).length - 1 && <br />}
-                          </React.Fragment>
-                        ))
-                      ) : block.content;
-                    };
-
-                    return (
-                      <div key={index} className="mb-6">
-                        {block.heading && (
-                          <h2 className="text-xl md:text-2xl lg:text-3xl font-light mb-4">{block.heading}</h2>
-                        )}
-                        {block.content && (
-                          <p className="text-sm md:text-base leading-relaxed text-neutral-700">{renderContent()}</p>
-                        )}
-                      </div>
-                    );
-                  }
-                  return null;
+                {project.detailContent?.map((block, i) => {
+                  if (block.type !== 'text') return null;
+                  return (
+                    <div key={i} className="mb-6">
+                      {block.heading && (
+                        <h2 className="text-xl md:text-2xl lg:text-3xl font-light mb-4">{block.heading}</h2>
+                      )}
+                      {block.content && (
+                        <p className="text-sm md:text-base leading-relaxed text-neutral-700">
+                          {renderContent(block)}
+                        </p>
+                      )}
+                    </div>
+                  );
                 })}
               </div>
 
@@ -532,7 +524,6 @@ export default function PortfolioDetails() {
                 <button
                   onClick={() => setIsExpanded(!isExpanded)}
                   aria-expanded={isExpanded}
-                  aria-controls="project-content"
                   className="relative z-10 w-full mt-4 md:mt-6 py-4 flex items-center justify-center gap-2 text-base font-normal text-black hover:text-black/70 transition-colors"
                 >
                   <span>{isExpanded ? 'Show Less' : 'Show More'}</span>
@@ -548,31 +539,29 @@ export default function PortfolioDetails() {
       {/* Similar Projects */}
       {similarProjects.length > 0 && (
         <div className="w-full bg-white py-12">
-          <div className="flex justify-center">
-            <div className="w-full max-w-[2340px] px-4 md:px-8">
-              <h3 className="caption text-neutral-500 mb-8">Similar Projects</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {similarProjects.map((similarProject) => (
-                  <Link key={similarProject.id} to={`/portfolio/${similarProject.slug}`} className="block group">
-                    <div className="relative overflow-hidden mb-3 aspect-video">
-                      <LazyImage
-                        src={similarProject.images[0]}
-                        alt={similarProject.title}
-                        className="w-full h-full"
-                        imgClassName="transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                      />
-                    </div>
-                    <h4 className="text-xl font-light mb-1 relative inline-block uppercase">
-                      <span className="relative">
-                        {similarProject.title}
-                        <span className="absolute left-0 bottom-0 w-full h-[1px] bg-black scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100" />
-                      </span>
-                    </h4>
-                    <p className="text-sm text-neutral-500">{similarProject.location}</p>
-                  </Link>
-                ))}
-              </div>
+          <div className="w-full max-w-[2340px] mx-auto px-4 md:px-8">
+            <h3 className="caption text-neutral-500 mb-8">Similar Projects</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {similarProjects.map((p) => (
+                <Link key={p.id} to={`/portfolio/${p.slug}`} className="block group">
+                  <div className="relative overflow-hidden mb-3 aspect-video">
+                    <LazyImage
+                      src={p.images[0]}
+                      alt={p.title}
+                      className="w-full h-full"
+                      imgClassName="transition-transform duration-700 group-hover:scale-110"
+                      loading="lazy"
+                    />
+                  </div>
+                  <h4 className="text-xl font-light mb-1 relative inline-block uppercase">
+                    <span className="relative">
+                      {p.title}
+                      <span className="absolute left-0 bottom-0 w-full h-[1px] bg-black scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100" />
+                    </span>
+                  </h4>
+                  <p className="text-sm text-neutral-500">{p.location}</p>
+                </Link>
+              ))}
             </div>
           </div>
         </div>
@@ -587,11 +576,8 @@ export default function PortfolioDetails() {
             className="group inline-flex items-center gap-3 text-sm uppercase tracking-widest text-black hover:text-black/50 transition-colors duration-300"
           >
             Get in touch
-            <svg
-              width="16" height="16" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" strokeWidth="1.5"
-              className="transition-transform duration-300 group-hover:translate-x-1"
-            >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"
+              className="transition-transform duration-300 group-hover:translate-x-1">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </Link>
@@ -610,6 +596,7 @@ export default function PortfolioDetails() {
           onTouchMove={lightboxGestures.handleTouchMove}
           onTouchEnd={lightboxGestures.handleTouchEnd}
         >
+          {/* Close */}
           <button
             onClick={(e) => { e.stopPropagation(); closeLightbox(); }}
             className="fixed top-6 right-6 text-white/80 hover:text-white transition-colors z-[103]"
@@ -618,18 +605,21 @@ export default function PortfolioDetails() {
             <X size={32} strokeWidth={1.5} />
           </button>
 
+          {/* Counter */}
           <div className="fixed top-6 left-6 text-sm text-white/80 tracking-wider z-[103]">
             {lightboxImageIndex + 1} / {images.length}
           </div>
 
+          {/* Swipe hint — mobile only, disappears after first interaction */}
           {!hasInteracted && (
             <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-[104] md:hidden">
-              <div className="text-white/40 text-xs text-center animate-pulse">
+              <p className="text-white/40 text-xs text-center animate-pulse">
                 Swipe to navigate • Swipe down to close
-              </div>
+              </p>
             </div>
           )}
 
+          {/* Main image */}
           <div
             className="fixed inset-0 z-[101] flex items-center justify-center px-4 md:px-16"
             style={{ paddingTop: '60px', paddingBottom: '140px' }}
@@ -645,6 +635,7 @@ export default function PortfolioDetails() {
             />
           </div>
 
+          {/* Prev */}
           <button
             onClick={(e) => { e.stopPropagation(); setHasInteracted(true); goToPrevious(); }}
             className="fixed left-4 md:left-6 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors z-[102]"
@@ -655,6 +646,7 @@ export default function PortfolioDetails() {
             </svg>
           </button>
 
+          {/* Next */}
           <button
             onClick={(e) => { e.stopPropagation(); setHasInteracted(true); goToNext(); }}
             className="fixed right-4 md:right-6 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors z-[102]"

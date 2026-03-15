@@ -1,4 +1,4 @@
-import { useRef, useCallback, useEffect } from 'react';
+import { useRef, useCallback } from 'react';
 import type { TouchEvent } from 'react';
 
 interface UseTouchGesturesOptions {
@@ -10,7 +10,7 @@ interface UseTouchGesturesOptions {
   enabled?: boolean;
 }
 
-export function useTouchGestures<T extends HTMLElement = HTMLDivElement>({
+export function useTouchGestures({
   onSwipeLeft,
   onSwipeRight,
   onSwipeUp,
@@ -18,51 +18,35 @@ export function useTouchGestures<T extends HTMLElement = HTMLDivElement>({
   threshold = 50,
   enabled = true,
 }: UseTouchGesturesOptions) {
-  const touchStartX = useRef<number>(0);
-  const touchStartY = useRef<number>(0);
-  const touchEndX = useRef<number>(0);
-  const touchEndY = useRef<number>(0);
+  const startX = useRef(0);
+  const startY = useRef(0);
+  const endX = useRef(0);
+  const endY = useRef(0);
 
-  const handleTouchStart = useCallback((e: TouchEvent<T>) => {
+  const handleTouchStart = useCallback((e: TouchEvent) => {
     if (!enabled) return;
-    touchStartX.current = e.touches[0].clientX;
-    touchStartY.current = e.touches[0].clientY;
-    touchEndX.current = e.touches[0].clientX;
-    touchEndY.current = e.touches[0].clientY;
+    startX.current = endX.current = e.touches[0].clientX;
+    startY.current = endY.current = e.touches[0].clientY;
   }, [enabled]);
 
-  const handleTouchMove = useCallback((e: TouchEvent<T>) => {
+  const handleTouchMove = useCallback((e: TouchEvent) => {
     if (!enabled) return;
-    touchEndX.current = e.touches[0].clientX;
-    touchEndY.current = e.touches[0].clientY;
+    endX.current = e.touches[0].clientX;
+    endY.current = e.touches[0].clientY;
   }, [enabled]);
 
   const handleTouchEnd = useCallback(() => {
     if (!enabled) return;
-
-    const deltaX = touchEndX.current - touchStartX.current;
-    const deltaY = touchEndY.current - touchStartY.current;
-    const absDeltaX = Math.abs(deltaX);
-    const absDeltaY = Math.abs(deltaY);
-
-    if (absDeltaX > threshold && absDeltaX > absDeltaY) {
-      deltaX > 0 ? onSwipeRight?.() : onSwipeLeft?.();
-    } else if (absDeltaY > threshold && absDeltaY > absDeltaX) {
-      deltaY > 0 ? onSwipeDown?.() : onSwipeUp?.();
+    const dx = endX.current - startX.current;
+    const dy = endY.current - startY.current;
+    const adx = Math.abs(dx);
+    const ady = Math.abs(dy);
+    if (adx > threshold && adx > ady) {
+      dx > 0 ? onSwipeRight?.() : onSwipeLeft?.();
+    } else if (ady > threshold && ady > adx) {
+      dy > 0 ? onSwipeDown?.() : onSwipeUp?.();
     }
   }, [enabled, threshold, onSwipeLeft, onSwipeRight, onSwipeUp, onSwipeDown]);
 
   return { handleTouchStart, handleTouchMove, handleTouchEnd };
-}
-
-export function useSmoothScroll(
-  ref: React.RefObject<HTMLElement>,
-  enabled: boolean = true
-) {
-  useEffect(() => {
-    if (!enabled || !ref.current) return;
-    const element = ref.current;
-    element.style.scrollBehavior = 'smooth';
-    return () => { element.style.scrollBehavior = ''; };
-  }, [ref, enabled]);
 }
