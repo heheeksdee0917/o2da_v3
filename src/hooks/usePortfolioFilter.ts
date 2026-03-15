@@ -22,14 +22,12 @@ export function usePortfolioFilter({
   filter,
 }: UsePortfolioFilterOptions): UsePortfolioFilterReturn {
   
-  // Memoize filtered projects
   const filteredProjects = useMemo(() => {
     return filter === 'All'
       ? projects
       : projects.filter(project => project.category === filter);
   }, [projects, filter]);
 
-  // Memoize projects by category for "All" view
   const projectsByCategory = useMemo(() => {
     return CATEGORIES.slice(1).reduce((acc, category) => {
       const categoryProjects = projects.filter(p => p.category === category);

@@ -29,7 +29,6 @@ export function useLightbox(
   const [showSwipeHint, setShowSwipeHint] = useState(true);
   const imageRef = useRef<HTMLImageElement>(null);
 
-  // Safety: clamp index when images change
   useEffect(() => {
     if (imageCount === 0) {
       setIsOpen(false);
@@ -88,7 +87,6 @@ export function useLightbox(
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, options.enabled, closeLightbox, goToNext, goToPrevious]);
 
-  // Reset and auto-hide swipe hint when lightbox opens
   useEffect(() => {
     if (isOpen) {
       setShowSwipeHint(true);
@@ -100,24 +98,20 @@ export function useLightbox(
     }
   }, [isOpen]);
 
-  // Click outside to close (anywhere except the image or buttons)
   useEffect(() => {
     if (!isOpen || !options.enabled) return;
 
     const handleClickOutside = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       
-      // Don't close if clicking on image
       if (imageRef.current && imageRef.current.contains(target)) {
         return;
       }
       
-      // Don't close if clicking on a button or its children
       if (target.tagName === 'BUTTON' || target.closest('button')) {
         return;
       }
       
-      // Click anywhere else closes the lightbox
       closeLightbox();
     };
 
