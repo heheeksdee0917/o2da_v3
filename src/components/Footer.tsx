@@ -5,7 +5,7 @@ import React from 'react';
 export default function Footer() {
   return (
     <footer id="footer" className="bg-white text-black min-h-screen flex items-center justify-center">
-      <div className="max-w-[1800px] mx-auto px-12 w-full py-20">
+      <div className="max-w-[2340px] mx-auto px-4 md:px-8 w-full py-20">
         {/* Logo and Tagline */}
         <div className="mb-16">
           <h3 className="text-4xl lg:text-5xl font-medium mb-6" style={{ fontFamily: "'Gill Sans', system-ui, -apple-system, sans-serif" }}>
@@ -84,7 +84,7 @@ export default function Footer() {
         {/* Bottom - Quick Links & Copyright */}
         <div className="border-t border-black/10 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <nav className="flex flex-wrap justify-center md:justify-start gap-6 md:gap-8">
+            <nav className="flex flex-wrap justify-start gap-6 md:gap-8">
               <Link to="/" className="text-sm text-black/70 hover:text-black transition-colors duration-300">
                 Home
               </Link>

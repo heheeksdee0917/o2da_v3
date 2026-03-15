@@ -28,66 +28,110 @@ function ThumbnailStrip({
 }) {
   const count = images.length;
   const stripRef = useRef<HTMLDivElement>(null);
-  const activeRef = useRef<HTMLButtonElement | null>(null);
-  const isJumping = useRef(false); // prevents scroll handler firing during teleport
+  const isJumping = useRef(false);
+  const prevIndexRef = useRef(currentIndex);
 
-  // Triple the list: [copy A (prev)] [copy B (real)] [copy C (next)]
+  // Triple the list: [copy A] [copy B (real)] [copy C]
   const tripled = useMemo(() =>
     [...images, ...images, ...images].map((src, i) => ({
       src,
       actualIndex: i % count,
-      copyIndex: Math.floor(i / count), // 0=A, 1=B, 2=C
+      copyIndex: Math.floor(i / count),
       globalIndex: i,
     })),
   [images, count]);
 
-  // On mount and when imageKey changes (project changed), jump to copy B without animation
+  // On mount / project change — instant jump to copy B, no animation
   useEffect(() => {
     const strip = stripRef.current;
     if (!strip) return;
-
-    // Find the active thumb in copy B (middle copy, offset = count)
-    const targetGlobal = count + currentIndex;
-    const target = strip.children[targetGlobal] as HTMLElement;
-    if (!target) return;
-
+    prevIndexRef.current = currentIndex;
     isJumping.current = true;
-    // Disable smooth scroll, center the target, re-enable
-    strip.style.scrollBehavior = 'auto';
-    target.scrollIntoView({ block: 'nearest', inline: 'center' });
+    strip.style.scrollBehavior = "auto";
+    (strip.children[count + currentIndex] as HTMLElement)
+      ?.scrollIntoView({ block: "nearest", inline: "center" });
     requestAnimationFrame(() => {
-      strip.style.scrollBehavior = '';
+      strip.style.scrollBehavior = "";
       isJumping.current = false;
     });
-  }, [imageKey]); // only on project change, not on every currentIndex change
+  }, [imageKey]);
 
-  // When currentIndex changes (navigation), smooth-scroll the active thumb into center
+  // On navigation — find the nearest copy of the target thumb that is
+  // to the RIGHT of current scroll center (forward) or LEFT (backward),
+  // then scroll to it. No copy counters. No sequential validation.
   useEffect(() => {
-    const strip = stripRef.current;
-    const active = activeRef.current;
-    if (!strip || !active || isJumping.current) return;
-
-    active.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-  }, [currentIndex]);
-
-  // After smooth scroll settles, check if we're in copy A or C and teleport to B
-  const handleScroll = useCallback(() => {
     const strip = stripRef.current;
     if (!strip || isJumping.current) return;
 
-    const { scrollLeft, scrollWidth, clientWidth } = strip;
-    const singleWidth = scrollWidth / 3;
-    const leftEdge = singleWidth * 0.25;
-    const rightEdge = singleWidth * 2.75;
+    const prev = prevIndexRef.current;
+    const curr = currentIndex;
+    prevIndexRef.current = curr;
 
-    if (scrollLeft < leftEdge || scrollLeft + clientWidth > rightEdge + clientWidth) {
-      // Teleport: find same visual position in copy B
-      const offset = scrollLeft % singleWidth;
+    const isBackward = curr === (prev - 1 + count) % count;
+    const center = strip.scrollLeft + strip.clientWidth / 2;
+
+    // Collect all 3 copies of the target index, pick the best one by direction
+    const candidates = [0, 1, 2].map(copyIdx => ({
+      copyIdx,
+      el: strip.children[copyIdx * count + curr] as HTMLElement,
+    })).filter(c => c.el);
+
+    let target: HTMLElement | null = null;
+
+    if (isBackward) {
+      // Pick the rightmost copy that is still LEFT of center
+      const leftCandidates = candidates.filter(
+        c => c.el.offsetLeft + c.el.offsetWidth / 2 < center
+      );
+      if (leftCandidates.length > 0) {
+        target = leftCandidates[leftCandidates.length - 1].el;
+      } else {
+        // All copies are to the right — use copy B as fallback
+        target = candidates[1]?.el ?? candidates[0].el;
+      }
+    } else {
+      // Pick the leftmost copy that is to the RIGHT of center
+      const rightCandidates = candidates.filter(
+        c => c.el.offsetLeft + c.el.offsetWidth / 2 > center
+      );
+      if (rightCandidates.length > 0) {
+        target = rightCandidates[0].el;
+      } else {
+        // All copies are to the left — use copy B as fallback
+        target = candidates[1]?.el ?? candidates[0].el;
+      }
+    }
+
+    if (!target) return;
+    target.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+
+    // After scroll settles, silently re-center on copy B so there's always room
+    setTimeout(() => {
+      const s = stripRef.current;
+      if (!s) return;
       isJumping.current = true;
-      strip.style.scrollBehavior = 'auto';
-      strip.scrollLeft = singleWidth + offset;
+      s.style.scrollBehavior = "auto";
+      (s.children[count + curr] as HTMLElement)
+        ?.scrollIntoView({ block: "nearest", inline: "center" });
       requestAnimationFrame(() => {
-        strip.style.scrollBehavior = '';
+        s.style.scrollBehavior = "";
+        isJumping.current = false;
+      });
+    }, 450);
+  }, [currentIndex]);
+
+  // Manual drag — teleport back to copy B when user scrolls near the edges
+  const handleScroll = useCallback(() => {
+    const strip = stripRef.current;
+    if (!strip || isJumping.current) return;
+    const { scrollLeft, scrollWidth } = strip;
+    const third = scrollWidth / 3;
+    if (scrollLeft < third * 0.3 || scrollLeft > third * 2.7) {
+      isJumping.current = true;
+      strip.style.scrollBehavior = "auto";
+      strip.scrollLeft = third + (scrollLeft % third);
+      requestAnimationFrame(() => {
+        strip.style.scrollBehavior = "";
         isJumping.current = false;
       });
     }
@@ -96,34 +140,28 @@ function ThumbnailStrip({
   useEffect(() => {
     const strip = stripRef.current;
     if (!strip) return;
-    strip.addEventListener('scroll', handleScroll, { passive: true });
-    return () => strip.removeEventListener('scroll', handleScroll);
+    strip.addEventListener("scroll", handleScroll, { passive: true });
+    return () => strip.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
   return (
     <div
       className="fixed bottom-0 left-0 right-0 z-[102] bg-gradient-to-t from-black via-black/80 to-transparent"
-      style={{ paddingTop: '60px', paddingBottom: '24px' }}
+      style={{ paddingTop: "60px", paddingBottom: "24px" }}
       onClick={(e) => e.stopPropagation()}
     >
-      {/* py-2 gives vertical room so scale-110 on active thumb isn't clipped */}
-      <div
-        ref={stripRef}
-        className="flex gap-2 overflow-x-auto scrollbar-hide py-2"
-        style={{ scrollMarginInline: '50vw' }}
-      >
+      <div ref={stripRef} className="flex gap-2 overflow-x-auto scrollbar-hide py-2">
         {tripled.map((thumb) => {
           const isActive = thumb.copyIndex === 1 && thumb.actualIndex === currentIndex;
           return (
             <button
               key={`thumb-${thumb.globalIndex}-${imageKey}`}
-              ref={isActive ? activeRef : null}
               onClick={() => onSelect(thumb.actualIndex)}
-              style={{ scrollMarginInline: '40vw' }}
+              style={{ scrollMarginInline: "40vw" }}
               className={`flex-shrink-0 transition-all duration-300 rounded ${
                 isActive
-                  ? 'ring-2 ring-white opacity-100 scale-110 relative z-10'
-                  : 'opacity-40 hover:opacity-70 scale-100'
+                  ? "ring-2 ring-white opacity-100 scale-110 relative z-10"
+                  : "opacity-40 hover:opacity-70 scale-100"
               }`}
               aria-label={`Go to image ${thumb.actualIndex + 1}`}
             >
@@ -321,8 +359,8 @@ export default function PortfolioDetails() {
       style={{ opacity: pageVisible ? 1 : 0, transition: 'opacity 700ms ease-in-out' }}
       className="min-h-screen bg-white"
     >
-      <div className="flex flex-col md:flex-row md:h-screen">
-        <div className="relative w-full md:w-[60%] md:h-full px-4 pt-16 md:pt-16">
+      <div className="flex flex-col md:flex-row md:h-screen md:overflow-hidden">
+        <div className="relative w-full md:w-[60%] md:h-full md:overflow-y-auto md:overflow-x-hidden scrollbar-hide px-4 pt-12 md:pt-16">
 
           {/* Mobile: Horizontal scroll with snap */}
           <div
@@ -353,8 +391,7 @@ export default function PortfolioDetails() {
           {/* Desktop: Vertical scroll */}
           <div
             ref={desktopGalleryRef}
-            className="hidden md:block space-y-6 pb-6 overflow-y-auto overflow-x-hidden scrollbar-hide"
-            style={{ height: 'calc(100vh - 4rem)', scrollBehavior: 'smooth' }}
+            className="hidden md:block space-y-6 pb-6"
           >
             {images.map((image, index) => (
               <button
@@ -540,6 +577,26 @@ export default function PortfolioDetails() {
           </div>
         </div>
       )}
+
+      {/* CTA */}
+      <div className="w-full bg-white py-16">
+        <div className="w-full max-w-[2340px] mx-auto px-4 md:px-8">
+          <p className="text-xs uppercase tracking-widest text-black/40 mb-2">Like the project?</p>
+          <Link
+            to="/contact"
+            className="group inline-flex items-center gap-3 text-sm uppercase tracking-widest text-black hover:text-black/50 transition-colors duration-300"
+          >
+            Get in touch
+            <svg
+              width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" strokeWidth="1.5"
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </Link>
+        </div>
+      </div>
 
       {/* Lightbox */}
       {isLightboxOpen && (
