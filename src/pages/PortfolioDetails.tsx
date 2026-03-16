@@ -1,5 +1,5 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { X, ChevronDown } from 'lucide-react';
 import { projects } from '../data/mockData';
 import React from 'react';
@@ -7,33 +7,12 @@ import { useLightbox } from '../hooks/useLightbox';
 import { useTouchGestures } from '../hooks/useTouchGestures';
 import LazyImage from '../components/LazyImage';
 
-// ─── Helpers ─────────────────────────────────────────────────────────────────
-
-// Silently jump a scroll container to center a child element (no animation)
-function jumpToCenter(strip: HTMLElement, child: HTMLElement) {
-  strip.style.scrollBehavior = 'auto';
-  child.scrollIntoView({ block: 'nearest', inline: 'center' });
-  strip.style.scrollBehavior = '';
-}
-
-// After a smooth scroll settles, silently re-center on copy B
-function resetToB(stripRef: React.RefObject<HTMLElement>, count: number, index: number, isJumping: React.MutableRefObject<boolean>) {
-  setTimeout(() => {
-    const s = stripRef.current;
-    if (!s || isJumping.current) return;
-    const target = s.children[count + index] as HTMLElement;
-    if (!target) return;
-    isJumping.current = true;
-    jumpToCenter(s, target);
-    requestAnimationFrame(() => { isJumping.current = false; });
-  }, 450);
-}
+const THUMB_WINDOW = 2; // 2 on each side of active = 5 total max
 
 // ─── Thumbnail Strip ──────────────────────────────────────────────────────────
 //
-// Renders 3 copies of the image list [A | B | C]. Always starts at B (center).
-// Navigation scrolls to the correct copy by direction. On drag release, snaps
-// to nearest thumb and selects it. Edge teleport keeps infinite feel on manual drag.
+// Virtual sliding window centered on currentIndex with wrap-around.
+// Active thumb is always at children[WINDOW] — centered on every render.
 
 function ThumbnailStrip({
   images,
@@ -47,82 +26,18 @@ function ThumbnailStrip({
   onSelect: (index: number) => void;
 }) {
   const count = images.length;
-  const stripRef = useRef<HTMLDivElement>(null);
-  const isJumping = useRef(false);
-  const prevIndexRef = useRef(currentIndex);
+  const WINDOW = Math.min(count - 1, THUMB_WINDOW);
 
-  const tripled = useMemo(() =>
-    [...images, ...images, ...images].map((src, i) => ({
-      src,
-      actualIndex: i % count,
-      copyIndex: Math.floor(i / count),
-      globalIndex: i,
-    })),
-  [images, count]);
-
-  // On project change — instant jump to copy B, reset state
-  useEffect(() => {
-    const strip = stripRef.current;
-    if (!strip) return;
-    prevIndexRef.current = currentIndex;
-    isJumping.current = true;
-    const target = strip.children[count + currentIndex] as HTMLElement;
-    if (target) jumpToCenter(strip, target);
-    requestAnimationFrame(() => { isJumping.current = false; });
-  }, [imageKey]);
-
-  // On navigation — pick the copy in the correct direction and scroll to it
-  useEffect(() => {
-    const strip = stripRef.current;
-    if (!strip || isJumping.current) return;
-
-    const prev = prevIndexRef.current;
-    const curr = currentIndex;
-    prevIndexRef.current = curr;
-
-    const isBackward = curr === (prev - 1 + count) % count;
-    const center = strip.scrollLeft + strip.clientWidth / 2;
-
-    const candidates = [0, 1, 2]
-      .map(ci => strip.children[ci * count + curr] as HTMLElement)
-      .filter(Boolean);
-
-    let target: HTMLElement;
-    if (isBackward) {
-      const left = candidates.filter(el => el.offsetLeft + el.offsetWidth / 2 < center);
-      target = left.at(-1) ?? candidates[1] ?? candidates[0];
-    } else {
-      const right = candidates.filter(el => el.offsetLeft + el.offsetWidth / 2 > center);
-      target = right[0] ?? candidates[1] ?? candidates[0];
+  // Virtual window centered on currentIndex with wrap-around.
+  // Active is always at the center of the rendered list.
+  const windowedThumbs = useMemo(() => {
+    const items = [];
+    for (let offset = -WINDOW; offset <= WINDOW; offset++) {
+      const actualIndex = ((currentIndex + offset) % count + count) % count;
+      items.push({ src: images[actualIndex], actualIndex, offset });
     }
-
-    target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-    resetToB(stripRef as React.RefObject<HTMLElement>, count, curr, isJumping);
-  }, [currentIndex]);
-
-  // Edge teleport — keep infinite feel when user manually drags near the ends
-  const handleScroll = useCallback(() => {
-    const strip = stripRef.current;
-    if (!strip || isJumping.current) return;
-    const { scrollLeft, scrollWidth } = strip;
-    const third = scrollWidth / 3;
-    if (scrollLeft < third * 0.3 || scrollLeft > third * 2.7) {
-      isJumping.current = true;
-      strip.style.scrollBehavior = 'auto';
-      strip.scrollLeft = third + (scrollLeft % third);
-      requestAnimationFrame(() => {
-        strip.style.scrollBehavior = '';
-        isJumping.current = false;
-      });
-    }
-  }, []);
-
-  useEffect(() => {
-    const strip = stripRef.current;
-    if (!strip) return;
-    strip.addEventListener('scroll', handleScroll, { passive: true });
-    return () => strip.removeEventListener('scroll', handleScroll);
-  }, [handleScroll]);
+    return items;
+  }, [currentIndex, images, count]);
 
   return (
     <div
@@ -130,15 +45,14 @@ function ThumbnailStrip({
       style={{ paddingTop: '60px', paddingBottom: '24px' }}
       onClick={(e) => e.stopPropagation()}
     >
-      <div ref={stripRef} className="flex gap-2 overflow-x-auto scrollbar-hide py-2">
-        {tripled.map((thumb) => (
+      <div className="flex items-center justify-center gap-2 py-2 px-4">
+        {windowedThumbs.map((thumb) => (
           <button
-            key={`thumb-${thumb.globalIndex}-${imageKey}`}
+            key={`thumb-${thumb.actualIndex}-${thumb.offset}-${imageKey}`}
             onClick={() => onSelect(thumb.actualIndex)}
             onPointerDown={(e) => e.preventDefault()}
-            style={{ scrollMarginInline: '40vw' }}
             className={`flex-shrink-0 transition-all duration-300 rounded ${
-              thumb.copyIndex === 1 && thumb.actualIndex === currentIndex
+              thumb.actualIndex === currentIndex
                 ? 'ring-2 ring-white opacity-100 scale-110 relative z-10'
                 : 'opacity-40 md:hover:opacity-70 scale-100'
             }`}
@@ -148,7 +62,7 @@ function ThumbnailStrip({
               src={thumb.src}
               alt={`Thumbnail ${thumb.actualIndex + 1}`}
               className="w-16 h-12 md:w-20 md:h-14 object-cover rounded block pointer-events-none"
-              loading="eager"
+              loading="lazy"
             />
           </button>
         ))}
