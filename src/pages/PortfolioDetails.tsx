@@ -135,11 +135,12 @@ function ThumbnailStrip({
           <button
             key={`thumb-${thumb.globalIndex}-${imageKey}`}
             onClick={() => onSelect(thumb.actualIndex)}
+            onPointerDown={(e) => e.preventDefault()}
             style={{ scrollMarginInline: '40vw' }}
             className={`flex-shrink-0 transition-all duration-300 rounded ${
               thumb.copyIndex === 1 && thumb.actualIndex === currentIndex
                 ? 'ring-2 ring-white opacity-100 scale-110 relative z-10'
-                : 'opacity-40 hover:opacity-70 scale-100'
+                : 'opacity-40 md:hover:opacity-70 scale-100'
             }`}
             aria-label={`Go to image ${thumb.actualIndex + 1}`}
           >
@@ -377,7 +378,7 @@ export default function PortfolioDetails() {
                 <LazyImage
                   src={image}
                   alt={`${project.title} ${index + 1}`}
-                  className="w-full h-full object-contain transition-opacity group-hover:opacity-90"
+                  className="w-full h-full object-contain transition-opacity md:group-hover:opacity-90"
                   priority={index < 6}
                   loading={index < 6 ? 'eager' : 'lazy'}
                 />
@@ -476,7 +477,7 @@ export default function PortfolioDetails() {
                 <button
                   onClick={() => setIsExpanded(!isExpanded)}
                   aria-expanded={isExpanded}
-                  className="relative z-10 w-full mt-4 md:mt-6 py-4 flex items-center justify-center gap-2 text-base font-normal text-black hover:text-black/70 transition-colors"
+                  className="relative z-10 w-full mt-4 md:mt-6 py-4 flex items-center justify-center gap-2 text-base font-normal text-black md:hover:text-black/70 transition-colors"
                 >
                   <span>{isExpanded ? 'Show Less' : 'Show More'}</span>
                   <ChevronDown size={20} strokeWidth={1.5}
@@ -501,14 +502,14 @@ export default function PortfolioDetails() {
                       src={p.images[0]}
                       alt={p.title}
                       className="w-full h-full"
-                      imgClassName="transition-transform duration-700 group-hover:scale-110"
+                      imgClassName="transition-transform duration-700 md:group-hover:scale-110"
                       loading="lazy"
                     />
                   </div>
                   <h4 className="text-xl font-light mb-1 relative inline-block uppercase">
                     <span className="relative">
                       {p.title}
-                      <span className="absolute left-0 bottom-0 w-full h-[1px] bg-black scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100" />
+                      <span className="absolute left-0 bottom-0 w-full h-[1px] bg-black scale-x-0 origin-left transition-transform duration-500 ease-out md:group-hover:scale-x-100" />
                     </span>
                   </h4>
                   <p className="text-sm text-neutral-500">{p.location}</p>
@@ -518,23 +519,6 @@ export default function PortfolioDetails() {
           </div>
         </div>
       )}
-
-      {/* CTA */}
-      <div className="w-full bg-white py-16">
-        <div className="w-full max-w-[2340px] mx-auto px-4 md:px-8">
-          <p className="text-xs uppercase tracking-widest text-black/40 mb-2">Like the project?</p>
-          <Link
-            to="/contact"
-            className="group inline-flex items-center gap-3 text-sm uppercase tracking-widest text-black hover:text-black/50 transition-colors duration-300"
-          >
-            Get in touch
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"
-              className="transition-transform duration-300 group-hover:translate-x-1">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </Link>
-        </div>
-      </div>
 
       {/* Lightbox */}
       {isLightboxOpen && (

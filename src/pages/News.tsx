@@ -114,7 +114,7 @@ export default function News() {
                   ref={getCardRef(index)}
                   className={`bg-white border border-black/5 overflow-hidden transition-all duration-300 ${
                     isCardVisible(index)
-                      ? 'opacity-100 scale-100 hover:scale-105 hover:-translate-y-2 hover:border-black/20 hover:shadow-lg' 
+                      ? 'opacity-100 scale-100 md:hover:scale-105 md:hover:-translate-y-2 md:hover:border-black/20 md:hover:shadow-lg' 
                       : 'opacity-0 scale-95'
                   }`}
                 >

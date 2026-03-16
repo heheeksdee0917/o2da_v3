@@ -61,7 +61,7 @@ export const teamMembers: TeamMember[] = [
         id: 8,
         name: 'Tan Jun Kai',
         role: 'Part I Project Architect',
-        image: '',
+        image: '/team_photo/junkai_solo.avif',
         bio: 'David ensures every project is delivered on time and exceeds client expectations.',
     }
 ];
