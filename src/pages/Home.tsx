@@ -92,14 +92,25 @@ export default function HeroSection() {
           >
             <div className="absolute inset-0 w-full h-full">
               {section.img.endsWith('.mp4') ? (
-                <video
-                  src={section.img}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover"
-                />
+                <>
+                  {/* Thumbnail loads instantly — video fades over it once ready */}
+                  {section.thumbnail && (
+                    <img
+                      src={section.thumbnail}
+                      alt={section.title}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  )}
+                  <video
+                    src={section.img}
+                    poster={section.thumbnail}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </>
               ) : (
                 <img
                   src={section.img}
