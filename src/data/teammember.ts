@@ -18,7 +18,7 @@ export const teamMembers: TeamMember[] = [
         id: 2,
         name: 'Lim Min Syn',
         role: 'Senior Associate Director',
-        image: ''
+        image: '/team_photo/minsyn_solo.avif'
     },
     {
         id: 3,
