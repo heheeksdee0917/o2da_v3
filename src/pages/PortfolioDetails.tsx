@@ -37,7 +37,8 @@ function ThumbnailStrip({
       items.push({ src: images[actualIndex], actualIndex, offset });
     }
     return items;
-  }, [currentIndex, images, count]);
+  // WINDOW is derived from count so it changes when count changes — no extra dep needed
+  }, [currentIndex, images, count, WINDOW]);
 
   return (
     <div
@@ -153,12 +154,14 @@ export default function PortfolioDetails() {
     if (!gallery) return;
 
     const getClosest = () => {
-      const center = gallery.getBoundingClientRect().top + gallery.getBoundingClientRect().height / 2;
+      const galleryRect = gallery.getBoundingClientRect();
+      const center = galleryRect.top + galleryRect.height / 2;
       let closestIndex = 0;
       let minDist = Infinity;
       imageRefs.current.forEach((ref, i) => {
         if (!ref) return;
-        const dist = Math.abs(ref.getBoundingClientRect().top + ref.getBoundingClientRect().height / 2 - center);
+        const rect = ref.getBoundingClientRect();
+        const dist = Math.abs(rect.top + rect.height / 2 - center);
         if (dist < minDist) { minDist = dist; closestIndex = i; }
       });
       return closestIndex;
@@ -176,14 +179,19 @@ export default function PortfolioDetails() {
           const idx = getClosest();
           const ref = imageRefs.current[idx];
           if (!ref) return;
-          const center = gallery.getBoundingClientRect().top + gallery.getBoundingClientRect().height / 2;
-          const offset = ref.getBoundingClientRect().top + ref.getBoundingClientRect().height / 2 - center;
+          const galleryRect = gallery.getBoundingClientRect();
+          const center = galleryRect.top + galleryRect.height / 2;
+          const refRect = ref.getBoundingClientRect();
+          const offset = refRect.top + refRect.height / 2 - center;
           gallery.scrollBy({ top: offset, behavior: 'smooth' });
         }, 150);
       });
     };
 
-    const initialTimer = setTimeout(() => getClosest(), 200);
+    const initialTimer = setTimeout(() => {
+      // Ensure scroll position is read after layout settles
+      getClosest();
+    }, 200);
     gallery.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll, { passive: true });
 
@@ -307,13 +315,14 @@ export default function PortfolioDetails() {
                 key={`desktop-${index}-${imageKey}`}
                 ref={(el) => { imageRefs.current[index] = el; }}
                 onClick={() => openLightbox(index)}
-                className="relative w-full bg-white overflow-hidden cursor-pointer group block"
+                className="relative w-full bg-white overflow-hidden cursor-pointer block"
                 aria-label={`View image ${index + 1} in lightbox`}
               >
                 <LazyImage
                   src={image}
                   alt={`${project.title} ${index + 1}`}
-                  className="w-full h-auto object-cover transition-opacity group-hover:opacity-90"
+                  className="w-full h-auto"
+                  imgClassName="object-cover"
                   priority={index < 3}
                   loading={index < 3 ? 'eager' : 'lazy'}
                 />

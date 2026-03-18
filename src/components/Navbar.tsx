@@ -103,7 +103,7 @@ export default function Navbar() {
                     <span className={`absolute bottom-0 left-0 h-px transition-all duration-300 ease-out ${underlineColor} ${isPortfolioPage ? 'w-full' : 'w-0 group-hover/link:w-full'}`}></span>
                   </Link>
                   <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover/portfolio:opacity-100 group-hover/portfolio:visible transition-all duration-300">
-                    <div className="backdrop-blur-xl bg-white/90 shadow-lg rounded-lg py-2 min-w-[160px] border border-white/20">
+                    <div className="backdrop-blur-xl bg-white/95 shadow-lg rounded-lg py-2 min-w-[160px] border border-white/20">
                       {categories.map((category) => (
                         <Link key={category} to={`/portfolio?category=${category}`} className="block px-4 py-2 text-sm text-black/70 hover:text-black hover:bg-black/5 transition-colors">
                           {category}

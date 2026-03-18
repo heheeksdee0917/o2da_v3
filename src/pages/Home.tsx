@@ -6,7 +6,6 @@ import React, { useState, useEffect, useRef } from 'react';
 export default function HeroSection() {
   const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState(0);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -14,24 +13,17 @@ export default function HeroSection() {
     navigate(`/portfolio/${slug}`);
   };
 
+  // Track active section on scroll
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
     const handleScroll = () => {
-      const scrollTop = container.scrollTop;
-      const scrollHeight = container.scrollHeight - container.clientHeight;
-      const progress = (scrollTop / scrollHeight) * 100;
-      setScrollProgress(progress);
-
       sectionRefs.current.forEach((section, index) => {
-        if (section) {
-          const rect = section.getBoundingClientRect();
-          const isVisible = rect.top < window.innerHeight / 2 && rect.bottom > window.innerHeight / 2;
-          if (isVisible) {
-            setActiveSection(index);
-          }
-        }
+        if (!section) return;
+        const rect = section.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight / 2 && rect.bottom > window.innerHeight / 2;
+        if (isVisible) setActiveSection(index);
       });
     };
 
@@ -39,19 +31,15 @@ export default function HeroSection() {
     return () => container.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Zoom animation on section enter
   useEffect(() => {
-    const observerOptions = {
-      threshold: 0.2,
-      rootMargin: '0px'
-    };
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('section-visible');
         }
       });
-    }, observerOptions);
+    }, { threshold: 0.2 });
 
     sectionRefs.current.forEach((section) => {
       if (section) observer.observe(section);
@@ -60,18 +48,24 @@ export default function HeroSection() {
     return () => observer.disconnect();
   }, []);
 
+  // Scroll the snap container, not the window
+  const scrollToSection = (index: number) => {
+    const container = containerRef.current;
+    const section = sectionRefs.current[index];
+    if (!container || !section) return;
+    container.scrollTo({ top: section.offsetTop, behavior: 'smooth' });
+  };
+
   return (
     <>
-      {/* Section Navigation Indicators */}
+      {/* Section Navigation Dots */}
       <div className="fixed right-8 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-3">
         {heroSections.map((_, index) => (
           <button
             key={index}
-            onClick={() => {
-              sectionRefs.current[index]?.scrollIntoView({ behavior: 'smooth' });
-            }}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              activeSection === index ? 'bg-white h-8' : 'bg-white/30 hover:bg-white/60'
+            onClick={() => scrollToSection(index)}
+            className={`w-2 rounded-full transition-all duration-300 ${
+              activeSection === index ? 'bg-white h-8' : 'bg-white/30 hover:bg-white/60 h-2'
             }`}
             aria-label={`Go to section ${index + 1}`}
           />
@@ -93,7 +87,7 @@ export default function HeroSection() {
             <div className="absolute inset-0 w-full h-full">
               {section.img.endsWith('.mp4') ? (
                 <>
-                  {/* Thumbnail loads instantly — video fades over it once ready */}
+                  {/* Thumbnail visible instantly while video loads */}
                   {section.thumbnail && (
                     <img
                       src={section.thumbnail}
@@ -125,7 +119,7 @@ export default function HeroSection() {
               <h2 className="text-white text-4xl md:text-5xl uppercase font-light mb-4 tracking-wider">
                 {section.title}
               </h2>
-              <p className="text-white/70 text-lg md:text-1xl font-light tracking-widest">
+              <p className="text-white/70 text-lg md:text-xl font-light tracking-widest">
                 {section.location}
               </p>
             </div>

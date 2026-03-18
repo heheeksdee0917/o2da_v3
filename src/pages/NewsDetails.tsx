@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { newsItems, ContentBlock } from '../data/news';
 import LazyImage from '../components/LazyImage';
@@ -6,50 +6,34 @@ import React from 'react';
 
 export default function NewsDetails() {
   const { slug } = useParams<{ slug: string }>();
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  // Find the news item by slug
   const newsItem = newsItems.find(item => item.slug === slug);
 
-  // Scroll to top on mount and when slug changes
   useEffect(() => {
     window.scrollTo(0, 0);
-    const scrollContainers = document.querySelectorAll('[class*="overflow"]');
-    scrollContainers.forEach(container => {
-      if (container instanceof HTMLElement) {
-        container.scrollTop = 0;
-        container.scrollLeft = 0;
-      }
-    });
-    setIsLoaded(true);
   }, [slug]);
 
-  // If news item not found, redirect to news page
-  if (!newsItem) {
-    return <Navigate to="/news" replace />;
-  }
+  if (!newsItem) return <Navigate to="/news" replace />;
 
-  // Format date
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
-      day: 'numeric'
+      day: 'numeric',
     });
   };
 
-  // Get related news (same category, exclude current)
   const relatedNews = newsItems
     .filter(item => item.slug !== newsItem.slug)
     .slice(0, 3);
 
   return (
     <div data-theme="light" className="bg-white min-h-screen">
+
       {/* Back Button */}
       <Link
         to="/news"
-        className="fixed top-24 left-6 md:left-12 flex items-center gap-2 text-black/60 hover:text-black transition-colors z-50 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full"
+        className="fixed top-24 left-4 flex items-center gap-2 text-black/60 hover:text-black transition-colors z-50 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
           <path d="M19 12H5M12 19l-7-7 7-7" />
@@ -70,10 +54,10 @@ export default function NewsDetails() {
       </div>
 
       {/* Content */}
-      <div className="max-w-[900px] mx-auto px-6 md:px-12 py-16">
+      <div className="max-w-[900px] mx-auto px-4 md:px-8 py-16">
 
-        {/* Category & Date */}
-        <div className="flex items-center gap-4 mb-6">
+        {/* Date */}
+        <div className="mb-6">
           <span className="text-sm font-light text-black/40">
             {formatDate(newsItem.date)}
           </span>
@@ -94,11 +78,9 @@ export default function NewsDetails() {
           {newsItem.content.map((block: ContentBlock, index: number) => {
             if (block.type === 'text') {
               return (
-                <p
-                  key={index}
-                  className="text-base"
-                  dangerouslySetInnerHTML={{ __html: block.content }}
-                />
+                <p key={index} className="text-base">
+                  {block.content}
+                </p>
               );
             }
 
@@ -130,26 +112,22 @@ export default function NewsDetails() {
       {/* Related News */}
       {relatedNews.length > 0 && (
         <div className="bg-neutral-50 py-16 mt-16">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <div className="max-w-[2340px] mx-auto px-4 md:px-8">
             <h3 className="text-2xl font-light text-black/90 mb-12">Related News</h3>
             <div className="grid md:grid-cols-3 gap-8">
               {relatedNews.map((item) => (
-                <Link
-                  key={item.id}
-                  to={`/news/${item.slug}`}
-                  className="group block"
-                >
-                  <div className="bg-white border border-black/5 overflow-hidden transition-all duration-300 hover:border-black/20 hover:shadow-lg">
+                <Link key={item.id} to={`/news/${item.slug}`} className="group block">
+                  <div className="bg-white border border-black/5 overflow-hidden transition-all duration-300 md:hover:border-black/20 md:hover:shadow-lg">
                     <div className="relative overflow-hidden aspect-[16/10] bg-neutral-100">
                       <LazyImage
                         src={item.image}
                         alt={item.title}
-                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                        className="w-full h-full object-cover transition-transform duration-700 ease-out md:group-hover:scale-105"
                         sizes="(max-width: 768px) 100vw, 33vw"
                       />
                     </div>
                     <div className="p-6">
-                      <h4 className="text-lg font-light mb-2 group-hover:text-black/60 transition-colors leading-snug">
+                      <h4 className="text-lg font-light mb-2 md:group-hover:text-black/60 transition-colors leading-snug">
                         {item.title}
                       </h4>
                       <p className="text-sm font-light text-black/60 leading-relaxed line-clamp-2">

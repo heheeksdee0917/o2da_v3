@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { teamMembers } from '../data/mockData.ts';
-import LazyImage from '../components/LazyImage';
 import React from 'react';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -12,44 +11,72 @@ export default function About() {
   const processRef = useRef<HTMLDivElement>(null);
   const teamRef = useRef<HTMLDivElement>(null);
 
+  // Philosophy animation — separate effect, separate context
   useEffect(() => {
+    if (!philosophyRef.current) return;
     const ctx = gsap.context(() => {
-      gsap.from(philosophyRef.current, {
-        y: 60,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: philosophyRef.current,
-          start: 'top 80%',
-        },
-      });
-
-      gsap.from('.process-step', {
-        y: 60,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.2,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: processRef.current,
-          start: 'top 80%',
-        },
-      });
-
-      gsap.from('.team-member', {
-        y: 60,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.15,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: teamRef.current,
-          start: 'top 80%',
-        },
-      });
+      gsap.fromTo(
+        philosophyRef.current,
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: philosophyRef.current,
+            start: 'top 85%',
+            once: true,
+          },
+        }
+      );
     });
+    return () => ctx.revert();
+  }, []);
 
+  // Design Process animation — whole section appears as one
+  useEffect(() => {
+    if (!processRef.current) return;
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        processRef.current,
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: processRef.current,
+            start: 'top 85%',
+            once: true,
+          },
+        }
+      );
+    });
+    return () => ctx.revert();
+  }, []);
+
+  // Team Members animation — whole section appears as one
+  useEffect(() => {
+    if (!teamRef.current) return;
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        teamRef.current,
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: teamRef.current,
+            start: 'top 85%',
+            once: true,
+          },
+        }
+      );
+    });
     return () => ctx.revert();
   }, []);
 
@@ -124,11 +151,10 @@ export default function About() {
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
               {teamMembers.map((member) => (
                 <div key={member.id} className="team-member relative group overflow-hidden">
-                  <LazyImage
+                  <img
                     src={member.image}
                     alt={member.name}
                     className="w-full aspect-[9/16] object-cover transition-all duration-500"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 33vw, 20vw"
                   />
                   <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/50 to-transparent pt-16">
                     <h3 className="text-lg font-medium text-white">{member.name}</h3>
