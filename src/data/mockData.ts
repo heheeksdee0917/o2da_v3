@@ -117,7 +117,7 @@ export const awards: Award[] = [
     id: 6,
     year: 2021,
     competition: 'Asia Pacific Property Awards (Retail Development Malaysia)',
-    project: 'UNO 1 @ BUKIT RAJA',
+    project: 'KFC Bukit Raja',
     place: 'Award Winner',
     type: 'award',
     slug: 'uno-rivertree-bukit-raja'
@@ -126,7 +126,7 @@ export const awards: Award[] = [
     id: 7,
     year: 2021,
     competition: 'Asia Pacific Property Awards (Best Development Marketing Malaysia)',
-    project: 'UNO 1 @ BUKIT RAJA',
+    project: 'KFC Bukit Raja',
     place: '5 Star Winner',
     type: 'award',
     slug: 'uno-rivertree-bukit-raja'
@@ -135,7 +135,7 @@ export const awards: Award[] = [
     id: 8,
     year: 2021,
     competition: 'Asia Pacific Property Awards (Best Leisure Interior Malaysia)',
-    project: 'UNO 1 @ BUKIT RAJA',
+    project: 'KFC Bukit Raja',
     place: '5 Star Winner',
     type: 'award',
     slug: 'uno-rivertree-bukit-raja'
@@ -144,7 +144,7 @@ export const awards: Award[] = [
     id: 9,
     year: 2020,
     competition: 'Property Guru Asia Property Awards (Best Retail Development)',
-    project: 'UNO 1 @ BUKIT RAJA',
+    project: 'KFC Bukit Raja',
     place: 'Winner',
     type: 'award',
     slug: 'uno-rivertree-bukit-raja'
@@ -252,7 +252,7 @@ export const awards: Award[] = [
     id: 21,
     year: 2016,
     competition: 'International Competition',
-    project: 'GO-BEYOND GET REAL - CONTAINER ',
+    project: 'Go Beyond',
     place: '1st Prize',
     type: 'competition',
     slug: 'go-beyond'
@@ -273,7 +273,7 @@ export const awards: Award[] = [
     project: 'PAM NORTHERN CHAPTER - WET MARKET',
     place: '2nd Prize',
     type: 'competition',
-    slug: 'teluk-kumbar-market'
+    slug: 'teluk-kumbar-wet-market'
   },
   {
     id: 24,
@@ -282,16 +282,16 @@ export const awards: Award[] = [
     project: 'PAM PR1MA HOUSING',
     place: '1st Prize',
     type: 'competition',
-    slug: 'pr1ma-housing'
+    slug: 'pr1ma-affordable-housing'
   },
   {
     id: 25,
     year: 2015,
     competition: 'National Competition',
-    project: 'PAM KWASA LAND HOUSING',
+    project: 'Imbauan Residence',
     place: '2nd Prize',
     type: 'competition',
-    slug: ''
+    slug: 'imbauan-residence'
   },
   {
     id: 26,

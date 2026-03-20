@@ -7,6 +7,10 @@ import React from 'react';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function About() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const philosophyRef = useRef<HTMLDivElement>(null);
   const processRef = useRef<HTMLDivElement>(null);
   const teamRef = useRef<HTMLDivElement>(null);
@@ -83,7 +87,7 @@ export default function About() {
   return (
     <div data-theme="light" className="bg-white">
       <div className="page-fade-in">
-        <div className="max-w-[2340px] mx-auto px-4 md:px-8 pt-32 pb-32">
+        <div className="max-w-[2340px] mx-auto px-4 md:px-8 pt-32 pb-0">
 
           {/* Philosophy */}
           <div ref={philosophyRef} className="mb-24 max-w-6xl mx-auto text-center">
@@ -110,41 +114,104 @@ export default function About() {
             </p>
           </div>
 
-          {/* Design Process */}
-          <div ref={processRef} className="mb-24">
-            <h2 className="text-center mb-20 text-3xl font-light">Design Process</h2>
-            <div className="grid md:grid-cols-4 gap-12">
-              <div className="process-step">
-                <div className="caption text-black/40 mb-4">01.</div>
-                <h3 className="text-2xl font-medium mb-4">Concept</h3>
-                <p className="text-black/60 leading-relaxed">
-                  We begin with questions, not answers. Listening, researching, and understanding context precede form-making.
-                </p>
-              </div>
-              <div className="process-step">
-                <div className="caption text-black/40 mb-4">02.</div>
-                <h3 className="text-2xl font-medium mb-4">Context</h3>
-                <p className="text-black/60 leading-relaxed">
-                  Every site tells a story. We study climate, culture, history, and materiality to inform design decisions.
-                </p>
-              </div>
-              <div className="process-step">
-                <div className="caption text-black/40 mb-4">03.</div>
-                <h3 className="text-2xl font-medium mb-4">Craft</h3>
-                <p className="text-black/60 leading-relaxed">
-                  Details matter. We collaborate closely with builders and artisans to ensure design intent is realized.
-                </p>
-              </div>
-              <div className="process-step">
-                <div className="caption text-black/40 mb-4">04.</div>
-                <h3 className="text-2xl font-medium mb-4">Completion</h3>
-                <p className="text-black/60 leading-relaxed">
-                  Architecture is experienced over time. We design for longevity, adaptation, and graceful aging.
-                </p>
-              </div>
-            </div>
-          </div>
+        </div>{/* end philosophy container */}
 
+        {/* Design Process — full width breakout */}
+        <div ref={processRef} className="min-h-screen flex flex-col justify-center py-32 mb-24 border-t border-black/10 px-4 md:px-8">
+
+            {/* Header */}
+            <div className="mb-20">
+              <p className="text-sm uppercase tracking-[0.15em] text-black/40 mb-6">Design Code</p>
+              <h2 className="text-3xl md:text-4xl font-light text-black mb-4">
+                Principle Driven &amp; Responsive Architecture
+              </h2>
+              <blockquote className="border-l border-black/20 pl-6">
+                <p className="text-base italic text-neutral-500 leading-relaxed">
+                  "The limits of my language mean the limits of my world."
+                </p>
+                <cite className="text-sm text-neutral-400 not-italic mt-2 block">
+                  — Tractatus Logico-Philosophicus 5.6.
+                </cite>
+              </blockquote>
+            </div>
+
+            {/* Intro paragraphs */}
+            <div className="mb-20 space-y-5">
+              <p className="text-base md:text-lg text-neutral-700 leading-relaxed">
+                Early Wittgenstein suggests that the world, insofar as it can be thought and shared, appears within the limits of language. Architecture, the art and science of place making, would then become the most intimate and fundamental to our world building.
+              </p>
+              <p className="text-base md:text-lg text-neutral-700 leading-relaxed">
+                Its building blocks are not only objects or components, but the coupled vocabularies of <span className="text-black font-medium">pattern language</span> and <span className="text-black font-medium">form language</span>: one organizing the recurring structures of life, the other organizing the formal means through which those structures are made tangible.
+              </p>
+            </div>
+
+            {/* Equation grid — bordered boxes, operators centered */}
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] gap-0 items-stretch">
+
+              {/* Form Language */}
+              <div className="border p-8">
+                <p className="text-sm uppercase tracking-[0.12em] text-black/50 mb-4">Form Language</p>
+                <p className="text-sm text-neutral-400 italic mb-6">visible, tangible</p>
+                <p className="text-base text-neutral-700 leading-relaxed mb-4">
+                  Geometry, tectonics, compositions and proportions, materials — the vocabularies of built form.
+                </p>
+                <p className="text-base text-neutral-600 leading-relaxed">
+                  The many styles and movements created by the introduction and denial of certain elements — the sentences of architecture.
+                </p>
+              </div>
+
+              {/* × operator */}
+              <div className="hidden md:flex items-center justify-center px-6">
+                <span className="text-3xl font-light text-black/40">×</span>
+              </div>
+
+              {/* Pattern Language */}
+              <div className="border p-8">
+                <p className="text-sm uppercase tracking-[0.12em] text-black/50 mb-4">Pattern Language</p>
+                <p className="text-sm text-neutral-400 italic mb-6">immaterial, human</p>
+                <p className="text-base text-neutral-700 leading-relaxed mb-6">
+                  Rules for how human beings interact with built forms — practical solutions developed over millennia, appropriate to local customs, society, and climate.
+                </p>
+                <p className="text-sm text-neutral-400 italic leading-relaxed">
+                  — A Theory on Architecture. Nikos A. Salingaros.
+                </p>
+              </div>
+
+              {/* = operator */}
+              <div className="hidden md:flex items-center justify-center px-6">
+                <div className="flex flex-col gap-1.5">
+                  <div className="w-6 h-px bg-black/40" />
+                  <div className="w-6 h-px bg-black/40" />
+                </div>
+              </div>
+
+              {/* Synthesis X */}
+              <div className="border p-8">
+                <p className="text-sm uppercase tracking-[0.12em] text-black/50 mb-4">Synthesis</p>
+                <p className="text-sm text-neutral-400 italic mb-6">X :</p>
+                <p className="text-base text-neutral-700 leading-relaxed">
+                  Human needs are negotiated with physical realities, and ideas are shaped through context. An interconnected web of solutions is generated, tested, and compiled.
+                </p>
+              </div>
+
+              {/* → operator */}
+              <div className="hidden md:flex items-center justify-center px-6">
+                <span className="text-2xl font-light text-black/40">→</span>
+              </div>
+
+              {/* Resolution = */}
+              <div className="border p-8">
+                <p className="text-sm uppercase tracking-[0.12em] text-black/60 mb-4">Resolution</p>
+                <p className="text-sm text-neutral-400 italic mb-6">= :</p>
+                <p className="text-base text-neutral-700 leading-relaxed">
+                  An adaptive formal architecture — be it a built form or a design thesis. The rigorous process of synthesis produces architecture that is <span className="text-black font-medium">specific, responsive, and enduring</span>.
+                </p>
+              </div>
+
+            </div>
+        </div>{/* end process full-width */}
+
+        <div className="max-w-[2340px] mx-auto px-4 md:px-8 pb-32">
           {/* Team Members */}
           <div ref={teamRef}>
             <h2 className="text-center mb-20 text-3xl font-light">Team Members</h2>
@@ -165,8 +232,8 @@ export default function About() {
             </div>
           </div>
 
-        </div>
+          </div>
+        </div>{/* end team container */}
       </div>
-    </div>
   );
 }
