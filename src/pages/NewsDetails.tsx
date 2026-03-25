@@ -23,9 +23,18 @@ export default function NewsDetails() {
     });
   };
 
-  const relatedNews = newsItems
-    .filter(item => item.slug !== newsItem.slug)
-    .slice(0, 3);
+  // Sort by date descending (newest first) — same order as News page
+  const sorted = [...newsItems].sort((a, b) => {
+    const dateA = a.date ? new Date(a.date).getTime() : 0;
+    const dateB = b.date ? new Date(b.date).getTime() : 0;
+    return dateB - dateA;
+  });
+
+  const currentIdx = sorted.findIndex(item => item.slug === newsItem.slug);
+  const prev = sorted[currentIdx - 1] ?? null; // one older
+  const next1 = sorted[currentIdx + 1] ?? null; // next newer
+  const next2 = sorted[currentIdx + 2] ?? null; // next next newer
+  const relatedNews = [prev, next1, next2].filter(Boolean) as typeof newsItems;
 
   return (
     <div data-theme="light" className="bg-white min-h-screen">
@@ -78,9 +87,11 @@ export default function NewsDetails() {
           {newsItem.content.map((block: ContentBlock, index: number) => {
             if (block.type === 'text') {
               return (
-                <p key={index} className="text-base">
-                  {block.content}
-                </p>
+                <p
+                  key={index}
+                  className="text-base"
+                  dangerouslySetInnerHTML={{ __html: block.content }}
+                />
               );
             }
 
