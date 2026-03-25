@@ -653,10 +653,10 @@ export const residentialProjects: Project[] = [
     images: [
       '/Gallery/Residential/ResortHome/CP.avif',
       '/Gallery/Residential/ResortHome/A1.avif',
-      '/Gallery/Residential/ResortHome/A3.avif',
-      '/Gallery/Residential/ResortHome/A4.avif',
       '/Gallery/Residential/ResortHome/A5.avif',
       '/Gallery/Residential/ResortHome/A6.avif',
+      '/Gallery/Residential/ResortHome/A3.avif',
+      '/Gallery/Residential/ResortHome/A4.avif',
       '/Gallery/Residential/ResortHome/A7.avif',
       '/Gallery/Residential/ResortHome/A8.avif',
       '/Gallery/Residential/ResortHome/A9.avif',

@@ -83,7 +83,7 @@ export const interiorProjects: Project[] = [
     location: 'Kwasa Damansara, Selangor',
     category: 'Interior',
     status: 'Construction',
-    projectTeam: ['Edric Choo Poo Liang', 'Wendy Woon'],
+    projectTeam: ['Edric Choo Poo Liang', 'Kong Xiang Lynn', 'Wendy Woon'],
     images: [
       '/Gallery/Interior/Dharma/CP.avif',
       '/Gallery/Interior/Dharma/A1.avif',

@@ -130,6 +130,17 @@ export const commercialProjects: Project[] = [
       '/Gallery/Commercial/SentulWorks/A10.avif',
       '/Gallery/Commercial/SentulWorks/A11.avif',
       '/Gallery/Commercial/SentulWorks/A12.avif',
+      '/Gallery/Interior/SentulWorksID/CP.avif',
+      '/Gallery/Interior/SentulWorksID/A1.avif',
+      '/Gallery/Interior/SentulWorksID/A2.avif',
+      '/Gallery/Interior/SentulWorksID/A3.avif',
+      '/Gallery/Interior/SentulWorksID/A4.avif',
+      '/Gallery/Interior/SentulWorksID/A5.avif',
+      '/Gallery/Interior/SentulWorksID/A6.avif',
+      '/Gallery/Interior/SentulWorksID/A7.avif',
+      '/Gallery/Interior/SentulWorksID/A8.avif',
+      '/Gallery/Interior/SentulWorksID/A9.avif',
+      '/Gallery/Interior/SentulWorksID/A10.avif',
     ],
     detailContent: [
       { type: 'text', content: 'Sentul Park is nestled within the extended park setting of Sentul Park in Sentul West, Kuala Lumpur, Malaysia where the Federated Malay State Railway (FMSR) rail complexes were established in 1904. The century-old colonial building was formerly the headquarters of FMSR under British rule.'},
@@ -274,6 +285,7 @@ export const commercialProjects: Project[] = [
     location: 'Tagore Lane, Singapore',
     category: 'Commercial',
     status: 'Built (as Project Architect at SCDA PTE LTD)',
+    projectTeam: ['Edric Choo as project architect in SCDA'],
     images: [
       '/Gallery/Commercial/Tagore/CP.avif',
       '/Gallery/Commercial/Tagore/A1.avif',
@@ -290,6 +302,7 @@ export const commercialProjects: Project[] = [
     location: 'Neihu, Taipei',
     category: 'Commercial',
     status: 'Schematic Design (as Design Architect at  WOHA ARCHITECTS)',
+    projectTeam: ['Edric Choo as design and project architect in Woha'],
     coverPhoto: '/Gallery/Commercial/GuoMei/A0.avif',
     images: [
       '/Gallery/Commercial/GuoMei/CP.avif',

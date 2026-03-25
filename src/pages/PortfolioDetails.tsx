@@ -383,7 +383,7 @@ export default function PortfolioDetails() {
                         <h2 className="text-xl md:text-2xl lg:text-3xl font-light mb-4">{block.heading}</h2>
                       )}
                       {block.content && (
-                        <p className="text-sm md:text-base leading-relaxed text-neutral-700">
+                        <p className="text-sm md:text-base leading-relaxed text-neutral-900">
                           {renderContent(block)}
                         </p>
                       )}

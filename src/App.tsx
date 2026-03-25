@@ -3,6 +3,7 @@ import { lazy, Suspense, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
+import PortfolioDetails from './pages/PortfolioDetails';
 import React from 'react';
 
 const About = lazy(() => import('./pages/About'));
@@ -10,7 +11,6 @@ const Awards = lazy(() => import('./pages/Awards'));
 const News = lazy(() => import('./pages/News'));
 const NewsDetails = lazy(() => import('./pages/NewsDetails'));
 const Portfolio = lazy(() => import('./pages/Portfolio'));
-const PortfolioDetails = lazy(() => import('./pages/PortfolioDetails'));
 const Contact = lazy(() => import('./pages/Contact'));
 
 function ScrollToTop() {
@@ -54,54 +54,52 @@ function AppContent() {
     <>
       <ScrollToTop />
       <Navbar />
-      
+
       <div className={isHomePage ? '' : 'min-h-screen smooth-scroll'}>
         <Routes>
           <Route path="/" element={<Home />} />
-          
+
           <Route path="/about" element={
             <Suspense fallback={<LoadingFallback />}>
               <About />
             </Suspense>
           } />
-          
+
           <Route path="/awards" element={
             <Suspense fallback={<LoadingFallback />}>
               <Awards />
             </Suspense>
           } />
-          
+
           <Route path="/news" element={
             <Suspense fallback={<LoadingFallback />}>
               <News />
             </Suspense>
           } />
-          
+
           <Route path="/news/:slug" element={
             <Suspense fallback={<LoadingFallback />}>
               <NewsDetailsWithRemount />
             </Suspense>
           } />
-          
+
           <Route path="/portfolio" element={
             <Suspense fallback={<LoadingFallback />}>
               <Portfolio />
             </Suspense>
           } />
-          
+
           <Route path="/portfolio/:id" element={
-            <Suspense fallback={<LoadingFallback />}>
-              <PortfolioDetailsWithRemount />
-            </Suspense>
+            <PortfolioDetailsWithRemount />
           } />
-          
+
           <Route path="/contact" element={
             <Suspense fallback={<LoadingFallback />}>
               <Contact />
             </Suspense>
           } />
         </Routes>
-        
+
         {!isHomePage && <Footer />}
       </div>
     </>

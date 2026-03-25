@@ -70,7 +70,6 @@ export const housingProjects: Project[] = [
       '/Gallery/Housing/Quartz/A2.avif',
       '/Gallery/Housing/Quartz/A3.avif',
       '/Gallery/Housing/Quartz/A4.avif',
-      '/Gallery/Housing/Quartz/A5.avif',
       '/Gallery/Housing/Quartz/A6.avif',
       '/Gallery/Housing/Quartz/A7.avif',
       '/Gallery/Housing/Quartz/A8.avif',
@@ -263,7 +262,7 @@ export const housingProjects: Project[] = [
     location: 'Old Holland Road, Singapore',
     category: 'Housing',
     status: 'Built (as Project Architect at SCDA PTE LTD)',
-    projectTeam: ['N/A'],
+    projectTeam: ['Edric Choo as project architect in SCDA'],
     images: [
       '/Gallery/Commercial/Illoura/CP.avif',
       '/Gallery/Commercial/Illoura/A1.avif',

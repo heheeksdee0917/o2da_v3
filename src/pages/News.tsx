@@ -48,7 +48,7 @@ export default function News() {
         <div className="max-w-[2340px] mx-auto px-4 md:px-8 pt-32 pb-32">
 
           {/* Header */}
-          <div className="mb-24">
+          <div className="mb-12">
             <h1 className="text-4xl md:text-5xl font-light tracking-wide text-black/90 mb-4">News & Updates</h1>
             <p className="text-base font-light text-black/50 leading-relaxed">
               Recent developments, project updates, and insights from the studio

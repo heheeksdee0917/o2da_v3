@@ -31,10 +31,20 @@ export default function NewsDetails() {
   });
 
   const currentIdx = sorted.findIndex(item => item.slug === newsItem.slug);
-  const prev = sorted[currentIdx - 1] ?? null; // one older
-  const next1 = sorted[currentIdx + 1] ?? null; // next newer
-  const next2 = sorted[currentIdx + 2] ?? null; // next next newer
-  const relatedNews = [prev, next1, next2].filter(Boolean) as typeof newsItems;
+  const total = sorted.length;
+
+  let relatedNews: typeof newsItems = [];
+
+  if (currentIdx === 0) {
+    // First — last item + next 2
+    relatedNews = [sorted[total - 1], sorted[1], sorted[2]].filter(Boolean) as typeof newsItems;
+  } else if (currentIdx === total - 1) {
+    // Last — previous + wrap to 1 and 2
+    relatedNews = [sorted[currentIdx - 1], sorted[0], sorted[1]].filter(Boolean) as typeof newsItems;
+  } else {
+    // Middle — 1 previous, 2 next
+    relatedNews = [sorted[currentIdx - 1], sorted[currentIdx + 1], sorted[currentIdx + 2]].filter(Boolean) as typeof newsItems;
+  }
 
   return (
     <div data-theme="light" className="bg-white min-h-screen">
@@ -51,7 +61,7 @@ export default function NewsDetails() {
       </Link>
 
       {/* Hero Image */}
-      <div className="relative w-full h-[50vh] md:h-[60vh] overflow-hidden bg-neutral-100 pt-14">
+      <div className="relative w-full h-[50vh] md:h-[60vh] overflow-hidden pt-14">
         <LazyImage
           src={newsItem.image}
           alt={newsItem.title}
@@ -98,7 +108,7 @@ export default function NewsDetails() {
             if (block.type === 'image') {
               return (
                 <figure key={index} className="my-12">
-                  <div className="relative w-full aspect-[16/9] bg-neutral-100 overflow-hidden rounded-lg shadow-md">
+                  <div className="relative w-full aspect-[16/9] overflow-hidden rounded-lg shadow-md">
                     <LazyImage
                       src={block.content}
                       alt={block.caption || newsItem.title}
@@ -122,7 +132,7 @@ export default function NewsDetails() {
 
       {/* Related News */}
       {relatedNews.length > 0 && (
-        <div className="bg-neutral-50 py-16 mt-16">
+        <div className=" py-16 mt-16">
           <div className="max-w-[2340px] mx-auto px-4 md:px-8">
             <h3 className="text-2xl font-light text-black/90 mb-12">Related News</h3>
             <div className="grid md:grid-cols-3 gap-8">

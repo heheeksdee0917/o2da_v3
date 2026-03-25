@@ -54,44 +54,61 @@ export default function Awards() {
         <div className="mb-16">
           <h2 className="text-3xl font-light text-black/70">{title}</h2>
         </div>
-        <div className="space-y-20">
+        <div className="space-y-0">
           {years.map((year) => {
             const key = `${prefix}-${year}`;
             return (
               <div
                 key={key}
                 data-year-section={key}
-                className={`transition-all duration-700 ${
-                  visibleYears.has(key) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
+                className={`transition-all duration-700 ${visibleYears.has(key) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
               >
-                <div className="flex items-center gap-8 mb-12">
-                  <div className="text-6xl font-light text-black/20">{year}</div>
-                  <div className="flex-1 h-px bg-black/10" />
-                </div>
-                <div className="grid grid-cols-1 gap-8">
-                  {byYear[year].map((item) => (
-                    <Link
-                      key={item.id}
-                      to={item.slug ? `/portfolio/${item.slug}` : '#'}
-                      className={`group block ${!item.slug ? 'pointer-events-none' : ''}`}
-                    >
-                      <div className="flex items-start justify-between gap-8 py-6 border-b border-black/5 hover:border-black/20 transition-all duration-300">
-                        <div className="flex-1 min-w-0">
-                          <h3 className="text-xl font-light text-black mb-2">{item.competition}</h3>
-                          <p className="text-sm font-light tracking-widest text-black/50">
-                            <span className="px-2 py-1 group-hover:bg-lime-400/30 group-hover:text-black transition-all">
-                              {item.project}
-                            </span>
-                          </p>
-                        </div>
-                        <div className="flex-shrink-0">
-                          <span className="text-lg font-light text-black/80">{item.place}</span>
-                        </div>
+                {byYear[year].map((item, index) => (
+                  <Link
+                    key={item.id}
+                    to={item.slug ? `/portfolio/${item.slug}` : '#'}
+                    className={`group block ${!item.slug ? 'pointer-events-none' : ''}`}
+                  >
+                    {/* Mobile layout */}
+                    <div className="md:hidden border-b border-black/5 py-6">
+                      {index === 0 && (
+                        <span className="block text-2xl font-light text-black/30 mb-3">{year}</span>
+                      )}
+                      <h3 className="text-xl font-normal text-black mb-1">{item.competition}</h3>
+                      <p className="text-base font-light text-black/90 mb-1">{item.place}</p>
+                      <p className="text-sm font-light text-black/50">{item.project}</p>
+                    </div>
+
+                    {/* Desktop layout */}
+                    <div className="hidden md:flex md:flex-row md:items-start py-6 transition-all duration-300">
+
+                      {/* 10% left — Year */}
+                      <div className="md:w-[10%] shrink-0">
+                        {index === 0 && (
+                          <span className="text-2xl md:text-3xl font-light text-black/30">{year}</span>
+                        )}
                       </div>
-                    </Link>
-                  ))}
-                </div>
+
+                      {/* 90% right — bordered wrapper */}
+                      <div className="flex flex-row items-center md:w-[90%] border-b border-black/5 pb-6 transition-all duration-300">
+
+                        {/* 67% centre — competition + place */}
+                        <div className="w-[67%] min-w-0">
+                          <h3 className="text-2xl font-normal text-black mb-1">{item.competition}</h3>
+                          <p className="text-xl font-light text-black/90">{item.place}</p>
+                        </div>
+
+                        {/* 33% right — project */}
+                        <div className="w-[33%] shrink-0">
+                          <span className="text-base font-light text-black/90 md:group-hover:bg-lime-400/30 md:group-hover:text-black transition-all">
+                            {item.project}
+                          </span>
+                        </div>
+
+                      </div>
+                    </div>
+                  </Link>
+                ))}
               </div>
             );
           })}
@@ -106,7 +123,7 @@ export default function Awards() {
         <div ref={containerRef} className="max-w-[2340px] mx-auto px-4 md:px-8 pt-32 pb-32">
 
           {/* Header */}
-          <div className="mb-24">
+          <div className="mb-12">
             <h1 className="text-5xl font-light tracking-wide text-black/90 mb-4">Recognition</h1>
             <p className="text-base font-light text-black/50 leading-relaxed">
               A curated collection of awards and recognitions celebrating our commitment to design excellence and innovation in architecture

@@ -48,13 +48,13 @@ export const competitionProjects: Project[] = [
     ],
     images: [
       '/Gallery/Competition/KenyaOrph/CP.avif',
+      '/Gallery/Competition/KenyaOrph/Diagram3.avif',
       '/Gallery/Competition/KenyaOrph/A1.avif',
       '/Gallery/Competition/KenyaOrph/A2.avif',
       '/Gallery/Competition/KenyaOrph/A3.avif',
       '/Gallery/Competition/KenyaOrph/A4.avif',
       '/Gallery/Competition/KenyaOrph/Diagram1.avif',
       '/Gallery/Competition/KenyaOrph/Diagram2.avif',
-      '/Gallery/Competition/KenyaOrph/Diagram3.avif',
     ],
     detailContent: [
       {
@@ -267,8 +267,7 @@ export const competitionProjects: Project[] = [
       '/Gallery/Competition/NYCA/CP.avif',
       '/Gallery/Competition/NYCA/A1.avif',
       '/Gallery/Competition/NYCA/A2.avif',
-      '/Gallery/Competition/NYCA/A3.avif',
-      '/Gallery/Competition/NYCA/A4.avif'
+      '/Gallery/Competition/NYCA/A3.avif'
     ],
     detailContent: [
       {
@@ -855,7 +854,7 @@ export const competitionProjects: Project[] = [
     location: 'Flexible',
     category: 'Competition',
     accolades: ['1st Prize (International Comp)'],
-    projectTeam: ['Edric Choo Poo Liang'],
+    projectTeam: ['Edric Choo Poo Liang', 'Clyde Ong'],
     images: [
       '/Gallery/Competition/GoBeyond/CP.avif',
       '/Gallery/Competition/GoBeyond/A1.avif',

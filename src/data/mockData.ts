@@ -90,7 +90,7 @@ export const awards: Award[] = [
     id: 3,
     year: 2022,
     competition: 'PAM Awards',
-    project: 'Garisan @ Puchong',
+    project: 'Garisan',
     place: 'Silver (Multiple Residential Low Rise)',
     type: 'award',
     slug: 'garisan'
@@ -99,7 +99,7 @@ export const awards: Award[] = [
     id: 4,
     year: 2021,
     competition: 'Asia Pacific Property Awards (Best Residential Development Malaysia)',
-    project: 'Garisan @ Puchong',
+    project: 'Garisan',
     place: '5 Star Winner',
     type: 'award',
     slug: 'garisan'
@@ -108,7 +108,7 @@ export const awards: Award[] = [
     id: 5,
     year: 2021,
     competition: 'Asia Pacific Property Awards (Best Architecture Multiple Residence Malaysia)',
-    project: 'Garisan @ Puchong',
+    project: 'Garisan',
     place: '5 Star Winner',
     type: 'award',
     slug: 'garisan'
@@ -117,7 +117,7 @@ export const awards: Award[] = [
     id: 6,
     year: 2021,
     competition: 'Asia Pacific Property Awards (Retail Development Malaysia)',
-    project: 'KFC Bukit Raja',
+    project: 'UNO Rivertree Signature',
     place: 'Award Winner',
     type: 'award',
     slug: 'uno-rivertree-bukit-raja'
@@ -126,7 +126,7 @@ export const awards: Award[] = [
     id: 7,
     year: 2021,
     competition: 'Asia Pacific Property Awards (Best Development Marketing Malaysia)',
-    project: 'KFC Bukit Raja',
+    project: 'UNO Rivertree Signature',
     place: '5 Star Winner',
     type: 'award',
     slug: 'uno-rivertree-bukit-raja'
@@ -135,7 +135,7 @@ export const awards: Award[] = [
     id: 8,
     year: 2021,
     competition: 'Asia Pacific Property Awards (Best Leisure Interior Malaysia)',
-    project: 'KFC Bukit Raja',
+    project: 'UNO Rivertree Signature',
     place: '5 Star Winner',
     type: 'award',
     slug: 'uno-rivertree-bukit-raja'
@@ -144,7 +144,7 @@ export const awards: Award[] = [
     id: 9,
     year: 2020,
     competition: 'Property Guru Asia Property Awards (Best Retail Development)',
-    project: 'KFC Bukit Raja',
+    project: 'UNO Rivertree Signature',
     place: 'Winner',
     type: 'award',
     slug: 'uno-rivertree-bukit-raja'
@@ -153,7 +153,7 @@ export const awards: Award[] = [
     id: 10,
     year: 2019,
     competition: 'ArchDaily Building of the Year',
-    project: '3 COURTYARD HOUSE @ BANDAR SRI DAMANSARA',
+    project: '3 COURTYARD HOUSE',
     place: 'Nominated',
     type: 'award',
     slug: '3-courtyard-house'
@@ -162,7 +162,7 @@ export const awards: Award[] = [
     id: 11,
     year: 2019,
     competition: 'European Iconic Award',
-    project: '3 COURTYARD HOUSE @ BANDAR SRI DAMANSARA',
+    project: '3 COURTYARD HOUSE',
     place: 'Winner',
     type: 'award',
     slug: '3-courtyard-house'
@@ -171,7 +171,7 @@ export const awards: Award[] = [
     id: 12,
     year: 2018,
     competition: 'International Architecture Review Future Project Awards',
-    project: 'ECO-VILLAGE ORPHANAGE CENTRE @ KENYA',
+    project: 'Kenya‘s Orphanage',
     place: 'COMMENDATION',
     type: 'award',
     slug: 'kenyas-orphanage'
@@ -180,7 +180,7 @@ export const awards: Award[] = [
     id: 13,
     year: 2017,
     competition: 'World Architecture Festival Award',
-    project: 'ECO-VILLAGE ORPHANAGE CENTRE @ KENYA',
+    project: 'Kenya‘s Orphanage',
     place: 'Comendation',
     type: 'award',
     slug: 'kenyas-orphanage'
@@ -189,7 +189,7 @@ export const awards: Award[] = [
     id: 14,
     year: 2017,
     competition: 'World Architecture Festival Award',
-    project: 'COURTYARD HOUSE @ SUNGAI BULOH',
+    project: 'COURTYARD HOUSE',
     place: 'Finalist',
     type: 'award',
     slug: 'courtyard-house'
@@ -198,7 +198,7 @@ export const awards: Award[] = [
     id: 15,
     year: 2017,
     competition: 'Malaysia MIID REKA Award',
-    project: 'COURTYARD HOUSE @ SUNGAI BULOH',
+    project: 'COURTYARD HOUSE',
     place: 'Shortlisted',
     type: 'award',
     slug: 'courtyard-house'
@@ -207,7 +207,7 @@ export const awards: Award[] = [
     id: 16,
     year: 2017,
     competition: 'Designer of the Year Award',
-    project: 'COURTYARD HOUSE @ SUNGAI BULOH',
+    project: 'COURTYARD HOUSE',
     place: 'Winner',
     type: 'award',
     slug: 'courtyard-house'
@@ -216,7 +216,7 @@ export const awards: Award[] = [
     id: 17,
     year: 2017,
     competition: 'Malaysia MIID REKA Award',
-    project: '3 COURTYARD HOUSE @ BANDAR SRI DAMANSARA',
+    project: '3 COURTYARD HOUSE',
     place: 'Shortlisted',
     type: 'award',
     slug: '3-courtyard-house'
@@ -225,7 +225,7 @@ export const awards: Award[] = [
     id: 18,
     year: 2015,
     competition: 'PAM-Homedec Award',
-    project: 'COURTYARD HOUSE@ SUNGAI BULOH',
+    project: 'COURTYARD HOUSE',
     place: 'Silver',
     type: 'award',
     slug: 'courtyard-house'
@@ -234,7 +234,7 @@ export const awards: Award[] = [
     id: 19,
     year: 2017,
     competition: 'International Competition',
-    project: 'ECO-VILLAGE ORPHANAGE CENTRE @ KENYA',
+    project: 'Kenya‘s Orphanage',
     place: '1st Prize',
     type: 'competition',
     slug: 'kenyas-orphanage'
@@ -243,7 +243,7 @@ export const awards: Award[] = [
     id: 20,
     year: 2017,
     competition: 'International Competition',
-    project: 'FUTURE HOUSE @ MICRO HOUSE',
+    project: 'FUTURE HOUSE',
     place: '1st Prize',
     type: 'competition',
     slug: 'future-house'
@@ -261,7 +261,7 @@ export const awards: Award[] = [
     id: 22,
     year: 2016,
     competition: 'National Competition',
-    project: 'PAM MGBC CENTRE',
+    project: 'MGBC HQ',
     place: 'Honorable Mention',
     type: 'competition',
     slug: 'mgbc-hq'
@@ -270,7 +270,7 @@ export const awards: Award[] = [
     id: 23,
     year: 2016,
     competition: 'National Competition',
-    project: 'PAM NORTHERN CHAPTER - WET MARKET',
+    project: 'Teluk Kumbar Market',
     place: '2nd Prize',
     type: 'competition',
     slug: 'teluk-kumbar-wet-market'
@@ -279,7 +279,7 @@ export const awards: Award[] = [
     id: 24,
     year: 2015,
     competition: 'International Competition',
-    project: 'PAM PR1MA HOUSING',
+    project: 'PR1MA Affordable Housing',
     place: '1st Prize',
     type: 'competition',
     slug: 'pr1ma-affordable-housing'
