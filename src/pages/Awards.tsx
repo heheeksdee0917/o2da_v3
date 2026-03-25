@@ -92,16 +92,19 @@ export default function Awards() {
                       {/* 90% right — bordered wrapper */}
                       <div className="flex flex-row items-center md:w-[90%] border-b border-black/5 pb-6 transition-all duration-300">
 
-                        {/* 67% centre — competition + place */}
                         <div className="w-[67%] min-w-0">
                           <h3 className="text-2xl font-normal text-black mb-1">{item.competition}</h3>
-                          <p className="text-xl font-light text-black/90">{item.place}</p>
+                          <p className="text-xl font-light text-black/90">
+                            <span className="md:group-hover:bg-lime-400/30 md:group-hover:text-black transition-all">
+                              {item.project}
+                            </span>
+                          </p>
                         </div>
 
                         {/* 33% right — project */}
                         <div className="w-[33%] shrink-0">
-                          <span className="text-base font-light text-black/90 md:group-hover:bg-lime-400/30 md:group-hover:text-black transition-all">
-                            {item.project}
+                          <span className="text-base font-light text-black/90">
+                            {item.place}
                           </span>
                         </div>
 

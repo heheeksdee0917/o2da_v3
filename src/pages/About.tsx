@@ -102,6 +102,8 @@ export default function About() {
                 src="/team_photo/team_1.avif"
                 alt="CPLA Studio"
                 className="w-full h-full object-cover"
+                loading="eager"
+                fetchPriority="high"
               />
             </div>
 
@@ -173,22 +175,6 @@ export default function About() {
           {/* Equation grid — bordered boxes, operators centered */}
           <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] gap-0 items-stretch">
 
-            {/* Form Language */}
-            <div className="border p-8">
-              <p className="text-xl uppercase tracking-[0.12em] text-black/80 mb-4">Form Language</p>
-              <p className="text-sm text-neutral-800 italic mb-6">visible, tangible</p>
-              <p className="text-base text-neutral-700 leading-relaxed mb-4">
-                Geometry, tectonics, compositions and proportions, materials — the vocabularies of built form.
-              </p>
-              <p className="text-base text-neutral-600 leading-relaxed">
-                The many styles and movements created by the introduction and denial of certain elements — the sentences of architecture.
-              </p>
-            </div>
-
-            {/* × operator */}
-            <div className="hidden md:flex items-center justify-center px-6">
-            </div>
-
             {/* Pattern Language */}
             <div className="border p-8">
               <p className="text-xl uppercase tracking-[0.12em] text-black/80 mb-4">Pattern Language</p>
@@ -198,6 +184,22 @@ export default function About() {
               </p>
               <p className="text-sm text-neutral-800 italic leading-relaxed">
                 — A Theory on Architecture. Nikos A. Salingaros.
+              </p>
+            </div>
+
+            {/* × operator */}
+            <div className="hidden md:flex items-center justify-center px-6">
+            </div>
+
+            {/* Form Language */}
+            <div className="border p-8">
+              <p className="text-xl uppercase tracking-[0.12em] text-black/80 mb-4">Form Language</p>
+              <p className="text-sm text-neutral-800 italic mb-6">visible, tangible</p>
+              <p className="text-base text-neutral-700 leading-relaxed mb-4">
+                Geometry, tectonics, compositions and proportions, materials — the vocabularies of built form.
+              </p>
+              <p className="text-base text-neutral-600 leading-relaxed">
+                The many styles and movements created by the introduction and denial of certain elements — the sentences of architecture.
               </p>
             </div>
 
