@@ -1024,4 +1024,74 @@ export const newsItems: NewsItem[] = [
       }
     ]
   },
+  {
+    id: 46,
+    title: "O2 Design Atelier Wins International Competition to Design Kenyan Eco-Village for Orphaned Children",
+    date: "2017",
+    excerpt: "Malaysian firm O2 Design Atelier, led by Poo Liang Edric Choo, won the international Children’s Eco-Village Design Competition organized by the One Heart Foundation. The winning masterplan creates a sustainable, nurturing eco-village on an eight-acre site in Soy, Kenya, providing homes for 100 orphaned children, education for over 500, an income-generating eco-farm, and community skills training.",
+    image: '/Gallery/Competition/KenyaOrph/A3.avif',
+    slug: "o2-design-atelier-wins-kenyan-eco-village-competition",
+    content: [
+      {
+        type: 'text',
+        content: `The project serves as a sister campus to the existing One Heart Village in Turbo, Kenya. It embraces vernacular African architecture and locally sourced materials to create a warm, nurturing sense of place that helps orphaned and abandoned children feel at home while fostering community belonging and happiness.`
+      },
+      {
+        type: 'text',
+        content: `Key features of the masterplan include orphanage homes with courtyards, school buildings with dedicated courtyards and drop-off areas, an income-generating eco-farm, playing fields, a multi-purpose hall, and a storytelling pit. The design prioritizes environmental sustainability, low-cost and simple construction methods, and contextual responsiveness to the local climate, culture, and site.`
+      },
+      {
+        type: 'text',
+        content: `The competition attracted 45 entries from 21 countries. O2 Design Atelier will collaborate with Melbourne-based ClarkeHopkinsClarke for implementation, with construction planned to begin in early 2018. The jury, which included the Australian High Commissioner to Kenya and prominent architects, praised the proposal for its aesthetic beauty, functionality, and positive social impact through architecture.`
+      },
+      {
+        type: 'text',
+        content: `Details and images available in the original articles: <a href="https://architectureau.com/articles/o2-design-atelier-wins-competition-to-design-kenyan-eco-village/" target="_blank" rel="noopener noreferrer" class="underline hover:no-underline text-black/90">ArchitectureAU</a> and <a href="https://www.archdaily.com/805043/an-eco-village-for-orphaned-kenyan-children-competition-winners-announced" target="_blank" rel="noopener noreferrer" class="underline hover:no-underline text-black/90">ArchDaily</a>.`
+      }
+    ],
+  },
+  {
+    id: 47,
+    title: "Call for Entries: Kenyan Children’s Village Masterplan Competition by One Heart Foundation",
+    date: "2016",
+    excerpt: "The One Heart Foundation launched an international open design competition inviting architects, students, and recent graduates to masterplan a sustainable eco-village for orphaned and abandoned children in Kenya. The brief called for an environmentally friendly, low-cost, simple-to-build campus that is contextually responsive to the local site, culture, climate, and needs.",
+    image: '/Gallery/Competition/KenyaOrph/A1.avif',
+    slug: "kenyan-childrens-village-masterplan-competition-call",
+    content: [
+      {
+        type: 'text',
+        content: `Organized by the Australian-based One Heart Foundation, the competition offered cash prizes (AUD $2000 for the winner) and the opportunity for the winning team to collaborate pro bono with Melbourne-based firm ClarkeHopkinsClarke to deliver the project.`
+      },
+      {
+        type: 'text',
+        content: `The eco-village aims to provide a nurturing home for orphaned children while incorporating an income-generating eco-farm, education facilities, and community skills training. The design must be sustainable, low-cost, and culturally sensitive.`
+      },
+      {
+        type: 'text',
+        content: `This open call set the stage for the winning entry by O2 Design Atelier. Full competition brief available here: <a href="https://www.archdaily.com/798075/call-for-entries-kenyan-childrens-village-masterplan" target="_blank" rel="noopener noreferrer" class="underline hover:no-underline text-black/90">ArchDaily Call for Entries</a>.`
+      }
+    ]
+  },
+  {
+    id: 48,
+    title: "An Eco-Village for Orphaned Kenyan Children – Competition Winners Announced",
+    date: "February 11, 2017",
+    excerpt: "One Heart Foundation announced O2 Design Atelier (Malaysia) as the winner of the Children’s Eco-Village Design Competition. The eight-acre masterplan in Soy, Kenya, combines orphanage homes, school facilities, an eco-farm, and community spaces using vernacular architecture and local materials.",
+    image: '/Gallery/Competition/KenyaOrph/A4.avif',
+    slug: "kenyan-eco-village-orphaned-children-competition-winners",
+    content: [
+      {
+        type: 'text',
+        content: `The winning design was praised for creating a warm and nurturing sense of place through African-inspired architecture and locally sourced materials. It will house 100 orphaned children, provide education for over 500, create 50 local jobs, and generate income through the eco-farm.`
+      },
+      {
+        type: 'text',
+        content: `O2 Design Atelier, led by Poo Liang Edric Choo, will partner with ClarkeHopkinsClarke (Melbourne) for project realization, with work expected to start in early 2018. The competition received 45 entries from 21 countries.`
+      },
+      {
+        type: 'text',
+        content: `Read the full announcement: <a href="https://www.archdaily.com/805043/an-eco-village-for-orphaned-kenyan-children-competition-winners-announced" target="_blank" rel="noopener noreferrer" class="underline hover:no-underline text-black/90">ArchDaily Winners Announcement</a>.`
+      }
+    ]
+  }
 ];

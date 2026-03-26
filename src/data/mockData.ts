@@ -72,7 +72,7 @@ export const awards: Award[] = [
     id: 1,
     year: 2023,
     competition: 'PAM Awards',
-    project: 'UNO RIVERTTREE',
+    project: 'Uno Rivertree',
     place: 'Hon. Mention (COLLABORATION)',
     type: 'award',
     slug: 'uno-rivertree-bukit-raja'
@@ -81,7 +81,7 @@ export const awards: Award[] = [
     id: 2,
     year: 2023,
     competition: 'Design Competition',
-    project: 'UNO SG. MERAB',
+    project: 'Uno Sg. Merab',
     place: '3rd Prize',
     type: 'award',
     slug: 'uno-sg-merab'  // not in current portfolio yet
@@ -153,7 +153,7 @@ export const awards: Award[] = [
     id: 10,
     year: 2019,
     competition: 'ArchDaily Building of the Year',
-    project: '3 COURTYARD HOUSE',
+    project: '3 Courtyard House',
     place: 'Nominated',
     type: 'award',
     slug: '3-courtyard-house'
@@ -162,7 +162,7 @@ export const awards: Award[] = [
     id: 11,
     year: 2019,
     competition: 'European Iconic Award',
-    project: '3 COURTYARD HOUSE',
+    project: '3 Courtyard House',
     place: 'Winner',
     type: 'award',
     slug: '3-courtyard-house'
@@ -189,7 +189,7 @@ export const awards: Award[] = [
     id: 14,
     year: 2017,
     competition: 'World Architecture Festival Award',
-    project: 'COURTYARD HOUSE',
+    project: 'Courtyard House',
     place: 'Finalist',
     type: 'award',
     slug: 'courtyard-house'
@@ -198,7 +198,7 @@ export const awards: Award[] = [
     id: 15,
     year: 2017,
     competition: 'Malaysia MIID REKA Award',
-    project: 'COURTYARD HOUSE',
+    project: 'Courtyard House',
     place: 'Shortlisted',
     type: 'award',
     slug: 'courtyard-house'
@@ -207,7 +207,7 @@ export const awards: Award[] = [
     id: 16,
     year: 2017,
     competition: 'Designer of the Year Award',
-    project: 'COURTYARD HOUSE',
+    project: 'Courtyard House',
     place: 'Winner',
     type: 'award',
     slug: 'courtyard-house'
@@ -216,7 +216,7 @@ export const awards: Award[] = [
     id: 17,
     year: 2017,
     competition: 'Malaysia MIID REKA Award',
-    project: '3 COURTYARD HOUSE',
+    project: '3 Courtyard House',
     place: 'Shortlisted',
     type: 'award',
     slug: '3-courtyard-house'
@@ -225,7 +225,7 @@ export const awards: Award[] = [
     id: 18,
     year: 2015,
     competition: 'PAM-Homedec Award',
-    project: 'COURTYARD HOUSE',
+    project: 'Courtyard House',
     place: 'Silver',
     type: 'award',
     slug: 'courtyard-house'
@@ -233,7 +233,7 @@ export const awards: Award[] = [
   {
     id: 19,
     year: 2017,
-    competition: 'International Competition',
+    competition: 'Kenyan ecovillage design competition',
     project: 'Kenya‘s Orphanage',
     place: '1st Prize',
     type: 'competition',
@@ -243,7 +243,7 @@ export const awards: Award[] = [
     id: 20,
     year: 2017,
     competition: 'International Competition',
-    project: 'FUTURE HOUSE',
+    project: 'Future House',
     place: '1st Prize',
     type: 'competition',
     slug: 'future-house'
@@ -297,7 +297,7 @@ export const awards: Award[] = [
     id: 26,
     year: 2015,
     competition: 'National Competition',
-    project: 'PAM HOMELESS SHELTER',
+    project: 'PAM Homeless Shelter',
     place: 'Honorable Mention',
     type: 'competition',
     slug: ''
@@ -305,9 +305,9 @@ export const awards: Award[] = [
   {
     id: 27,
     year: 2024,
-    competition: 'Malaysia Fiabsi Award Heritage & Office Category',
+    competition: 'International Fiabsi Award',
     project: 'Sentul Works',
-    place: 'Winner',
+    place: 'Silver Award',
     type: 'award',
     slug: 'sentul-works'
   },
@@ -328,5 +328,14 @@ export const awards: Award[] = [
     place: '1st Prize',
     type: 'competition',
     slug: 'go-beyond'
+  },
+  {
+    id: 30,
+    year: 2024,
+    competition: 'Malaysia Fiabsi Award Heritage & Office Category',
+    project: 'Sentul Works',
+    place: 'Winner',
+    type: 'award',
+    slug: 'sentul-works'
   },
 ];

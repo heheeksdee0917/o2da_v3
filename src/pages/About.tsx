@@ -168,12 +168,27 @@ export default function About() {
               Early Wittgenstein suggests that the world, insofar as it can be thought and shared, appears within the limits of language. Architecture, the art and science of place making, would then become the most intimate and fundamental to our world building.
             </p>
             <p className="text-base md:text-lg text-neutral-700 leading-relaxed">
-              Its building blocks are not only objects or components, but the coupled vocabularies of <span className="text-black font-medium">pattern language</span> and <span className="text-black font-medium">form language</span>: one organizing the recurring structures of life, the other organizing the formal means through which those structures are made tangible.
+              Its building blocks are not only objects or components, but the coupled vocabularies of <span className="text-black font-medium">form language</span> and <span className="text-black font-medium">pattern language</span>: one organizing the recurring structures of life, the other organizing the formal means through which those structures are made tangible.
             </p>
           </div>
 
           {/* Equation grid — bordered boxes, operators centered */}
           <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] gap-0 items-stretch">
+            {/* Form Language */}
+            <div className="border p-8">
+              <p className="text-xl uppercase tracking-[0.12em] text-black/80 mb-4">Form Language</p>
+              <p className="text-sm text-neutral-800 italic mb-6">visible, tangible</p>
+              <p className="text-base text-neutral-700 leading-relaxed mb-4">
+                Geometry, tectonics, compositions and proportions, materials — the vocabularies of built form.
+              </p>
+              <p className="text-base text-neutral-600 leading-relaxed">
+                The many styles and movements created by the introduction and denial of certain elements — the sentences of architecture.
+              </p>
+            </div>
+
+            {/* × operator */}
+            <div className="hidden md:flex items-center justify-center px-6">
+            </div>
 
             {/* Pattern Language */}
             <div className="border p-8">
@@ -184,22 +199,6 @@ export default function About() {
               </p>
               <p className="text-sm text-neutral-800 italic leading-relaxed">
                 — A Theory on Architecture. Nikos A. Salingaros.
-              </p>
-            </div>
-
-            {/* × operator */}
-            <div className="hidden md:flex items-center justify-center px-6">
-            </div>
-
-            {/* Form Language */}
-            <div className="border p-8">
-              <p className="text-xl uppercase tracking-[0.12em] text-black/80 mb-4">Form Language</p>
-              <p className="text-sm text-neutral-800 italic mb-6">visible, tangible</p>
-              <p className="text-base text-neutral-700 leading-relaxed mb-4">
-                Geometry, tectonics, compositions and proportions, materials — the vocabularies of built form.
-              </p>
-              <p className="text-base text-neutral-600 leading-relaxed">
-                The many styles and movements created by the introduction and denial of certain elements — the sentences of architecture.
               </p>
             </div>
 

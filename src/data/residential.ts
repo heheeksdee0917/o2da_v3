@@ -913,17 +913,18 @@ export const residentialProjects: Project[] = [
     coverPhoto: '/Gallery/Residential/JNDHouse/CP.avif',
     images: [
       '/Gallery/Residential/JNDHouse/A0.avif',
-      '/Gallery/Residential/JNDHouse/A2.avif',
-      '/Gallery/Residential/JNDHouse/A3.avif',
-      '/Gallery/Residential/JNDHouse/A4.avif',
-      '/Gallery/Residential/JNDHouse/A5.avif',
       '/Gallery/Residential/JNDHouse/A7.avif',
-      '/Gallery/Residential/JNDHouse/A8.avif',
       '/Gallery/Residential/JNDHouse/A9.avif',
       '/Gallery/Residential/JNDHouse/A10.avif',
-      '/Gallery/Residential/JNDHouse/A11.avif',
       '/Gallery/Residential/JNDHouse/A12.avif',
-      '/Gallery/Residential/JNDHouse/A13.avif'
+      '/Gallery/Residential/JNDHouse/A5.avif',
+      '/Gallery/Residential/JNDHouse/A2.avif',
+      '/Gallery/Residential/JNDHouse/A4.avif',
+      '/Gallery/Residential/JNDHouse/A3.avif',
+      '/Gallery/Residential/JNDHouse/A13.avif',
+      '/Gallery/Residential/JNDHouse/A8.avif',
+      '/Gallery/Residential/JNDHouse/A11.avif',
+
     ],
     detailContent: [
       {
