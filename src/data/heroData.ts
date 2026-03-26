@@ -19,10 +19,10 @@ export const heroSections: HeroSection[] = [
   },
   {
     id: 2,
-    slug: 'garisan',
-    title: 'Garisan',
-    location: 'Puchong, Selangor',
-    img: '/Gallery/Housing/GarisanPuchong/CP.avif',
+    slug: 'sentul-works',
+    title: 'Sentul Works',
+    location: 'Sentul, Kuala Lumpur',
+    img: '/Gallery/Commercial/SentulWorks/CP.avif',
   },
   {
     id: 3,
@@ -33,23 +33,23 @@ export const heroSections: HeroSection[] = [
   },
   {
     id: 4,
+    slug: 'garisan',
+    title: 'Garisan',
+    location: 'Puchong, Selangor',
+    img: '/Gallery/Housing/GarisanPuchong/CP.avif',
+  },
+  {
+    id: 5,
     slug: 'the-quartz',
     title: 'The Quartz',
     location: 'Cheras, Kuala Lumpur',
     img: '/Gallery/Housing/Quartz/CP.avif',
   },
   {
-    id: 5,
+    id: 6,
     slug: 'kenyas-orphanage',
     title: 'ORPHANED & CHILDRE‘s ECO-VILLAGE',
     location: 'SOY, KENYA',
     img: '/Gallery/Competition/KenyaOrph/CP.avif',
-  },
-  {
-    id: 6,
-    slug: 'sentul-works',
-    title: 'Sentul Works',
-    location: 'Sentul, Kuala Lumpur',
-    img: '/Gallery/Commercial/SentulWorks/CP.avif',
   },
 ];

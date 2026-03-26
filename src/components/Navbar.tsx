@@ -10,7 +10,7 @@ export default function Navbar() {
   const navRef = useRef<HTMLElement>(null);
 
   const isActive = (path: string) => location.pathname === path;
-  const isPortfolioPage = location.pathname === '/portfolio' || location.pathname.startsWith('/portfolio/');
+  const isProjectsPage = location.pathname === '/projects' || location.pathname.startsWith('/projects/');
 
   const categories = ['Residential', 'Housing', 'Commercial', 'Hospitality', 'Interior', 'Competition'];
 
@@ -88,6 +88,21 @@ export default function Navbar() {
                   About
                   <span className={`absolute bottom-0 left-0 h-px transition-all duration-300 ease-out ${underlineColor} ${isActive('/about') ? 'w-full' : 'w-0 group-hover/link:w-full'}`}></span>
                 </Link>
+                <div className="relative group/projects">
+                  <Link to="/projects" className={`caption transition-all duration-300 ${textColor} relative group/link`}>
+                    Projects
+                    <span className={`absolute bottom-0 left-0 h-px transition-all duration-300 ease-out ${underlineColor} ${isProjectsPage ? 'w-full' : 'w-0 group-hover/link:w-full'}`}></span>
+                  </Link>
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover/projects:opacity-100 group-hover/projects:visible transition-all duration-300">
+                    <div className="backdrop-blur-xl bg-white/95 shadow-lg rounded-lg py-2 min-w-[160px] border border-white/20">
+                      {categories.map((category) => (
+                        <Link key={category} to={`/projects?category=${category}`} className="block px-4 py-2 text-sm text-black/70 hover:text-black hover:bg-black/5 transition-colors">
+                          {category}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
                 <Link to="/awards" className={`caption transition-all duration-300 ${textColor} relative group/link`}>
                   Awards
                   <span className={`absolute bottom-0 left-0 h-px transition-all duration-300 ease-out ${underlineColor} ${isActive('/awards') ? 'w-full' : 'w-0 group-hover/link:w-full'}`}></span>
@@ -96,22 +111,6 @@ export default function Navbar() {
                   News
                   <span className={`absolute bottom-0 left-0 h-px transition-all duration-300 ease-out ${underlineColor} ${isActive('/news') ? 'w-full' : 'w-0 group-hover/link:w-full'}`}></span>
                 </Link>
-
-                <div className="relative group/portfolio">
-                  <Link to="/portfolio" className={`caption transition-all duration-300 ${textColor} relative group/link`}>
-                    Portfolio
-                    <span className={`absolute bottom-0 left-0 h-px transition-all duration-300 ease-out ${underlineColor} ${isPortfolioPage ? 'w-full' : 'w-0 group-hover/link:w-full'}`}></span>
-                  </Link>
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover/portfolio:opacity-100 group-hover/portfolio:visible transition-all duration-300">
-                    <div className="backdrop-blur-xl bg-white/95 shadow-lg rounded-lg py-2 min-w-[160px] border border-white/20">
-                      {categories.map((category) => (
-                        <Link key={category} to={`/portfolio?category=${category}`} className="block px-4 py-2 text-sm text-black/70 hover:text-black hover:bg-black/5 transition-colors">
-                          {category}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -157,18 +156,19 @@ export default function Navbar() {
             <nav className="space-y-8 text-center">
               <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className={`block text-2xl ${isActive('/') ? 'text-black font-medium' : 'text-black/70 hover:text-black'}`}>Home</Link>
               <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className={`block text-2xl ${isActive('/about') ? 'text-black font-medium' : 'text-black/70 hover:text-black'}`}>About</Link>
-              <Link to="/awards" onClick={() => setIsMobileMenuOpen(false)} className={`block text-2xl ${isActive('/awards') ? 'text-black font-medium' : 'text-black/70 hover:text-black'}`}>Awards</Link>
-              <Link to="/news" onClick={() => setIsMobileMenuOpen(false)} className={`block text-2xl ${isActive('/news') ? 'text-black font-medium' : 'text-black/70 hover:text-black'}`}>News</Link>
               <div>
-                <Link to="/portfolio" onClick={() => setIsMobileMenuOpen(false)} className={`block text-2xl ${isPortfolioPage ? 'text-black font-medium' : 'text-black/70 hover:text-black'}`}>Portfolio</Link>
+                <Link to="/projects" onClick={() => setIsMobileMenuOpen(false)} className={`block text-2xl ${isProjectsPage ? 'text-black font-medium' : 'text-black/70 hover:text-black'}`}>Projects</Link>
                 <div className="mt-4 space-y-3">
                   {categories.map((cat) => (
-                    <Link key={cat} to={`/portfolio?category=${cat}`} onClick={() => setIsMobileMenuOpen(false)} className="block text-base text-black/60 hover:text-black">
+                    <Link key={cat} to={`/projects?category=${cat}`} onClick={() => setIsMobileMenuOpen(false)} className="block text-base text-black/60 hover:text-black">
                       {cat}
                     </Link>
                   ))}
                 </div>
               </div>
+              <Link to="/awards" onClick={() => setIsMobileMenuOpen(false)} className={`block text-2xl ${isActive('/awards') ? 'text-black font-medium' : 'text-black/70 hover:text-black'}`}>Awards</Link>
+              <Link to="/news" onClick={() => setIsMobileMenuOpen(false)} className={`block text-2xl ${isActive('/news') ? 'text-black font-medium' : 'text-black/70 hover:text-black'}`}>News</Link>
+
             </nav>
           </div>
         </div>

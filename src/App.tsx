@@ -3,14 +3,14 @@ import { lazy, Suspense, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import PortfolioDetails from './pages/PortfolioDetails';
+import ProjectsDetails from './pages/ProjectsDetails';
 import React from 'react';
 
 const About = lazy(() => import('./pages/About'));
 const Awards = lazy(() => import('./pages/Awards'));
 const News = lazy(() => import('./pages/News'));
 const NewsDetails = lazy(() => import('./pages/NewsDetails'));
-const Portfolio = lazy(() => import('./pages/Portfolio'));
+const Projects = lazy(() => import('./pages/Projects'));
 const Contact = lazy(() => import('./pages/Contact'));
 
 function ScrollToTop() {
@@ -23,9 +23,9 @@ function ScrollToTop() {
   return null;
 }
 
-function PortfolioDetailsWithRemount() {
+function ProjectsDetailsWithRemount() {
   const { id } = useParams<{ id: string }>();
-  return <PortfolioDetails key={id} />;
+  return <ProjectsDetails key={id} />;
 }
 
 function NewsDetailsWithRemount() {
@@ -83,14 +83,14 @@ function AppContent() {
             </Suspense>
           } />
 
-          <Route path="/portfolio" element={
+          <Route path="/Projects" element={
             <Suspense fallback={<LoadingFallback />}>
-              <Portfolio />
+              <Projects />
             </Suspense>
           } />
 
-          <Route path="/portfolio/:id" element={
-            <PortfolioDetailsWithRemount />
+          <Route path="/Projects/:id" element={
+            <ProjectsDetailsWithRemount />
           } />
 
           <Route path="/contact" element={

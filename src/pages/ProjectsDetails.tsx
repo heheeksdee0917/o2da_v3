@@ -74,7 +74,7 @@ function ThumbnailStrip({
 
 // ─── Main Page ────────────────────────────────────────────────────────────────
 
-export default function PortfolioDetails() {
+export default function ProjectsDetails() {
   const { id } = useParams<{ id: string }>();
   const project = projects.find(p => p.slug === id);
 
@@ -90,7 +90,7 @@ export default function PortfolioDetails() {
   const sidebarRef = useRef<HTMLDivElement>(null);
   const imageRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
-  if (!project) return <Navigate to="/portfolio" replace />;
+  if (!project) return <Navigate to="/projects" replace />;
 
   const images = project.images;
 
@@ -419,7 +419,7 @@ export default function PortfolioDetails() {
             <h3 className="caption text-neutral-500 mb-8">Similar Projects</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {similarProjects.map((p) => (
-                <Link key={p.id} to={`/portfolio/${p.slug}`} className="block group">
+                <Link key={p.id} to={`/project/${p.slug}`} className="block group">
                   <div className="relative overflow-hidden mb-3 aspect-video">
                     <LazyImage
                       src={p.images[0]}
