@@ -1052,28 +1052,6 @@ export const newsItems: NewsItem[] = [
   },
   {
     id: 47,
-    title: "Call for Entries: Kenyan Children’s Village Masterplan Competition by One Heart Foundation",
-    date: "2016",
-    excerpt: "The One Heart Foundation launched an international open design competition inviting architects, students, and recent graduates to masterplan a sustainable eco-village for orphaned and abandoned children in Kenya. The brief called for an environmentally friendly, low-cost, simple-to-build campus that is contextually responsive to the local site, culture, climate, and needs.",
-    image: '/Gallery/Competition/KenyaOrph/A1.avif',
-    slug: "kenyan-childrens-village-masterplan-competition-call",
-    content: [
-      {
-        type: 'text',
-        content: `Organized by the Australian-based One Heart Foundation, the competition offered cash prizes (AUD $2000 for the winner) and the opportunity for the winning team to collaborate pro bono with Melbourne-based firm ClarkeHopkinsClarke to deliver the project.`
-      },
-      {
-        type: 'text',
-        content: `The eco-village aims to provide a nurturing home for orphaned children while incorporating an income-generating eco-farm, education facilities, and community skills training. The design must be sustainable, low-cost, and culturally sensitive.`
-      },
-      {
-        type: 'text',
-        content: `This open call set the stage for the winning entry by O2 Design Atelier. Full competition brief available here: <a href="https://www.archdaily.com/798075/call-for-entries-kenyan-childrens-village-masterplan" target="_blank" rel="noopener noreferrer" class="underline hover:no-underline text-black/90">ArchDaily Call for Entries</a>.`
-      }
-    ]
-  },
-  {
-    id: 48,
     title: "An Eco-Village for Orphaned Kenyan Children – Competition Winners Announced",
     date: "February 11, 2017",
     excerpt: "One Heart Foundation announced O2 Design Atelier (Malaysia) as the winner of the Children’s Eco-Village Design Competition. The eight-acre masterplan in Soy, Kenya, combines orphanage homes, school facilities, an eco-farm, and community spaces using vernacular architecture and local materials.",

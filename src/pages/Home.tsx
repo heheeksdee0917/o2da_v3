@@ -10,7 +10,7 @@ export default function HeroSection() {
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const handleSectionClick = (slug: string) => {
-    navigate(`/Projects/${slug}`);
+    navigate(`/portfolio/${slug}`);
   };
 
   // Track active section on scroll

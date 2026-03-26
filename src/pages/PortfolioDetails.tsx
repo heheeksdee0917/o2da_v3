@@ -90,7 +90,7 @@ export default function ProjectsDetails() {
   const sidebarRef = useRef<HTMLDivElement>(null);
   const imageRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
-  if (!project) return <Navigate to="/projects" replace />;
+  if (!project) return <Navigate to="/portfolio" replace />;
 
   const images = project.images;
 

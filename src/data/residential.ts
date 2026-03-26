@@ -122,7 +122,7 @@ export const residentialProjects: Project[] = [
     location: 'Johor',
     category: 'Residential',
     status: 'Schematic',
-    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn', 'Kong Xiang Lynn'],
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn', 'Kong Xhiang Lynn'],
     images: [
       '/Gallery/Residential/HouseK/CP.avif',
       '/Gallery/Residential/HouseK/A1.avif',
@@ -204,7 +204,7 @@ export const residentialProjects: Project[] = [
     location: 'Kuala Lumpur',
     category: 'Residential',
     status: 'Submission',
-    projectTeam: ['Edric Choo Poo Liang', 'Joshua Quah', 'Kong Xiang Lynn'],
+    projectTeam: ['Edric Choo Poo Liang', 'Joshua Quah', 'Kong Xhiang Lynn'],
     images: [
       '/Gallery/Residential/TSCMYHouse/CP.avif',
       '/Gallery/Residential/TSCMYHouse/A1.avif',
@@ -649,7 +649,7 @@ export const residentialProjects: Project[] = [
     location: 'Kota Damansara, Selangor',
     category: 'Residential',
     status: 'Completed',
-    projectTeam: ['Edric Choo Poo Liang', 'Kong Xiang Lynn', 'Wong Jia Xin', 'Quak Yi Jane', 'Naveen Ram', 'Pang Jun Wei', 'Alireza'],
+    projectTeam: ['Edric Choo Poo Liang', 'Kong Xhiang Lynn', 'Wong Jia Xin', 'Quak Yi Jane', 'Naveen Ram', 'Pang Jun Wei', 'Alireza'],
     images: [
       '/Gallery/Residential/ResortHome/CP.avif',
       '/Gallery/Residential/ResortHome/A1.avif',
@@ -909,7 +909,7 @@ export const residentialProjects: Project[] = [
     location: 'Kuala Lumpur',
     category: 'Residential',
     status: 'Completed',
-    projectTeam: ['Edric Choo Poo Liang','Joshua','Kong Xiang Lynn','Evans Khor'],
+    projectTeam: ['Edric Choo Poo Liang','Joshua','Kong Xhiang Lynn','Evans Khor'],
     coverPhoto: '/Gallery/Residential/JNDHouse/CP.avif',
     images: [
       '/Gallery/Residential/JNDHouse/A0.avif',

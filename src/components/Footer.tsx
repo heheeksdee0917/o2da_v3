@@ -91,8 +91,8 @@ export default function Footer() {
               <Link to="/about" className="text-sm text-black/70 hover:text-black transition-colors duration-300">
                 About
               </Link>
-              <Link to="/projects" className="text-sm text-black/70 hover:text-black transition-colors duration-300">
-                Projects
+              <Link to="/portfolio" className="text-sm text-black/70 hover:text-black transition-colors duration-300">
+                Portfolio
               </Link>
               <Link to="/awards" className="text-sm text-black/70 hover:text-black transition-colors duration-300">
                 Awards

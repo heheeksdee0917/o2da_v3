@@ -29,7 +29,7 @@ export default function ProjectCard({
 
   return (
     <Link
-      to={`/projects/${project.slug}`}
+      to={`/portfolio/${project.slug}`}
       className={`group block transition-all duration-300 ${
         isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
       }`}

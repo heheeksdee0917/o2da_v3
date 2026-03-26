@@ -10,7 +10,7 @@ export const interiorProjects: Project[] = [
     location: 'Bukit Damansara, Kuala Lumpur',
     category: 'Interior',
     status: 'Proposal',
-    projectTeam: ['Edric Choo Poo Liang', 'Kong Xiang Lynn', 'Lim Min Syn'],
+    projectTeam: ['Edric Choo Poo Liang', 'Kong Xhiang Lynn', 'Lim Min Syn'],
     images: [
       '/Gallery/Interior/Brownstone/CP.avif',
       '/Gallery/Interior/Brownstone/A1.avif',
@@ -45,7 +45,7 @@ export const interiorProjects: Project[] = [
     location: 'Taman Desa, Kuala Lumpur',
     category: 'Interior',
     status: 'Proposal',
-    projectTeam: ['Edric Choo Poo Liang', 'Kong Xiang Lynn'],
+    projectTeam: ['Edric Choo Poo Liang', 'Kong Xhiang Lynn'],
     images: [
       '/Gallery/Interior/Cafe100/CP.avif',
       '/Gallery/Interior/Cafe100/A1.avif',
@@ -83,7 +83,7 @@ export const interiorProjects: Project[] = [
     location: 'Kwasa Damansara, Selangor',
     category: 'Interior',
     status: 'Construction',
-    projectTeam: ['Edric Choo Poo Liang', 'Kong Xiang Lynn', 'Wendy Woon'],
+    projectTeam: ['Edric Choo Poo Liang', 'Kong Xhiang Lynn', 'Wendy Woon'],
     images: [
       '/Gallery/Interior/Dharma/CP.avif',
       '/Gallery/Interior/Dharma/A1.avif',
@@ -120,7 +120,7 @@ export const interiorProjects: Project[] = [
     location: 'Cheras, Kuala Lumpur',
     category: 'Interior',
     status: 'Schematic',
-    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn', 'Kong Xiang Lynn'],
+    projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn', 'Kong Xhiang Lynn'],
     images: [
       '/Gallery/Interior/QuartzID/CP.avif',
       '/Gallery/Interior/QuartzID/A1.avif',
