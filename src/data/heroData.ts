@@ -48,7 +48,7 @@ export const heroSections: HeroSection[] = [
   {
     id: 6,
     slug: 'kenyas-orphanage',
-    title: 'ORPHANED & CHILDRE‘s ECO-VILLAGE',
+    title: 'Kenya‘s Orphanage',
     location: 'SOY, KENYA',
     img: '/Gallery/Competition/KenyaOrph/CP.avif',
   },
