@@ -1,1 +1,4 @@
+/portfolio    /Projects         301
+/portfolio/*  /Projects/:splat  301
+
 /*    /index.html   200

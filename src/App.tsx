@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import PortfolioDetails from './pages/PortfolioDetails';
 import React from 'react';
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 const About = lazy(() => import('./pages/About'));
 const Awards = lazy(() => import('./pages/Awards'));
@@ -98,6 +99,8 @@ function AppContent() {
               <Contact />
             </Suspense>
           } />
+
+          <Route path="*" element={<NotFound />} />
         </Routes>
 
         {!isHomePage && <Footer />}
