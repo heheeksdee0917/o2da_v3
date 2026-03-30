@@ -83,8 +83,8 @@ export const awards: Award[] = [
     competition: 'Design Competition',
     project: 'Uno Sg. Merab',
     place: '3rd Prize',
-    type: 'award',
-    slug: 'uno-sg-merab'  // not in current portfolio yet
+    type: 'competition',
+    slug: 'uno-sg-merab' 
   },
   {
     id: 3,

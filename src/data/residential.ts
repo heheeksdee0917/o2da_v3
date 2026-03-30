@@ -311,15 +311,18 @@ export const residentialProjects: Project[] = [
       '/Gallery/Residential/TropicalShiftHouse/A28.avif',
       '/Gallery/Residential/TropicalShiftHouse/A29.avif',
       '/Gallery/Residential/TropicalShiftHouse/A30.avif',
-      '/Gallery/Residential/TropicalShiftHouse/Diagram1.avif',
-      '/Gallery/Residential/TropicalShiftHouse/Diagram2.avif',
+      '/Gallery/Residential/TropicalShiftHouse/Diagram9.avif',
       '/Gallery/Residential/TropicalShiftHouse/Diagram3.avif',
-      '/Gallery/Residential/TropicalShiftHouse/Diagram4.avif',
-      '/Gallery/Residential/TropicalShiftHouse/Diagram5.avif',
-      '/Gallery/Residential/TropicalShiftHouse/Diagram6.avif',
+      '/Gallery/Residential/TropicalShiftHouse/Diagram1.avif',
       '/Gallery/Residential/TropicalShiftHouse/Diagram7.avif',
       '/Gallery/Residential/TropicalShiftHouse/Diagram8.avif',
-      '/Gallery/Residential/TropicalShiftHouse/Diagram9.avif',
+      '/Gallery/Residential/TropicalShiftHouse/Diagram2.avif',
+      '/Gallery/Residential/TropicalShiftHouse/Diagram4.avif',
+      '/Gallery/Residential/TropicalShiftHouse/Diagram6.avif',
+      '/Gallery/Residential/TropicalShiftHouse/Diagram5.avif',
+
+
+
     ],
     detailContent: [
       {

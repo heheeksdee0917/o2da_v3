@@ -40,10 +40,10 @@ export const heroSections: HeroSection[] = [
   },
   {
     id: 5,
-    slug: 'the-quartz',
-    title: 'The Quartz',
-    location: 'Cheras, Kuala Lumpur',
-    img: '/Gallery/Housing/Quartz/CP.avif',
+    slug: 'the-mountain',
+    title: 'The Mountain',
+    location: 'Puchong, Selangor',
+    img: '/Gallery/Housing/TheMountain/CP.avif',
   },
   {
     id: 6,

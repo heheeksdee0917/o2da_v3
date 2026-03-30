@@ -10,19 +10,19 @@ interface TeamMember {
 export const teamMembers: TeamMember[] = [
     {
         id: 1,
-        name: 'Edric Choo Poo Liang',
-        role: 'Principal Architect',
+        name: 'Ar. Edric Choo Poo Liang',
+        role: 'Founder & Principal Architect',
         image: '/team_photo/edric_solo.avif'
     },
     {
         id: 2,
-        name: 'Lim Min Syn',
+        name: 'Ar. Lim Min Syn',
         role: 'Senior Associate Director',
         image: '/team_photo/minsyn_solo.avif'
     },
     {
         id: 3,
-        name: 'Sarah Pang Chee Ing',
+        name: 'Ar. Sarah Pang Chee Ing',
         role: 'Senior Associate Director',
         image: '/team_photo/sarah_solo.avif'
     },
