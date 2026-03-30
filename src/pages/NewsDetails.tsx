@@ -5,6 +5,7 @@ import LazyImage from '../components/LazyImage';
 import React from 'react';
 
 export default function NewsDetails() {
+  
   const { slug } = useParams<{ slug: string }>();
   const newsItem = newsItems.find(item => item.slug === slug);
 
@@ -15,7 +16,9 @@ export default function NewsDetails() {
   if (!newsItem) return <Navigate to="/news" replace />;
 
   const formatDate = (dateString: string) => {
+    if (!dateString) return 'Date not available';
     const date = new Date(dateString);
+    if (isNaN(date.getTime())) return '';
     return date.toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
@@ -30,6 +33,8 @@ export default function NewsDetails() {
     return dateB - dateA;
   });
 
+
+  
   const currentIdx = sorted.findIndex(item => item.slug === newsItem.slug);
   const total = sorted.length;
 

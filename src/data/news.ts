@@ -118,7 +118,7 @@ export const newsItems: NewsItem[] = [
       },
       {
         type: 'text',
-        content: `Read the article here: <a href="https://www.archdaily.com/783163/terrace-house-renovation-o2-design-atelier?ad_source=search&ad_medium=search_result_all" target="_blank" rel="noopener" class="underline hover:no-underline text-black/90">The Edge Malaysia</a>.`
+        content: `Read the article here: <a href="https://www.archdaily.com/783163/terrace-house-renovation-o2-design-atelier?ad_source=search&ad_medium=search_result_all" target="_blank" rel="noopener" class="underline hover:no-underline text-black/90">Archdaily</a>.`
       }
     ]
   },
@@ -184,7 +184,7 @@ export const newsItems: NewsItem[] = [
       },
       {
         type: 'text',
-        content: `Read the article here: <a href="https://www.theedgemarkets.com/article/design-works-touch-nature-light-and-spatial-experience" target="_blank" rel="noopener" class="underline hover:no-underline text-black/90">The Edge Malaysia</a>.`
+        content: `Read the article here: <a href="https://www.australiandesignreview.com/news/winner-competition-design-village/" target="_blank" rel="noopener" class="underline hover:no-underline text-black/90">adr</a> and <a href="https://architectureau.com/articles/o2-design-atelier-wins-competition-to-design-kenyan-eco-village/" target="_blank" rel="noopener" class="underline hover:no-underline text-black/90">Architecture, Au</a>.`
       }
     ]
   },
@@ -234,7 +234,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     id: 11,
-    title: "A CONVERSATION WITH AR SYED SOBRI SYED ISMAIL",
+    title: "A conversation with Ar. Syed Sobri Syed Ismaila",
     date: "2025-12-27",
     excerpt: "Ar. Edric Choo interviews Ar. Syed Sobri Syed Ismail, co-founder of GDP Architects, on firm origins, business realities in Malaysian architecture, climate-responsive design, ESG as the new standard, and practical advice for young architects to build professionalism and trust.",
     image: '/Publications/conversation.avif',
@@ -344,7 +344,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     id: 16,
-    title: "THINKING OUTSIDE THE BOX",
+    title: "Thinking outside the box",
     date: "2022-06-18",
     excerpt: "This cluster of twelve linked 2½-storey terrace houses in Puchong rethinks tropical suburban living by centering spaces around a triple-volume courtyard with natural light and greenery, incorporating monsoon windows, operable louvers, and heritage-inspired elements to improve ventilation, brightness, and livability over standard dark terrace designs.",
     image: '/Gallery/Housing/GarisanPuchong/A2.avif',
@@ -388,7 +388,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     id: 18,
-    title: "STANDING THE TEST OF TIME: Sentul Works",
+    title: "Standing the test of time: Sentul Works",
     date: "2022-03-18",
     excerpt: "This feature explores the adaptive reuse of a century-old colonial Federated Malay States Railways building in Sentul West, Kuala Lumpur, transformed into Sentul Works modern office space through innovative engineering, contrasting old and new elements, and collaborative onsite solutions to preserve heritage while meeting contemporary needs.",
     image: '/Gallery/Commercial/SentulWorks/A7.avif',
@@ -542,7 +542,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     id: 24,
-    title: "corten steel mass rises up from a restored colonial building in kuala lumpur",
+    title: "Corten Steel mass rises up from a restored colonial building in Kuala Lumpur",
     date: "2021-09-21",
     excerpt: "Sentul Works restores a century-old colonial Federated Malay States Railways building in Kuala Lumpur, adding a recessed Corten steel mass above the preserved heritage structure for a modern office that contrasts old brickwork with contemporary abstraction, warm textures, and innovative spatial elements like pop-out balconies and glass curtain walls.",
     image: '/Gallery/Commercial/SentulWorks/A9.avif',
@@ -564,7 +564,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     id: 25,
-    title: "TOP 10 reader submissions of 2020 - visualizations of the future",
+    title: "Top 10 reader submissions of 2020 - visualizations of the future",
     date: "2020-12-08",
     excerpt: "O2 Design Atelier's 'The Post-Pandemic City of Tomorrow' ranks 7th in designboom's Top 10 reader-submitted visualizations of the future, recognized for its concept of elevated self-sustaining towers that set nature free by allowing forests and rivers to thrive below.",
     image: '/Publications/BigStories.avif',
@@ -806,7 +806,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     id: 36,
-    title: "GO BEYOND: CONTAINER DESIGN CHALLENGE",
+    title: "GO BEYOND: Container design challenge",
     date: "",
     excerpt: "GO BEYOND is a container design challenge entry by O2 Design Atelier that pushes the boundaries of modular shipping container architecture, reimagining repurposed containers for innovative, sustainable, and adaptable living or programmatic solutions with creative spatial configurations.",
     image: '/Gallery/Competition/GoBeyond/CP.avif',
@@ -822,7 +822,7 @@ export const newsItems: NewsItem[] = [
       },
       {
         type: 'text',
-        content: `View the project on Architizer <a href="https://architizer.com/projects/go-beyond-container-design-challenge/" target="_blank" rel="noopener noreferrer" class="underline hover:no-underline text-black/90">here</a>.`
+        content: `View the project on Architizer <a href="https://gobeyond.ongfoundation.org/1/page/winners" target="_blank" rel="noopener noreferrer" class="underline hover:no-underline text-black/90">here</a>.`
       }
     ]
   },
@@ -844,7 +844,7 @@ export const newsItems: NewsItem[] = [
       },
       {
         type: 'text',
-        content: `Explore the project on Architizer <a href="https://architizer.com/projects/hong-kong-pixel-housing/" target="_blank" rel="noopener noreferrer" class="underline hover:no-underline text-black/90">here</a>.`
+        content: `Explore the project on Architizer <a href="https://architecturecompetitions.com/hongkongpixelhomes/" target="_blank" rel="noopener noreferrer" class="underline hover:no-underline text-black/90">here</a>.`
       }
     ]
   },
@@ -872,7 +872,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     id: 39,
-    title: "GARISAN",
+    title: "Garisan",
     date: "",
     excerpt: "GARISAN (meaning 'line' in Malay) is a design exploration by O2 Design Atelier that uses linear elements, rhythmic forms, and spatial lines to create dynamic architecture, likely focusing on facade articulation, circulation flow, and integration with site context for a cohesive, expressive built environment.",
     image: '/Gallery/Housing/GarisanPuchong/A5.avif',
