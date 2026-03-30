@@ -822,7 +822,7 @@ export const newsItems: NewsItem[] = [
       },
       {
         type: 'text',
-        content: `View the project on Architizer <a href="https://gobeyond.ongfoundation.org/1/page/winners" target="_blank" rel="noopener noreferrer" class="underline hover:no-underline text-black/90">here</a>.`
+        content: `View the project on <a href="https://gobeyond.ongfoundation.org/1/page/winners" target="_blank" rel="noopener noreferrer" class="underline hover:no-underline text-black/90">here</a>.`
       }
     ]
   },
@@ -844,7 +844,7 @@ export const newsItems: NewsItem[] = [
       },
       {
         type: 'text',
-        content: `Explore the project on Architizer <a href="https://architecturecompetitions.com/hongkongpixelhomes/" target="_blank" rel="noopener noreferrer" class="underline hover:no-underline text-black/90">here</a>.`
+        content: `Explore the project on <a href="https://architecturecompetitions.com/hongkongpixelhomes/" target="_blank" rel="noopener noreferrer" class="underline hover:no-underline text-black/90">here</a>.`
       }
     ]
   },
