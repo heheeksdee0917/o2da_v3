@@ -9,11 +9,6 @@ import LazyImage from '../components/LazyImage';
 
 const THUMB_WINDOW = 2; // 2 on each side of active = 5 total max
 
-// ─── Thumbnail Strip ──────────────────────────────────────────────────────────
-//
-// Virtual sliding window centered on currentIndex with wrap-around.
-// Active thumb is always at children[WINDOW] — centered on every render.
-
 function ThumbnailStrip({
   images,
   currentIndex,
@@ -28,8 +23,6 @@ function ThumbnailStrip({
   const count = images.length;
   const WINDOW = Math.min(count - 1, THUMB_WINDOW);
 
-  // Virtual window centered on currentIndex with wrap-around.
-  // Active is always at the center of the rendered list.
   const windowedThumbs = useMemo(() => {
     const items = [];
     for (let offset = -WINDOW; offset <= WINDOW; offset++) {
@@ -37,7 +30,6 @@ function ThumbnailStrip({
       items.push({ src: images[actualIndex], actualIndex, offset });
     }
     return items;
-  // WINDOW is derived from count so it changes when count changes — no extra dep needed
   }, [currentIndex, images, count, WINDOW]);
 
   return (
@@ -419,7 +411,7 @@ export default function ProjectsDetails() {
             <h3 className="caption text-neutral-500 mb-8">Similar Projects</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {similarProjects.map((p) => (
-                <Link key={p.id} to={`/project/${p.slug}`} className="block group">
+                <Link key={p.id} to={`/portfolio/${p.slug}`} className="block group">
                   <div className="relative overflow-hidden mb-3 aspect-video">
                     <LazyImage
                       src={p.images[0]}
