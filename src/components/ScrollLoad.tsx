@@ -31,23 +31,34 @@ export function useInfiniteScroll<T>({
   const hasMore = displayedCount < items.length;
 
   const loadMore = useCallback(() => {
-    if (isLoading || !hasMore || !enabled) return;
-    
-    setIsLoading(true);
-    
-    requestAnimationFrame(() => {
-      setDisplayedCount(prev => Math.min(prev + loadMoreCount, items.length));
+    setIsLoading(prev => {
+      if (prev) return true; // Already loading
       
-      loadingTimeoutRef.current = setTimeout(() => {
-        setIsLoading(false);
-      }, 100);
+      requestAnimationFrame(() => {
+        setDisplayedCount(prevCount => Math.min(prevCount + loadMoreCount, items.length));
+        
+        // Simulate loading time
+        loadingTimeoutRef.current = setTimeout(() => {
+          setIsLoading(false);
+        }, 100);
+      });
+      
+      return true;
     });
-  }, [isLoading, hasMore, enabled, items.length, loadMoreCount]);
+  }, [items.length, loadMoreCount]);
 
   const reset = useCallback(() => {
     setDisplayedCount(initialLoad);
     setIsLoading(false);
+    if (loadingTimeoutRef.current) {
+      clearTimeout(loadingTimeoutRef.current);
+    }
   }, [initialLoad]);
+
+  // Reset when items array reference changes (filter/search change)
+  useEffect(() => {
+    reset();
+  }, [items.length, reset]); // Only reset on items length change, not on every render
 
   // Cleanup timeout on unmount
   useEffect(() => {
@@ -57,11 +68,6 @@ export function useInfiniteScroll<T>({
       }
     };
   }, []);
-
-  // Reset when items change (e.g., filter change)
-  useEffect(() => {
-    reset();
-  }, [items, reset]);
 
   // Intersection Observer for auto-loading
   useEffect(() => {
