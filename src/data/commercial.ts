@@ -198,10 +198,10 @@ export const commercialProjects: Project[] = [
     status: 'Submission',
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn', 'Woon Zhi Zheng', 'Danish Azhan'],
     images: [
+      '/Gallery/Housing/BahagiaCentre/A3.avif',
       '/Gallery/Housing/BahagiaCentre/CP.avif',
       '/Gallery/Housing/BahagiaCentre/A1.avif',
       '/Gallery/Housing/BahagiaCentre/A2.avif',
-      '/Gallery/Housing/BahagiaCentre/A3.avif',
       '/Gallery/Housing/BahagiaCentre/A4.avif',
     ],
     detailContent: [
@@ -285,7 +285,7 @@ export const commercialProjects: Project[] = [
     location: 'Tagore Lane, Singapore',
     category: 'Commercial',
     status: 'Built',
-    projectTeam: ['Edric Choo as Project Architect in SCDA'],
+    projectTeam: ['Edric Choo Poo Liang as Project Architect in SCDA'],
     images: [
       '/Gallery/Commercial/Tagore/CP.avif',
       '/Gallery/Commercial/Tagore/A1.avif',
@@ -302,7 +302,7 @@ export const commercialProjects: Project[] = [
     location: 'Neihu, Taipei',
     category: 'Commercial',
     status: 'Schematic Design',
-    projectTeam: ['Edric Choo as Design and Project Architect in Woha'],
+    projectTeam: ['Edric Choo Poo Liang as Design and Project Architect in Woha'],
     coverPhoto: '/Gallery/Commercial/GuoMei/A0.avif',
     images: [
       '/Gallery/Commercial/GuoMei/CP.avif',

@@ -158,7 +158,7 @@ export default function Navbar() {
               <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className={`block text-2xl ${isActive('/') ? 'text-black font-medium' : 'text-black/70 hover:text-black'}`}>Home</Link>
               <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className={`block text-2xl ${isActive('/about') ? 'text-black font-medium' : 'text-black/70 hover:text-black'}`}>About</Link>
               <div>
-                <Link to="/portdolio" onClick={() => setIsMobileMenuOpen(false)} className={`block text-2xl ${isProjectsPage ? 'text-black font-medium' : 'text-black/70 hover:text-black'}`}>Projects</Link>
+                <Link to="/portfolio" onClick={() => setIsMobileMenuOpen(false)} className={`block text-2xl ${isProjectsPage ? 'text-black font-medium' : 'text-black/70 hover:text-black'}`}>Projects</Link>
                 <div className="mt-4 space-y-3">
                   {categories.map((cat) => (
                     <Link key={cat} to={`/portfolio?category=${cat}`} onClick={() => setIsMobileMenuOpen(false)} className="block text-base text-black/60 hover:text-black">
@@ -169,7 +169,6 @@ export default function Navbar() {
               </div>
               <Link to="/awards" onClick={() => setIsMobileMenuOpen(false)} className={`block text-2xl ${isActive('/awards') ? 'text-black font-medium' : 'text-black/70 hover:text-black'}`}>Awards</Link>
               <Link to="/news" onClick={() => setIsMobileMenuOpen(false)} className={`block text-2xl ${isActive('/news') ? 'text-black font-medium' : 'text-black/70 hover:text-black'}`}>News</Link>
-
             </nav>
           </div>
         </div>

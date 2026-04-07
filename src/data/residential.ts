@@ -962,7 +962,7 @@ export const residentialProjects: Project[] = [
     id: 23,
     slug: 'm-house',
     title: 'M House',
-    location: 'Kuala Lumpur',
+    location: 'Petaling jaya',
     category: 'Residential',
     status: 'Submission',
     projectTeam: ['Edric Choo Poo Liang', 'Quak Yi Jane', 'Evans Khor', 'Danish Azhan'],

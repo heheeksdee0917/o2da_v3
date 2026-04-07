@@ -88,14 +88,12 @@ export default function About() {
     <div data-theme="light" className="bg-white">
       <div className="page-fade-in">
         <div className="max-w-[2340px] mx-auto px-4 md:px-8 pt-32 pb-0">
-
           {/* Header */}
           <div className="mb-12">
             <h1 className="text-5xl font-light tracking-wide text-black/90 mb-4">About O<span className="lime-accent">2</span>DA+CPL<span className="hot-rod-accent">A</span></h1>
           </div>
           {/* Philosophy */}
           <div ref={philosophyRef} className="mb-24 flex flex-col md:flex-row gap-12 md:gap-16">
-
             {/* Mobile hero image — hidden on desktop */}
             <div className="md:hidden w-full h-[50vh] overflow-hidden">
               <img
@@ -106,29 +104,27 @@ export default function About() {
                 fetchPriority="high"
               />
             </div>
-
             {/* Left — 60% text, left aligned */}
             <div className="md:w-[60%] flex flex-col justify-center">
               <p className="mb-6 leading-relaxed">
-                Established in 2015 by Malaysian architect <span className="font-medium">Ar. Edric Choo Poo Liang</span>, O2DA + CPLA — comprising <span className="font-medium">O2 Design Atelier and Choo Poo Liang Architect</span> — is a multidisciplinary design practice rooted in the creative industries. The studio operates at the intersection of architecture, culture, and environmental consciousness, offering design solutions that are both innovative and contextually grounded.
+                Established in 2015 by Malaysian architect <span className="font-medium">Ar. Edric Choo Poo Liang, O2DA + CPLA</span> — comprising <span className="font-medium">O2 Design Atelier and Choo Poo Liang Architect</span> — is a multidisciplinary design practice rooted in the creative industries. The studio operates at the intersection of architecture, culture, and environmental consciousness, offering design solutions that are both innovative and contextually grounded.
               </p>
               <p className="mb-6 leading-relaxed">
-                Rather than adhering to a singular aesthetic or style, <span className="font-medium">CPLA's design philosophy is responsive</span> — each project is shaped by its site, cultural backdrop, client vision, and the formal architectural language. Central to our approach is a deep awareness of climate change and its implications for the built environment. This drives us to engage critically with issues of sustainability, social behavior, and urban culture.
+                Rather than adhering to a singular aesthetic or style, <span className="font-medium">O2DA+CPLA's design philosophy is responsive</span> — each project is shaped by its site, cultural backdrop, client vision, and the formal architectural language. Central to our approach is a deep awareness of climate change and its implications for the built environment. This drives us to engage critically with issues of sustainability, social behavior, and urban culture.
               </p>
               <p className="mb-6 leading-relaxed">
                 Our work is defined by a rigorous, research-driven design process. We believe that meaningful architecture begins with <span className="font-medium">listening</span> — to our clients, to communities, and to the environment. This dialogue informs bespoke, design-led outcomes that are tailored, purposeful, and enduring.
               </p>
               <p className="mb-6 leading-relaxed">
-                CPLA delivers <span className="font-medium">integrated design services</span> across a wide range of scales and disciplines — including master planning, architecture, landscape, interior, lighting, and furniture design. This holistic approach allows us to craft environments that are cohesive, thoughtful, and attuned to human experience.
+              <span className="font-medium">O2DA + CPLA</span> delivers <span className="font-medium">integrated design services</span> across a wide range of scales and disciplines — including master planning, architecture, landscape, interior, lighting, and furniture design. This holistic approach allows us to craft environments that are cohesive, thoughtful, and attuned to human experience.
               </p>
               <p className="mb-6 leading-relaxed">
                 Over the years, the studio has completed a diverse portfolio of work in Singapore and across <span className="font-medium">Malaysia</span>, following the establishment of Edric's independent practice. Our projects have received widespread recognition, winning <span className="font-medium">local and international awards</span>, including accolades from the <span className="font-medium">Pertubuhan Akitek Malaysia (PAM), World Architecture Festival (WAF), Fiabsi international, National awards</span>, and the <span className="font-medium">Asia Pacific Awards</span>.
               </p>
               <p className="leading-relaxed">
-                CPLA's work continues to be featured in <span className="font-medium">leading architectural publications</span> both locally and globally, reflecting the studio's commitment to design excellence, innovation, and cultural relevance.
+              <span className="font-medium">O2DA + CPLA's</span> work continues to be featured in <span className="font-medium">leading architectural publications</span> both locally and globally, reflecting the studio's commitment to design excellence, innovation, and cultural relevance.
               </p>
             </div>
-
             <div
               className="md:w-[40%] shrink-0"
               style={{
@@ -138,9 +134,7 @@ export default function About() {
                 backgroundRepeat: 'no-repeat',
               }}
             />
-
           </div>
-
         </div>{/* end philosophy container */}
 
         {/* Design Process — full width breakout */}

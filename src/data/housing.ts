@@ -261,7 +261,7 @@ export const housingProjects: Project[] = [
     location: 'Old Holland Road, Singapore',
     category: 'Housing',
     status: 'Built',
-    projectTeam: ['Edric Choo as Project Architect in SCDA'],
+    projectTeam: ['Edric Choo Poo Liang as Project Architect in SCDA'],
     images: [
       '/Gallery/Commercial/Illoura/CP.avif',
       '/Gallery/Commercial/Illoura/A1.avif',
@@ -279,7 +279,7 @@ export const housingProjects: Project[] = [
     location: 'Queenstown, Singapore',
     category: 'Housing',
     status: 'Built',
-    projectTeam: ['Edric Choo as Design Architect in SCDA'],
+    projectTeam: ['Edric Choo Poo Liang as Design Architect in SCDA'],
     images: [
       '/Gallery/Commercial/Dawson/CP.avif',
       '/Gallery/Commercial/Dawson/A1.avif',
@@ -294,10 +294,10 @@ export const housingProjects: Project[] = [
     id: 12,
     slug: 'hilltop',
     title: 'Hilltop',
-    location: 'Cairnhill, Singapore',
+    location: 'Orchard, Singapore',
     category: 'Housing',
     status: 'Built',
-    projectTeam: ['Edric Choo as Design Architect at W Architect'],
+    projectTeam: ['Edric Choo Poo Liang as Design Architect at W Architect'],
     images: [
       '/Gallery/Commercial/Hilltop/CP.avif',
       '/Gallery/Commercial/Hilltop/A1.avif',
