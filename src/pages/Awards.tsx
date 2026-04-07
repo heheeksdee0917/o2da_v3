@@ -75,8 +75,7 @@ export default function Awards() {
                         <span className="block text-2xl font-light text-black/30 mb-3">{year}</span>
                       )}
                       <h3 className="text-xl font-normal text-black mb-1">{item.competition}</h3>
-                      <p className="text-base font-light text-black/90 mb-1">{item.place}</p>
-                      <p className="text-sm font-light text-black/50">{item.project}</p>
+                      <p className="text-base font-light text-black/90 mb-1">{item.project} - {item.place}</p>
                     </div>
 
                     {/* Desktop layout */}
