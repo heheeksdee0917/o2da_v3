@@ -253,9 +253,48 @@ export const housingProjects: Project[] = [
       { type: 'text', content: 'Quartz therefore positions density as an experiential terrain: a development shaped as much by the public void it gives back as by the height it claims—crystalline in silhouette, but grounded in a clear sequence of streets, thresholds, gardens, and shared civic space.' },
     ],
   },
+  //Saphire
+  {
+    id: 11,
+    slug: 'sapphire-springs',
+    title: 'Sapphire Springs',
+    location: 'Selayang, Selangor',
+    category: 'Housing',
+    status: 'Submission',
+    projectTeam: ['Edric Choo Poo Liang','Sarah Pang','Wendy Woon','Danish Zahan','Lim Min Syn','Evans Khor'],
+    images: [
+      '/Gallery/Housing/SapphireSprings/CP.avif',
+      '/Gallery/Housing/sapphiresprings/A1.avif',
+      '/Gallery/Housing/sapphiresprings/A2.avif',
+
+    ],
+    detailContent: [
+      { type: 'text', content: '' },
+    ],
+  },
+  {
+    id: 12,
+    slug: 'segambut-housing',
+    title: 'Segambut Housing',
+    location: 'Segambut, Selangor',
+    category: 'Housing',
+    status: 'Propoersal',
+    projectTeam: ['Edric Choo Poo Liang','Lim Min Syn','Wendy Woon'],
+    coverPhoto: '/Gallery/Housing/SegambutHousing/A0.avif',
+    images: [
+      '/Gallery/Housing/SegambutHousing/CP.avif',
+      '/Gallery/Housing/SegambutHousing/A1.avif',
+      '/Gallery/Housing/SegambutHousing/A2.avif',
+      '/Gallery/Housing/SegambutHousing/A3.avif',
+
+    ],
+    detailContent: [
+      { type: 'text', content: '' },
+    ],
+  },
   // Illoura
   {
-    id: 10,
+    id: 12,
     slug: 'illoura',
     title: 'Illoura',
     location: 'Old Holland Road, Singapore',
@@ -273,7 +312,7 @@ export const housingProjects: Project[] = [
   },
   // Dawson
   {
-    id: 11,
+    id: 13,
     slug: 'dawson',
     title: 'Dawson',
     location: 'Queenstown, Singapore',
@@ -291,7 +330,7 @@ export const housingProjects: Project[] = [
   },
   // Hilltop
   {
-    id: 12,
+    id: 14,
     slug: 'hilltop',
     title: 'Hilltop',
     location: 'Orchard, Singapore',

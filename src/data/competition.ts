@@ -240,8 +240,9 @@ export const competitionProjects: Project[] = [
     category: 'Competition',
     accolades: ['Submission (International Comp)'],
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
+    coverPhoto: '/Gallery/Residential/Museum/CP.avif',
     images: [
-      '/Gallery/Competition/Museum/CP.avif',
+      '/Gallery/Competition/Museum/A0.avif',
       '/Gallery/Competition/Museum/A1.avif',
       '/Gallery/Competition/Museum/A2.avif',
       '/Gallery/Competition/Museum/A3.avif',
@@ -297,11 +298,13 @@ export const competitionProjects: Project[] = [
     category: 'Competition',
     accolades: ['2nd Prize (National Comp)'],
     projectTeam: ['Edric Choo Poo Liang'],
+    coverPhoto: '/Gallery/Residential/ImbauanResidence/CP.avif',
     images: [
-      '/Gallery/Competition/ImbauanResidence/CP.avif',
+      '/Gallery/Competition/ImbauanResidence/A0.avif',
       '/Gallery/Competition/ImbauanResidence/A1.avif',
       '/Gallery/Competition/ImbauanResidence/A2.avif',
       '/Gallery/Competition/ImbauanResidence/A3.avif',
+      '/Gallery/Competition/ImbauanResidence/A4.avif',
     ],
     detailContent: [
       {
@@ -818,6 +821,20 @@ export const competitionProjects: Project[] = [
       '/Gallery/Competition/KLAF/A2.avif',
       '/Gallery/Competition/KLAF/A3.avif',
       '/Gallery/Competition/KLAF/A4.avif',
+      '/Gallery/Competition/KLAF/A5.avif',
+      '/Gallery/Competition/KLAF/A6.avif',
+      '/Gallery/Competition/KLAF/A7.avif',
+      '/Gallery/Competition/KLAF/A8.avif',
+      '/Gallery/Competition/KLAF/A9.avif',
+      '/Gallery/Competition/KLAF/Diagram1.avif',
+      '/Gallery/Competition/KLAF/Diagram2.avif',
+      '/Gallery/Competition/KLAF/Diagram3.avif',
+      '/Gallery/Competition/KLAF/Diagram4.avif',
+      '/Gallery/Competition/KLAF/Diagram5.avif',
+      '/Gallery/Competition/KLAF/Diagram6.avif',
+      '/Gallery/Competition/KLAF/Diagram7.avif',
+      '/Gallery/Competition/KLAF/Diagram8.avif',
+      
     ],
     detailContent: [
       {
