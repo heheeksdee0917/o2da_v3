@@ -305,7 +305,7 @@ export const awards: Award[] = [
   {
     id: 27,
     year: 2024,
-    competition: 'International Fiabsi Award',
+    competition: 'International Fiabci Award',
     project: 'Sentul Works',
     place: 'Silver Award',
     type: 'award',
@@ -332,7 +332,7 @@ export const awards: Award[] = [
   {
     id: 30,
     year: 2024,
-    competition: 'Malaysia Fiabsi Award Heritage & Office Category',
+    competition: 'Malaysia Fiabci Award Heritage & Office Category',
     project: 'Sentul Works',
     place: 'Winner',
     type: 'award',
