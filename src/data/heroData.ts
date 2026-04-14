@@ -4,6 +4,7 @@ interface HeroSection {
   title: string;
   location: string;
   img: string;
+  category: string;
   vimeoId?: string;
   thumbnail?: string;
 }
@@ -14,6 +15,7 @@ export const heroSections: HeroSection[] = [
     title: "Tropical Shift House",
     location: "Petaling Jaya, Selangor",
     slug: "tropical-shift-house",
+    category: "Residential",
     img: '/Gallery/Residential/TropicalShiftHouse/hero_video.mp4',
     thumbnail: '/Gallery/Residential/TropicalShiftHouse/tropical_thumbnail.avif',
   },
@@ -22,6 +24,7 @@ export const heroSections: HeroSection[] = [
     slug: 'sentul-works',
     title: 'Sentul Works',
     location: 'Sentul, Kuala Lumpur',
+    category: "Commercial",
     img: '/Gallery/Commercial/SentulWorks/CP.avif',
   },
   {
@@ -29,6 +32,7 @@ export const heroSections: HeroSection[] = [
     slug: 'resort-home',
     title: 'Resort Home',
     location: 'Kota Damansara, Selangor',
+    category: "Residential",
     img: '/Gallery/Residential/ResortHome/CP.avif',
   },
   {
@@ -36,6 +40,7 @@ export const heroSections: HeroSection[] = [
     slug: 'garisan',
     title: 'Garisan',
     location: 'Puchong, Selangor',
+    category: "Housing",
     img: '/Gallery/Housing/GarisanPuchong/CP.avif',
   },
   {
@@ -43,6 +48,7 @@ export const heroSections: HeroSection[] = [
     slug: 'the-mountain',
     title: 'The Mountain',
     location: 'Puchong, Selangor',
+    category: "Housing",
     img: '/Gallery/Housing/TheMountain/CP.avif',
   },
   {
@@ -50,6 +56,7 @@ export const heroSections: HeroSection[] = [
     slug: 'kenyas-orphanage',
     title: 'Kenya‘s Orphanage',
     location: 'SOY, KENYA',
+    category: "Competition",
     img: '/Gallery/Competition/KenyaOrph/CP.avif',
   },
 ];

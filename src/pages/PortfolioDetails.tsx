@@ -1,4 +1,4 @@
-import { useParams, Link, Navigate } from 'react-router-dom';
+import { useParams, Link, Navigate, useSearchParams } from 'react-router-dom';
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { X, ChevronDown } from 'lucide-react';
 import { projects } from '../data/mockData';
@@ -6,6 +6,7 @@ import React from 'react';
 import { useLightbox } from '../hooks/useLightbox';
 import { useTouchGestures } from '../hooks/useTouchGestures';
 import LazyImage from '../components/LazyImage';
+
 
 const THUMB_WINDOW = 2; // 2 on each side of active = 5 total max
 
@@ -69,7 +70,8 @@ function ThumbnailStrip({
 export default function ProjectsDetails() {
   const { id } = useParams<{ id: string }>();
   const project = projects.find(p => p.slug === id);
-
+  const [searchParams] = useSearchParams();
+  const category = searchParams.get('category') || '';
   const [isExpanded, setIsExpanded] = useState(false);
   const [needsShowMore, setNeedsShowMore] = useState(false);
   const [pageVisible, setPageVisible] = useState(false);
@@ -411,7 +413,7 @@ export default function ProjectsDetails() {
             <h3 className="caption text-neutral-500 mb-8">Similar Projects</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {similarProjects.map((p) => (
-                <Link key={p.id} to={`/portfolio/${p.slug}`} className="block group">
+                <Link key={p.id} to={`/portfolio/${p.slug}${category ? `?category=${category}` : ''}`} className="block group">
                   <div className="relative overflow-hidden mb-3 aspect-video">
                     <LazyImage
                       src={p.images[0]}

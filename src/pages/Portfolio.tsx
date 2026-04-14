@@ -102,6 +102,7 @@ export default function Portfolio() {
                     <ProjectCard
                       key={project.id}
                       project={project}
+                      category={category}
                       batchLoad={true}
                       batchIndex={projectIndex}
                       priority={projectIndex < 3}
@@ -121,6 +122,7 @@ export default function Portfolio() {
                   <ProjectCard
                     key={project.id}
                     project={project}
+                    category={filter}
                     batchLoad={true}
                     batchIndex={index}
                     priority={index < 3}

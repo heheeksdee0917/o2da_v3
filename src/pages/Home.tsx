@@ -9,8 +9,8 @@ export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  const handleSectionClick = (slug: string) => {
-    navigate(`/portfolio/${slug}`);
+  const handleSectionClick = (slug: string, category: string) => {
+    navigate(`/portfolio/${slug}?category=${category}`);
   };
 
   // Track active section on scroll
@@ -82,7 +82,7 @@ export default function HeroSection() {
             ref={(el) => (sectionRefs.current[index] = el)}
             data-theme="dark"
             className="relative h-screen w-full overflow-hidden cursor-pointer snap-start snap-always bg-black"
-            onClick={() => handleSectionClick(section.slug)}
+            onClick={() => handleSectionClick(section.slug, section.category)}
           >
             <div className="absolute inset-0 w-full h-full">
               {section.img.endsWith('.mp4') ? (

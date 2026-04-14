@@ -5,6 +5,7 @@ import React from 'react';
 
 interface ProjectCardProps {
   project: Project;
+  category?: string;
   batchLoad?: boolean;
   priority?: boolean; 
   batchIndex?: number;
@@ -16,6 +17,7 @@ interface ProjectCardProps {
 
 export default function ProjectCard({
   project,
+  category,
   batchLoad = true,
   batchIndex = 0,
   shouldPreload = false,
@@ -29,7 +31,7 @@ export default function ProjectCard({
 
   return (
     <Link
-      to={`/portfolio/${project.slug}`}
+    to={`/portfolio/${project.slug}${category && category !== 'All' ? `?category=${category}` : ''}`}
       className={`group block transition-all duration-300 ${
         isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
       }`}
