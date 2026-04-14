@@ -240,7 +240,6 @@ export const competitionProjects: Project[] = [
     category: 'Competition',
     accolades: ['Submission (International Comp)'],
     projectTeam: ['Edric Choo Poo Liang', 'Lim Min Syn'],
-    coverPhoto: '/Gallery/Residential/Museum/CP.avif',
     images: [
       '/Gallery/Competition/Museum/A0.avif',
       '/Gallery/Competition/Museum/A1.avif',
@@ -268,7 +267,17 @@ export const competitionProjects: Project[] = [
       '/Gallery/Competition/NYCA/CP.avif',
       '/Gallery/Competition/NYCA/A1.avif',
       '/Gallery/Competition/NYCA/A2.avif',
-      '/Gallery/Competition/NYCA/A3.avif'
+      '/Gallery/Competition/NYCA/A3.avif',
+      '/Gallery/Competition/NYCA/A4.avif',
+      '/Gallery/Competition/NYCA/A5.avif',
+      '/Gallery/Competition/NYCA/A6.avif',
+      '/Gallery/Competition/NYCA/Diagram1.avif',
+      '/Gallery/Competition/NYCA/Diagram2.avif',
+      '/Gallery/Competition/NYCA/Diagram3.avif',
+      '/Gallery/Competition/NYCA/Diagram4.avif',
+      '/Gallery/Competition/NYCA/Diagram5.avif',
+      '/Gallery/Competition/NYCA/Diagram6.avif',
+      '/Gallery/Competition/NYCA/Diagram7.avif',
     ],
     detailContent: [
       {
@@ -298,7 +307,7 @@ export const competitionProjects: Project[] = [
     category: 'Competition',
     accolades: ['2nd Prize (National Comp)'],
     projectTeam: ['Edric Choo Poo Liang'],
-    coverPhoto: '/Gallery/Residential/ImbauanResidence/CP.avif',
+    coverPhoto: '/Gallery/Competition/ImbauanResidence/CP.avif',
     images: [
       '/Gallery/Competition/ImbauanResidence/A0.avif',
       '/Gallery/Competition/ImbauanResidence/A1.avif',
@@ -810,7 +819,7 @@ export const competitionProjects: Project[] = [
   {
     id: 22,
     slug: 'klaf-2018',
-    title: 'PAM KLAF 2018 Future Malaysian Housing Exhibition',
+    title: 'Pam KLAF 2018 Future Malaysian Housing Exhibition - Highway Cruise Block',
     location: 'Glenmarie Station, Petaling Jaya',
     category: 'Competition',
     status: 'Proposal',

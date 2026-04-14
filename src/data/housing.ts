@@ -264,8 +264,8 @@ export const housingProjects: Project[] = [
     projectTeam: ['Edric Choo Poo Liang','Sarah Pang','Wendy Woon','Danish Zahan','Lim Min Syn','Evans Khor'],
     images: [
       '/Gallery/Housing/SapphireSprings/CP.avif',
-      '/Gallery/Housing/sapphiresprings/A1.avif',
-      '/Gallery/Housing/sapphiresprings/A2.avif',
+      '/Gallery/Housing/SapphireSprings/A1.avif',
+      '/Gallery/Housing/SapphireSprings/A2.avif',
 
     ],
     detailContent: [
@@ -280,12 +280,11 @@ export const housingProjects: Project[] = [
     category: 'Housing',
     status: 'Propoersal',
     projectTeam: ['Edric Choo Poo Liang','Lim Min Syn','Wendy Woon'],
-    coverPhoto: '/Gallery/Housing/SegambutHousing/A0.avif',
+    coverPhoto: '/Gallery/Housing/SegambutHousing/CP.avif',
     images: [
-      '/Gallery/Housing/SegambutHousing/CP.avif',
+      '/Gallery/Housing/SegambutHousing/A0.avif',
       '/Gallery/Housing/SegambutHousing/A1.avif',
       '/Gallery/Housing/SegambutHousing/A2.avif',
-      '/Gallery/Housing/SegambutHousing/A3.avif',
 
     ],
     detailContent: [
