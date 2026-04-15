@@ -195,7 +195,6 @@ export const competitionProjects: Project[] = [
       '/Gallery/Competition/Marshland/A10.avif',
       '/Gallery/Competition/Marshland/A11.avif',
       '/Gallery/Competition/Marshland/A12.avif',
-      '/Gallery/Competition/Marshland/A13.avif',
       '/Gallery/Competition/Marshland/Diagram1.avif',
       '/Gallery/Competition/Marshland/Diagram2.avif',
     ],

@@ -1172,12 +1172,13 @@ export const residentialProjects: Project[] = [
     category: 'Residential',
     status: 'Completed',
     projectTeam: ['Edric Choo Poo Liang', 'Lee Chaer Shean', 'Goh Chew Yet'],
+    coverPhoto: '/Gallery/Residential/Homefor2/CP.avif',
     accolades:[
       'Iconic Award 2019 - Innovative Architecture',
       'Archdaily (Published)'
     ],
     images: [
-      '/Gallery/Residential/Homefor2/CP.avif',
+      '/Gallery/Residential/Homefor2/A0.avif',
       '/Gallery/Residential/Homefor2/A1.avif',
       '/Gallery/Residential/Homefor2/A2.avif',
       '/Gallery/Residential/Homefor2/A3.avif',
@@ -1201,9 +1202,6 @@ export const residentialProjects: Project[] = [
       '/Gallery/Residential/Homefor2/A21.avif',
       '/Gallery/Residential/Homefor2/A22.avif',
       '/Gallery/Residential/Homefor2/A23.avif',
-      '/Gallery/Residential/Homefor2/A24.avif',
-      '/Gallery/Residential/Homefor2/A25.avif',
-      '/Gallery/Residential/Homefor2/A26.avif',
       '/Gallery/Residential/Homefor2/Diagram1.avif',
       '/Gallery/Residential/Homefor2/Diagram2.avif',
       '/Gallery/Residential/Homefor2/Diagram3.avif',
