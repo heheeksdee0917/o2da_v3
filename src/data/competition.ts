@@ -308,11 +308,11 @@ export const competitionProjects: Project[] = [
     projectTeam: ['Edric Choo Poo Liang'],
     coverPhoto: '/Gallery/Competition/ImbauanResidence/CP.avif',
     images: [
-      '/Gallery/Competition/ImbauanResidence/A0.avif',
+      '/Gallery/Competition/ImbauanResidence/CP.avif',
       '/Gallery/Competition/ImbauanResidence/A1.avif',
       '/Gallery/Competition/ImbauanResidence/A2.avif',
-      '/Gallery/Competition/ImbauanResidence/A3.avif',
       '/Gallery/Competition/ImbauanResidence/A4.avif',
+      '/Gallery/Competition/ImbauanResidence/A5.avif',
     ],
     detailContent: [
       {
@@ -406,9 +406,9 @@ export const competitionProjects: Project[] = [
       '/Gallery/Competition/MGBC/CP.avif',
       '/Gallery/Competition/MGBC/A1.avif',
       '/Gallery/Competition/MGBC/A2.avif',
+      '/Gallery/Competition/MGBC/A5.avif',
       '/Gallery/Competition/MGBC/A3.avif',
       '/Gallery/Competition/MGBC/A4.avif',
-      '/Gallery/Competition/MGBC/A5.avif',
       '/Gallery/Competition/MGBC/Diagram1.avif',
       '/Gallery/Competition/MGBC/Diagram2.avif',
       '/Gallery/Competition/MGBC/Diagram3.avif',
