@@ -413,7 +413,7 @@ export const newsItems: NewsItem[] = [
     title: "A Home for 2 / O2 Design Atelier",
     date: "2018-11-24",
     excerpt: "O2 Design Atelier revamps the interior of a residence in a prominent northern Kuala Lumpur neighborhood, prioritizing client-specific design needs and spatial requirements while preserving most of the original exterior facade, achieved through close collaboration with the client (also a designer).",
-    image: '/Gallery/Residential/Homefor2/CP.avif',
+    image: '/Gallery/Residential/Homefor2/A6.avif',
     slug: "a-home-for-2-o2-design-atelier",
     content: [
       {
@@ -501,7 +501,7 @@ export const newsItems: NewsItem[] = [
     title: "Introvert House / O2 Design Atelier + Choo Poo Liang Architect",
     date: "2020",
     excerpt: "This renovation of a two-storey terrace house in Kuala Lumpur adapts a standard 22 ft x 75 ft layout for a Chinese family of five plus helper, adding bedrooms for grown children and improving interior quality through thoughtful spatial adjustments.",
-    image: '/Gallery/Residential/IntrovertHouse/CP1.avif',
+    image: '/Gallery/Residential/IntrovertHouse/A0.avif',
     slug: "introvert-house-o2-design-atelier",
     content: [
       {
@@ -941,7 +941,7 @@ export const newsItems: NewsItem[] = [
     title: "A Home For Two",
     date: "",
     excerpt: "A Home For Two (also referred to as Courtyard House) by O2 Design Atelier is a renovated residential project featuring a central courtyard garden that introduces natural light and greenery upon entry, creating a double-volume living space with seamless indoor-outdoor connection in a Kuala Lumpur home.",
-    image: '/Gallery/Residential/Homefor2/A26.avif',
+    image: '/Gallery/Residential/Homefor2/A4.avif',
     slug: "a-home-for-two",
     content: [
       {
@@ -985,7 +985,7 @@ export const newsItems: NewsItem[] = [
     title: "Sentul Works Is An Immaculate Suburban Office In KL",
     date: "2021-09-25",
     excerpt: "Sentul Works revitalizes the 1904 Federated Malay States Railways headquarters in Kuala Lumpur into a modern suburban office, blending preserved heritage brickwork with contemporary steel frames, open-plan floors, and industrial-inspired elements in a symmetrical layout that honors classical roots while embracing the site's railway history.",
-    image: '/Gallery/Commercial/SentulWorks/A12.avif',
+    image: '/Gallery/Commercial/SentulWorks/A11.avif',
     slug: "sentul-works-immaculate-suburban-office",
     content: [
       {
