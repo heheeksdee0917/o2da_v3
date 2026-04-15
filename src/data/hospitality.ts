@@ -103,7 +103,6 @@ export const hospitalityProjects: Project[] = [
       '/Gallery/Hospitality/ValleyOfWind/A16.avif',
       '/Gallery/Hospitality/ValleyOfWind/A17.avif',
       '/Gallery/Hospitality/ValleyOfWind/A18.avif',
-      '/Gallery/Hospitality/ValleyOfWind/A19.avif',
     ],
     detailContent: [
       {
