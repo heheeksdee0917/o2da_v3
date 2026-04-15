@@ -86,8 +86,8 @@ export const hospitalityProjects: Project[] = [
     images: [
       '/Gallery/Hospitality/ValleyOfWind/CP.avif',
       '/Gallery/Hospitality/ValleyOfWind/A1.avif',
-      '/Gallery/Hospitality/ValleyOfWind/A2.avif',
       '/Gallery/Hospitality/ValleyOfWind/A3.avif',
+      '/Gallery/Hospitality/ValleyOfWind/A2.avif',
       '/Gallery/Hospitality/ValleyOfWind/A4.avif',
       '/Gallery/Hospitality/ValleyOfWind/A5.avif',
       '/Gallery/Hospitality/ValleyOfWind/A6.avif',
