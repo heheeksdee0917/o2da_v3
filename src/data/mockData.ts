@@ -338,4 +338,13 @@ export const awards: Award[] = [
     type: 'award',
     slug: 'sentul-works'
   },
+  {
+    id: 31,
+    year: 2025,
+    competition: 'Architecture Of Ideal Architecture Festival',
+    project: 'Sentul Works',
+    place: 'The Best Prize - Office',
+    type: 'award',
+    slug: 'sentul-works'
+  },
 ];
