@@ -27,7 +27,6 @@ export const commercialProjects: Project[] = [
       '/Gallery/Commercial/SentulWorks/A9.avif',
       '/Gallery/Commercial/SentulWorks/A10.avif',
       '/Gallery/Commercial/SentulWorks/A11.avif',
-      '/Gallery/Commercial/SentulWorks/A12.avif',
       '/Gallery/Interior/SentulWorksID/CP.avif',
       '/Gallery/Interior/SentulWorksID/A1.avif',
       '/Gallery/Interior/SentulWorksID/A2.avif',
@@ -188,7 +187,7 @@ export const commercialProjects: Project[] = [
       { type: 'text', content: 'Exterior shop signage is well planned integrated into the façade window strips. The corner unit rooftop is planned to be a semi-enclosed F&B terrace with commanding view towards KLCC.' },
     ],
   },
-  //  Botanic Centre
+  // Botanic Centre
   {
     id: 7,
     slug: 'botanic-centre',
@@ -212,7 +211,7 @@ export const commercialProjects: Project[] = [
       { type: 'text', content: 'Botanic Central therefore delivers a retail environment that is functional, legible, and resilient. By formalising the shop-office typology through shading depth and an integrated signage framework, the precinct can accommodate tenant turnover without visual disorder, holding a clear architectural identity within the everyday flux of commercial life.' },
     ],
   },
-  //Community Centre
+  // Community Centre
   {
     id: 8,
     slug: 'community-centre',
