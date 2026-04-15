@@ -1256,8 +1256,6 @@ export const residentialProjects: Project[] = [
       '/Gallery/Residential/3CourtyardHouse/A19.avif',
       '/Gallery/Residential/3CourtyardHouse/A20.avif',
       '/Gallery/Residential/3CourtyardHouse/A21.avif',
-      '/Gallery/Residential/3CourtyardHouse/A22.avif',
-      '/Gallery/Residential/3CourtyardHouse/A23.avif',
     ],
     detailContent: [
       { type: 'text', content: '3 COURTYARD HOUSE located at Kuala Lumpur existing housing development area with standard lot size of 22’x75’.' },
