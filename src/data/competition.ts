@@ -595,6 +595,7 @@ export const competitionProjects: Project[] = [
     accolades: ['Submission (International Comp)'],
     projectTeam: ['Edric Choo Poo Liang', 'Clyde Ong'],
     images: [
+      '/Gallery/Competition/TokyoVertical/A6.avif',
       '/Gallery/Competition/TokyoVertical/A1.avif',
       '/Gallery/Competition/TokyoVertical/A3.avif',
       '/Gallery/Competition/TokyoVertical/A2.avif',
