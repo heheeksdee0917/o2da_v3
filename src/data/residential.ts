@@ -1090,9 +1090,9 @@ export const residentialProjects: Project[] = [
     category: 'Residential',
     status: 'Completed',
     projectTeam: ['Edric Choo Poo Liang', 'Quak Yi Jane'],
-    coverPhoto: '/Gallery/Residential/IntrovertHouse/A0.avif',
+    coverPhoto: '/Gallery/Residential/IntrovertHouse/CP.avif',
     images: [
-      '/Gallery/Residential/IntrovertHouse/CP1.avif',
+      '/Gallery/Residential/IntrovertHouse/A0.avif',
       '/Gallery/Residential/IntrovertHouse/A1.avif',
       '/Gallery/Residential/IntrovertHouse/A2.avif',
       '/Gallery/Residential/IntrovertHouse/A3.avif',
