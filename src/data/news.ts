@@ -171,7 +171,7 @@ export const newsItems: NewsItem[] = [
     title: "Kenya Orphanage Project Highly Commended at WAF 2017",
     date: "2017-11-15",
     excerpt: "One Heart Foundation Orphanage and Children Eco-Village receives 'Highly Commended' at World Architecture Festival 2017.",
-    image: '/Gallery/Competition/KenyaOrph/A4.avif',
+    image: '/Gallery/Competition/KenyaOrph/A11.avif',
     slug: "kenyaorphanageworldnews",
     content: [
       {
