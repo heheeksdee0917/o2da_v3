@@ -46,7 +46,7 @@ export const competitionProjects: Project[] = [
       'World Architecture Festival Award 2017 (Commendation)',
       '1st prize (International Competition)',
     ],
-    coverPhoto: '/Gallery/Commercial/GuoMei/CP.avif',
+    coverPhoto: '/Gallery/Competition/KenyaOrph/CP.avif',
     images: [
       '/Gallery/Competition/KenyaOrph/A0.avif',
       '/Gallery/Competition/KenyaOrph/A1.avif',
