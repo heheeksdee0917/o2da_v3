@@ -57,6 +57,6 @@ export const heroSections: HeroSection[] = [
     title: 'Kenya‘s Orphanage',
     location: 'SOY, KENYA',
     category: "Competition",
-    img: '/Gallery/Competition/KenyaOrph/CP.avif',
+    img: '/Gallery/Competition/KenyaOrph/A11.avif',
   },
 ];
