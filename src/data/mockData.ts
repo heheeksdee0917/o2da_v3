@@ -341,9 +341,9 @@ export const awards: Award[] = [
   {
     id: 31,
     year: 2025,
-    competition: 'Architecture Of Ideal Architecture Festival',
+    competition: 'Guang Zhou Ideal architecture festival Awards',
     project: 'Sentul Works',
-    place: 'The Best Prize - Office',
+    place: 'The best prize - Office (Built)',
     type: 'award',
     slug: 'sentul-works'
   },

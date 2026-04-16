@@ -14,53 +14,47 @@ export default function Navbar() {
 
   const categories = ['Residential', 'Housing', 'Commercial', 'Hospitality', 'Interior', 'Competition'];
 
-  // Background detection
+  // Background detection via data-theme only, sampled at logo position
   useEffect(() => {
     const checkBackground = () => {
       if (!navRef.current) return;
       const navRect = navRef.current.getBoundingClientRect();
-      const navMiddleY = navRect.top + navRect.height / 2;
-      const navMiddleX = window.innerWidth / 2;
-      const elementsAtPoint = document.elementsFromPoint(navMiddleX, navMiddleY);
+      const sampleY = navRect.top + navRect.height / 2;
+      const sampleX = 100; // approx logo position on the left
 
-      let isDark = true;
-      let themeFound = false;
+      const elementsAtPoint = document.elementsFromPoint(sampleX, sampleY);
 
       for (const el of elementsAtPoint) {
         if (el === navRef.current || el.closest('nav')) continue;
 
-        let currentEl: Element | null = el;
-        while (currentEl && !themeFound) {
-          const theme = currentEl.getAttribute('data-theme');
-          if (theme === 'dark') { isDark = true; themeFound = true; break; }
-          if (theme === 'light') { isDark = false; themeFound = true; break; }
-          currentEl = currentEl.parentElement;
-        }
-        if (themeFound) break;
-
-        const bgColor = window.getComputedStyle(el).backgroundColor;
-        if (bgColor && bgColor !== 'rgba(0, 0, 0, 0)' && bgColor !== 'transparent') {
-          const rgb = bgColor.match(/\d+/g);
-          if (rgb) {
-            const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
-            isDark = brightness < 128;
-            themeFound = true;
-            break;
-          }
+        let current: Element | null = el;
+        while (current) {
+          const theme = current.getAttribute('data-theme');
+          if (theme === 'dark') { setIsOverDark(true); return; }
+          if (theme === 'light') { setIsOverDark(false); return; }
+          current = current.parentElement;
         }
       }
-      setIsOverDark(isDark);
     };
 
-    checkBackground();
-    const handleScroll = () => { requestAnimationFrame(checkBackground); };
+    // Delay to allow DOM to paint before sampling
+    const timeout = setTimeout(checkBackground, 150);
+
+    // Listen to both window scroll and any scrolling container on the page
+    const handleScroll = () => requestAnimationFrame(checkBackground);
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', checkBackground);
 
+    // Find and attach to nested scroll containers (e.g. Home page snap container)
+    const scrollContainers = document.querySelectorAll<HTMLElement>('.overflow-y-scroll, .overflow-y-auto, .overflow-scroll');
+    scrollContainers.forEach(el => el.addEventListener('scroll', handleScroll, { passive: true }));
+
     return () => {
+      clearTimeout(timeout);
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', checkBackground);
+      scrollContainers.forEach(el => el.removeEventListener('scroll', handleScroll));
     };
   }, [location.pathname]);
 
@@ -93,7 +87,6 @@ export default function Navbar() {
                     Portfolio
                     <span className={`absolute bottom-0 left-0 h-px transition-all duration-300 ease-out ${underlineColor} ${isProjectsPage ? 'w-full' : 'w-0 group-hover/link:w-full'}`}></span>
                   </Link>
-                  {/* Changed from left-1/2 -translate-x-1/2 to left-0 */}
                   <div className="absolute top-full left-0 pt-4 opacity-0 invisible group-hover/portfolio:opacity-100 group-hover/portfolio:visible transition-all duration-300">
                     <div className="backdrop-blur-xl bg-white/95 shadow-lg rounded-lg py-2 min-w-[160px] border border-white/20">
                       {categories.map((category) => (
