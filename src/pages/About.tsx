@@ -94,7 +94,6 @@ export default function About() {
           </div>
           {/* Philosophy */}
           <div ref={philosophyRef} className="mb-24 flex flex-col md:flex-row gap-12 md:gap-16">
-            {/* Mobile hero image — hidden on desktop */}
             <div className="md:hidden w-full h-[50vh] overflow-hidden">
               <img
                 src="/team_photo/team_1.avif"
