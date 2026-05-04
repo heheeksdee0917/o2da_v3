@@ -5,6 +5,7 @@ https://www.o2designatelier.com/housing https://o2dacpla.com/portfolio?category=
 https://www.o2designatelier.com/commercial https://o2dacpla.com/portfolio?category=Commercial 301!
 https://www.o2designatelier.com/competition https://o2dacpla.com/portfolio?category=Competition 301!
 https://www.o2designatelier.com/abouto2da https://o2dacpla.com/about 301!
+https://www.o2designatelier.com/contacto2da https://o2dacpla.com/contact 301!
 
 https://o2designatelier.com/interiors https://o2dacpla.com/portfolio?category=Interior 301!
 https://o2designatelier.com/residential https://o2dacpla.com/portfolio?category=Residential 301!
@@ -12,7 +13,7 @@ https://o2designatelier.com/housing https://o2dacpla.com/portfolio?category=Hous
 https://o2designatelier.com/commercial https://o2dacpla.com/portfolio?category=Commercial 301!
 https://o2designatelier.com/competition https://o2dacpla.com/portfolio?category=Competition 301!
 https://o2designatelier.com/abouto2da https://o2dacpla.com/about 301!
-
+https://o2designatelier.com/contacto2da https://o2dacpla.com/contact 301!
 # Catch-all for everything else
 https://o2designatelier.com/* https://o2dacpla.com/:splat 301!
 https://www.o2designatelier.com/* https://o2dacpla.com/:splat 301!
