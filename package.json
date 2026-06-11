@@ -11,6 +11,8 @@
     "typecheck": "tsc --noEmit -p tsconfig.app.json"
   },
   "dependencies": {
+    "@keystatic/core": "^0.5.50",
+    "@netlify/functions": "^5.3.0",
     "gsap": "^3.13.0",
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",

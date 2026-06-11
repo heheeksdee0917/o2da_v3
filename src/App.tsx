@@ -1,3 +1,4 @@
+// src/App.tsx
 import { BrowserRouter as Router, Routes, Route, useLocation, useParams } from 'react-router-dom';
 import { lazy, Suspense, useEffect } from 'react';
 import Navbar from './components/Navbar';
@@ -5,22 +6,28 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import PortfolioDetails from './pages/PortfolioDetails';
 import React from 'react';
-const NotFound = lazy(() => import('./pages/NotFound'));
+import keystatic from '../keystatic.config';
 
-const About = lazy(() => import('./pages/About'));
-const Awards = lazy(() => import('./pages/Awards'));
-const News = lazy(() => import('./pages/News'));
-const NewsDetails = lazy(() => import('./pages/NewsDetails'));
-const Portfolio = lazy(() => import('./pages/Portfolio'));
-const Contact = lazy(() => import('./pages/Contact'));
+// ── Keystatic ──────────────────────────────────────────────────────────────
+const isKeystatic = window.location.pathname.startsWith('/keystatic');
 
+const KeystaticApp = lazy(() =>
+  import('@keystatic/core/ui').then((mod) => ({ default: mod.KeystaticApp }))
+);
+
+// ── Lazy pages ─────────────────────────────────────────────────────────────
+const NotFound  = lazy(() => import('./pages/NotFound'));
+const About     = lazy(() => import('./pages/About'));
+const Awards    = lazy(() => import('./pages/Awards'));
+const News      = lazy(() => import('./pages/News'));
+const NewsDetails    = lazy(() => import('./pages/NewsDetails'));
+const Portfolio      = lazy(() => import('./pages/Portfolio'));
+const Contact        = lazy(() => import('./pages/Contact'));
+
+// ── Helpers ────────────────────────────────────────────────────────────────
 function ScrollToTop() {
   const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
   return null;
 }
 
@@ -47,6 +54,7 @@ function LoadingFallback() {
   );
 }
 
+// ── Main app content ───────────────────────────────────────────────────────
 function AppContent() {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
@@ -55,49 +63,34 @@ function AppContent() {
     <>
       <ScrollToTop />
       <Navbar />
-
       <div className={isHomePage ? '' : 'min-h-screen smooth-scroll'}>
         <Routes>
           <Route path="/" element={<Home />} />
 
           <Route path="/about" element={
-            <Suspense fallback={<LoadingFallback />}>
-              <About />
-            </Suspense>
+            <Suspense fallback={<LoadingFallback />}><About /></Suspense>
           } />
 
           <Route path="/awards" element={
-            <Suspense fallback={<LoadingFallback />}>
-              <Awards />
-            </Suspense>
+            <Suspense fallback={<LoadingFallback />}><Awards /></Suspense>
           } />
 
           <Route path="/news" element={
-            <Suspense fallback={<LoadingFallback />}>
-              <News />
-            </Suspense>
+            <Suspense fallback={<LoadingFallback />}><News /></Suspense>
           } />
 
           <Route path="/news/:slug" element={
-            <Suspense fallback={<LoadingFallback />}>
-              <NewsDetailsWithRemount />
-            </Suspense>
+            <Suspense fallback={<LoadingFallback />}><NewsDetailsWithRemount /></Suspense>
           } />
 
           <Route path="/portfolio" element={
-            <Suspense fallback={<LoadingFallback />}>
-              <Portfolio />
-            </Suspense>
+            <Suspense fallback={<LoadingFallback />}><Portfolio /></Suspense>
           } />
 
-          <Route path="/portfolio/:id" element={
-            <PortfolioDetailsWithRemount />
-          } />
+          <Route path="/portfolio/:id" element={<PortfolioDetailsWithRemount />} />
 
           <Route path="/contact" element={
-            <Suspense fallback={<LoadingFallback />}>
-              <Contact />
-            </Suspense>
+            <Suspense fallback={<LoadingFallback />}><Contact /></Suspense>
           } />
 
           <Route path="*" element={<NotFound />} />
@@ -109,7 +102,18 @@ function AppContent() {
   );
 }
 
+// ── Root ───────────────────────────────────────────────────────────────────
 function App() {
+  // Render Keystatic outside of your Router so its internal
+  // routing doesn't conflict with React Router
+  if (isKeystatic) {
+    return (
+      <Suspense fallback={<LoadingFallback />}>
+        <KeystaticApp config={keystatic} />
+      </Suspense>
+    );
+  }
+
   return (
     <Router>
       <AppContent />

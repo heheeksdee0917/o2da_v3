@@ -1,0 +1,14 @@
+[[redirects]]
+  from = "/api/keystatic/*"
+  to = "/.netlify/functions/keystatic/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/keystatic/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
