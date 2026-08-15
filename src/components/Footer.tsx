@@ -103,7 +103,7 @@ export default function Footer() {
             </nav>
             <p className="text-black/40 text-sm">
               © 2026 O2DA + CPLA. All rights reserved. <br />
-              Proudly created by <a href="https://swayed.my" target="_blank" rel="noopener noreferrer" className="underline hover:text-black/70 transition-colors duration-300">web designer in KL</a>.
+              Proudly created by <a href="https://swayed.my" target="_blank" rel="noopener noreferrer" className="underline hover:text-black/70 transition-colors duration-300">Swayed - web designer in KL</a>.
             </p>
           </div>
           

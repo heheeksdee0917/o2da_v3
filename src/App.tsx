@@ -96,7 +96,7 @@ function AppContent() {
           <Route path="*" element={<NotFound />} />
         </Routes>
 
-        {!isHomePage && <Footer />}
+        <Footer />
       </div>
     </>
   );
